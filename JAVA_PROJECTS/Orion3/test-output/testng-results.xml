@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Orion3_Navigation" duration-ms="108342" started-at="2015-03-24T09:24:52Z" finished-at="2015-03-24T09:26:40Z">
+    <groups>
+    </groups>
+    <test name="Orion3_Navigation_FireFox" duration-ms="108342" started-at="2015-03-24T09:24:52Z" finished-at="2015-03-24T09:26:40Z">
+      <class name="orion3_Variables.EnvironmentVariables">
+        <test-method status="PASS" signature="BeforeSuite_Orion3(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:orion3_Variables.EnvironmentVariables@48bfd]" name="BeforeSuite_Orion3" is-config="true" duration-ms="186" started-at="2015-03-24T14:54:51Z" finished-at="2015-03-24T14:54:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[STAGE]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[localhost]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[4444]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[org.testng.TestRunner@6d7e92]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeSuite_Orion3 -->
+      </class> <!-- orion3_Variables.EnvironmentVariables -->
+      <class name="orion3_SearchLeads.Search_Leads">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:orion3_SearchLeads.Search_Leads@1035e27]" name="BeforeNavigation" is-config="true" duration-ms="23629" started-at="2015-03-24T14:54:52Z" finished-at="2015-03-24T14:55:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeNavigation -->
+        <test-method status="PASS" signature="ClickOnFirstLeads(java.lang.reflect.Method)[pri:0, instance:orion3_SearchLeads.Search_Leads@1035e27]" name="ClickOnFirstLeads" duration-ms="66056" started-at="2015-03-24T14:55:15Z" finished-at="2015-03-24T14:56:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void orion3_SearchLeads.Search_Leads.ClickOnFirstLeads(java.lang.reflect.Method)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ClickOnFirstLeads -->
+        <test-method status="PASS" signature="SearchLeadsInformationDetails(java.lang.reflect.Method)[pri:0, instance:orion3_SearchLeads.Search_Leads@1035e27]" name="SearchLeadsInformationDetails" duration-ms="18391" started-at="2015-03-24T14:56:21Z" depends-on-methods="orion3_SearchLeads.Search_Leads.ClickOnFirstLeads" finished-at="2015-03-24T14:56:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void orion3_SearchLeads.Search_Leads.SearchLeadsInformationDetails(java.lang.reflect.Method)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SearchLeadsInformationDetails -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:orion3_SearchLeads.Search_Leads@1035e27]" name="AfterNavigation" is-config="true" duration-ms="254" started-at="2015-03-24T14:56:40Z" finished-at="2015-03-24T14:56:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterNavigation -->
+      </class> <!-- orion3_SearchLeads.Search_Leads -->
+    </test> <!-- Orion3_Navigation_FireFox -->
+  </suite> <!-- Orion3_Navigation -->
+</testng-results>
