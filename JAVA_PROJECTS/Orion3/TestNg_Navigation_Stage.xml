@@ -10,19 +10,20 @@
     <parameter name="Browser" value="firefox"/>
     <classes>   
       <class name = "orion3_Variables.EnvironmentVariables" />
-      <!--<class name = "orion3_Navigation.HomePage" />-->
-      <!--<class name = "orion3_Navigation.AddALeadReferralPage" />-->
-      <!--<class name = "orion3_Navigation.AcademicsTab" />-->
-      <!--<class name = "orion3_Navigation.AdmissionsTab" />-->
-      <!--<class name = "orion3_Navigation.FinancialAid" />-->   
-      <!--<class name = "orion3_Navigation.OpsAdminTab" />-->
-      <!--<class name = "orion3_Navigation.TicketAdminTab" />-->
-      <!--<class name = "orion3_LeadCreation.Lead_InfoCall" />-->
-      <!--<class name = "orion3_LeadCreation.Lead_Referral" />-->
-      <!--<class name = "orion3_LeadCreation.Lead_LiveChat" />-->
-      <!--<class name = "orion3_LeadCreation.Lead_WarmTransfer" />-->
-      <!--<class name = "orion3_LeadCreation.StudentManager" />-->
+      <class name = "orion3_Navigation.HomePage" />
+      <class name = "orion3_Navigation.AddALeadReferralPage" />
+      <class name = "orion3_Navigation.AcademicsTab" />
+       <class name = "orion3_Navigation.AdmissionsTab" />
+      <class name = "orion3_Navigation.FinancialAid" /> 
+      <class name = "orion3_Navigation.OpsAdminTab" />
+      <class name = "orion3_Navigation.TicketAdminTab" />
+      <class name = "orion3_LeadCreation.Lead_InfoCall" />
+      <class name = "orion3_LeadCreation.Lead_Referral" />
+      <class name = "orion3_LeadCreation.Lead_LiveChat" />
+      <class name = "orion3_LeadCreation.Lead_WarmTransfer" />
+      <class name = "orion3_LeadCreation.StudentManager" />
       <class name = "orion3_SearchLeads.Search_Leads" />
+      <class name = "orion3_SearchLeads.ReassignLeads" />
     </classes>
     </test>
 </suite>

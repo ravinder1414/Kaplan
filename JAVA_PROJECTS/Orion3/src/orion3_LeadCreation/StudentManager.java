@@ -299,7 +299,7 @@ public class StudentManager {
 	
 	UserExtension.IsElementNotPresent(driver, uiStudentManagerPageObjects.ProgramDropDown);
 	Select dropdownProgram = new Select(uiStudentManagerPageObjects.ProgramDropDown);
-	WebDriverWait wait = new WebDriverWait(driver, 15);
+	WebDriverWait wait = new WebDriverWait(driver, 35);
 	WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("ctl00_PageBodyPlaceHolder_ctl01_ctl04_ddlProgramRollups")));
 		
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -318,7 +318,7 @@ public class StudentManager {
 		Select dropdownStartDate = new Select(uiStudentManagerPageObjects.startDateDropDown);
 		
 		WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.id("ctl00_PageBodyPlaceHolder_ctl01_ctl04_ddlStartDate")));
-		dropdownStartDate.selectByValue("3/25/2015");
+		dropdownStartDate.selectByValue("6/10/2015");
 		
 		//Select Lead Classification
 		

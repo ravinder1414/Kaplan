@@ -113,7 +113,7 @@ public class HomePageObjects {
 	public WebElement lnkSearchReps;
 
 	//Admissions Tab
-	@FindBy(how=How.LINK_TEXT, using="Admissions Manager")
+	@FindBy(how=How.ID, using="A291")
 	public WebElement lnkAdmissionsManager;
 
 	//Admissions Tab
@@ -434,7 +434,7 @@ public class HomePageObjects {
 	{
 		UserExtension.MouseOver(driver, lnkAdmissionsTab);
 		UserExtension.IsElementPresent(driver, lnkReassignLeads);
-		lnkSearchLeads.click();
+		lnkReassignLeads.click();
 		ReassignLeadsPageObjects objPage = new ReassignLeadsPageObjects(driver);
 		return(objPage);
 	}
@@ -444,7 +444,7 @@ public class HomePageObjects {
 	{
 		UserExtension.MouseOver(driver, lnkAdmissionsTab);
 		UserExtension.IsElementPresent(driver, lnkReassignLeadsDelegation);
-		lnkSearchLeads.click();
+		lnkReassignLeadsDelegation.click();
 		ReassignLeadDelegationPageObjects objPage = new ReassignLeadDelegationPageObjects(driver);
 		return(objPage);
 	}

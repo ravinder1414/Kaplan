@@ -14,14 +14,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-
-
-
-
-
-
-
 import orion3_Variables.EnvironmentVariables;
 import uiMap_Orion3.HomePageObjects;
 import uiMap_Orion3.OpsAdmin.ALCCampMngUploadLeadsPageObjects;
@@ -128,7 +120,7 @@ public class OpsAdminTab {
 			
 		}
 		
-		@Test
+		//@Test
 		public void verifyStudentSuccessManager(Method objMethod)
 		{
 			uiStudentSuccessMrg = uiHomePageObjects.ClickStudentSuccessMgr(driver);

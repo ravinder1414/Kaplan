@@ -144,8 +144,9 @@ public class UserExtension {
 	{
 		boolean flag;
 		flag = false;
-		WebDriverWait objWaitDriver  = new WebDriverWait(driver, 2);
-		for(int i =0;i<30;)
+		WebDriverWait objWaitDriver  = new WebDriverWait(driver, 5);
+		objWaitDriver.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(element)));
+		for(int i =0;i<30;i++)
 		{
 			try		
 			{
@@ -156,7 +157,7 @@ public class UserExtension {
 				}
 				else
 				{
-					i++;
+					//i++;
 					objWaitDriver.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(element)));
 					
 				}
