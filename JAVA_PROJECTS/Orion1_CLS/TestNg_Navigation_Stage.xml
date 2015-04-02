@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Orion1CLS">
+<parameter name="Environment" value="STAGE"/>
+<parameter name="sHub" value="localhost"/>
+<!--<parameter name="sHubPort" value="4444"/>-->
+<listeners>
+      <listener class-name="commonfunctions.ScreenShotOnTestFailure" />
+</listeners>
+    <test name="Orion1CLS_firefox">
+    <parameter name="Browser" value="firefox"/>
+    <classes>     
+      <class name = "environment.EnvironmentVariables" />
+      <!--<class name = "Orion1_Navigation.Home" />-->
+      <!--<class name = "Orion1_Navigation.Home_AddNewLeadReferral" />-->
+      <!--<class name = "Orion1_Navigation.Home_StudentLookup" />-->
+      <!--<class name = "Orion1_Navigation.Admin" />-->
+          <class name ="orion1_SearchLeads.Search_Leads" />
+       </classes>
+    </test>
+</suite>
