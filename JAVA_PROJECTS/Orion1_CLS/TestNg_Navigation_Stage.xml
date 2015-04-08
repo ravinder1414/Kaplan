@@ -14,7 +14,10 @@
       <!--<class name = "Orion1_Navigation.Home_AddNewLeadReferral" />-->
       <!--<class name = "Orion1_Navigation.Home_StudentLookup" />-->
       <!--<class name = "Orion1_Navigation.Admin" />-->
-          <class name ="orion1_SearchLeads.Search_Leads" />
+         <!--<class name ="orion1_SearchLeads.Search_Leads" />-->
+         <!--<class name ="orion1_NewLeads.Lead_InfoCall" />-->
+         <class name ="orion1_NewLeads.Lead_Referral" />
+         
        </classes>
     </test>
 </suite>

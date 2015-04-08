@@ -47,4 +47,9 @@ public WebElement lnkEnrollmentExceptions;
 //Settings link
 @FindBy(how=How.LINK_TEXT, using="Settings")
 public WebElement lnkSettings;
+
+//Enter Admissions Manager btn
+@FindBy(how=How.ID, using= "btnGo")
+public WebElement btnEnterAdMgr;
+
  }

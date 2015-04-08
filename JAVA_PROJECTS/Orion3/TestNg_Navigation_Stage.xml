@@ -24,6 +24,7 @@
       <class name = "orion3_LeadCreation.StudentManager" />
       <class name = "orion3_SearchLeads.Search_Leads" />
       <class name = "orion3_SearchLeads.ReassignLeads" />
+      
     </classes>
     </test>
 </suite>

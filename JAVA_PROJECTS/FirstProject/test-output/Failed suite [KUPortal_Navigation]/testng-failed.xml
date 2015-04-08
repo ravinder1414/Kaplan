@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Failed suite [KUPortal_Navigation]]">
+  <parameter name="Environment" value="TEST"/>
+  <test name="KUPortal_TopNavigation(failed)(failed)">
+    <classes>
+      <class name="KuPortal.EnvironmentVariables">
+        <methods>
+          <include name="BeforeSuite"/>
+        </methods>
+      </class> <!-- KuPortal.EnvironmentVariables -->
+      <class name="KuPortal.Test_LandingPage">
+        <methods>
+          <include name="BeforeClass"/>
+          <include name="AfterClassTestLandingPage"/>
+          <include name="LinkReference_LandingPage"/>
+          <include name="BeforeMethod"/>
+        </methods>
+      </class> <!-- KuPortal.Test_LandingPage -->
+    </classes>
+  </test> <!-- KUPortal_TopNavigation(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [KUPortal_Navigation]] -->

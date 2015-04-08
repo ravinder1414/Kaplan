@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/0/2</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Apr 02 13:02:16 IST 2015</td>
+<td>Started on:</td><td>Thu Apr 02 19:36:35 IST 2015</td>
 </tr>
-<tr><td>Total time:</td><td>0 seconds (107 ms)</td>
+<tr><td>Total time:</td><td>1 seconds (1524 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,20 +75,22 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='orion1_SearchLeads.Search_Leads.BeforeNavigation()'><b>BeforeNavigation</b><br>Test class: orion1_SearchLeads.Search_Leads<br>Parameters: firefox</td>
+<td title='orion1_SearchLeads.Search_Leads.BeforeNavigation()'><b>BeforeNavigation</b><br>Test class: orion1_SearchLeads.Search_Leads<br>Parameters: firefox<br/>
+<a href="#Output-14408385" onClick='toggleBox("Output-14408385", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-14408385" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-14408385">
+Unable to create the RemotedriverCould not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'G-0439', ip: '10.163.105.45', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0'
+Driver info: driver.version: RemoteWebDriver<br/>
+</div>
+</td>
 <td><div><pre>java.lang.NullPointerException
-	at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210)
-	at org.openqa.selenium.firefox.Preferences.checkPreference(Preferences.java:213)
-	at org.openqa.selenium.firefox.Preferences.setPreference(Preferences.java:137)
-	at org.openqa.selenium.firefox.FirefoxProfile.setPreference(FirefoxProfile.java:219)
-	at orion1_SearchLeads.Search_Leads.BeforeNavigation(Search_Leads.java:74)
-... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace4849051", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace4849051'><pre>java.lang.NullPointerException
-	at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210)
-	at org.openqa.selenium.firefox.Preferences.checkPreference(Preferences.java:213)
-	at org.openqa.selenium.firefox.Preferences.setPreference(Preferences.java:137)
-	at org.openqa.selenium.firefox.FirefoxProfile.setPreference(FirefoxProfile.java:219)
-	at orion1_SearchLeads.Search_Leads.BeforeNavigation(Search_Leads.java:74)
+	at orion1_SearchLeads.Search_Leads.BeforeNavigation(Search_Leads.java:91)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace14408385", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace14408385'><pre>java.lang.NullPointerException
+	at orion1_SearchLeads.Search_Leads.BeforeNavigation(Search_Leads.java:91)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)

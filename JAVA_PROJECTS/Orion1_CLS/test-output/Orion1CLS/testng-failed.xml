@@ -10,14 +10,14 @@
   <test name="Orion1CLS_firefox(failed)">
     <parameter name="Browser" value="firefox"/>
     <classes>
-      <class name="orion1_SearchLeads.Search_Leads">
+      <class name="orion1_NewLeads.Lead_Referral">
         <methods>
-          <include name="BeforeNavigation"/>
           <include name="AfterNavigation"/>
-          <include name="ClickOnFirstLeads"/>
-          <include name="SearchLeadsInformationDetails" invocation-numbers="0"/>
+          <include name="Leads_Submit" invocation-numbers="0"/>
+          <include name="BrowseToAddNewLeadPage"/>
+          <include name="BeforeNavigation"/>
         </methods>
-      </class> <!-- orion1_SearchLeads.Search_Leads -->
+      </class> <!-- orion1_NewLeads.Lead_Referral -->
       <class name="environment.EnvironmentVariables">
         <methods>
           <include name="BeforeSuite_Orion1"/>
