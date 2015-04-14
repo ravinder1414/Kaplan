@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Orion3_Navigation]">
-  <parameter name="Environment" value="STAGE"/>
+  <parameter name="Environment" value="TEST"/>
   <parameter name="Browser" value="firefox"/>
   <listeners>
     <listener class-name="commonfunctions.ScreenShotOnTestFailure"/>
@@ -10,92 +10,12 @@
   <test name="Orion3_Navigation_FireFox(failed)">
     <parameter name="Browser" value="firefox"/>
     <classes>
-      <class name="orion3_Navigation.OpsAdminTab">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- orion3_Navigation.OpsAdminTab -->
-      <class name="orion3_SearchLeads.Search_Leads">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- orion3_SearchLeads.Search_Leads -->
-      <class name="orion3_Navigation.AcademicsTab">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- orion3_Navigation.AcademicsTab -->
-      <class name="orion3_Navigation.AdmissionsTab">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- orion3_Navigation.AdmissionsTab -->
-      <class name="orion3_SearchLeads.ReassignLeads">
+      <class name="orion3_B2BLeadCreation.B2BLeadCreation">
         <methods>
           <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
-          <include name="ResassignLead"/>
-          <include name="ClickOnFirstLeads" invocation-numbers="0"/>
+          <include name="BrowseToAddB2BNewLeadPage"/>
         </methods>
-      </class> <!-- orion3_SearchLeads.ReassignLeads -->
-      <class name="orion3_Navigation.HomePage">
-        <methods>
-          <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
-        </methods>
-      </class> <!-- orion3_Navigation.HomePage -->
-      <class name="orion3_Navigation.TicketAdminTab">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- orion3_Navigation.TicketAdminTab -->
-      <class name="orion3_Navigation.FinancialAid">
-        <methods>
-          <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
-        </methods>
-      </class> <!-- orion3_Navigation.FinancialAid -->
-      <class name="orion3_LeadCreation.Lead_Referral">
-        <methods>
-          <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
-        </methods>
-      </class> <!-- orion3_LeadCreation.Lead_Referral -->
-      <class name="orion3_LeadCreation.StudentManager">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- orion3_LeadCreation.StudentManager -->
-      <class name="orion3_LeadCreation.Lead_LiveChat">
-        <methods>
-          <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
-        </methods>
-      </class> <!-- orion3_LeadCreation.Lead_LiveChat -->
-      <class name="orion3_LeadCreation.Lead_InfoCall">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- orion3_LeadCreation.Lead_InfoCall -->
-      <class name="orion3_LeadCreation.Lead_WarmTransfer">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- orion3_LeadCreation.Lead_WarmTransfer -->
-      <class name="orion3_Navigation.AddALeadReferralPage">
-        <methods>
-          <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
-        </methods>
-      </class> <!-- orion3_Navigation.AddALeadReferralPage -->
+      </class> <!-- orion3_B2BLeadCreation.B2BLeadCreation -->
       <class name="orion3_Variables.EnvironmentVariables">
         <methods>
           <include name="BeforeSuite_Orion3"/>

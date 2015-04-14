@@ -1,17 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="0" passed="0">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Orion3_Navigation" duration-ms="5" started-at="2015-04-08T06:55:53Z" finished-at="2015-04-08T06:55:54Z">
+  <suite name="Orion3_Navigation" duration-ms="80337" started-at="2015-04-14T06:42:27Z" finished-at="2015-04-14T06:43:47Z">
     <groups>
     </groups>
-    <test name="Orion3_Navigation_FireFox" duration-ms="5" started-at="2015-04-08T06:55:53Z" finished-at="2015-04-08T06:55:54Z">
-      <class name="orion3_Variables.EnvironmentVariables">
-        <test-method status="PASS" signature="BeforeSuite_Orion3(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:orion3_Variables.EnvironmentVariables@c1fdc4]" name="BeforeSuite_Orion3" is-config="true" duration-ms="402" started-at="2015-04-08T12:25:53Z" finished-at="2015-04-08T12:25:53Z">
+    <test name="Orion3_Navigation_FireFox" duration-ms="80337" started-at="2015-04-14T06:42:27Z" finished-at="2015-04-14T06:43:47Z">
+      <class name="orion3_SearchLeads.ReassignLeads">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:orion3_SearchLeads.ReassignLeads@1618e91]" name="BeforeNavigation" is-config="true" duration-ms="22123" started-at="2015-04-14T12:12:27Z" finished-at="2015-04-14T12:12:49Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[DEV]]>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeNavigation -->
+        <test-method status="PASS" signature="ClickOnFirstLeads(java.lang.reflect.Method)[pri:0, instance:orion3_SearchLeads.ReassignLeads@1618e91]" name="ClickOnFirstLeads" duration-ms="26982" started-at="2015-04-14T12:12:49Z" finished-at="2015-04-14T12:13:16Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void orion3_SearchLeads.ReassignLeads.ClickOnFirstLeads(java.lang.reflect.Method)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ClickOnFirstLeads -->
+        <test-method status="PASS" signature="ResassignLead()[pri:0, instance:orion3_SearchLeads.ReassignLeads@1618e91]" name="ResassignLead" duration-ms="30996" started-at="2015-04-14T12:13:16Z" depends-on-methods="orion3_SearchLeads.ReassignLeads.ClickOnFirstLeads" finished-at="2015-04-14T12:13:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResassignLead -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:orion3_SearchLeads.ReassignLeads@1618e91]" name="AfterNavigation" is-config="true" duration-ms="220" started-at="2015-04-14T12:13:47Z" finished-at="2015-04-14T12:13:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterNavigation -->
+      </class> <!-- orion3_SearchLeads.ReassignLeads -->
+      <class name="orion3_Variables.EnvironmentVariables">
+        <test-method status="PASS" signature="BeforeSuite_Orion3(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:orion3_Variables.EnvironmentVariables@1a10788]" name="BeforeSuite_Orion3" is-config="true" duration-ms="212" started-at="2015-04-14T12:12:27Z" finished-at="2015-04-14T12:12:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[STAGE]]>
               </value>
             </param>
             <param index="1">
@@ -26,7 +58,7 @@
             </param>
             <param index="3">
               <value>
-                <![CDATA[org.testng.TestRunner@c1c010]]>
+                <![CDATA[org.testng.TestRunner@11cfb87]]>
               </value>
             </param>
           </params>

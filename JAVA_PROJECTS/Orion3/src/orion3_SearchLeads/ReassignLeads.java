@@ -246,8 +246,8 @@ public class ReassignLeads {
 			
 			//Checking Assigned Repo
 			
-			UserExtension.WaitTillGetTextValueIs(driver, uiReassignLeadsPageObjects.txtCurrentRepText, "Bier, Matt");
-			Assert.assertEquals(uiReassignLeadsPageObjects.txtCurrentRepText.getText().trim(), "Bier, Matt");
+			UserExtension.WaitTillGetTextValueIs(driver, uiReassignLeadsPageObjects.txtCurrentRepText, "Biggs, Douglas");
+			Assert.assertEquals(uiReassignLeadsPageObjects.txtCurrentRepText.getText().trim(), "Biggs, Douglas");
 			
 		
 			
