@@ -52,4 +52,20 @@ public WebElement lnkSettings;
 @FindBy(how=How.ID, using= "btnGo")
 public WebElement btnEnterAdMgr;
 
- }
+
+//************Cookies Crum Cell for pages under Admissions Page*****************
+//Cookies Crum Cell Operations
+public String sCCCOperatios = "Home :: Admissions :: Cohort Manager";
+
+//Cookies Crum Cell Appraisals
+public String sCCCAppraisals = "Home :: Admissions :: Appraisals";
+
+//Cookies Crum Cell Bonus Tracker
+public String sCCCBonustracker = "Home :: Admissions :: Bonus Tracker :: Payout Dates";
+
+//Cookies Crum Cell Enrollment Exceptions
+public String sCCCEnrollEx = "Home :: Admissions :: Enrollment Exceptions";
+
+//Cookies Crum Cell Setting
+public String sCCCSetting = "Home :: Admissions :: Settings";
+}

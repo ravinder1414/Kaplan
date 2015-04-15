@@ -10,14 +10,17 @@
     <parameter name="Browser" value="firefox"/>
     <classes>     
       <class name = "environment.EnvironmentVariables" />
-      <!--<class name = "Orion1_Navigation.Home" />-->
-      <!--<class name = "Orion1_Navigation.Home_AddNewLeadReferral" />-->
-      <!--<class name = "Orion1_Navigation.Home_StudentLookup" />-->
-      <!--<class name = "Orion1_Navigation.Admin" />-->
-         <!--<class name ="orion1_SearchLeads.Search_Leads" />-->
-         <!--<class name ="orion1_NewLeads.Lead_InfoCall" />-->
+      <class name = "Orion1_Navigation.Home" />
+      <class name = "Orion1_Navigation.Home_AddNewLeadReferral" />
+      <class name = "Orion1_Navigation.Home_StudentLookup" />
+      <class name = "Orion1_Navigation.Admin" />
+         <class name ="orion1_SearchLeads.Search_Leads" />
+         <class name ="Orion1_Navigation.ChangeCampus" />
+         <class name ="orion1_NewLeads.Lead_InfoCall" />
          <class name ="orion1_NewLeads.Lead_Referral" />
-         
+         <class name ="orion1_NewLeads.Lead_LiveChat" />
+        <class name ="orion1_NewLeads.Lead_WarmTransfer" />
+         <class name ="orion1_NewLeads.StudentManager" />
        </classes>
     </test>
 </suite>

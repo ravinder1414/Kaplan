@@ -13,7 +13,7 @@ public class ScriptManagerPage {
   }
   
   //Cookie Crum Cell
-  public String sCCCSkillCutoffManager= "Home :: Admissions :: Admin";
+  public String sCCCScriptManager= "Home :: Admissions :: Admin";
   
   //delete button 
   @FindBy(how=How.ID, using="btnDelete")

@@ -2,7 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Orion1CLS]">
   <parameter name="sHub" value="localhost"/>
-  <parameter name="Environment" value="STAGE"/>
+  <parameter name="Environment" value="TEST"/>
+  <parameter name="sHubPort" value="4444"/>
   <parameter name="Browser" value="firefox"/>
   <listeners>
     <listener class-name="commonfunctions.ScreenShotOnTestFailure"/>
@@ -10,14 +11,19 @@
   <test name="Orion1CLS_firefox(failed)">
     <parameter name="Browser" value="firefox"/>
     <classes>
-      <class name="orion1_NewLeads.Lead_Referral">
+      <class name="orion1_NewLeads.StudentManager">
         <methods>
-          <include name="AfterNavigation"/>
-          <include name="Leads_Submit" invocation-numbers="0"/>
+          <include name="Leads_ClassificationDetails"/>
+          <include name="SubmitLead"/>
           <include name="BrowseToAddNewLeadPage"/>
+          <include name="ContactInformationTabDetails" invocation-numbers="0"/>
+          <include name="VerifyLeadInAdmisssionManager"/>
+          <include name="Leads_ProgramOfInterest"/>
+          <include name="Leads_Details"/>
           <include name="BeforeNavigation"/>
+          <include name="AfterNavigation"/>
         </methods>
-      </class> <!-- orion1_NewLeads.Lead_Referral -->
+      </class> <!-- orion1_NewLeads.StudentManager -->
       <class name="environment.EnvironmentVariables">
         <methods>
           <include name="BeforeSuite_Orion1"/>

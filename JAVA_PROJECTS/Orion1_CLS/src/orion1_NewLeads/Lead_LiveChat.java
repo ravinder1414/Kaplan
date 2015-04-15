@@ -1,4 +1,5 @@
 package orion1_NewLeads;
+
 	import java.io.File;
 	import java.io.FileInputStream;
 	import java.io.FileNotFoundException;
@@ -10,11 +11,16 @@ package orion1_NewLeads;
 	import java.util.concurrent.TimeUnit;
 	import org.apache.commons.lang3.RandomStringUtils;
 	import org.openqa.selenium.By;
+	import org.openqa.selenium.WebElement;
 	import org.openqa.selenium.firefox.FirefoxDriver;
 	import org.openqa.selenium.firefox.FirefoxProfile;
 	import org.openqa.selenium.remote.RemoteWebDriver;
+
+	import org.openqa.selenium.support.ui.ExpectedConditions;
 	import org.openqa.selenium.support.ui.Select;
+	import org.openqa.selenium.support.ui.WebDriverWait;
 	import org.testng.Assert;
+
 	import org.testng.annotations.AfterClass;
 	import org.testng.annotations.BeforeClass;
 	import org.testng.annotations.Parameters;
@@ -26,7 +32,7 @@ package orion1_NewLeads;
 	import commonfunctions.UserExtension;
 	import environment.EnvironmentVariables;
 
-	public class Lead_Referral {
+	public class Lead_LiveChat {
 
 
 			
@@ -51,9 +57,8 @@ package orion1_NewLeads;
 					public String sProgramofInterest;
 					public String sBechalorDegree;
 					public String sSpouseMilitary;
-					public String sSpouseMilitaryType;
 					public String sTCPA;
-					public String sHighestEduction;
+					public String sHighestEducation;
 					
 					//Static variable
 					String sRandStr = RandomStringUtils.randomAlphabetic(5);
@@ -62,7 +67,7 @@ package orion1_NewLeads;
 					public String sEmailAddress = sFirstName + "IC@kap.com";
 					public String sAddressLine1 = "kaplan";
 					public String sCity = "NewYork";
-					public String sDayTimePhone ="9545151234";
+					public String sPhone ="9545151234";
 					public String sZipCode = "30256";
 					
 					
@@ -121,9 +126,9 @@ package orion1_NewLeads;
 						sLeadType = objProperties.getProperty("sLeadType");
 						sChannelGroup = objProperties.getProperty("sChannelGroup");
 						sTCPA = objProperties.getProperty("sTCPADisclosure");
-						//sBechalorDegree = objProperties.getProperty("sBechalorDegree");
+						sBechalorDegree = objProperties.getProperty("sBechalorDegree");
 						sSpouseMilitary = objProperties.getProperty("sSpouseMilitaryType");
-						sHighestEduction = objProperties.getProperty("sHighestEduction");
+						sHighestEducation = objProperties.getProperty("sHighestEduction");
 						sAreaOfStudy = objProperties.getProperty("sAreaOfStudy");
 						sProgramofInterest = objProperties.getProperty("sProgramofInterest");
 									
@@ -179,57 +184,104 @@ package orion1_NewLeads;
 						
 					
 						driver.switchTo().window(uiAddNewLeadsPageObjects.sAddNewLead_WindowName);
-
-						Assert.assertEquals(uiAddNewLeadsPageObjects.rbtnLeadType_InfoCall.getAttribute("checked"), "true", "Info Call Lead Type is not getting selected");
-						uiAddNewLeadsPageObjects.rbtnLeadType_Referral.click();
 						
 					}
 					
 					@Test(dependsOnMethods={"BrowseToAddNewLeadPage"})
-					public void Leads_Submit(Method objMethod)
+					public void Leads_ClassificationDetails(Method objMethod)
 					{
-
-						uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
+						Assert.assertEquals(uiAddNewLeadsPageObjects.rbtnLeadType_InfoCall.getAttribute("checked"), "true", "Info Call Lead Type is not getting selected");
+						uiAddNewLeadsPageObjects.rbtnLeadType_LiveChat.click();
+						UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.ddlPromotionCode);
+						Select ddlPromotionCode = new Select(uiAddNewLeadsPageObjects.ddlPromotionCode);
+						//Select ChannelGroup
+						//uiAddNewLeadsPageObjects.ddlPromotionCode = UserExtension.GetStaleElement(driver, uiAddNewLeadsPageObjects.ddlPromotionCodeLocator);
 						
-						uiAddNewLeadsPageObjects.txtFirstName.sendKeys(sFirstName);
-						uiAddNewLeadsPageObjects.txtLastName.sendKeys(sLastName);
-						uiAddNewLeadsPageObjects.txtEmailAddress.sendKeys(sEmailAddress);
+						uiAddNewLeadsPageObjects.SelectChannelGroupAs(sChannelGroup);
 						
-						uiAddNewLeadsPageObjects.txtDayTime.sendKeys(sDayTimePhone);
-						
-						uiAddNewLeadsPageObjects.txtZipCodeReferral.sendKeys(sZipCode);
-						
-				//TCPA Disclosure
-				if(sTCPA.equalsIgnoreCase("yes"))
-				{
-					uiAddNewLeadsPageObjects.rtbnTCPA_Yes.click();					
-				}
-				else
-				{
-					uiAddNewLeadsPageObjects.rtbnTCPA_No.click();
-				}
-						//Spouse Military Status
-						if(sSpouseMilitary.equalsIgnoreCase("yes"))
-						{
-							uiAddNewLeadsPageObjects.rbtnSpouse_Yes.click();					
-						}
-						else
-						{
-							uiAddNewLeadsPageObjects.rbtnSpouse_Yes.click();
-						}
-						
-						Select ddHighestEducation = new Select(uiAddNewLeadsPageObjects.ddHighestEducation);
-						
-						ddHighestEducation.selectByVisibleText(sHighestEduction);
-						
-						uiAddNewLeadsPageObjects.btnAddALead.click();
-						
-													
+						WebDriverWait wait = new WebDriverWait(driver, 10);
+						WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("CtlApplyForm1_ddPromotion")));
+							
+						//Select Promotion
+						ddlPromotionCode.selectByIndex(1);
 					}
-				
-									
 						
-						@Test(dependsOnMethods={"Leads_Submit"})
+						
+
+						@Test(dependsOnMethods={"Leads_ClassificationDetails"})
+						public void Leads_ProgramOfInterest(Method objMethod)
+						{					
+							Select ddlAreaOfStudy = new Select(uiAddNewLeadsPageObjects.ddlAreaOfStudyTemp);				
+							//Area of Study
+							
+							ddlAreaOfStudy.selectByVisibleText(sAreaOfStudy);
+							//Program of Interest
+							Select ddlProgramOfInterest = new Select(uiAddNewLeadsPageObjects.ddlProgramOfInterest);
+							
+							ddlProgramOfInterest.selectByVisibleText(sProgramofInterest);				
+						}
+						
+						@Test(dependsOnMethods={"Leads_ProgramOfInterest"})
+						public void Leads_Details(Method objMethod)
+						
+						{
+							
+							uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
+							
+							//Select Saturation
+							
+							Select ddlSaturationCode = new Select(uiAddNewLeadsPageObjects.ddSaturation);
+							
+							ddlSaturationCode.selectByVisibleText("Mr.");
+							//uiAddNewLeadsPageObjects.ddSaturation.sendKeys(sFirstName);
+							uiAddNewLeadsPageObjects.txtFirstName.sendKeys(sFirstName);
+							uiAddNewLeadsPageObjects.txtLastName.sendKeys(sLastName);
+							uiAddNewLeadsPageObjects.txtEmailAddress.sendKeys(sEmailAddress);
+							
+							uiAddNewLeadsPageObjects.txtAddress.sendKeys(sAddressLine1);
+							
+							uiAddNewLeadsPageObjects.txtCity.sendKeys(sCity);
+							
+							uiAddNewLeadsPageObjects.txtHomePhone.sendKeys(sPhone);
+							uiAddNewLeadsPageObjects.txtZipCode.sendKeys(sZipCode);
+							
+							//Country select
+							
+	           Select ddlCountry = new Select(uiAddNewLeadsPageObjects.ddlCountry);
+							
+	                ddlCountry.selectByVisibleText("United States");
+							//Spouse Military Status
+							if(sBechalorDegree.equalsIgnoreCase("yes"))
+							{
+								uiAddNewLeadsPageObjects.rbtnBechalor_degree_yes.click();					
+							}
+							else
+							{
+								uiAddNewLeadsPageObjects.rbtnBechalor_degree_No.click();
+							}
+								
+							
+							//TCPA Disclosure
+							if(sTCPA.equalsIgnoreCase("yes"))
+							{
+								uiAddNewLeadsPageObjects.rtbnTCPA_Yes.click();					
+							}
+							else
+							{
+								uiAddNewLeadsPageObjects.rtbnTCPA_No.click();
+							}
+							
+														
+						}
+						
+						@Test(dependsOnMethods={"Leads_Details"})
+						public void SubmitLead(Method objMethod)
+						{
+							uiAddNewLeadsPageObjects.btnAddALead.click();
+										
+						}
+						
+						@Test(dependsOnMethods={"SubmitLead"})
 						public void VerifyLeadInAdmisssionManager(Method objMethod)
 						{
 							
@@ -249,4 +301,3 @@ package orion1_NewLeads;
 			
 					}			
 					
-
