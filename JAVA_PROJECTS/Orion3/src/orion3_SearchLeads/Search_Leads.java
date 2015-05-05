@@ -158,13 +158,10 @@ public class Search_Leads {
 		@Test
 		public void ClickOnFirstLeads(Method objMethod)
 		{
-			//uiAdmissionMgrPageObjects =new AdmissionsManagerPageObjects(driver);
 			uiAdmissionMgrPageObjects = uiHomePageObjects.ClickAdmissionsManager(driver);
 			uiAdmissionMgrPageObjects =new AdmissionsManagerPageObjects(driver);
 			driver.navigate().refresh();
 			UserExtension.IsElementPresent(driver, uiAdmissionMgrPageObjects.lnkFirstLeadInTable);
-			//UserExtension.WaitTillGetTextValueIs(driver, uiAdmissionMgrPageObjects.lnkFirstLeadInTable, sLastName + ", " + sFirstName);
-			//uiAdmissionMgrPageObjects = uiHomePageObjects.ClickAdmissionsManager(driver);
 			UserExtension.IsElementPresent(driver, uiAdmissionMgrPageObjects.lnkFirstLeadInTable);
 				uiAdmissionMgrPageObjects.lnkFirstLeadInTable.click();
 				driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -175,18 +172,10 @@ public class Search_Leads {
 				uiStudentManagerPageObjects.ContactInformationTab.click();
 				uiSearchLeadsPageObjects=new SearchLeadsPageObjects(driver);
 				
-				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-				
 				sFirstName =uiSearchLeadsPageObjects.txtFirstName.getAttribute("value");
-				System.out.println(uiSearchLeadsPageObjects.txtFirstName.getAttribute("value"));
-				
-				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 				sLastName =uiSearchLeadsPageObjects.txtLastName.getAttribute("value");
-				
-				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				sEmailAddress =uiSearchLeadsPageObjects.txtEmailAddress.getAttribute("value");
-				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				
 				sleadId =uiSearchLeadsPageObjects.LeadID.getText();
 				
@@ -205,9 +194,6 @@ public class Search_Leads {
 				// Get Window Frame ID
 				driver.switchTo().frame(driver.findElement(By.id("ctl00_PageBodyPlaceHolder_ifContent")));
 				
-				
-				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-				
 				driver.manage().window().maximize();
 				
 				//Search on the basis of LeadID
@@ -216,8 +202,6 @@ public class Search_Leads {
 				
 				uiSearchLeadsPageObjects.txtSearchLeadID.sendKeys(sleadId);
 				
-              driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-				
 			uiSearchLeadsPageObjects.btnLeadsSearch.click();
 				
 			Assert.assertEquals(uiSearchLeadsPageObjects.resultsEmailField.getText().trim(), sEmailAddress);
@@ -225,20 +209,14 @@ public class Search_Leads {
 				
 			uiSearchLeadsPageObjects.txtSearchLeadsFirstName.clear();;
 			uiSearchLeadsPageObjects.txtSearchLeadsFirstName.sendKeys(sFirstName);
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			
 			uiSearchLeadsPageObjects.txtSearchLeadsLastName.clear();
 				
 				uiSearchLeadsPageObjects.txtSearchLeadsLastName.sendKeys(sLastName);
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 				
 				uiSearchLeadsPageObjects.txtSearchLeadsEmail.clear();
 				
 				uiSearchLeadsPageObjects.txtSearchLeadsEmail.sendKeys(sEmailAddress);
-				
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-				
-				driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 				
 				uiSearchLeadsPageObjects.btnLeadsSearch.click();
 				Assert.assertEquals(uiSearchLeadsPageObjects.resultsEmailField.getText().trim(), sEmailAddress);

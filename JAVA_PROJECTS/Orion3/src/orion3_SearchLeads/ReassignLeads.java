@@ -158,7 +158,6 @@ public class ReassignLeads {
 		@Test
 		public void ClickOnFirstLeads(Method objMethod)
 		{
-			//uiAdmissionMgrPageObjects =new AdmissionsManagerPageObjects(driver);
 			uiAdmissionMgrPageObjects = uiHomePageObjects.ClickAdmissionsManager(driver);
 			uiAdmissionMgrPageObjects =new AdmissionsManagerPageObjects(driver);
 			driver.navigate().refresh();
@@ -171,7 +170,6 @@ public class ReassignLeads {
 				UserExtension.IsElementPresent(driver, uiStudentManagerPageObjects.ContactInformationTab);
 				//Assert.assertEquals(uiStudentManagerPageObjects.ContactInformationTab.getText().trim(), "Contact Information");
 				uiStudentManagerPageObjects.ContactInformationTab.click();
-				//uiReassignLeadsPageObjects=new ReassignLeadsPageObjects(driver);
 				uiSearchLeadsPageObjects =new SearchLeadsPageObjects(driver);
 				
 				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

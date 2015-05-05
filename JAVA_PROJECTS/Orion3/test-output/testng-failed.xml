@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Orion3_Navigation]">
-  <parameter name="Environment" value="TEST"/>
+  <parameter name="Environment" value="STAGE"/>
   <parameter name="Browser" value="firefox"/>
   <listeners>
     <listener class-name="commonfunctions.ScreenShotOnTestFailure"/>
@@ -10,17 +10,24 @@
   <test name="Orion3_Navigation_FireFox(failed)">
     <parameter name="Browser" value="firefox"/>
     <classes>
-      <class name="orion3_B2BLeadCreation.B2BLeadCreation">
-        <methods>
-          <include name="BeforeNavigation"/>
-          <include name="BrowseToAddB2BNewLeadPage"/>
-        </methods>
-      </class> <!-- orion3_B2BLeadCreation.B2BLeadCreation -->
       <class name="orion3_Variables.EnvironmentVariables">
         <methods>
           <include name="BeforeSuite_Orion3"/>
         </methods>
       </class> <!-- orion3_Variables.EnvironmentVariables -->
+      <class name="orion3_LeadCreation.StudentManager">
+        <methods>
+          <include name="Leads_Details"/>
+          <include name="AfterNavigation"/>
+          <include name="BeforeNavigation"/>
+          <include name="VerifyLeadInAdmisssionManager"/>
+          <include name="Leads_ProgramOfInterest"/>
+          <include name="ContactInformationTabDetails" invocation-numbers="0"/>
+          <include name="BrowseToAddNewLeadPage"/>
+          <include name="Leads_ClassificationDetails"/>
+          <include name="SubmitLead"/>
+        </methods>
+      </class> <!-- orion3_LeadCreation.StudentManager -->
     </classes>
   </test> <!-- Orion3_Navigation_FireFox(failed) -->
 </suite> <!-- Failed suite [Orion3_Navigation] -->

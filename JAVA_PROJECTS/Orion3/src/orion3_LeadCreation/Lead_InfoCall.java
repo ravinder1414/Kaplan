@@ -222,10 +222,13 @@ public class Lead_InfoCall {
 				uiAddNewLeadsPageObjects.txtEmailAddress.sendKeys(sEmailAddress);
 				uiAddNewLeadsPageObjects.txtDayPhone.sendKeys(sDayPhone);
 				uiAddNewLeadsPageObjects.txtZipCode.sendKeys(sZipCode);
+				
 				//Spouse Military Status
 				if(sSpouseMilitary.equalsIgnoreCase("yes"))
 				{
-					uiAddNewLeadsPageObjects.rbtnMilitarySpouse_Yes.click();					
+					
+					uiAddNewLeadsPageObjects.rbtnMilitarySpouse_Yes.click();
+					
 				}
 				else
 				{
@@ -240,6 +243,7 @@ public class Lead_InfoCall {
 				else
 				{
 					ddlMilitary.selectByVisibleText("No");
+					
 				}
 				//TCPA Disclosure
 				if(sTCPA.equalsIgnoreCase("yes"))

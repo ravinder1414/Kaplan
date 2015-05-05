@@ -303,7 +303,7 @@ import commonfunctions.UserExtension;
 							
 							UserExtension.WaitTillGetTextValueIs(driver, uiB2BLeadPageObjects.txtLeadCreatedMessage, "Lead Successfully Added");
 							Assert.assertEquals(uiB2BLeadPageObjects.txtLeadCreatedMessage.getText().trim(), "Lead Successfully Added");
-							
+							System.out.println(1);
 						}
 							
 	}

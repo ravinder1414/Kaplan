@@ -21,9 +21,9 @@
       <!--<class name = "orion3_LeadCreation.Lead_Referral" />-->
       <!--<class name = "orion3_LeadCreation.Lead_LiveChat" />-->
       <!--<class name = "orion3_LeadCreation.Lead_WarmTransfer" />-->
-      <!--<class name = "orion3_LeadCreation.StudentManager" />-->
+      <class name = "orion3_LeadCreation.StudentManager" />
       <!--<class name = "orion3_SearchLeads.Search_Leads" />-->
-      <class name = "orion3_SearchLeads.ReassignLeads" />
+      <!--<class name = "orion3_SearchLeads.ReassignLeads" />-->
       <!--<class name = "orion3_B2BLeadCreation.B2BLeadCreation" />-->
       
     </classes>

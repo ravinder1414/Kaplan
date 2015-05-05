@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Orion1CLS]">
-  <parameter name="sHub" value="localhost"/>
-  <parameter name="Environment" value="TEST"/>
-  <parameter name="sHubPort" value="4444"/>
+  <parameter name="Environment" value="DEV"/>
   <parameter name="Browser" value="firefox"/>
+  <parameter name="sHubPort" value="4444"/>
+  <parameter name="sHub" value="localhost"/>
   <listeners>
     <listener class-name="commonfunctions.ScreenShotOnTestFailure"/>
   </listeners>
   <test name="Orion1CLS_firefox(failed)">
     <parameter name="Browser" value="firefox"/>
     <classes>
-      <class name="orion1_NewLeads.StudentManager">
+      <class name="Orion1_Navigation.Ticketing">
         <methods>
-          <include name="Leads_ClassificationDetails"/>
-          <include name="SubmitLead"/>
-          <include name="BrowseToAddNewLeadPage"/>
-          <include name="ContactInformationTabDetails" invocation-numbers="0"/>
-          <include name="VerifyLeadInAdmisssionManager"/>
-          <include name="Leads_ProgramOfInterest"/>
-          <include name="Leads_Details"/>
-          <include name="BeforeNavigation"/>
           <include name="AfterNavigation"/>
+          <include name="VerifyTicketingDashboardLink"/>
+          <include name="BeforeNavigation"/>
+          <include name="VerifyTicketingHomeLink"/>
+          <include name="VerifyActivityTypeAdminLink"/>
+          <include name="VerifyTicketingAdminLink"/>
         </methods>
-      </class> <!-- orion1_NewLeads.StudentManager -->
+      </class> <!-- Orion1_Navigation.Ticketing -->
       <class name="environment.EnvironmentVariables">
         <methods>
           <include name="BeforeSuite_Orion1"/>

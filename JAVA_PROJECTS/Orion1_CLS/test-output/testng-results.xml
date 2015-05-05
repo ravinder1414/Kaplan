@@ -1,139 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="7" passed="7">
+<testng-results skipped="0" failed="0" total="4" passed="4">
   <reporter-output>
-    <line>
-      <![CDATA[Unable to locate element: {"method":"id","selector":"_ctl3_btnSaveYes"}
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
-System info: host: 'G-0439', ip: '10.163.105.45', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0'
-Driver info: driver.version: unknown
-Command duration or timeout: 15.51 seconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
-System info: host: 'G-0439', ip: '10.163.105.45', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0'
-Driver info: org.openqa.selenium.remote.RemoteWebDriver
-Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=35.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webdriver.remote.sessionid=12083127-ab1d-4116-bbfe-479772382449, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 12083127-ab1d-4116-bbfe-479772382449]]>
-    </line>
   </reporter-output>
-  <suite name="Orion1CLS" duration-ms="587920" started-at="2015-04-15T14:04:51Z" finished-at="2015-04-15T14:14:39Z">
+  <suite name="Orion1CLS" duration-ms="47987" started-at="2015-05-05T10:28:30Z" finished-at="2015-05-05T10:29:18Z">
     <groups>
     </groups>
-    <test name="Orion1CLS_firefox" duration-ms="587920" started-at="2015-04-15T14:04:51Z" finished-at="2015-04-15T14:14:39Z">
-      <class name="orion1_NewLeads.StudentManager">
-        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:orion1_NewLeads.StudentManager@13c0b17]" name="BeforeNavigation" is-config="true" duration-ms="21194" started-at="2015-04-15T19:34:51Z" finished-at="2015-04-15T19:35:12Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BeforeNavigation -->
-        <test-method status="PASS" signature="BrowseToAddNewLeadPage(java.lang.reflect.Method)[pri:0, instance:orion1_NewLeads.StudentManager@13c0b17]" name="BrowseToAddNewLeadPage" duration-ms="5738" started-at="2015-04-15T19:35:12Z" finished-at="2015-04-15T19:35:18Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void orion1_NewLeads.StudentManager.BrowseToAddNewLeadPage(java.lang.reflect.Method)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BrowseToAddNewLeadPage -->
-        <test-method status="PASS" signature="Leads_ClassificationDetails(java.lang.reflect.Method)[pri:0, instance:orion1_NewLeads.StudentManager@13c0b17]" name="Leads_ClassificationDetails" duration-ms="2400" started-at="2015-04-15T19:35:18Z" depends-on-methods="orion1_NewLeads.StudentManager.BrowseToAddNewLeadPage" finished-at="2015-04-15T19:35:21Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void orion1_NewLeads.StudentManager.Leads_ClassificationDetails(java.lang.reflect.Method)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Leads_ClassificationDetails -->
-        <test-method status="PASS" signature="Leads_ProgramOfInterest(java.lang.reflect.Method)[pri:0, instance:orion1_NewLeads.StudentManager@13c0b17]" name="Leads_ProgramOfInterest" duration-ms="1260" started-at="2015-04-15T19:35:21Z" depends-on-methods="orion1_NewLeads.StudentManager.Leads_ClassificationDetails" finished-at="2015-04-15T19:35:22Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void orion1_NewLeads.StudentManager.Leads_ProgramOfInterest(java.lang.reflect.Method)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Leads_ProgramOfInterest -->
-        <test-method status="PASS" signature="Leads_Details(java.lang.reflect.Method)[pri:0, instance:orion1_NewLeads.StudentManager@13c0b17]" name="Leads_Details" duration-ms="2702" started-at="2015-04-15T19:35:22Z" depends-on-methods="orion1_NewLeads.StudentManager.Leads_ProgramOfInterest" finished-at="2015-04-15T19:35:24Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void orion1_NewLeads.StudentManager.Leads_Details(java.lang.reflect.Method)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Leads_Details -->
-        <test-method status="PASS" signature="SubmitLead(java.lang.reflect.Method)[pri:0, instance:orion1_NewLeads.StudentManager@13c0b17]" name="SubmitLead" duration-ms="5005" started-at="2015-04-15T19:35:25Z" depends-on-methods="orion1_NewLeads.StudentManager.Leads_Details" finished-at="2015-04-15T19:35:30Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void orion1_NewLeads.StudentManager.SubmitLead(java.lang.reflect.Method)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SubmitLead -->
-        <test-method status="PASS" signature="VerifyLeadInAdmisssionManager(java.lang.reflect.Method)[pri:0, instance:orion1_NewLeads.StudentManager@13c0b17]" name="VerifyLeadInAdmisssionManager" duration-ms="104504" started-at="2015-04-15T19:35:30Z" depends-on-methods="orion1_NewLeads.StudentManager.SubmitLead" finished-at="2015-04-15T19:37:14Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void orion1_NewLeads.StudentManager.VerifyLeadInAdmisssionManager(java.lang.reflect.Method)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyLeadInAdmisssionManager -->
-        <test-method status="PASS" signature="ContactInformationTabDetails(java.lang.reflect.Method)[pri:0, instance:orion1_NewLeads.StudentManager@13c0b17]" name="ContactInformationTabDetails" duration-ms="444507" started-at="2015-04-15T19:37:14Z" depends-on-methods="orion1_NewLeads.StudentManager.VerifyLeadInAdmisssionManager" finished-at="2015-04-15T19:44:39Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void orion1_NewLeads.StudentManager.ContactInformationTabDetails(java.lang.reflect.Method)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[Unable to locate element: {"method":"id","selector":"_ctl3_btnSaveYes"}
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
-System info: host: 'G-0439', ip: '10.163.105.45', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0'
-Driver info: driver.version: unknown
-Command duration or timeout: 15.51 seconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
-System info: host: 'G-0439', ip: '10.163.105.45', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0'
-Driver info: org.openqa.selenium.remote.RemoteWebDriver
-Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=35.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webdriver.remote.sessionid=12083127-ab1d-4116-bbfe-479772382449, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 12083127-ab1d-4116-bbfe-479772382449]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- ContactInformationTabDetails -->
-        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:orion1_NewLeads.StudentManager@13c0b17]" name="AfterNavigation" is-config="true" duration-ms="590" started-at="2015-04-15T19:44:39Z" finished-at="2015-04-15T19:44:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AfterNavigation -->
-      </class> <!-- orion1_NewLeads.StudentManager -->
+    <test name="Orion1CLS_firefox" duration-ms="47987" started-at="2015-05-05T10:28:30Z" finished-at="2015-05-05T10:29:18Z">
       <class name="environment.EnvironmentVariables">
-        <test-method status="PASS" signature="BeforeSuite_Orion1(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:environment.EnvironmentVariables@afb23c]" name="BeforeSuite_Orion1" is-config="true" duration-ms="15" started-at="2015-04-15T19:34:51Z" finished-at="2015-04-15T19:34:51Z">
+        <test-method status="PASS" signature="BeforeSuite_Orion1(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:environment.EnvironmentVariables@48074a]" name="BeforeSuite_Orion1" is-config="true" duration-ms="11" started-at="2015-05-05T15:58:30Z" finished-at="2015-05-05T15:58:30Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[TEST]]>
+                <![CDATA[DEV]]>
               </value>
             </param>
             <param index="1">
@@ -148,7 +26,7 @@ Session ID: 12083127-ab1d-4116-bbfe-479772382449]]>
             </param>
             <param index="3">
               <value>
-                <![CDATA[org.testng.TestRunner@f79e]]>
+                <![CDATA[org.testng.TestRunner@ecbb6e]]>
               </value>
             </param>
           </params>
@@ -156,6 +34,39 @@ Session ID: 12083127-ab1d-4116-bbfe-479772382449]]>
           </reporter-output>
         </test-method> <!-- BeforeSuite_Orion1 -->
       </class> <!-- environment.EnvironmentVariables -->
+      <class name="Orion1_Navigation.Ticketing">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="BeforeNavigation" is-config="true" duration-ms="40056" started-at="2015-05-05T15:58:30Z" finished-at="2015-05-05T15:59:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeNavigation -->
+        <test-method status="PASS" signature="VerifyActivityTypeAdminLink()[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="VerifyActivityTypeAdminLink" duration-ms="7403" started-at="2015-05-05T15:59:10Z" finished-at="2015-05-05T15:59:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyActivityTypeAdminLink -->
+        <test-method status="PASS" signature="VerifyTicketingAdminLink()[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="VerifyTicketingAdminLink" duration-ms="72" started-at="2015-05-05T15:59:17Z" finished-at="2015-05-05T15:59:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyTicketingAdminLink -->
+        <test-method status="PASS" signature="VerifyTicketingDashboardLink()[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="VerifyTicketingDashboardLink" duration-ms="65" started-at="2015-05-05T15:59:17Z" finished-at="2015-05-05T15:59:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyTicketingDashboardLink -->
+        <test-method status="PASS" signature="VerifyTicketingHomeLink()[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="VerifyTicketingHomeLink" duration-ms="59" started-at="2015-05-05T15:59:17Z" finished-at="2015-05-05T15:59:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyTicketingHomeLink -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="AfterNavigation" is-config="true" duration-ms="319" started-at="2015-05-05T15:59:17Z" finished-at="2015-05-05T15:59:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterNavigation -->
+      </class> <!-- Orion1_Navigation.Ticketing -->
     </test> <!-- Orion1CLS_firefox -->
   </suite> <!-- Orion1CLS -->
 </testng-results>
