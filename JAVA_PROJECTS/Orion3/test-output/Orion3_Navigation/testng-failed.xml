@@ -10,97 +10,24 @@
   <test name="Orion3_Navigation_FireFox(failed)">
     <parameter name="Browser" value="firefox"/>
     <classes>
-      <class name="orion3_Navigation.OpsAdminTab">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- orion3_Navigation.OpsAdminTab -->
-      <class name="orion3_SearchLeads.Search_Leads">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- orion3_SearchLeads.Search_Leads -->
-      <class name="orion3_Navigation.AcademicsTab">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- orion3_Navigation.AcademicsTab -->
-      <class name="orion3_Navigation.AdmissionsTab">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- orion3_Navigation.AdmissionsTab -->
-      <class name="orion3_SearchLeads.ReassignLeads">
-        <methods>
-          <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
-          <include name="ResassignLead"/>
-          <include name="ClickOnFirstLeads" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- orion3_SearchLeads.ReassignLeads -->
-      <class name="orion3_Navigation.HomePage">
-        <methods>
-          <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
-        </methods>
-      </class> <!-- orion3_Navigation.HomePage -->
-      <class name="orion3_Navigation.TicketAdminTab">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- orion3_Navigation.TicketAdminTab -->
-      <class name="orion3_Navigation.FinancialAid">
-        <methods>
-          <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
-        </methods>
-      </class> <!-- orion3_Navigation.FinancialAid -->
-      <class name="orion3_LeadCreation.Lead_Referral">
-        <methods>
-          <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
-        </methods>
-      </class> <!-- orion3_LeadCreation.Lead_Referral -->
-      <class name="orion3_LeadCreation.StudentManager">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- orion3_LeadCreation.StudentManager -->
-      <class name="orion3_LeadCreation.Lead_LiveChat">
-        <methods>
-          <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
-        </methods>
-      </class> <!-- orion3_LeadCreation.Lead_LiveChat -->
-      <class name="orion3_LeadCreation.Lead_InfoCall">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- orion3_LeadCreation.Lead_InfoCall -->
-      <class name="orion3_LeadCreation.Lead_WarmTransfer">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- orion3_LeadCreation.Lead_WarmTransfer -->
-      <class name="orion3_Navigation.AddALeadReferralPage">
-        <methods>
-          <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
-        </methods>
-      </class> <!-- orion3_Navigation.AddALeadReferralPage -->
       <class name="orion3_Variables.EnvironmentVariables">
         <methods>
           <include name="BeforeSuite_Orion3"/>
         </methods>
       </class> <!-- orion3_Variables.EnvironmentVariables -->
+      <class name="orion3_LeadCreation.StudentManager">
+        <methods>
+          <include name="Leads_Details"/>
+          <include name="AfterNavigation"/>
+          <include name="BeforeNavigation"/>
+          <include name="VerifyLeadInAdmisssionManager"/>
+          <include name="Leads_ProgramOfInterest"/>
+          <include name="ContactInformationTabDetails" invocation-numbers="0"/>
+          <include name="BrowseToAddNewLeadPage"/>
+          <include name="Leads_ClassificationDetails"/>
+          <include name="SubmitLead"/>
+        </methods>
+      </class> <!-- orion3_LeadCreation.StudentManager -->
     </classes>
   </test> <!-- Orion3_Navigation_FireFox(failed) -->
 </suite> <!-- Failed suite [Orion3_Navigation] -->

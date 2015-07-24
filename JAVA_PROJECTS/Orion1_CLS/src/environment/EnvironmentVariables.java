@@ -20,8 +20,8 @@ public class EnvironmentVariables {
 		public static String sEnv = "";
 		public static String sApp = "Orion1";
 		public static String sCampus ="";
-		public static String sAdvisor = "";
-		
+		public static String sAdvisorFname = "";
+		public static String sAdvisorLname = "";
 		//Execution Environment 
 		//Grid Hub and Port
 		public static String sHub=null;
@@ -88,6 +88,9 @@ public class EnvironmentVariables {
 			
 			//Set the Environment Variables
 			sUrl_Orion1 = objProperties.getProperty("Orion_URL");
+			sAdvisorFname = objProperties.getProperty("Advisor_Fname");
+			sAdvisorLname = objProperties.getProperty("Advisor_Lname");
+			sCampus = objProperties.getProperty("Campus");
 			iTimeout = Integer.parseInt(objProperties.getProperty("Timeout"));
 			
 

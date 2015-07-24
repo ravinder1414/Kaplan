@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [KuPortal_DocCollection]">
+<suite name="Failed suite [Orion1CLS]">
   <parameter name="Environment" value="DEV"/>
-  <parameter name="sHubPort" value="4445"/>
   <parameter name="Browser" value="firefox"/>
+  <parameter name="sHubPort" value="4444"/>
+  <parameter name="sHub" value="localhost"/>
   <listeners>
     <listener class-name="commonfunctions.ScreenShotOnTestFailure"/>
   </listeners>
-  <test name="KUPDocCollection_FireFox(failed)">
+  <test name="Orion1CLS_firefox(failed)">
     <parameter name="Browser" value="firefox"/>
     <classes>
-      <class name="orion1_SearchLeads.Search_Leads">
+      <class name="Orion1_Navigation.Ticketing">
         <methods>
+          <include name="AfterNavigation"/>
+          <include name="VerifyTicketingDashboardLink"/>
           <include name="BeforeNavigation"/>
-          <include name="ClickOnFirstLeads"/>
-          <include name="SearchLeadsInformationDetails"/>
+          <include name="VerifyTicketingHomeLink"/>
+          <include name="VerifyActivityTypeAdminLink"/>
+          <include name="VerifyTicketingAdminLink"/>
         </methods>
-      </class> <!-- orion1_SearchLeads.Search_Leads -->
+      </class> <!-- Orion1_Navigation.Ticketing -->
       <class name="environment.EnvironmentVariables">
         <methods>
           <include name="BeforeSuite_Orion1"/>
         </methods>
       </class> <!-- environment.EnvironmentVariables -->
     </classes>
-  </test> <!-- KUPDocCollection_FireFox(failed) -->
-</suite> <!-- Failed suite [KuPortal_DocCollection] -->
+  </test> <!-- Orion1CLS_firefox(failed) -->
+</suite> <!-- Failed suite [Orion1CLS] -->

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="10" name="Failed suite [KUPortal_Navigation]">
+  <parameter name="Environment" value="TEST"/>
+  <parameter name="Browser" value="chrome"/>
+  <test name="KUPortal_TopNavigation_IE(failed)" parallel="classes">
+    <parameter name="Browser" value="ie"/>
+    <classes>
+      <class name="KuPortal.Test_LandingPage">
+        <methods>
+          <include name="BeforeClass"/>
+          <include name="BeforeClass"/>
+          <include name="AfterClassTestLandingPage"/>
+          <include name="AfterClassTestLandingPage"/>
+          <include name="LinkReference_LandingPage" invocation-numbers="0"/>
+          <include name="BeforeMethod"/>
+          <include name="BeforeMethod"/>
+        </methods>
+      </class> <!-- KuPortal.Test_LandingPage -->
+      <class name="KuPortal.EnvironmentVariables">
+        <methods>
+          <include name="BeforeSuite"/>
+        </methods>
+      </class> <!-- KuPortal.EnvironmentVariables -->
+      <class name="KuPortal.Test_HomePage">
+        <methods>
+          <include name="BeforeClass_HomePage"/>
+          <include name="BeforeClass_HomePage"/>
+          <include name="AfterClassHomePage"/>
+          <include name="AfterClassHomePage"/>
+          <include name="BeforeMethod"/>
+          <include name="BeforeMethod"/>
+        </methods>
+      </class> <!-- KuPortal.Test_HomePage -->
+    </classes>
+  </test> <!-- KUPortal_TopNavigation_IE(failed) -->
+  <test name="KUPortal_TopNavigation_CHROME(failed)" parallel="classes">
+    <parameter name="Browser" value="chrome"/>
+    <classes>
+      <class name="KuPortal.Test_LandingPage">
+        <methods>
+          <include name="BeforeClass"/>
+          <include name="BeforeClass"/>
+          <include name="AfterClassTestLandingPage"/>
+          <include name="AfterClassTestLandingPage"/>
+          <include name="LinkReference_LandingPage" invocation-numbers="0 0 0"/>
+          <include name="BeforeMethod"/>
+          <include name="BeforeMethod"/>
+        </methods>
+      </class> <!-- KuPortal.Test_LandingPage -->
+      <class name="KuPortal.EnvironmentVariables">
+        <methods>
+          <include name="BeforeSuite"/>
+        </methods>
+      </class> <!-- KuPortal.EnvironmentVariables -->
+      <class name="KuPortal.Test_HomePage">
+        <methods>
+          <include name="BeforeClass_HomePage"/>
+          <include name="BeforeClass_HomePage"/>
+          <include name="AfterClassHomePage"/>
+          <include name="AfterClassHomePage"/>
+          <include name="BeforeMethod"/>
+          <include name="BeforeMethod"/>
+        </methods>
+      </class> <!-- KuPortal.Test_HomePage -->
+    </classes>
+  </test> <!-- KUPortal_TopNavigation_CHROME(failed) -->
+</suite> <!-- Failed suite [KUPortal_Navigation] -->

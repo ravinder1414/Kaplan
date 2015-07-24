@@ -20,6 +20,7 @@ public class EnvironmentVariables {
 	public static String sUrl_Orion3 = "";
 	public static String sEnv = "";
 	public static String sApp = "Orion3";
+	public static String sOrion3_B2B_Url="";
 	
 
 	//Execution Environment 
@@ -88,6 +89,7 @@ public class EnvironmentVariables {
 		
 		//Set the Environment Variables
 		sUrl_Orion3 = (String)objProperties.getProperty("Orion3_Url");
+	    sOrion3_B2B_Url = (String)objProperties.getProperty("Orion3_B2B_Url");
 		iTimeout = Integer.parseInt(objProperties.getProperty("Timeout"));
 	}
 }

@@ -1,80 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="2" failed="0" total="2" passed="0">
+<testng-results skipped="0" failed="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="KuPortal_DocCollection" duration-ms="107" started-at="2015-04-02T07:32:16Z" finished-at="2015-04-02T07:32:16Z">
+  <suite name="Orion1CLS" duration-ms="47987" started-at="2015-05-05T10:28:30Z" finished-at="2015-05-05T10:29:18Z">
     <groups>
     </groups>
-    <test name="KUPDocCollection_FireFox" duration-ms="107" started-at="2015-04-02T07:32:16Z" finished-at="2015-04-02T07:32:16Z">
-      <class name="orion1_SearchLeads.Search_Leads">
-        <test-method status="FAIL" signature="BeforeNavigation(java.lang.String)[pri:0, instance:orion1_SearchLeads.Search_Leads@1474c6c]" name="BeforeNavigation" is-config="true" duration-ms="0" started-at="2015-04-02T13:02:16Z" finished-at="2015-04-02T13:02:16Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210)
-	at org.openqa.selenium.firefox.Preferences.checkPreference(Preferences.java:213)
-	at org.openqa.selenium.firefox.Preferences.setPreference(Preferences.java:137)
-	at org.openqa.selenium.firefox.FirefoxProfile.setPreference(FirefoxProfile.java:219)
-	at orion1_SearchLeads.Search_Leads.BeforeNavigation(Search_Leads.java:74)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:564)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
-	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:175)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:107)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BeforeNavigation -->
-        <test-method status="SKIP" signature="ClickOnFirstLeads(java.lang.reflect.Method)[pri:0, instance:orion1_SearchLeads.Search_Leads@1474c6c]" name="ClickOnFirstLeads" duration-ms="1" started-at="2015-04-02T13:02:16Z" finished-at="2015-04-02T13:02:16Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void orion1_SearchLeads.Search_Leads.ClickOnFirstLeads(java.lang.reflect.Method)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ClickOnFirstLeads -->
-        <test-method status="SKIP" signature="SearchLeadsInformationDetails(java.lang.reflect.Method)[pri:0, instance:orion1_SearchLeads.Search_Leads@1474c6c]" name="SearchLeadsInformationDetails" duration-ms="0" started-at="2015-04-02T13:02:16Z" depends-on-methods="orion1_SearchLeads.Search_Leads.ClickOnFirstLeads" finished-at="2015-04-02T13:02:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SearchLeadsInformationDetails -->
-        <test-method status="SKIP" signature="AfterNavigation()[pri:0, instance:orion1_SearchLeads.Search_Leads@1474c6c]" name="AfterNavigation" is-config="true" duration-ms="0" started-at="2015-04-02T13:02:16Z" finished-at="2015-04-02T13:02:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AfterNavigation -->
-      </class> <!-- orion1_SearchLeads.Search_Leads -->
+    <test name="Orion1CLS_firefox" duration-ms="47987" started-at="2015-05-05T10:28:30Z" finished-at="2015-05-05T10:29:18Z">
       <class name="environment.EnvironmentVariables">
-        <test-method status="PASS" signature="BeforeSuite_Orion1(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:environment.EnvironmentVariables@dbc5d3]" name="BeforeSuite_Orion1" is-config="true" duration-ms="10" started-at="2015-04-02T13:02:16Z" finished-at="2015-04-02T13:02:16Z">
+        <test-method status="PASS" signature="BeforeSuite_Orion1(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:environment.EnvironmentVariables@48074a]" name="BeforeSuite_Orion1" is-config="true" duration-ms="11" started-at="2015-05-05T15:58:30Z" finished-at="2015-05-05T15:58:30Z">
           <params>
             <param index="0">
               <value>
@@ -88,12 +21,12 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[4445]]>
+                <![CDATA[4444]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[org.testng.TestRunner@e048a]]>
+                <![CDATA[org.testng.TestRunner@ecbb6e]]>
               </value>
             </param>
           </params>
@@ -101,6 +34,39 @@
           </reporter-output>
         </test-method> <!-- BeforeSuite_Orion1 -->
       </class> <!-- environment.EnvironmentVariables -->
-    </test> <!-- KUPDocCollection_FireFox -->
-  </suite> <!-- KuPortal_DocCollection -->
+      <class name="Orion1_Navigation.Ticketing">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="BeforeNavigation" is-config="true" duration-ms="40056" started-at="2015-05-05T15:58:30Z" finished-at="2015-05-05T15:59:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeNavigation -->
+        <test-method status="PASS" signature="VerifyActivityTypeAdminLink()[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="VerifyActivityTypeAdminLink" duration-ms="7403" started-at="2015-05-05T15:59:10Z" finished-at="2015-05-05T15:59:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyActivityTypeAdminLink -->
+        <test-method status="PASS" signature="VerifyTicketingAdminLink()[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="VerifyTicketingAdminLink" duration-ms="72" started-at="2015-05-05T15:59:17Z" finished-at="2015-05-05T15:59:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyTicketingAdminLink -->
+        <test-method status="PASS" signature="VerifyTicketingDashboardLink()[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="VerifyTicketingDashboardLink" duration-ms="65" started-at="2015-05-05T15:59:17Z" finished-at="2015-05-05T15:59:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyTicketingDashboardLink -->
+        <test-method status="PASS" signature="VerifyTicketingHomeLink()[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="VerifyTicketingHomeLink" duration-ms="59" started-at="2015-05-05T15:59:17Z" finished-at="2015-05-05T15:59:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyTicketingHomeLink -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="AfterNavigation" is-config="true" duration-ms="319" started-at="2015-05-05T15:59:17Z" finished-at="2015-05-05T15:59:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterNavigation -->
+      </class> <!-- Orion1_Navigation.Ticketing -->
+    </test> <!-- Orion1CLS_firefox -->
+  </suite> <!-- Orion1CLS -->
 </testng-results>

@@ -303,7 +303,7 @@ public class StudentManager {
 	WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("ctl00_PageBodyPlaceHolder_ctl01_ctl04_ddlProgramRollups")));
 		
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		dropdownProgram.selectByVisibleText("AAS in Accounting - No Emphasis");
+		dropdownProgram.selectByIndex(1);
 		
 		//Address Line1 and city
 		
@@ -318,7 +318,7 @@ public class StudentManager {
 		Select dropdownStartDate = new Select(uiStudentManagerPageObjects.startDateDropDown);
 		
 		WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.id("ctl00_PageBodyPlaceHolder_ctl01_ctl04_ddlStartDate")));
-		dropdownStartDate.selectByValue("6/10/2015");
+		dropdownStartDate.selectByIndex(1);
 		
 		//Select Lead Classification
 		
@@ -401,10 +401,10 @@ public class StudentManager {
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		
 		//Enrollment Confirmed
-				//Assert.assertEquals(uiStudentManagerPageObjects.btnEnrollmentConfirmed.getText().trim(), "Enrollment Confirmed");
+				
 				UserExtension.IsElementNotPresent(driver, uiStudentManagerPageObjects.btnEnrollmentConfirmed);
 				uiStudentManagerPageObjects.btnEnrollmentConfirmed.click();
-				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+				
 				
 				
 		
