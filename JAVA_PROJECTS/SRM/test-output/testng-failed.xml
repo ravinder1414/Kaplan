@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Orion3_Navigation]">
+  <parameter name="Environment" value="TEST"/>
+  <parameter name="Browser" value="firefox"/>
+  <listeners>
+    <listener class-name="commonfunctions.ScreenShotOnTestFailure"/>
+    <listener class-name="orion3_Listeners.DisableKnownTestFailures"/>
+  </listeners>
+  <test name="Orion3_Navigation_FireFox(failed)">
+    <parameter name="Browser" value="firefox"/>
+    <classes>
+      <class name="inquiry_Leads.AddInquiry_Referral_Lead_Creation">
+        <methods>
+          <include name="AfterNavigation"/>
+          <include name="BrowseToAddNewReferralLeadPage" invocation-numbers="0"/>
+          <include name="BeforeNavigation"/>
+        </methods>
+      </class> <!-- inquiry_Leads.AddInquiry_Referral_Lead_Creation -->
+      <class name="orion3_Variables.EnvironmentVariables">
+        <methods>
+          <include name="BeforeSuite_Orion3"/>
+        </methods>
+      </class> <!-- orion3_Variables.EnvironmentVariables -->
+    </classes>
+  </test> <!-- Orion3_Navigation_FireFox(failed) -->
+</suite> <!-- Failed suite [Orion3_Navigation] -->
