@@ -215,6 +215,7 @@ driver.findElement(By.xpath(".//td[text()='Admissions']")).sendKeys(Keys.PAGE_UP
 				
 				//Verify the search Results
 				Assert.assertEquals(uiSearchLeadsPageObjects.resultsEmailField.getText().trim(), sEmailAddress);
+				System.out.println(1);
 				
 				
 			

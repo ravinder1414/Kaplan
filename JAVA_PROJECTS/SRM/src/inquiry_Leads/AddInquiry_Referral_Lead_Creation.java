@@ -55,10 +55,6 @@ import commonfunctions.UserExtension;
 				 String sFirstName1;
 			      String sLastName1;
 			     String sEmailAddress1;
-				public String sLeadType;
-				public String sChannelGroup;
-				public String sAreaOfStudy;
-				public String sProgramofInterest;
 				public String sMilitaryType;
 				public String sSpouseMilitary;
 				public String sTCPA;
@@ -125,21 +121,19 @@ import commonfunctions.UserExtension;
 					}
 					
 					//Reading from Properties file
-					sLeadType = objProperties.getProperty("sLeadType");
-					sChannelGroup = objProperties.getProperty("sChannelGroup");
+				
 					sTCPA = objProperties.getProperty("sTCPADisclosure");
 					sMilitaryType = objProperties.getProperty("sMilitaryType");
 					sSpouseMilitary = objProperties.getProperty("sSpouseMilitaryType");
 					sHighestEducation = objProperties.getProperty("sHighestEduction");
-					sAreaOfStudy = objProperties.getProperty("sAreaOfStudy");
-					sProgramofInterest = objProperties.getProperty("sProgramofInterest");
+				
 								
 					//Edit Browser Capabilities as per project
 					//Fire fox Profile		
 					FirefoxProfile profile = new FirefoxProfile();
-					//profile.setPreference("network.automatic-ntlm-auth.trusted-uris",EnvironmentVariables.sTrusted_Uris);
-					profile.setPreference("network.automatic-ntlm-auth.trusted-uris",EnvironmentVariables.sSRM_Url);
 					
+					//profile.setPreference("network.automatic-ntlm-auth.trusted-uris",EnvironmentVariables.sSRM_Url);
+					profile.setPreference("network.automatic-ntlm-auth.trusted-uris",EnvironmentVariables.sTrusted_Uris);
 					//Capability
 					objBrowserMgr = new BrowserManagement(sBrowser);
 					objBrowserMgr.capability.setCapability(FirefoxDriver.PROFILE, profile);		
@@ -175,155 +169,122 @@ import commonfunctions.UserExtension;
 				public void BrowseToAddNewReferralLeadPage(Method objMethod) throws InterruptedException
 				{
 					uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
-					
-					Thread.sleep(30000);
-					
 
-     driver.findElement(By.xpath("//*[@id='tsid-arrow']")).click();
-     Thread.sleep(30000);
+                    Thread.sleep(30000);
+                    
+					if(uiAddInquiry_Referral_Lead_Pageobjects.lnkDropDown.getText().equalsIgnoreCase("Admissions Console"))
+					{
+						
+						
+						//uiAddInquiry_Referral_Lead_Pageobjects.lnkBackToAdmissionConsole.click();
+						
+						
+					}
+					else
+					{
+						driver.findElement(By.xpath("//*[@id='tsid-arrow']")).click();
+						Thread.sleep(30000);
+						uiAddInquiry_Referral_Lead_Pageobjects.lnkAdmissionConsole.click();
+					}
 					
-					uiAddInquiry_Referral_Lead_Pageobjects.lnkAdmissionConsole.click();
-					
-					//Select ddldropdown = new Select(uiAddInquiry_Referral_Lead_Pageobjects.lnkAdmissionConsoleDROPDOWN);
-					Actions action = new Actions(driver);
-					//ddldropdown.selectByIndex(2);
-					//action.moveToElement(uiAddInquiry_Referral_Lead_Pageobjects.lnkAdmissionConsole).build().perform();
-					
-					
-					
-					//Click on Add Inquiry Console
-					Thread.sleep(30000);
-					
-					//action.moveToElement(uiAddInquiry_Referral_Lead_Pageobjects.ddANINQUIRY.build().perform();
-					action.moveToElement(uiAddInquiry_Referral_Lead_Pageobjects.ddANINQUIRY, 480, 60).click().build().perform();
-					//uiAddInquiry_Referral_Lead_Pageobjects.ClickAddanInquiry(driver);
-					//Click on 
-					
-					Thread.sleep(30000);
-					
-					uiAddInquiry_Referral_Lead_Pageobjects.lnkAddInquiry.click();
-					
-					
-					//driver.switchTo().window(uiAddNewLeadsPageObjects.sAddNewLead_WindowName);
-					//UserExtension.IsElementPresent(driver, uiAddInquiry_Referral_Lead_Pageobjects.lnkAdmissionConsole);
-					//uiAddInquiry_Referral_Lead_Pageobjects.ClickAddanInquiry(driver);
-					
-				}
 				
-				/*@Test(dependsOnMethods={"BrowseToAddNewLeadPage"})
-				public void Leads_ClassificationDetails(Method objMethod)
-				{
-					Assert.assertEquals(uiAddNewLeadsPageObjects.rbtnLeadType_InfoCall.getAttribute("checked"), "true", "Info Call Lead Type is not getting selected");
-					UserExtension.IsElementNotPresent(driver, uiAddNewLeadsPageObjects.imgProgressPanel);
+					WebDriverWait wait = new WebDriverWait(driver, 10000);
+					driver.switchTo().frame("ext-comp-1006");
 					
+					UserExtension.IsElementPresent(driver, uiAddInquiry_Referral_Lead_Pageobjects.rbnReferral);
+					WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:j_id33:1")));
 					
-					//UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.ddlPromotionCode);
-					Select ddlPromotionCode = new Select(uiAddNewLeadsPageObjects.ddlPromotionCode);
-					//Select ChannelGroup
-					//uiAddNewLeadsPageObjects.ddlPromotionCode = UserExtension.GetStaleElement(driver, uiAddNewLeadsPageObjects.ddlPromotionCodeLocator);
-					Assert.assertEquals(ddlPromotionCode.getFirstSelectedOption().getText().trim(), uiAddNewLeadsPageObjects.sPromotionCodeDefaultText_before, "Default Selected options for Promotion Code is not Correct");
-					uiAddNewLeadsPageObjects.SelectChannelGroupAs(sChannelGroup);
-					UserExtension.WaitTillAttributeValueIs(driver, uiAddNewLeadsPageObjects.imgProgressPanel, "style", "display: block;");
-					WebDriverWait wait = new WebDriverWait(driver, 10);
-					WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("ctl00_PageBodyPlaceHolder_DdlPromotionCode")));
-					Assert.assertEquals(ddlPromotionCode.getFirstSelectedOption().getText().trim(), uiAddNewLeadsPageObjects.sPromotionCodeDefaultText_after, "Selected option for Promotion Code is not Correct");		
-					//Select Promotion
-					driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
-					ddlPromotionCode.selectByIndex(1);
+					//Select Referral Radio Button
+					uiAddInquiry_Referral_Lead_Pageobjects.rbnReferral.click();
 					
-				}			
-				
-
-				@Test(dependsOnMethods={"Leads_ClassificationDetails"})
-				public void Leads_ProgramOfInterest(Method objMethod)
-				{					
-					Select ddlAreaOfStudy = new Select(uiAddNewLeadsPageObjects.ddlAreaOfStudyTemp);				
-					//Area of Study
-					Assert.assertEquals(ddlAreaOfStudy.getFirstSelectedOption().getText(), uiAddNewLeadsPageObjects.sAreaofStudyDefaultText, "Default Selected options for Area of Studty is incorrect");
-					ddlAreaOfStudy.selectByVisibleText(sAreaOfStudy);
-					//Program of Interest
-					Select ddlProgramOfInterest = new Select(uiAddNewLeadsPageObjects.ddlProgramOfInterest);
-					Assert.assertEquals(ddlProgramOfInterest.getFirstSelectedOption().getText(), uiAddNewLeadsPageObjects.sProgramOfInterest, "Default Selected options for Program of Interest is incorrect");
-					ddlProgramOfInterest.selectByVisibleText(sProgramofInterest);				
-				}
-				
-				@Test(dependsOnMethods={"Leads_ProgramOfInterest"})
-				public void Leads_Details(Method objMethod)
-				{
-					uiAddNewLeadsPageObjects.txtFirstName.sendKeys(sFirstName);
-					sFirstName1 =uiAddNewLeadsPageObjects.txtFirstName.getAttribute("value");
-					uiAddNewLeadsPageObjects.txtLastName.sendKeys(sLastName);
-					sLastName1 =uiAddNewLeadsPageObjects.txtLastName.getAttribute("value");
-					uiAddNewLeadsPageObjects.txtEmailAddress.sendKeys(sEmailAddress);
-					sEmailAddress1 =uiAddNewLeadsPageObjects.txtEmailAddress.getAttribute("value");
-					uiAddNewLeadsPageObjects.txtDayPhone.sendKeys(sDayPhone);
-					uiAddNewLeadsPageObjects.txtZipCode.sendKeys(sZipCode);
+					Thread.sleep(10000);
+					
+					uiAddInquiry_Referral_Lead_Pageobjects.txtFirstName.sendKeys(sFirstName);
+					uiAddInquiry_Referral_Lead_Pageobjects.txtLastName.sendKeys(sLastName);
+					uiAddInquiry_Referral_Lead_Pageobjects.txtEmailAddress.sendKeys(sEmailAddress);
+					
+					sEmailAddress1 =uiAddInquiry_Referral_Lead_Pageobjects.txtEmailAddress.getAttribute("value");
+					
+					uiAddInquiry_Referral_Lead_Pageobjects.txtDayTimePhoneNo.sendKeys(sDayPhone);
+					uiAddInquiry_Referral_Lead_Pageobjects.txtZipCode.sendKeys(sZipCode);
+					
+					//TCPA Disclosure
+					if(sTCPA.equalsIgnoreCase("yes"))
+					{
+						uiAddInquiry_Referral_Lead_Pageobjects.rbtnTCPA_Disclosure_Yes.click();					
+					}
+					else
+					{
+						uiAddInquiry_Referral_Lead_Pageobjects.rbtnTCPA_Disclosure_No.click();
+					}
 					
 					//Spouse Military Status
 					if(sSpouseMilitary.equalsIgnoreCase("yes"))
 					{
 						
-						uiAddNewLeadsPageObjects.rbtnMilitarySpouse_Yes.click();
+						uiAddInquiry_Referral_Lead_Pageobjects.rbtnSpouse_Yes.click();
 						
 					}
 					else
 					{
-						uiAddNewLeadsPageObjects.rbtnMilitarySpouse_No.click();
+						uiAddInquiry_Referral_Lead_Pageobjects.rbtnSpouse_No.click();
 					}
-					//Military Status
-					Select ddlMilitary = new Select(uiAddNewLeadsPageObjects.ddlMilitary);
-					if(sMilitaryType.equalsIgnoreCase("yes"))
-					{
-						ddlMilitary.selectByVisibleText("Yes-Active Duty");					
-					}
-					else
-					{
-						ddlMilitary.selectByVisibleText("No");
-						
-					}
-					//TCPA Disclosure
-					if(sTCPA.equalsIgnoreCase("yes"))
-					{
-						uiAddNewLeadsPageObjects.rtbnTCPA_Yes.click();					
-					}
-					else
-					{
-						uiAddNewLeadsPageObjects.rtbnTCPA_No.click();
-					}
+					
 					//Highest Level of Education
-					Select ddlHightestEdution = new Select(uiAddNewLeadsPageObjects.ddlHightestEduction);
-					ddlHightestEdution.selectByVisibleText(sHighestEducation);								
-				}
+					Select ddlHightestEdution = new Select(uiAddInquiry_Referral_Lead_Pageobjects.ddHighestLevelEducation);
+					ddlHightestEdution.selectByVisibleText(sHighestEducation);
+					
+					Thread.sleep(10000);
+					
+					WebElement element3 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:addALeadButtonId")));
+					uiAddInquiry_Referral_Lead_Pageobjects.txtAddAnInquiry.click();
+					
+					Thread.sleep(30000);
+					
+					WebElement element4 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:successmsgid")));
+					
+					Assert.assertEquals(uiAddInquiry_Referral_Lead_Pageobjects.txtCreatedLeadSuccess.getText().trim(), "Success:Your lead is being created");
+					
+					driver.navigate().refresh();
+					
+					driver.findElement(By.xpath("//*[@id='tsid-arrow']")).click();
+					Thread.sleep(30000);
+					uiAddInquiry_Referral_Lead_Pageobjects.lnkKaplanSRM.click();
+					Thread.sleep(10000);
+					
+					
+				}			
+	
 				
-				@Test(dependsOnMethods={"Leads_Details"})
-				public void SubmitLead(Method objMethod)
-				{
-					uiAddNewLeadsPageObjects.btnAddALead.click();
-					UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.lblSuccessMsg);
-					Assert.assertEquals(uiAddNewLeadsPageObjects.lblSuccessMsg.getText().trim(), uiAddNewLeadsPageObjects.sLeadSuccessMsg, "Lead successfully submitted message did not appear as expected");
-					Assert.assertTrue(uiAddNewLeadsPageObjects.btnClosePage.isDisplayed(), "Close Page button did not appeared as expected");
-					ReportExtn.Pass(objMethod, "Close Page button did appear as expected");
-					Assert.assertTrue(uiAddNewLeadsPageObjects.btnResetPage.isDisplayed(), "Reset Page button did not appeared as expected");
-					ReportExtn.Pass(objMethod, "Reset Page button did appear as expected");
-					uiAddNewLeadsPageObjects.btnClosePage.click();
-					driver.switchTo().window(uiAdmissionMgrPageObjects.sAdmissionMgr_WindowName);				
-				}
 				
-				@Test(dependsOnMethods={"SubmitLead"})
+				@Test(dependsOnMethods={"BrowseToAddNewReferralLeadPage"})
 				public void VerifyLeadInSRM(Method objMethod) throws InterruptedException
+				
 				{
+					uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
 					driver.get(EnvironmentVariables.sSRM_Url);
 					uiAddNewLeadsPageObjects.search_SRM.clear();
 					uiAddNewLeadsPageObjects.search_SRM.sendKeys(sEmailAddress1);
-					WebDriverWait wait = new WebDriverWait(driver, 35);
+					WebDriverWait wait = new WebDriverWait(driver, 5000);
 					WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("phSearchButton")));
 						
 					uiAddNewLeadsPageObjects.btnsearch_SRM.click();
 					
-					Thread.sleep(50000);
+					Thread.sleep(10000);
 					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
 					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
 					uiAddNewLeadsPageObjects.btnsearch_again.click();
+					Thread.sleep(70000);
+					
+					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
+					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
+					uiAddNewLeadsPageObjects.btnsearch_again.click();
+					Thread.sleep(70000);
+					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
+					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
+					uiAddNewLeadsPageObjects.btnsearch_again.click();
+					Thread.sleep(30000);
+					
 					WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='Lead_body']/table/tbody/tr[2]/td[8]/a")));
 					UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.txtInquiryStatus);
 					Assert.assertEquals(uiAddNewLeadsPageObjects.txtInquiryStatus.getText().trim(), "New");
@@ -334,8 +295,8 @@ import commonfunctions.UserExtension;
 					
 
 				
-				*/}
-				
+				}
+	}
 
 	
 

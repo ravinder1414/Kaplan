@@ -17,11 +17,12 @@
       <!--<class name = "orion3_Navigation.FinancialAid" />--> 
       <!--<class name = "orion3_Navigation.OpsAdminTab" />-->
       <!--<class name = "orion3_Navigation.TicketAdminTab" />-->
-      <!--<class name = "orion3_LeadCreation.Lead_InfoCall" />-->
+      <class name = "orion3_LeadCreation.Lead_InfoCall" />
       <!--<class name = "orion3_LeadCreation.Lead_Referral" />-->
       <!--<class name = "orion3_LeadCreation.Lead_LiveChat" />-->
       <!--<class name = "orion3_LeadCreation.Lead_WarmTransfer" />-->
-      <class name = "orion3_LeadCreation.StudentManager" />
+      <!--<class name = "orion3_LeadCreation.StudentManager" />-->
+      <!--><class name = "orion3_FileClose.FileCloseStudentManager" />-->
       <!--<class name = "orion3_SearchLeads.Search_Leads" />-->
       <!--<class name = "orion3_SearchLeads.ReassignLeads" />-->
       <!--<class name = "orion3_B2BLeadCreation.B2BLeadCreation" />-->

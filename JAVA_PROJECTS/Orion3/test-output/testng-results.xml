@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="7" passed="6">
+<testng-results skipped="0" failed="1" total="6" passed="5">
   <reporter-output>
     <line>
-      <![CDATA[[SubmitLead][2015.04.23]'[01:25:36]     Pass: Close Page button did appear as expected]]>
+      <![CDATA[[SubmitLead][2015.06.26]'[01:11:32]     Pass: Close Page button did appear as expected]]>
     </line>
     <line>
-      <![CDATA[[SubmitLead][2015.04.23]'[01:25:36]     Pass: Reset Page button did appear as expected]]>
+      <![CDATA[[SubmitLead][2015.06.26]'[01:11:32]     Pass: Reset Page button did appear as expected]]>
     </line>
   </reporter-output>
-  <suite name="Orion3_Navigation" duration-ms="206723" started-at="2015-04-23T07:54:37Z" finished-at="2015-04-23T07:58:04Z">
+  <suite name="Orion3_Navigation" duration-ms="1224968" started-at="2015-06-26T07:40:02Z" finished-at="2015-06-26T08:00:27Z">
     <groups>
     </groups>
-    <test name="Orion3_Navigation_FireFox" duration-ms="206723" started-at="2015-04-23T07:54:37Z" finished-at="2015-04-23T07:58:04Z">
-      <class name="orion3_LeadCreation.StudentManager">
-        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:orion3_LeadCreation.StudentManager@4d9ebf]" name="BeforeNavigation" is-config="true" duration-ms="30941" started-at="2015-04-23T13:24:37Z" finished-at="2015-04-23T13:25:08Z">
+    <test name="Orion3_Navigation_FireFox" duration-ms="1224968" started-at="2015-06-26T07:40:02Z" finished-at="2015-06-26T08:00:27Z">
+      <class name="orion3_Variables.EnvironmentVariables">
+        <test-method status="PASS" signature="BeforeSuite_Orion3(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:orion3_Variables.EnvironmentVariables@14de7ea]" name="BeforeSuite_Orion3" is-config="true" duration-ms="506" started-at="2015-06-26T13:10:02Z" finished-at="2015-06-26T13:10:02Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[STAGE]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[localhost]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[4444]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[org.testng.TestRunner@4f1d78]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeSuite_Orion3 -->
+      </class> <!-- orion3_Variables.EnvironmentVariables -->
+      <class name="orion3_LeadCreation.Lead_InfoCall">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:orion3_LeadCreation.Lead_InfoCall@48268a]" name="BeforeNavigation" is-config="true" duration-ms="69139" started-at="2015-06-26T13:10:02Z" finished-at="2015-06-26T13:11:11Z">
           <params>
             <param index="0">
               <value>
@@ -24,102 +52,116 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeNavigation -->
-        <test-method status="PASS" signature="BrowseToAddNewLeadPage(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreation.StudentManager@4d9ebf]" name="BrowseToAddNewLeadPage" duration-ms="17603" started-at="2015-04-23T13:25:08Z" finished-at="2015-04-23T13:25:26Z">
+        <test-method status="PASS" signature="BrowseToAddNewLeadPage(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreation.Lead_InfoCall@48268a]" name="BrowseToAddNewLeadPage" duration-ms="10029" started-at="2015-06-26T13:11:11Z" finished-at="2015-06-26T13:11:21Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void orion3_LeadCreation.StudentManager.BrowseToAddNewLeadPage(java.lang.reflect.Method)]]>
+                <![CDATA[public void orion3_LeadCreation.Lead_InfoCall.BrowseToAddNewLeadPage(java.lang.reflect.Method)]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BrowseToAddNewLeadPage -->
-        <test-method status="PASS" signature="Leads_ClassificationDetails(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreation.StudentManager@4d9ebf]" name="Leads_ClassificationDetails" duration-ms="1883" started-at="2015-04-23T13:25:26Z" depends-on-methods="orion3_LeadCreation.StudentManager.BrowseToAddNewLeadPage" finished-at="2015-04-23T13:25:28Z">
+        <test-method status="PASS" signature="Leads_ClassificationDetails(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreation.Lead_InfoCall@48268a]" name="Leads_ClassificationDetails" duration-ms="2180" started-at="2015-06-26T13:11:21Z" depends-on-methods="orion3_LeadCreation.Lead_InfoCall.BrowseToAddNewLeadPage" finished-at="2015-06-26T13:11:24Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void orion3_LeadCreation.StudentManager.Leads_ClassificationDetails(java.lang.reflect.Method)]]>
+                <![CDATA[public void orion3_LeadCreation.Lead_InfoCall.Leads_ClassificationDetails(java.lang.reflect.Method)]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Leads_ClassificationDetails -->
-        <test-method status="PASS" signature="Leads_ProgramOfInterest(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreation.StudentManager@4d9ebf]" name="Leads_ProgramOfInterest" duration-ms="1967" started-at="2015-04-23T13:25:28Z" depends-on-methods="orion3_LeadCreation.StudentManager.Leads_ClassificationDetails" finished-at="2015-04-23T13:25:30Z">
+        <test-method status="PASS" signature="Leads_ProgramOfInterest(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreation.Lead_InfoCall@48268a]" name="Leads_ProgramOfInterest" duration-ms="2349" started-at="2015-06-26T13:11:24Z" depends-on-methods="orion3_LeadCreation.Lead_InfoCall.Leads_ClassificationDetails" finished-at="2015-06-26T13:11:26Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void orion3_LeadCreation.StudentManager.Leads_ProgramOfInterest(java.lang.reflect.Method)]]>
+                <![CDATA[public void orion3_LeadCreation.Lead_InfoCall.Leads_ProgramOfInterest(java.lang.reflect.Method)]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Leads_ProgramOfInterest -->
-        <test-method status="PASS" signature="Leads_Details(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreation.StudentManager@4d9ebf]" name="Leads_Details" duration-ms="2150" started-at="2015-04-23T13:25:30Z" depends-on-methods="orion3_LeadCreation.StudentManager.Leads_ProgramOfInterest" finished-at="2015-04-23T13:25:32Z">
+        <test-method status="PASS" signature="Leads_Details(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreation.Lead_InfoCall@48268a]" name="Leads_Details" duration-ms="3629" started-at="2015-06-26T13:11:26Z" depends-on-methods="orion3_LeadCreation.Lead_InfoCall.Leads_ProgramOfInterest" finished-at="2015-06-26T13:11:30Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void orion3_LeadCreation.StudentManager.Leads_Details(java.lang.reflect.Method)]]>
+                <![CDATA[public void orion3_LeadCreation.Lead_InfoCall.Leads_Details(java.lang.reflect.Method)]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Leads_Details -->
-        <test-method status="PASS" signature="SubmitLead(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreation.StudentManager@4d9ebf]" name="SubmitLead" duration-ms="4295" started-at="2015-04-23T13:25:32Z" depends-on-methods="orion3_LeadCreation.StudentManager.Leads_Details" finished-at="2015-04-23T13:25:36Z">
+        <test-method status="PASS" signature="SubmitLead(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreation.Lead_InfoCall@48268a]" name="SubmitLead" duration-ms="2752" started-at="2015-06-26T13:11:30Z" depends-on-methods="orion3_LeadCreation.Lead_InfoCall.Leads_Details" finished-at="2015-06-26T13:11:32Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void orion3_LeadCreation.StudentManager.SubmitLead(java.lang.reflect.Method)]]>
+                <![CDATA[public void orion3_LeadCreation.Lead_InfoCall.SubmitLead(java.lang.reflect.Method)]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[SubmitLead][2015.04.23]'[01:25:36]     Pass: Close Page button did appear as expected]]>
+              <![CDATA[[SubmitLead][2015.06.26]'[01:11:32]     Pass: Close Page button did appear as expected]]>
             </line>
             <line>
-              <![CDATA[[SubmitLead][2015.04.23]'[01:25:36]     Pass: Reset Page button did appear as expected]]>
+              <![CDATA[[SubmitLead][2015.06.26]'[01:11:32]     Pass: Reset Page button did appear as expected]]>
             </line>
           </reporter-output>
         </test-method> <!-- SubmitLead -->
-        <test-method status="PASS" signature="VerifyLeadInAdmisssionManager(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreation.StudentManager@4d9ebf]" name="VerifyLeadInAdmisssionManager" duration-ms="42414" started-at="2015-04-23T13:25:36Z" depends-on-methods="orion3_LeadCreation.StudentManager.SubmitLead" finished-at="2015-04-23T13:26:18Z">
+        <test-method status="FAIL" signature="VerifyLeadInAdmisssionManager(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreation.Lead_InfoCall@48268a]" name="VerifyLeadInAdmisssionManager" duration-ms="1128003" started-at="2015-06-26T13:11:32Z" depends-on-methods="orion3_LeadCreation.Lead_InfoCall.SubmitLead" finished-at="2015-06-26T13:30:20Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void orion3_LeadCreation.StudentManager.VerifyLeadInAdmisssionManager(java.lang.reflect.Method)]]>
+                <![CDATA[public void orion3_LeadCreation.Lead_InfoCall.VerifyLeadInAdmisssionManager(java.lang.reflect.Method)]]>
               </value>
             </param>
           </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyLeadInAdmisssionManager -->
-        <test-method status="FAIL" signature="ContactInformationTabDetails(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreation.StudentManager@4d9ebf]" name="ContactInformationTabDetails" duration-ms="104780" started-at="2015-04-23T13:26:18Z" depends-on-methods="orion3_LeadCreation.StudentManager.VerifyLeadInAdmisssionManager" finished-at="2015-04-23T13:28:03Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void orion3_LeadCreation.StudentManager.ContactInformationTabDetails(java.lang.reflect.Method)]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.NoSuchElementException">
+          <exception class="org.openqa.selenium.ElementNotVisibleException">
             <message>
-              <![CDATA[Cannot locate option with index: 1
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+              <![CDATA[Element is not currently visible and so may not be interacted with
 Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
-System info: host: 'G-0439', ip: '10.163.105.45', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
-Driver info: driver.version: unknown]]>
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: unknown
+Command duration or timeout: 1006.62 seconds
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Session ID: d9bb6417-82d9-49bd-be1b-66c1f899bec1
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities [{platform=WINDOWS, javascriptEnabled=true, acceptSslCerts=true, browserName=firefox, rotatable=false, locationContextEnabled=true, webdriver.remote.sessionid=d9bb6417-82d9-49bd-be1b-66c1f899bec1, version=35.0.1, databaseEnabled=true, cssSelectorsEnabled=true, handlesAlerts=true, webStorageEnabled=true, nativeEvents=false, applicationCacheEnabled=true, takesScreenshot=true}]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Cannot locate option with index: 1
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+              <![CDATA[org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
 Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
-System info: host: 'G-0439', ip: '10.163.105.45', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
 Driver info: driver.version: unknown
-	at org.openqa.selenium.support.ui.Select.selectByIndex(Select.java:183)
-	at orion3_LeadCreation.StudentManager.ContactInformationTabDetails(StudentManager.java:306)
+Command duration or timeout: 1006.62 seconds
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Session ID: d9bb6417-82d9-49bd-be1b-66c1f899bec1
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities [{platform=WINDOWS, javascriptEnabled=true, acceptSslCerts=true, browserName=firefox, rotatable=false, locationContextEnabled=true, webdriver.remote.sessionid=d9bb6417-82d9-49bd-be1b-66c1f899bec1, version=35.0.1, databaseEnabled=true, cssSelectorsEnabled=true, handlesAlerts=true, webStorageEnabled=true, nativeEvents=false, applicationCacheEnabled=true, takesScreenshot=true}]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:268)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:79)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:50)
+	at com.sun.proxy.$Proxy9.click(Unknown Source)
+	at uiMap_Orion3.HomePageObjects.ClickAdmissionsManager(HomePageObjects.java:410)
+	at orion3_LeadCreation.Lead_InfoCall.VerifyLeadInAdmisssionManager(Lead_InfoCall.java:287)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -144,45 +186,34 @@ Driver info: driver.version: unknown
 	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been taken
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:136)
+	... 35 more
+Caused by: org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: unknown
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: unknown
+	at <anonymous class>.fxdriver.preconditions.visible(file:///C:/Users/RAVIND~1.KUM/AppData/Local/Temp/anonymous9187746883764503078webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:8959:12)
+	at <anonymous class>.DelayedCommand.prototype.checkPreconditions_(file:///C:/Users/RAVIND~1.KUM/AppData/Local/Temp/anonymous9187746883764503078webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:11618:15)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/RAVIND~1.KUM/AppData/Local/Temp/anonymous9187746883764503078webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:11635:11)
+	at <anonymous class>.fxdriver.Timer.prototype.setTimeout/<.notify(file:///C:/Users/RAVIND~1.KUM/AppData/Local/Temp/anonymous9187746883764503078webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:548:5)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          </exception> <!-- org.openqa.selenium.ElementNotVisibleException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ContactInformationTabDetails -->
-        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:orion3_LeadCreation.StudentManager@4d9ebf]" name="AfterNavigation" is-config="true" duration-ms="246" started-at="2015-04-23T13:28:04Z" finished-at="2015-04-23T13:28:04Z">
+        </test-method> <!-- VerifyLeadInAdmisssionManager -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:orion3_LeadCreation.Lead_InfoCall@48268a]" name="AfterNavigation" is-config="true" duration-ms="3153" started-at="2015-06-26T13:30:24Z" finished-at="2015-06-26T13:30:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterNavigation -->
-      </class> <!-- orion3_LeadCreation.StudentManager -->
-      <class name="orion3_Variables.EnvironmentVariables">
-        <test-method status="PASS" signature="BeforeSuite_Orion3(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:orion3_Variables.EnvironmentVariables@457235]" name="BeforeSuite_Orion3" is-config="true" duration-ms="201" started-at="2015-04-23T13:24:37Z" finished-at="2015-04-23T13:24:37Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[STAGE]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[localhost]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[4444]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[org.testng.TestRunner@d9cf64]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BeforeSuite_Orion3 -->
-      </class> <!-- orion3_Variables.EnvironmentVariables -->
+      </class> <!-- orion3_LeadCreation.Lead_InfoCall -->
     </test> <!-- Orion3_Navigation_FireFox -->
   </suite> <!-- Orion3_Navigation -->
 </testng-results>

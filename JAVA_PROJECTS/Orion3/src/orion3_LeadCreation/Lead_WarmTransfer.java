@@ -49,6 +49,8 @@ public class Lead_WarmTransfer {
 	
 	
 	//Variables from Properties file
+	String sFirstName1;
+    String sLastName1;
 	public String sLeadType;
 	public String sChannelGroup;
 	public String sAreaOfStudy;
@@ -225,7 +227,9 @@ public class Lead_WarmTransfer {
 		
 		UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.txtFirstName);
 		uiAddNewLeadsPageObjects.txtFirstName.sendKeys(sFirstName);
+		sFirstName1 =uiAddNewLeadsPageObjects.txtFirstName.getAttribute("value");
 		uiAddNewLeadsPageObjects.txtLastName.sendKeys(sLastName);
+		sLastName1 =uiAddNewLeadsPageObjects.txtLastName.getAttribute("value");
 		uiAddNewLeadsPageObjects.txtEmailAddress.sendKeys(sEmailAddress);
 		uiAddNewLeadsPageObjects.txtDayPhone.sendKeys(sDayPhone);
 		uiAddNewLeadsPageObjects.txtZipCode.sendKeys(sZipCode);
@@ -285,9 +289,8 @@ public class Lead_WarmTransfer {
 		UserExtension.IsElementPresent(driver, uiAdmissionMgrPageObjects.lnkFirstLeadInTable);
 		UserExtension.WaitTillGetTextValueIs(driver, uiAdmissionMgrPageObjects.lnkFirstLeadInTable, sLastName + ", " + sFirstName);
 		uiAdmissionMgrPageObjects = uiHomePageObjects.ClickAdmissionsManager(driver);
-		UserExtension.IsElementPresent(driver, uiAdmissionMgrPageObjects.lnkFirstLeadInTable);
-		Assert.assertEquals(uiAdmissionMgrPageObjects.lnkFirstLeadInTable.getText().trim(), sLastName + ", " + sFirstName, "Lead not found at the top of the new leads table");				
+		Assert.assertEquals(uiAdmissionMgrPageObjects.lnkFirstLeadInTable.getText().trim(), sLastName1 + ", " + sFirstName1, "Lead not found at the top of the new leads table");				
 	}
-
+	
 
 }

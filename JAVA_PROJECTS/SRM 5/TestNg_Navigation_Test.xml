@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Orion3_Navigation">
+<parameter name="Environment" value="TEST"/>
+<parameter name="sHub" value="10.78.4.12"/>
+<listeners>
+      <listener class-name="commonfunctions.ScreenShotOnTestFailure" />
+      <listener class-name="orion3_Listeners.DisableKnownTestFailures" />
+</listeners>
+    <test name="Orion3_Navigation_FireFox">
+    <parameter name="Browser" value="firefox"/>
+    <classes>     
+     <class name = "orion3_Variables.EnvironmentVariables" />
+      <class name = "b2b_LeadCreation.B2BLeadCreation" />
+      
+    </classes>
+    </test>
+</suite>

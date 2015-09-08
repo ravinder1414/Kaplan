@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Orion3_Navigation">
 <parameter name="Environment" value="TEST"/>
-<!--<parameter name="sHub" value="10.78.4.12"/>-->
+<parameter name="sHub" value="10.78.4.12"/>
 <listeners>
       <listener class-name="commonfunctions.ScreenShotOnTestFailure" />
       <listener class-name="orion3_Listeners.DisableKnownTestFailures" />
@@ -9,10 +9,14 @@
     <test name="Orion3_Navigation_FireFox">
     <parameter name="Browser" value="firefox"/>
     <classes>     
-      <class name = "orion3_Variables.EnvironmentVariables" />
-      <!--<class name = "orion3_LeadCreationSRM_Search.Lead_InfoCall" />-->
-      <!--<class name = "sep_CreateAccount.SEP_CreateAccount" />-->
+     <class name = "orion3_Variables.EnvironmentVariables" />
       <class name = "inquiry_Leads.AddInquiry_Referral_Lead_Creation" />
+      <class name = "inquiry_Leads.AddInfoCall_Lead_Creation" />
+      <class name = "inquiry_Leads.AddLiveChat_Lead_Creation" />
+      <class name = "inquiry_Leads.AddWarmTransfer_Lead_Creation" />
+      <class name = "orion3_LeadCreationSRM_Search.Lead_InfoCall" />
+      <class name = "sep_CreateAccount.SEP_CreateAccount" />
+      <class name = "inquiry_Leads.SRM_LeadFlow" />
     </classes>
     </test>
 </suite>

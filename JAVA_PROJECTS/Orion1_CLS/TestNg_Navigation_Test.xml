@@ -19,7 +19,10 @@
      <!--<class name = "Orion1_Navigation.Academic" />-->
       <!--<class name = "Orion1_Navigation.Accounting" />-->
       <!--<class name = "Orion1_Navigation.Editorial" />-->
-      <class name = "Orion1_Navigation.Ticketing" />
+      <!--<class name = "Orion1_Navigation.Ticketing" />-->
+       <!--<class name = "Orion1_Navigation.DocumentsImaging" />-->
+      <!--<class name = "orion1_FileClose.FileCloseStudentManager" />-->
+       <class name = "orion1_FileClose.FileCloseAdmissionManager" />
          <!--<class name ="orion1_SearchLeads.Search_Leads" />-->
          <!--<class name ="orion1_NewLeads.Lead_InfoCall" />-->
          <!--<class name ="orion1_NewLeads.Lead_Referral" />-->

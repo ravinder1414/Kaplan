@@ -9,6 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,9 +25,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
 import orion3_Variables.EnvironmentVariables;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
 import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
+import uiMap_Orion3_SRM.AddInquiry_Referral_Lead_Pageobjects;
 import uiMap_Orion3_SRM.HomePageObjects;
 import uiMap_Orion3_SRM.SEP_CreateAccount_PageObjects;
 import commonfunctions.BrowserManagement;
@@ -47,6 +50,7 @@ import commonfunctions.UserExtension;
 				public AdmissionsManagerPageObjects uiAdmissionMgrPageObjects;
 				public AddNewLeadPageObjects uiAddNewLeadsPageObjects;
 				public SEP_CreateAccount_PageObjects uiSEP_CreateAccount_PageObjects;
+				public AddInquiry_Referral_Lead_Pageobjects uiAddInquiry_Referral_Lead_Pageobjects;
 				
 				
 				//Variables from Properties file
@@ -177,7 +181,7 @@ import commonfunctions.UserExtension;
 
 				
 				@Test
-				public void CreateSEPAccount(Method objMethod)
+				public void CreateSEPAccount(Method objMethod) throws InterruptedException
 				{
 					
 					uiSEP_CreateAccount_PageObjects = new SEP_CreateAccount_PageObjects(driver);
@@ -200,6 +204,8 @@ import commonfunctions.UserExtension;
 					
 					Select ddCountry = new Select(uiSEP_CreateAccount_PageObjects.ddCountry);
 					ddCountry.selectByVisibleText(sCountry);
+					
+					Thread.sleep(10000);
 					
 					//First Name
 					uiSEP_CreateAccount_PageObjects.txtFirstName.sendKeys(sFirstName);
@@ -284,8 +290,25 @@ import commonfunctions.UserExtension;
 				{
 					
 					uiAddNewLeadsPageObjects = new AddNewLeadPageObjects(driver);
+					uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
 					driver.get(EnvironmentVariables.sSRM_Url);
 					
+					Thread.sleep(60000);
+					
+					 
+					if(uiAddInquiry_Referral_Lead_Pageobjects.lnkDropDown.getText().equalsIgnoreCase("Kaplan SRM"))
+					{
+						
+						
+						
+					}
+					else
+					{
+						driver.findElement(By.xpath("//*[@id='tsid-arrow']")).click();
+						Thread.sleep(30000);
+						uiAddInquiry_Referral_Lead_Pageobjects.lnkKaplanSRM.click();
+					}
+					Thread.sleep(10000);
 					UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.search_SRM);
 					
 					uiAddNewLeadsPageObjects.search_SRM.clear();
@@ -298,36 +321,36 @@ import commonfunctions.UserExtension;
 					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
 					uiAddNewLeadsPageObjects.btnsearch_again.click();
 					
-					Thread.sleep(90000);
-					//uiAddNewLeadsPageObjects.WaitTillElementValue(driver, uiAddNewLeadsPageObjects.headingInquiry);
-					System.out.println(uiAddNewLeadsPageObjects.headingInquiry);
 					Thread.sleep(180000);
 					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
 					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
 					uiAddNewLeadsPageObjects.btnsearch_again.click();
-					Thread.sleep(50000);
+					Thread.sleep(60000);
 					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
 					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
 					uiAddNewLeadsPageObjects.btnsearch_again.click();
-					Thread.sleep(50000);
+					Thread.sleep(60000);
 					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
 					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
 					uiAddNewLeadsPageObjects.btnsearch_again.click();
 					
+					Thread.sleep(80000);
+					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
+					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
+					uiAddNewLeadsPageObjects.btnsearch_again.click();
+					
+					Thread.sleep(80000);
+					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
+					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
+					uiAddNewLeadsPageObjects.btnsearch_again.click();
 					WebElement element4 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h3/span[contains(text(), 'Opportunities')]")));
-					
-					//uiAddNewLeadsPageObjects.WaitTillElementValue(driver, uiAddNewLeadsPageObjects.headingOppertunities);
-					
+					Thread.sleep(50000);
 					
 					//Assert.assertEquals(uiAddNewLeadsPageObjects.headingOppertunities.getText().trim(), "New");
 					System.out.println(uiAddNewLeadsPageObjects.headingOppertunities.getText().trim());
-						
-					//uiAddNewLeadsPageObjects.btnsearch_SRM.click();
-					//WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='Lead_body']/table/tbody/tr[2]/td[8]/a")));
-					//UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.txtInquiryStatus);
-					//Assert.assertEquals(uiAddNewLeadsPageObjects.txtInquiryStatus.getText().trim(), "New");
 					
-					//Assert.assertTrue(uiAddNewLeadsPageObjects.txtEmailAddressVerification.getText().equalsIgnoreCase(sEmailAddress1), "Email searched successfully");
+					
+					
 							
 				
 				}			

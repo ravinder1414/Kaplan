@@ -1,13 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="4" passed="4">
+<testng-results skipped="0" failed="3" total="101" passed="98">
   <reporter-output>
   </reporter-output>
-  <suite name="Orion1CLS" duration-ms="47987" started-at="2015-05-05T10:28:30Z" finished-at="2015-05-05T10:29:18Z">
+  <suite name="Orion1CLS" duration-ms="1004539" started-at="2015-06-11T06:42:28Z" finished-at="2015-06-11T06:59:12Z">
     <groups>
     </groups>
-    <test name="Orion1CLS_firefox" duration-ms="47987" started-at="2015-05-05T10:28:30Z" finished-at="2015-05-05T10:29:18Z">
+    <test name="Orion1CLS_firefox" duration-ms="1004539" started-at="2015-06-11T06:42:28Z" finished-at="2015-06-11T06:59:12Z">
+      <class name="Orion1_Navigation.Accounting">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:Orion1_Navigation.Accounting@d90727]" name="BeforeNavigation" is-config="true" duration-ms="40203" started-at="2015-06-11T12:22:03Z" finished-at="2015-06-11T12:22:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeNavigation -->
+        <test-method status="PASS" signature="VerifyAcademicAdvisingLink()[pri:0, instance:Orion1_Navigation.Accounting@d90727]" name="VerifyAcademicAdvisingLink" duration-ms="853" started-at="2015-06-11T12:22:43Z" finished-at="2015-06-11T12:22:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAcademicAdvisingLink -->
+        <test-method status="PASS" signature="VerifyAccountingPage()[pri:0, instance:Orion1_Navigation.Accounting@d90727]" name="VerifyAccountingPage" duration-ms="1256" started-at="2015-06-11T12:22:44Z" finished-at="2015-06-11T12:22:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAccountingPage -->
+        <test-method status="PASS" signature="VerifyAccountingcodeManagementLink()[pri:0, instance:Orion1_Navigation.Accounting@d90727]" name="VerifyAccountingcodeManagementLink" duration-ms="96" started-at="2015-06-11T12:22:45Z" finished-at="2015-06-11T12:22:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAccountingcodeManagementLink -->
+        <test-method status="PASS" signature="VerifyAssignmentExceptionsPage()[pri:0, instance:Orion1_Navigation.Accounting@d90727]" name="VerifyAssignmentExceptionsPage" duration-ms="1120" started-at="2015-06-11T12:22:45Z" finished-at="2015-06-11T12:22:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAssignmentExceptionsPage -->
+        <test-method status="PASS" signature="VerifyCampusCodeManagementLinkPage()[pri:0, instance:Orion1_Navigation.Accounting@d90727]" name="VerifyCampusCodeManagementLinkPage" duration-ms="1238" started-at="2015-06-11T12:22:47Z" finished-at="2015-06-11T12:22:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyCampusCodeManagementLinkPage -->
+        <test-method status="PASS" signature="VerifyDeliveryType()[pri:0, instance:Orion1_Navigation.Accounting@d90727]" name="VerifyDeliveryType" duration-ms="1250" started-at="2015-06-11T12:22:48Z" finished-at="2015-06-11T12:22:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyDeliveryType -->
+        <test-method status="PASS" signature="VerifyFileExportUtilityLink()[pri:0, instance:Orion1_Navigation.Accounting@d90727]" name="VerifyFileExportUtilityLink" duration-ms="109" started-at="2015-06-11T12:22:49Z" finished-at="2015-06-11T12:22:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyFileExportUtilityLink -->
+        <test-method status="PASS" signature="VerifyFileExportUtilityPage()[pri:0, instance:Orion1_Navigation.Accounting@d90727]" name="VerifyFileExportUtilityPage" duration-ms="1196" started-at="2015-06-11T12:22:49Z" finished-at="2015-06-11T12:22:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyFileExportUtilityPage -->
+        <test-method status="PASS" signature="VerifyFileServiceLink()[pri:0, instance:Orion1_Navigation.Accounting@d90727]" name="VerifyFileServiceLink" duration-ms="91" started-at="2015-06-11T12:22:50Z" finished-at="2015-06-11T12:22:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyFileServiceLink -->
+        <test-method status="PASS" signature="VerifyOutputFileManagementPage()[pri:0, instance:Orion1_Navigation.Accounting@d90727]" name="VerifyOutputFileManagementPage" duration-ms="1186" started-at="2015-06-11T12:22:50Z" finished-at="2015-06-11T12:22:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyOutputFileManagementPage -->
+        <test-method status="PASS" signature="VerifyTeamDirectorLink()[pri:0, instance:Orion1_Navigation.Accounting@d90727]" name="VerifyTeamDirectorLink" duration-ms="76" started-at="2015-06-11T12:22:52Z" finished-at="2015-06-11T12:22:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyTeamDirectorLink -->
+        <test-method status="PASS" signature="VerifyTutoringLink()[pri:0, instance:Orion1_Navigation.Accounting@d90727]" name="VerifyTutoringLink" duration-ms="78" started-at="2015-06-11T12:22:52Z" finished-at="2015-06-11T12:22:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyTutoringLink -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:Orion1_Navigation.Accounting@d90727]" name="AfterNavigation" is-config="true" duration-ms="272" started-at="2015-06-11T12:22:52Z" finished-at="2015-06-11T12:22:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterNavigation -->
+      </class> <!-- Orion1_Navigation.Accounting -->
       <class name="environment.EnvironmentVariables">
-        <test-method status="PASS" signature="BeforeSuite_Orion1(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:environment.EnvironmentVariables@48074a]" name="BeforeSuite_Orion1" is-config="true" duration-ms="11" started-at="2015-05-05T15:58:30Z" finished-at="2015-05-05T15:58:30Z">
+        <test-method status="PASS" signature="BeforeSuite_Orion1(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:environment.EnvironmentVariables@1a78424]" name="BeforeSuite_Orion1" is-config="true" duration-ms="131" started-at="2015-06-11T12:12:27Z" finished-at="2015-06-11T12:12:28Z">
           <params>
             <param index="0">
               <value>
@@ -26,7 +91,7 @@
             </param>
             <param index="3">
               <value>
-                <![CDATA[org.testng.TestRunner@ecbb6e]]>
+                <![CDATA[org.testng.TestRunner@6d2d52]]>
               </value>
             </param>
           </params>
@@ -34,8 +99,8 @@
           </reporter-output>
         </test-method> <!-- BeforeSuite_Orion1 -->
       </class> <!-- environment.EnvironmentVariables -->
-      <class name="Orion1_Navigation.Ticketing">
-        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="BeforeNavigation" is-config="true" duration-ms="40056" started-at="2015-05-05T15:58:30Z" finished-at="2015-05-05T15:59:10Z">
+      <class name="Orion1_Navigation.Home_StudentLookup">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:Orion1_Navigation.Home_StudentLookup@1e70e12]" name="BeforeNavigation" is-config="true" duration-ms="49452" started-at="2015-06-11T12:16:24Z" finished-at="2015-06-11T12:17:14Z">
           <params>
             <param index="0">
               <value>
@@ -46,27 +111,809 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeNavigation -->
-        <test-method status="PASS" signature="VerifyActivityTypeAdminLink()[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="VerifyActivityTypeAdminLink" duration-ms="7403" started-at="2015-05-05T15:59:10Z" finished-at="2015-05-05T15:59:17Z">
+        <test-method status="PASS" signature="VerifyQueueslabel()[pri:0, instance:Orion1_Navigation.Home_StudentLookup@1e70e12]" name="VerifyQueueslabel" duration-ms="4041" started-at="2015-06-11T12:17:14Z" finished-at="2015-06-11T12:17:18Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyActivityTypeAdminLink -->
-        <test-method status="PASS" signature="VerifyTicketingAdminLink()[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="VerifyTicketingAdminLink" duration-ms="72" started-at="2015-05-05T15:59:17Z" finished-at="2015-05-05T15:59:17Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyTicketingAdminLink -->
-        <test-method status="PASS" signature="VerifyTicketingDashboardLink()[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="VerifyTicketingDashboardLink" duration-ms="65" started-at="2015-05-05T15:59:17Z" finished-at="2015-05-05T15:59:17Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyTicketingDashboardLink -->
-        <test-method status="PASS" signature="VerifyTicketingHomeLink()[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="VerifyTicketingHomeLink" duration-ms="59" started-at="2015-05-05T15:59:17Z" finished-at="2015-05-05T15:59:17Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyTicketingHomeLink -->
-        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:Orion1_Navigation.Ticketing@edc88b]" name="AfterNavigation" is-config="true" duration-ms="319" started-at="2015-05-05T15:59:17Z" finished-at="2015-05-05T15:59:18Z">
+        </test-method> <!-- VerifyQueueslabel -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:Orion1_Navigation.Home_StudentLookup@1e70e12]" name="AfterNavigation" is-config="true" duration-ms="179" started-at="2015-06-11T12:17:18Z" finished-at="2015-06-11T12:17:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterNavigation -->
-      </class> <!-- Orion1_Navigation.Ticketing -->
+      </class> <!-- Orion1_Navigation.Home_StudentLookup -->
+      <class name="Orion1_Navigation.Academic">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:Orion1_Navigation.Academic@473996]" name="BeforeNavigation" is-config="true" duration-ms="52986" started-at="2015-06-11T12:20:59Z" finished-at="2015-06-11T12:21:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeNavigation -->
+        <test-method status="PASS" signature="VerifyAcademicAdvisingLink()[pri:0, instance:Orion1_Navigation.Academic@473996]" name="VerifyAcademicAdvisingLink" duration-ms="868" started-at="2015-06-11T12:21:52Z" finished-at="2015-06-11T12:21:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAcademicAdvisingLink -->
+        <test-method status="PASS" signature="VerifyAcademicAdvisingPage()[pri:0, instance:Orion1_Navigation.Academic@473996]" name="VerifyAcademicAdvisingPage" duration-ms="2549" started-at="2015-06-11T12:21:53Z" finished-at="2015-06-11T12:21:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAcademicAdvisingPage -->
+        <test-method status="PASS" signature="VerifyAdminLink()[pri:0, instance:Orion1_Navigation.Academic@473996]" name="VerifyAdminLink" duration-ms="97" started-at="2015-06-11T12:21:55Z" finished-at="2015-06-11T12:21:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAdminLink -->
+        <test-method status="PASS" signature="VerifyAdminPage()[pri:0, instance:Orion1_Navigation.Academic@473996]" name="VerifyAdminPage" duration-ms="1265" started-at="2015-06-11T12:21:55Z" finished-at="2015-06-11T12:21:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAdminPage -->
+        <test-method status="PASS" signature="VerifyAdvisorAssignmentLinkPage()[pri:0, instance:Orion1_Navigation.Academic@473996]" name="VerifyAdvisorAssignmentLinkPage" duration-ms="1207" started-at="2015-06-11T12:21:57Z" finished-at="2015-06-11T12:21:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAdvisorAssignmentLinkPage -->
+        <test-method status="PASS" signature="VerifyAssignmentExceptionLink()[pri:0, instance:Orion1_Navigation.Academic@473996]" name="VerifyAssignmentExceptionLink" duration-ms="231" started-at="2015-06-11T12:21:58Z" finished-at="2015-06-11T12:21:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAssignmentExceptionLink -->
+        <test-method status="PASS" signature="VerifyAssignmentExceptionsPage()[pri:0, instance:Orion1_Navigation.Academic@473996]" name="VerifyAssignmentExceptionsPage" duration-ms="1772" started-at="2015-06-11T12:21:58Z" finished-at="2015-06-11T12:22:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAssignmentExceptionsPage -->
+        <test-method status="PASS" signature="VerifyEnrollmentExceptionsLink()[pri:0, instance:Orion1_Navigation.Academic@473996]" name="VerifyEnrollmentExceptionsLink" duration-ms="284" started-at="2015-06-11T12:22:00Z" finished-at="2015-06-11T12:22:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyEnrollmentExceptionsLink -->
+        <test-method status="PASS" signature="VerifyMLink()[pri:0, instance:Orion1_Navigation.Academic@473996]" name="VerifyMLink" duration-ms="195" started-at="2015-06-11T12:22:00Z" finished-at="2015-06-11T12:22:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyMLink -->
+        <test-method status="PASS" signature="VerifyRepGroupLink()[pri:0, instance:Orion1_Navigation.Academic@473996]" name="VerifyRepGroupLink" duration-ms="103" started-at="2015-06-11T12:22:00Z" finished-at="2015-06-11T12:22:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRepGroupLink -->
+        <test-method status="PASS" signature="VerifyTeamDirectorLink()[pri:0, instance:Orion1_Navigation.Academic@473996]" name="VerifyTeamDirectorLink" duration-ms="111" started-at="2015-06-11T12:22:01Z" finished-at="2015-06-11T12:22:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyTeamDirectorLink -->
+        <test-method status="PASS" signature="VerifyTutoringLink()[pri:0, instance:Orion1_Navigation.Academic@473996]" name="VerifyTutoringLink" duration-ms="183" started-at="2015-06-11T12:22:01Z" finished-at="2015-06-11T12:22:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyTutoringLink -->
+        <test-method status="PASS" signature="VerifyTutoringViewPage()[pri:0, instance:Orion1_Navigation.Academic@473996]" name="VerifyTutoringViewPage" duration-ms="1635" started-at="2015-06-11T12:22:01Z" finished-at="2015-06-11T12:22:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyTutoringViewPage -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:Orion1_Navigation.Academic@473996]" name="AfterNavigation" is-config="true" duration-ms="578" started-at="2015-06-11T12:22:02Z" finished-at="2015-06-11T12:22:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterNavigation -->
+      </class> <!-- Orion1_Navigation.Academic -->
+      <class name="orion1_FileClose.FileCloseAdmissionManager">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:orion1_FileClose.FileCloseAdmissionManager@14c0cb0]" name="BeforeNavigation" is-config="true" duration-ms="41283" started-at="2015-06-11T12:26:29Z" finished-at="2015-06-11T12:27:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeNavigation -->
+        <test-method status="PASS" signature="ClickOnFirstLeads(java.lang.reflect.Method)[pri:0, instance:orion1_FileClose.FileCloseAdmissionManager@14c0cb0]" name="ClickOnFirstLeads" duration-ms="114874" started-at="2015-06-11T12:27:10Z" finished-at="2015-06-11T12:29:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void orion1_FileClose.FileCloseAdmissionManager.ClickOnFirstLeads(java.lang.reflect.Method)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ClickOnFirstLeads -->
+        <test-method status="PASS" signature="SearchLeadsInformationDetails(java.lang.reflect.Method)[pri:0, instance:orion1_FileClose.FileCloseAdmissionManager@14c0cb0]" name="SearchLeadsInformationDetails" duration-ms="6872" started-at="2015-06-11T12:29:05Z" depends-on-methods="orion1_FileClose.FileCloseAdmissionManager.ClickOnFirstLeads" finished-at="2015-06-11T12:29:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void orion1_FileClose.FileCloseAdmissionManager.SearchLeadsInformationDetails(java.lang.reflect.Method)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SearchLeadsInformationDetails -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:orion1_FileClose.FileCloseAdmissionManager@14c0cb0]" name="AfterNavigation" is-config="true" duration-ms="318" started-at="2015-06-11T12:29:12Z" finished-at="2015-06-11T12:29:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterNavigation -->
+      </class> <!-- orion1_FileClose.FileCloseAdmissionManager -->
+      <class name="Orion1_Navigation.Marketing">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:Orion1_Navigation.Marketing@d03350]" name="BeforeNavigation" is-config="true" duration-ms="32997" started-at="2015-06-11T12:20:22Z" finished-at="2015-06-11T12:20:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeNavigation -->
+        <test-method status="PASS" signature="VerifyDNCLink()[pri:0, instance:Orion1_Navigation.Marketing@d03350]" name="VerifyDNCLink" duration-ms="3166" started-at="2015-06-11T12:20:55Z" finished-at="2015-06-11T12:20:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyDNCLink -->
+        <test-method status="PASS" signature="VerifyDispManaerLink()[pri:0, instance:Orion1_Navigation.Marketing@d03350]" name="VerifyDispManaerLink" duration-ms="86" started-at="2015-06-11T12:20:58Z" finished-at="2015-06-11T12:20:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyDispManaerLink -->
+        <test-method status="PASS" signature="VerifyLeadScoringLink()[pri:0, instance:Orion1_Navigation.Marketing@d03350]" name="VerifyLeadScoringLink" duration-ms="103" started-at="2015-06-11T12:20:58Z" finished-at="2015-06-11T12:20:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyLeadScoringLink -->
+        <test-method status="PASS" signature="VerifyManageSIFSitesLink()[pri:0, instance:Orion1_Navigation.Marketing@d03350]" name="VerifyManageSIFSitesLink" duration-ms="97" started-at="2015-06-11T12:20:58Z" finished-at="2015-06-11T12:20:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyManageSIFSitesLink -->
+        <test-method status="PASS" signature="VerifyMarketingLink()[pri:0, instance:Orion1_Navigation.Marketing@d03350]" name="VerifyMarketingLink" duration-ms="82" started-at="2015-06-11T12:20:58Z" finished-at="2015-06-11T12:20:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyMarketingLink -->
+        <test-method status="PASS" signature="VerifyQuesSearchLink()[pri:0, instance:Orion1_Navigation.Marketing@d03350]" name="VerifyQuesSearchLink" duration-ms="94" started-at="2015-06-11T12:20:58Z" finished-at="2015-06-11T12:20:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyQuesSearchLink -->
+        <test-method status="PASS" signature="VerifySIFComparisonLink()[pri:0, instance:Orion1_Navigation.Marketing@d03350]" name="VerifySIFComparisonLink" duration-ms="113" started-at="2015-06-11T12:20:58Z" finished-at="2015-06-11T12:20:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySIFComparisonLink -->
+        <test-method status="PASS" signature="VerifySIFManaerLink()[pri:0, instance:Orion1_Navigation.Marketing@d03350]" name="VerifySIFManaerLink" duration-ms="92" started-at="2015-06-11T12:20:59Z" finished-at="2015-06-11T12:20:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySIFManaerLink -->
+        <test-method status="PASS" signature="VerifySIFSearchLink()[pri:0, instance:Orion1_Navigation.Marketing@d03350]" name="VerifySIFSearchLink" duration-ms="98" started-at="2015-06-11T12:20:59Z" finished-at="2015-06-11T12:20:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySIFSearchLink -->
+        <test-method status="PASS" signature="VerifyVendor()[pri:0, instance:Orion1_Navigation.Marketing@d03350]" name="VerifyVendor" duration-ms="62" started-at="2015-06-11T12:20:59Z" finished-at="2015-06-11T12:20:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyVendor -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:Orion1_Navigation.Marketing@d03350]" name="AfterNavigation" is-config="true" duration-ms="214" started-at="2015-06-11T12:20:59Z" finished-at="2015-06-11T12:20:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterNavigation -->
+      </class> <!-- Orion1_Navigation.Marketing -->
+      <class name="orion1_FileClose.FileCloseStudentManager">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:orion1_FileClose.FileCloseStudentManager@14e1705]" name="BeforeNavigation" is-config="true" duration-ms="25847" started-at="2015-06-11T12:23:35Z" finished-at="2015-06-11T12:24:01Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeNavigation -->
+        <test-method status="PASS" signature="ClickOnFirstLeads(java.lang.reflect.Method)[pri:0, instance:orion1_FileClose.FileCloseStudentManager@14e1705]" name="ClickOnFirstLeads" duration-ms="133846" started-at="2015-06-11T12:24:01Z" finished-at="2015-06-11T12:26:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void orion1_FileClose.FileCloseStudentManager.ClickOnFirstLeads(java.lang.reflect.Method)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ClickOnFirstLeads -->
+        <test-method status="PASS" signature="SearchLeadsInformationDetails(java.lang.reflect.Method)[pri:0, instance:orion1_FileClose.FileCloseStudentManager@14e1705]" name="SearchLeadsInformationDetails" duration-ms="12162" started-at="2015-06-11T12:26:15Z" depends-on-methods="orion1_FileClose.FileCloseStudentManager.ClickOnFirstLeads" finished-at="2015-06-11T12:26:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void orion1_FileClose.FileCloseStudentManager.SearchLeadsInformationDetails(java.lang.reflect.Method)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SearchLeadsInformationDetails -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:orion1_FileClose.FileCloseStudentManager@14e1705]" name="AfterNavigation" is-config="true" duration-ms="1914" started-at="2015-06-11T12:26:27Z" finished-at="2015-06-11T12:26:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterNavigation -->
+      </class> <!-- orion1_FileClose.FileCloseStudentManager -->
+      <class name="Orion1_Navigation.Admissions">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:Orion1_Navigation.Admissions@64a871]" name="BeforeNavigation" is-config="true" duration-ms="24355" started-at="2015-06-11T12:18:03Z" finished-at="2015-06-11T12:18:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeNavigation -->
+        <test-method status="PASS" signature="VerifyAdminLink()[pri:0, instance:Orion1_Navigation.Admissions@64a871]" name="VerifyAdminLink" duration-ms="1970" started-at="2015-06-11T12:18:27Z" finished-at="2015-06-11T12:18:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAdminLink -->
+        <test-method status="PASS" signature="VerifyAdmissionAdminPage()[pri:0, instance:Orion1_Navigation.Admissions@64a871]" name="VerifyAdmissionAdminPage" duration-ms="5137" started-at="2015-06-11T12:18:29Z" finished-at="2015-06-11T12:18:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAdmissionAdminPage -->
+        <test-method status="PASS" signature="VerifyAdmissionsManagerLink()[pri:0, instance:Orion1_Navigation.Admissions@64a871]" name="VerifyAdmissionsManagerLink" duration-ms="87" started-at="2015-06-11T12:18:35Z" finished-at="2015-06-11T12:18:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAdmissionsManagerLink -->
+        <test-method status="FAIL" signature="VerifyAdmissionsManagerPage()[pri:0, instance:Orion1_Navigation.Admissions@64a871]" name="VerifyAdmissionsManagerPage" duration-ms="45428" started-at="2015-06-11T12:18:35Z" finished-at="2015-06-11T12:19:20Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Unable to locate element: {"method":"xpath","selector":".//*[@id='tabnavi_TabRow']/td[18]/a/img"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: unknown
+Command duration or timeout: 45.43 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Session ID: a2dc6538-a642-4bc4-86ca-baf44ba11af2
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities [{platform=WINDOWS, javascriptEnabled=true, acceptSslCerts=true, browserName=firefox, rotatable=false, locationContextEnabled=true, webdriver.remote.sessionid=a2dc6538-a642-4bc4-86ca-baf44ba11af2, version=35.0.1, databaseEnabled=true, cssSelectorsEnabled=true, handlesAlerts=true, webStorageEnabled=true, nativeEvents=false, applicationCacheEnabled=true, takesScreenshot=true}]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"xpath","selector":".//*[@id='tabnavi_TabRow']/td[18]/a/img"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: unknown
+Command duration or timeout: 45.43 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Session ID: a2dc6538-a642-4bc4-86ca-baf44ba11af2
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities [{platform=WINDOWS, javascriptEnabled=true, acceptSslCerts=true, browserName=firefox, rotatable=false, locationContextEnabled=true, webdriver.remote.sessionid=a2dc6538-a642-4bc4-86ca-baf44ba11af2, version=35.0.1, databaseEnabled=true, cssSelectorsEnabled=true, handlesAlerts=true, webStorageEnabled=true, nativeEvents=false, applicationCacheEnabled=true, takesScreenshot=true}]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:59)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:37)
+	at com.sun.proxy.$Proxy9.isDisplayed(Unknown Source)
+	at Orion1_Navigation.Admissions.VerifyAdmissionsManagerPage(Admissions.java:226)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been taken
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:136)
+	... 33 more
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"xpath","selector":".//*[@id='tabnavi_TabRow']/td[18]/a/img"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/RAVIND~1.KUM/AppData/Local/Temp/anonymous2177180889062541870webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9641:26)
+	at <anonymous class>.fxdriver.Timer.prototype.setTimeout/<.notify(file:///C:/Users/RAVIND~1.KUM/AppData/Local/Temp/anonymous2177180889062541870webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:548:5)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAdmissionsManagerPage -->
+        <test-method status="PASS" signature="VerifyAppraisalsLink()[pri:0, instance:Orion1_Navigation.Admissions@64a871]" name="VerifyAppraisalsLink" duration-ms="106" started-at="2015-06-11T12:19:20Z" finished-at="2015-06-11T12:19:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAppraisalsLink -->
+        <test-method status="FAIL" signature="VerifyBonusTrackerLink()[pri:0, instance:Orion1_Navigation.Admissions@64a871]" name="VerifyBonusTrackerLink" duration-ms="45741" started-at="2015-06-11T12:19:21Z" finished-at="2015-06-11T12:20:06Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Unable to locate element: {"method":"link text","selector":"Bonus Tracker"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: unknown
+Command duration or timeout: 45.74 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Session ID: a2dc6538-a642-4bc4-86ca-baf44ba11af2
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities [{platform=WINDOWS, javascriptEnabled=true, acceptSslCerts=true, browserName=firefox, rotatable=false, locationContextEnabled=true, webdriver.remote.sessionid=a2dc6538-a642-4bc4-86ca-baf44ba11af2, version=35.0.1, databaseEnabled=true, cssSelectorsEnabled=true, handlesAlerts=true, webStorageEnabled=true, nativeEvents=false, applicationCacheEnabled=true, takesScreenshot=true}]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"link text","selector":"Bonus Tracker"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: unknown
+Command duration or timeout: 45.74 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Session ID: a2dc6538-a642-4bc4-86ca-baf44ba11af2
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities [{platform=WINDOWS, javascriptEnabled=true, acceptSslCerts=true, browserName=firefox, rotatable=false, locationContextEnabled=true, webdriver.remote.sessionid=a2dc6538-a642-4bc4-86ca-baf44ba11af2, version=35.0.1, databaseEnabled=true, cssSelectorsEnabled=true, handlesAlerts=true, webStorageEnabled=true, nativeEvents=false, applicationCacheEnabled=true, takesScreenshot=true}]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:401)
+	at org.openqa.selenium.By$ByLinkText.findElement(By.java:242)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:59)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:37)
+	at com.sun.proxy.$Proxy9.isDisplayed(Unknown Source)
+	at Orion1_Navigation.Admissions.VerifyBonusTrackerLink(Admissions.java:122)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been taken
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:136)
+	... 33 more
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"link text","selector":"Bonus Tracker"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/RAVIND~1.KUM/AppData/Local/Temp/anonymous2177180889062541870webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9641:26)
+	at <anonymous class>.fxdriver.Timer.prototype.setTimeout/<.notify(file:///C:/Users/RAVIND~1.KUM/AppData/Local/Temp/anonymous2177180889062541870webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:548:5)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyBonusTrackerLink -->
+        <test-method status="PASS" signature="VerifyEnrollmentExceptionsLink()[pri:0, instance:Orion1_Navigation.Admissions@64a871]" name="VerifyEnrollmentExceptionsLink" duration-ms="97" started-at="2015-06-11T12:20:07Z" finished-at="2015-06-11T12:20:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyEnrollmentExceptionsLink -->
+        <test-method status="PASS" signature="VerifyOperationsLink()[pri:0, instance:Orion1_Navigation.Admissions@64a871]" name="VerifyOperationsLink" duration-ms="82" started-at="2015-06-11T12:20:07Z" finished-at="2015-06-11T12:20:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyOperationsLink -->
+        <test-method status="PASS" signature="VerifyScriptManagerLink()[pri:0, instance:Orion1_Navigation.Admissions@64a871]" name="VerifyScriptManagerLink" duration-ms="84" started-at="2015-06-11T12:20:07Z" finished-at="2015-06-11T12:20:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyScriptManagerLink -->
+        <test-method status="PASS" signature="VerifyScriptManagerPage()[pri:0, instance:Orion1_Navigation.Admissions@64a871]" name="VerifyScriptManagerPage" duration-ms="11256" started-at="2015-06-11T12:20:07Z" finished-at="2015-06-11T12:20:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyScriptManagerPage -->
+        <test-method status="PASS" signature="VerifySettingsLink()[pri:0, instance:Orion1_Navigation.Admissions@64a871]" name="VerifySettingsLink" duration-ms="111" started-at="2015-06-11T12:20:18Z" finished-at="2015-06-11T12:20:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySettingsLink -->
+        <test-method status="PASS" signature="VerifySkillsCutOffManagerPage()[pri:0, instance:Orion1_Navigation.Admissions@64a871]" name="VerifySkillsCutOffManagerPage" duration-ms="3120" started-at="2015-06-11T12:20:18Z" finished-at="2015-06-11T12:20:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySkillsCutOffManagerPage -->
+        <test-method status="PASS" signature="VerifySkillsCutoffMgrLink()[pri:0, instance:Orion1_Navigation.Admissions@64a871]" name="VerifySkillsCutoffMgrLink" duration-ms="64" started-at="2015-06-11T12:20:21Z" finished-at="2015-06-11T12:20:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySkillsCutoffMgrLink -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:Orion1_Navigation.Admissions@64a871]" name="AfterNavigation" is-config="true" duration-ms="393" started-at="2015-06-11T12:20:21Z" finished-at="2015-06-11T12:20:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterNavigation -->
+      </class> <!-- Orion1_Navigation.Admissions -->
+      <class name="Orion1_Navigation.Editorial">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:Orion1_Navigation.Editorial@6ec21a]" name="BeforeNavigation" is-config="true" duration-ms="35697" started-at="2015-06-11T12:22:52Z" finished-at="2015-06-11T12:23:28Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeNavigation -->
+        <test-method status="PASS" signature="VerifyEditorialLink()[pri:0, instance:Orion1_Navigation.Editorial@6ec21a]" name="VerifyEditorialLink" duration-ms="814" started-at="2015-06-11T12:23:28Z" finished-at="2015-06-11T12:23:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyEditorialLink -->
+        <test-method status="PASS" signature="VerifyGlobalProgramMappingLink()[pri:0, instance:Orion1_Navigation.Editorial@6ec21a]" name="VerifyGlobalProgramMappingLink" duration-ms="83" started-at="2015-06-11T12:23:29Z" finished-at="2015-06-11T12:23:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyGlobalProgramMappingLink -->
+        <test-method status="PASS" signature="VerifyGlobalProgramMappingPage()[pri:0, instance:Orion1_Navigation.Editorial@6ec21a]" name="VerifyGlobalProgramMappingPage" duration-ms="1756" started-at="2015-06-11T12:23:29Z" finished-at="2015-06-11T12:23:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyGlobalProgramMappingPage -->
+        <test-method status="PASS" signature="VerifyProgramGroupMappingLink()[pri:0, instance:Orion1_Navigation.Editorial@6ec21a]" name="VerifyProgramGroupMappingLink" duration-ms="81" started-at="2015-06-11T12:23:30Z" finished-at="2015-06-11T12:23:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyProgramGroupMappingLink -->
+        <test-method status="PASS" signature="VerifyProgramGroupMappingPage()[pri:0, instance:Orion1_Navigation.Editorial@6ec21a]" name="VerifyProgramGroupMappingPage" duration-ms="1598" started-at="2015-06-11T12:23:31Z" finished-at="2015-06-11T12:23:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyProgramGroupMappingPage -->
+        <test-method status="PASS" signature="VerifyProgramMappingLink()[pri:0, instance:Orion1_Navigation.Editorial@6ec21a]" name="VerifyProgramMappingLink" duration-ms="80" started-at="2015-06-11T12:23:32Z" finished-at="2015-06-11T12:23:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyProgramMappingLink -->
+        <test-method status="PASS" signature="VerifyProgramMappingPage()[pri:0, instance:Orion1_Navigation.Editorial@6ec21a]" name="VerifyProgramMappingPage" duration-ms="2451" started-at="2015-06-11T12:23:32Z" finished-at="2015-06-11T12:23:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyProgramMappingPage -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:Orion1_Navigation.Editorial@6ec21a]" name="AfterNavigation" is-config="true" duration-ms="380" started-at="2015-06-11T12:23:35Z" finished-at="2015-06-11T12:23:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterNavigation -->
+      </class> <!-- Orion1_Navigation.Editorial -->
+      <class name="Orion1_Navigation.Home_AddNewLeadReferral">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:Orion1_Navigation.Home_AddNewLeadReferral@60acdc]" name="BeforeNavigation" is-config="true" duration-ms="28931" started-at="2015-06-11T12:15:53Z" finished-at="2015-06-11T12:16:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeNavigation -->
+        <test-method status="PASS" signature="VerifyAddNewLeadReferralHeading()[pri:0, instance:Orion1_Navigation.Home_AddNewLeadReferral@60acdc]" name="VerifyAddNewLeadReferralHeading" duration-ms="1599" started-at="2015-06-11T12:16:22Z" finished-at="2015-06-11T12:16:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddNewLeadReferralHeading -->
+        <test-method status="PASS" signature="VerifyEmail()[pri:0, instance:Orion1_Navigation.Home_AddNewLeadReferral@60acdc]" name="VerifyEmail" duration-ms="73" started-at="2015-06-11T12:16:24Z" finished-at="2015-06-11T12:16:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyEmail -->
+        <test-method status="PASS" signature="VerifyFirstName()[pri:0, instance:Orion1_Navigation.Home_AddNewLeadReferral@60acdc]" name="VerifyFirstName" duration-ms="160" started-at="2015-06-11T12:16:24Z" finished-at="2015-06-11T12:16:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyFirstName -->
+        <test-method status="PASS" signature="VerifyLastName()[pri:0, instance:Orion1_Navigation.Home_AddNewLeadReferral@60acdc]" name="VerifyLastName" duration-ms="62" started-at="2015-06-11T12:16:24Z" finished-at="2015-06-11T12:16:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyLastName -->
+        <test-method status="PASS" signature="VerifyReferralInfoLabel()[pri:0, instance:Orion1_Navigation.Home_AddNewLeadReferral@60acdc]" name="VerifyReferralInfoLabel" duration-ms="62" started-at="2015-06-11T12:16:24Z" finished-at="2015-06-11T12:16:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyReferralInfoLabel -->
+        <test-method status="PASS" signature="VerifyStuProReferralLabel()[pri:0, instance:Orion1_Navigation.Home_AddNewLeadReferral@60acdc]" name="VerifyStuProReferralLabel" duration-ms="69" started-at="2015-06-11T12:16:24Z" finished-at="2015-06-11T12:16:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyStuProReferralLabel -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:Orion1_Navigation.Home_AddNewLeadReferral@60acdc]" name="AfterNavigation" is-config="true" duration-ms="291" started-at="2015-06-11T12:16:24Z" finished-at="2015-06-11T12:16:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterNavigation -->
+      </class> <!-- Orion1_Navigation.Home_AddNewLeadReferral -->
+      <class name="Orion1_Navigation.Home">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="BeforeNavigation" is-config="true" duration-ms="165151" started-at="2015-06-11T12:12:28Z" finished-at="2015-06-11T12:15:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeNavigation -->
+        <test-method status="PASS" signature="VerifyAcademics()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyAcademics" duration-ms="1932" started-at="2015-06-11T12:15:13Z" finished-at="2015-06-11T12:15:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAcademics -->
+        <test-method status="PASS" signature="VerifyAccounting()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyAccounting" duration-ms="60" started-at="2015-06-11T12:15:15Z" finished-at="2015-06-11T12:15:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAccounting -->
+        <test-method status="PASS" signature="VerifyAddNewLeadReferral()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyAddNewLeadReferral" duration-ms="59" started-at="2015-06-11T12:15:15Z" finished-at="2015-06-11T12:15:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddNewLeadReferral -->
+        <test-method status="PASS" signature="VerifyAdmin()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyAdmin" duration-ms="58" started-at="2015-06-11T12:15:15Z" finished-at="2015-06-11T12:15:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAdmin -->
+        <test-method status="PASS" signature="VerifyAdmissions()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyAdmissions" duration-ms="56" started-at="2015-06-11T12:15:15Z" finished-at="2015-06-11T12:15:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAdmissions -->
+        <test-method status="PASS" signature="VerifyFinancialAid()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyFinancialAid" duration-ms="49" started-at="2015-06-11T12:15:15Z" finished-at="2015-06-11T12:15:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyFinancialAid -->
+        <test-method status="PASS" signature="VerifyHome()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyHome" duration-ms="57" started-at="2015-06-11T12:15:15Z" finished-at="2015-06-11T12:15:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyHome -->
+        <test-method status="PASS" signature="VerifyLogout()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyLogout" duration-ms="50" started-at="2015-06-11T12:15:15Z" finished-at="2015-06-11T12:15:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyLogout -->
+        <test-method status="PASS" signature="VerifyMarketing()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyMarketing" duration-ms="59" started-at="2015-06-11T12:15:15Z" finished-at="2015-06-11T12:15:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyMarketing -->
+        <test-method status="PASS" signature="VerifyMyProfileImage()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyMyProfileImage" duration-ms="84" started-at="2015-06-11T12:15:15Z" finished-at="2015-06-11T12:15:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyMyProfileImage -->
+        <test-method status="PASS" signature="VerifyProgMaintenance()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyProgMaintenance" duration-ms="47" started-at="2015-06-11T12:15:15Z" finished-at="2015-06-11T12:15:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyProgMaintenance -->
+        <test-method status="FAIL" signature="VerifyRegistrar()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyRegistrar" duration-ms="33156" started-at="2015-06-11T12:15:15Z" finished-at="2015-06-11T12:15:48Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Unable to locate element: {"method":"xpath","selector":".//td[text()='Registrar']"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: unknown
+Command duration or timeout: 32.52 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Session ID: 763479dd-c5c2-4807-824f-b08a46bfaa68
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities [{platform=WINDOWS, javascriptEnabled=true, acceptSslCerts=true, browserName=firefox, rotatable=false, locationContextEnabled=true, webdriver.remote.sessionid=763479dd-c5c2-4807-824f-b08a46bfaa68, version=35.0.1, databaseEnabled=true, cssSelectorsEnabled=true, handlesAlerts=true, webStorageEnabled=true, nativeEvents=false, applicationCacheEnabled=true, takesScreenshot=true}]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"xpath","selector":".//td[text()='Registrar']"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: unknown
+Command duration or timeout: 32.52 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Session ID: 763479dd-c5c2-4807-824f-b08a46bfaa68
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities [{platform=WINDOWS, javascriptEnabled=true, acceptSslCerts=true, browserName=firefox, rotatable=false, locationContextEnabled=true, webdriver.remote.sessionid=763479dd-c5c2-4807-824f-b08a46bfaa68, version=35.0.1, databaseEnabled=true, cssSelectorsEnabled=true, handlesAlerts=true, webStorageEnabled=true, nativeEvents=false, applicationCacheEnabled=true, takesScreenshot=true}]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:59)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:37)
+	at com.sun.proxy.$Proxy9.isDisplayed(Unknown Source)
+	at Orion1_Navigation.Home.VerifyRegistrar(Home.java:113)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been taken
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:136)
+	... 33 more
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"xpath","selector":".//td[text()='Registrar']"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:02:37'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'G-0439', ip: '10.163.105.52', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/RAVIND~1.KUM/AppData/Local/Temp/anonymous5478038098468125291webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9641:26)
+	at <anonymous class>.fxdriver.Timer.prototype.setTimeout/<.notify(file:///C:/Users/RAVIND~1.KUM/AppData/Local/Temp/anonymous5478038098468125291webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:548:5)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRegistrar -->
+        <test-method status="PASS" signature="VerifyReports()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyReports" duration-ms="79" started-at="2015-06-11T12:15:52Z" finished-at="2015-06-11T12:15:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyReports -->
+        <test-method status="PASS" signature="VerifyStudentLookup()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyStudentLookup" duration-ms="106" started-at="2015-06-11T12:15:53Z" finished-at="2015-06-11T12:15:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyStudentLookup -->
+        <test-method status="PASS" signature="VerifyTicketing()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyTicketing" duration-ms="49" started-at="2015-06-11T12:15:53Z" finished-at="2015-06-11T12:15:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyTicketing -->
+        <test-method status="PASS" signature="VerifyUniPlatform()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyUniPlatform" duration-ms="55" started-at="2015-06-11T12:15:53Z" finished-at="2015-06-11T12:15:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyUniPlatform -->
+        <test-method status="PASS" signature="VerifyWelcomeHeading()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="VerifyWelcomeHeading" duration-ms="57" started-at="2015-06-11T12:15:53Z" finished-at="2015-06-11T12:15:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyWelcomeHeading -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:Orion1_Navigation.Home@ae39fb]" name="AfterNavigation" is-config="true" duration-ms="416" started-at="2015-06-11T12:15:53Z" finished-at="2015-06-11T12:15:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterNavigation -->
+      </class> <!-- Orion1_Navigation.Home -->
+      <class name="Orion1_Navigation.Admin">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="BeforeNavigation" is-config="true" duration-ms="24053" started-at="2015-06-11T12:17:18Z" finished-at="2015-06-11T12:17:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeNavigation -->
+        <test-method status="PASS" signature="VerifyComponentManagerPage()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyComponentManagerPage" duration-ms="2902" started-at="2015-06-11T12:17:42Z" finished-at="2015-06-11T12:17:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyComponentManagerPage -->
+        <test-method status="PASS" signature="VerifyComponentMgrLink()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyComponentMgrLink" duration-ms="107" started-at="2015-06-11T12:17:45Z" finished-at="2015-06-11T12:17:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyComponentMgrLink -->
+        <test-method status="PASS" signature="VerifyCreateUserLink()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyCreateUserLink" duration-ms="72" started-at="2015-06-11T12:17:45Z" finished-at="2015-06-11T12:17:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyCreateUserLink -->
+        <test-method status="PASS" signature="VerifyCreateUserPage()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyCreateUserPage" duration-ms="4082" started-at="2015-06-11T12:17:45Z" finished-at="2015-06-11T12:17:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyCreateUserPage -->
+        <test-method status="PASS" signature="VerifyErrorReportingLink()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyErrorReportingLink" duration-ms="272" started-at="2015-06-11T12:17:49Z" finished-at="2015-06-11T12:17:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyErrorReportingLink -->
+        <test-method status="PASS" signature="VerifyErrorReportingPage()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyErrorReportingPage" duration-ms="3433" started-at="2015-06-11T12:17:50Z" finished-at="2015-06-11T12:17:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyErrorReportingPage -->
+        <test-method status="PASS" signature="VerifyManageAssignExReasonLink()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyManageAssignExReasonLink" duration-ms="119" started-at="2015-06-11T12:17:53Z" finished-at="2015-06-11T12:17:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyManageAssignExReasonLink -->
+        <test-method status="PASS" signature="VerifyManageCampusLink()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyManageCampusLink" duration-ms="101" started-at="2015-06-11T12:17:53Z" finished-at="2015-06-11T12:17:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyManageCampusLink -->
+        <test-method status="PASS" signature="VerifyManageCampusPage()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyManageCampusPage" duration-ms="1433" started-at="2015-06-11T12:17:53Z" finished-at="2015-06-11T12:17:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyManageCampusPage -->
+        <test-method status="PASS" signature="VerifyManageDepartmentPage()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyManageDepartmentPage" duration-ms="1966" started-at="2015-06-11T12:17:55Z" finished-at="2015-06-11T12:17:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyManageDepartmentPage -->
+        <test-method status="PASS" signature="VerifyManageDepartmentsLink()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyManageDepartmentsLink" duration-ms="111" started-at="2015-06-11T12:17:57Z" finished-at="2015-06-11T12:17:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyManageDepartmentsLink -->
+        <test-method status="PASS" signature="VerifyManageHolidayLink()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyManageHolidayLink" duration-ms="98" started-at="2015-06-11T12:17:57Z" finished-at="2015-06-11T12:17:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyManageHolidayLink -->
+        <test-method status="PASS" signature="VerifyManageHolidayPage()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyManageHolidayPage" duration-ms="1340" started-at="2015-06-11T12:17:57Z" finished-at="2015-06-11T12:17:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyManageHolidayPage -->
+        <test-method status="PASS" signature="VerifyManageTaskTrackerLink()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyManageTaskTrackerLink" duration-ms="124" started-at="2015-06-11T12:17:58Z" finished-at="2015-06-11T12:17:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyManageTaskTrackerLink -->
+        <test-method status="PASS" signature="VerifyManageUserLink()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyManageUserLink" duration-ms="85" started-at="2015-06-11T12:17:58Z" finished-at="2015-06-11T12:17:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyManageUserLink -->
+        <test-method status="PASS" signature="VerifyManageUserPage()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyManageUserPage" duration-ms="2512" started-at="2015-06-11T12:17:58Z" finished-at="2015-06-11T12:18:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyManageUserPage -->
+        <test-method status="PASS" signature="VerifyResDataMigLink()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyResDataMigLink" duration-ms="183" started-at="2015-06-11T12:18:01Z" finished-at="2015-06-11T12:18:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyResDataMigLink -->
+        <test-method status="PASS" signature="VerifyResDataMigrationPage()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="VerifyResDataMigrationPage" duration-ms="1756" started-at="2015-06-11T12:18:01Z" finished-at="2015-06-11T12:18:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyResDataMigrationPage -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:Orion1_Navigation.Admin@1c98360]" name="AfterNavigation" is-config="true" duration-ms="197" started-at="2015-06-11T12:18:03Z" finished-at="2015-06-11T12:18:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterNavigation -->
+      </class> <!-- Orion1_Navigation.Admin -->
     </test> <!-- Orion1CLS_firefox -->
   </suite> <!-- Orion1CLS -->
 </testng-results>

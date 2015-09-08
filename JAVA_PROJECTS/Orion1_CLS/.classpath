@@ -9,11 +9,11 @@
 	<classpathentry kind="lib" path="C:/JAVA_PROJECTS/Libs/reportng-1.1.3.jar"/>
 	<classpathentry kind="lib" path="C:/JAVA_PROJECTS/Libs/saxon-8.7.jar"/>
 	<classpathentry kind="lib" path="C:/JAVA_PROJECTS/Libs/SaxonLiaison.jar"/>
-	<classpathentry kind="lib" path="C:/JAVA_PROJECTS/Libs/selenium-java-2.44.0.jar"/>
-	<classpathentry kind="lib" path="C:/JAVA_PROJECTS/Libs/selenium-java-2.44.0-srcs.jar"/>
-	<classpathentry kind="lib" path="C:/JAVA_PROJECTS/Libs/selenium-server-standalone-2.44.0.jar"/>
 	<classpathentry kind="lib" path="C:/JAVA_PROJECTS/Libs/testng-6.8.5.jar"/>
 	<classpathentry kind="lib" path="C:/JAVA_PROJECTS/Libs/velocity-dep-1.4.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/CommonLibrary"/>
+	<classpathentry kind="lib" path="C:/JAVA_PROJECTS/Libs/selenium-java-2.46.0.jar"/>
+	<classpathentry kind="lib" path="C:/JAVA_PROJECTS/Libs/selenium-java-2.46.0-srcs.jar"/>
+	<classpathentry kind="lib" path="C:/JAVA_PROJECTS/Libs/selenium-server-standalone-2.46.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

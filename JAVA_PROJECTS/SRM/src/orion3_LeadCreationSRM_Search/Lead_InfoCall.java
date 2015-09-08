@@ -9,6 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -23,6 +24,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
 import orion3_Variables.EnvironmentVariables;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
 import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
@@ -280,7 +282,7 @@ public class Lead_InfoCall {
 				driver.get(EnvironmentVariables.sSRM_Url);
 				uiAddNewLeadsPageObjects.search_SRM.clear();
 				uiAddNewLeadsPageObjects.search_SRM.sendKeys(sEmailAddress1);
-				WebDriverWait wait = new WebDriverWait(driver, 35);
+				WebDriverWait wait = new WebDriverWait(driver, 5000);
 				WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("phSearchButton")));
 					
 				uiAddNewLeadsPageObjects.btnsearch_SRM.click();
@@ -289,6 +291,17 @@ public class Lead_InfoCall {
 				uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
 				uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
 				uiAddNewLeadsPageObjects.btnsearch_again.click();
+				
+				Thread.sleep(30000);
+				
+				uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
+				uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
+				uiAddNewLeadsPageObjects.btnsearch_again.click();
+				Thread.sleep(30000);
+				uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
+				uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
+				uiAddNewLeadsPageObjects.btnsearch_again.click();
+				Thread.sleep(30000);
 				WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='Lead_body']/table/tbody/tr[2]/td[8]/a")));
 				UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.txtInquiryStatus);
 				Assert.assertEquals(uiAddNewLeadsPageObjects.txtInquiryStatus.getText().trim(), "New");

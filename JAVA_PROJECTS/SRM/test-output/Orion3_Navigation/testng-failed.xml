@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Orion3_Navigation]">
-  <parameter name="Environment" value="TEST"/>
+  <parameter name="Environment" value="DEV"/>
   <parameter name="Browser" value="firefox"/>
   <listeners>
     <listener class-name="commonfunctions.ScreenShotOnTestFailure"/>
@@ -10,13 +10,16 @@
   <test name="Orion3_Navigation_FireFox(failed)">
     <parameter name="Browser" value="firefox"/>
     <classes>
-      <class name="inquiry_Leads.AddInquiry_Referral_Lead_Creation">
+      <class name="inquiry_Leads.SRM_LeadFlow">
         <methods>
-          <include name="AfterNavigation"/>
-          <include name="BrowseToAddNewReferralLeadPage" invocation-numbers="0"/>
+          <include name="VerifyLeadInSRM"/>
+          <include name="Lead_Flow"/>
           <include name="BeforeNavigation"/>
+          <include name="SRM__Lead_Details"/>
+          <include name="AfterNavigation"/>
+          <include name="BrowseToAddInfoCallLeadPage" invocation-numbers="0"/>
         </methods>
-      </class> <!-- inquiry_Leads.AddInquiry_Referral_Lead_Creation -->
+      </class> <!-- inquiry_Leads.SRM_LeadFlow -->
       <class name="orion3_Variables.EnvironmentVariables">
         <methods>
           <include name="BeforeSuite_Orion3"/>

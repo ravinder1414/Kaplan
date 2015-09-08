@@ -36,7 +36,7 @@
    </target>
    <target name="Orion3Navigation" depends="compile">
 	<testng outputdir="${testoutdir}" classpathref="classpath"  listeners="org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter"> 		 
-      <xmlfileset dir="${basedir}" includes="TestNg_Navigation.xml"/> 
+		<xmlfileset dir="${basedir}" includes="TestNg_Navigation_${Env}.xml"/> 
     </testng>   
    </target>
 	<target name="junit-report" depends="Orion3Navigation">

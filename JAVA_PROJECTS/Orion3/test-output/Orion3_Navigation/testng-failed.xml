@@ -15,19 +15,18 @@
           <include name="BeforeSuite_Orion3"/>
         </methods>
       </class> <!-- orion3_Variables.EnvironmentVariables -->
-      <class name="orion3_LeadCreation.StudentManager">
+      <class name="orion3_LeadCreation.Lead_InfoCall">
         <methods>
-          <include name="Leads_Details"/>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-          <include name="VerifyLeadInAdmisssionManager"/>
-          <include name="Leads_ProgramOfInterest"/>
-          <include name="ContactInformationTabDetails" invocation-numbers="0"/>
-          <include name="BrowseToAddNewLeadPage"/>
           <include name="Leads_ClassificationDetails"/>
+          <include name="BrowseToAddNewLeadPage"/>
+          <include name="Leads_ProgramOfInterest"/>
           <include name="SubmitLead"/>
+          <include name="Leads_Details"/>
+          <include name="BeforeNavigation"/>
+          <include name="VerifyLeadInAdmisssionManager" invocation-numbers="0"/>
+          <include name="AfterNavigation"/>
         </methods>
-      </class> <!-- orion3_LeadCreation.StudentManager -->
+      </class> <!-- orion3_LeadCreation.Lead_InfoCall -->
     </classes>
   </test> <!-- Orion3_Navigation_FireFox(failed) -->
 </suite> <!-- Failed suite [Orion3_Navigation] -->
