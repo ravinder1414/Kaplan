@@ -21,12 +21,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import orion3_Variables.EnvironmentVariables;
+import reusableMethods_PageObject.ReusableMethods_PageObjects;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
 import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
 import uiMap_Orion3_SRM.AddInquiry_Referral_Lead_Pageobjects;
@@ -49,6 +51,7 @@ import commonfunctions.UserExtension;
 				public AdmissionsManagerPageObjects uiAdmissionMgrPageObjects;
 				public AddNewLeadPageObjects uiAddNewLeadsPageObjects;
 				public AddInquiry_Referral_Lead_Pageobjects uiAddInquiry_Referral_Lead_Pageobjects;
+				public ReusableMethods_PageObjects uiReusableMethods_PageObjects;
 				
 				
 				//Variables from Properties file
@@ -169,30 +172,19 @@ import commonfunctions.UserExtension;
 				public void BrowseToAddNewReferralLeadPage(Method objMethod) throws InterruptedException
 				{
 					uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
-
+					uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
                     Thread.sleep(30000);
                     
-					if(uiAddInquiry_Referral_Lead_Pageobjects.lnkDropDown.getText().equalsIgnoreCase("Admissions Console"))
-					{
-						
-						
-						//uiAddInquiry_Referral_Lead_Pageobjects.lnkBackToAdmissionConsole.click();
-						
-						
-					}
-					else
-					{
-						driver.findElement(By.xpath("//*[@id='tsid-arrow']")).click();
-						Thread.sleep(30000);
-						uiAddInquiry_Referral_Lead_Pageobjects.lnkAdmissionConsole.click();
-					}
+                    uiReusableMethods_PageObjects.NavigateAdmissionConsoleSTAGE(driver);
 					
-				
+    				
 					WebDriverWait wait = new WebDriverWait(driver, 10000);
-					driver.switchTo().frame("ext-comp-1006");
+					//driver.switchTo().frame("ext-comp-1006");
+					
+					driver.switchTo().frame("ext-comp-1005");
 					
 					UserExtension.IsElementPresent(driver, uiAddInquiry_Referral_Lead_Pageobjects.rbnReferral);
-					WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:j_id33:1")));
+					//WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:j_id33:1")));
 					
 					//Select Referral Radio Button
 					uiAddInquiry_Referral_Lead_Pageobjects.rbnReferral.click();
@@ -234,22 +226,26 @@ import commonfunctions.UserExtension;
 					Select ddlHightestEdution = new Select(uiAddInquiry_Referral_Lead_Pageobjects.ddHighestLevelEducation);
 					ddlHightestEdution.selectByVisibleText(sHighestEducation);
 					
-					Thread.sleep(10000);
+					Thread.sleep(30000);
 					
-					WebElement element3 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:addALeadButtonId")));
+					//WebElement element3 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:addALeadButtonId")));
+					
 					uiAddInquiry_Referral_Lead_Pageobjects.txtAddAnInquiry.click();
 					
 					Thread.sleep(30000);
 					
-					WebElement element4 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:successmsgid")));
+					UserExtension.IsElementPresent(driver, uiAddInquiry_Referral_Lead_Pageobjects.txtCreatedLeadSuccess);
+					
+					//WebElement element4 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:successmsgid")));
 					
 					Assert.assertEquals(uiAddInquiry_Referral_Lead_Pageobjects.txtCreatedLeadSuccess.getText().trim(), "Success:Your lead is being created");
 					
 					driver.navigate().refresh();
 					
-					driver.findElement(By.xpath("//*[@id='tsid-arrow']")).click();
+					uiReusableMethods_PageObjects.lnkDropDown.click();
 					Thread.sleep(30000);
 					uiAddInquiry_Referral_Lead_Pageobjects.lnkKaplanSRM.click();
+					//uiReusableMethods_PageObjects.BackToKaplanSRM(driver);
 					Thread.sleep(10000);
 					
 					
@@ -260,7 +256,7 @@ import commonfunctions.UserExtension;
 				@Test(dependsOnMethods={"BrowseToAddNewReferralLeadPage"})
 				public void VerifyLeadInSRM(Method objMethod) throws InterruptedException
 				
-				{
+				{try{
 					uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
 					driver.get(EnvironmentVariables.sSRM_Url);
 					uiAddNewLeadsPageObjects.search_SRM.clear();
@@ -291,12 +287,10 @@ import commonfunctions.UserExtension;
 					
 					Assert.assertTrue(uiAddNewLeadsPageObjects.txtEmailAddressVerification.getText().equalsIgnoreCase(sEmailAddress1), "Email searched successfully");
 							
-					//driver.close();
+				}catch (Exception e)
+				{Reporter.log(e.getMessage());
 					
-
-				
+				}
 				}
 	}
-
-	
 

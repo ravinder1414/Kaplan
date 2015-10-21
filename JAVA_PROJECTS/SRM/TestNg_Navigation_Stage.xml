@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Orion3_Navigation">
+<suite name="SRM">
 <parameter name="Environment" value="STAGE"/>
 <parameter name="sHub" value="10.78.4.12"/>
 <listeners>
@@ -10,13 +10,17 @@
     <parameter name="Browser" value="firefox"/>
     <classes>   
      <class name = "orion3_Variables.EnvironmentVariables" />
-      <class name = "inquiry_Leads.AddInquiry_Referral_Lead_Creation" />
+     <class name = "inquiry_Leads.AddInquiry_Referral_Lead_Creation" />
       <class name = "inquiry_Leads.AddInfoCall_Lead_Creation" />
       <class name = "inquiry_Leads.AddLiveChat_Lead_Creation" />
       <class name = "inquiry_Leads.AddWarmTransfer_Lead_Creation" />
-      <class name = "orion3_LeadCreationSRM_Search.Lead_InfoCall" />
+       <class name = "b2b_LeadCreation.B2BLeadCreation" />
+       <class name = "inquiry_Leads.Lead_Import" />
+       <class name = "orion3_LeadCreationSRM_Search.Lead_InfoCall" />
       <class name = "sep_CreateAccount.SEP_CreateAccount" />
       <class name = "inquiry_Leads.SRM_LeadFlow" />
+      
+      
     
     </classes>
     </test>

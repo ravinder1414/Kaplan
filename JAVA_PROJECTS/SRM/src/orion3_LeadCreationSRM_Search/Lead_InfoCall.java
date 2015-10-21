@@ -20,6 +20,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -278,7 +279,7 @@ public class Lead_InfoCall {
 			
 			@Test(dependsOnMethods={"SubmitLead"})
 			public void VerifyLeadInSRM(Method objMethod) throws InterruptedException
-			{
+			{try{
 				driver.get(EnvironmentVariables.sSRM_Url);
 				uiAddNewLeadsPageObjects.search_SRM.clear();
 				uiAddNewLeadsPageObjects.search_SRM.sendKeys(sEmailAddress1);
@@ -308,11 +309,9 @@ public class Lead_InfoCall {
 				
 				Assert.assertTrue(uiAddNewLeadsPageObjects.txtEmailAddressVerification.getText().equalsIgnoreCase(sEmailAddress1), "Email searched successfully");
 						
-				//driver.close();
+			}catch (Exception e)
+			{Reporter.log(e.getMessage());
 				
-
-			
 			}
-			
-
+			}
 }

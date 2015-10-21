@@ -21,12 +21,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import orion3_Variables.EnvironmentVariables;
+import reusableMethod_TestClass.ReusableMethod_Test;
+import reusableMethods_PageObject.ReusableMethods_PageObjects;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
 import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
 import uiMap_Orion3_SRM.AddInquiry_Referral_Lead_Pageobjects;
@@ -51,6 +54,8 @@ import commonfunctions.UserExtension;
 				public AddNewLeadPageObjects uiAddNewLeadsPageObjects;
 				public AddInquiry_Referral_Lead_Pageobjects uiAddInquiry_Referral_Lead_Pageobjects;
 				public InfoCallLeadPageObjects uiInfoCallLeadPageObjects;
+				public ReusableMethods_PageObjects uiReusableMethods_PageObjects;
+				
 				
 				
 				//Variables from Properties file
@@ -101,6 +106,12 @@ import commonfunctions.UserExtension;
 					{
 						sPath_AppProperties = ".//Resources//ApplicationProperties/TestApplication.properties";			
 					}
+					
+					
+					
+					
+					
+					
 					
 					//Load the Application variable file into File Input Stream.
 					File objFileApplication = new File(sPath_AppProperties);
@@ -155,6 +166,7 @@ import commonfunctions.UserExtension;
 					uiHomePageObjects = new HomePageObjects(driver);
 					uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
 					uiInfoCallLeadPageObjects = new InfoCallLeadPageObjects(driver);
+					
 				}
 				
 				@AfterClass
@@ -173,35 +185,44 @@ import commonfunctions.UserExtension;
 				{
 					uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
 					uiInfoCallLeadPageObjects = new InfoCallLeadPageObjects(driver);
-					
+					uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
 
                     Thread.sleep(30000);
                     
-					if(uiAddInquiry_Referral_Lead_Pageobjects.lnkDropDown.getText().equalsIgnoreCase("Admissions Console"))
+                    
+                    
+                  //How to Read files when changes are not on all the environments  
+                    
+                    //if (EnvironmentVariables.sEnv.equalsIgnoreCase("dev"))
 					{
-						
-						
-						//uiAddInquiry_Referral_Lead_Pageobjects.lnkBackToAdmissionConsole.click();
-						
-						
+                    	//uiReusableMethods_PageObjects.NavigateAdmissionConsoleSTAGE(driver);
 					}
-					else
+					//else if (EnvironmentVariables.sEnv.equalsIgnoreCase("stage"))
 					{
-						driver.findElement(By.xpath("//*[@id='tsid-arrow']")).click();
-						Thread.sleep(30000);
-						uiAddInquiry_Referral_Lead_Pageobjects.lnkAdmissionConsole.click();
+						//uiReusableMethods_PageObjects.NavigateAdmissionConsoleSTAGE(driver);			
 					}
+					
+					//else
+					{
+						//sPath_AppProperties = ".//Resources//ApplicationProperties/TestApplication.properties";			
+					}
+					
+                    
+                    uiReusableMethods_PageObjects.NavigateAdmissionConsoleSTAGE(driver);
 					
 				
 					WebDriverWait wait = new WebDriverWait(driver, 10000);
-					driver.switchTo().frame("ext-comp-1006");
+					//driver.switchTo().frame("ext-comp-1006");
+					
+					driver.switchTo().frame("ext-comp-1005");
 					
 					
 					UserExtension.IsElementPresent(driver, uiInfoCallLeadPageObjects.rbnInternet);
 					
 					uiInfoCallLeadPageObjects.rbnInternet.click();
 					Thread.sleep(30000);
-					WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:prmotionid")));
+					UserExtension.IsElementPresent(driver, uiInfoCallLeadPageObjects.ddPromotional);
+					//WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:prmotionid")));
 					Thread.sleep(30000);
 					UserExtension.IsElementPresent(driver, uiInfoCallLeadPageObjects.ddPromotional);
 					Select ddlPromotionCode = new Select(uiInfoCallLeadPageObjects.ddPromotional);
@@ -214,8 +235,9 @@ import commonfunctions.UserExtension;
 					ddlAreaOfStudy.selectByIndex(1);
 					
 					//Program of Interest
+					UserExtension.IsElementPresent(driver, uiInfoCallLeadPageObjects.ddProgramofInterest);
 					
-					WebElement element6 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:progid")));
+					//WebElement element6 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:progid")));
 					Thread.sleep(10000);
 					Select ddlProgramOfInterest = new Select(uiInfoCallLeadPageObjects.ddProgramofInterest);
 					
@@ -259,22 +281,25 @@ import commonfunctions.UserExtension;
 					Select ddlHightestEdution = new Select(uiInfoCallLeadPageObjects.ddHighestLevelEducation);
 					ddlHightestEdution.selectByVisibleText(sHighestEducation);
 					
-					Thread.sleep(10000);
+					Thread.sleep(30000);
 					
-					WebElement element3 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:addALeadButtonId")));
+					//WebElement element3 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:addALeadButtonId")));
 					uiInfoCallLeadPageObjects.txtAddAnInquiry.click();
 					
 					Thread.sleep(30000);
 					
-					WebElement element4 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:successmsgid")));
+					UserExtension.IsElementPresent(driver, uiInfoCallLeadPageObjects.txtCreatedLeadSuccess);
+					
+					//WebElement element4 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:successmsgid")));
 					
 					Assert.assertEquals(uiInfoCallLeadPageObjects.txtCreatedLeadSuccess.getText().trim(), "Success:Your lead is being created");
 					
 					driver.navigate().refresh();
 					
-					driver.findElement(By.xpath("//*[@id='tsid-arrow']")).click();
+					uiReusableMethods_PageObjects.lnkDropDown.click();
 					Thread.sleep(30000);
 					uiAddInquiry_Referral_Lead_Pageobjects.lnkKaplanSRM.click();
+					//uiReusableMethods_PageObjects.BackToKaplanSRM(driver);
 					Thread.sleep(10000);
 					
 					
@@ -285,7 +310,7 @@ import commonfunctions.UserExtension;
 				@Test(dependsOnMethods={"BrowseToAddInfoCallLeadPage"})
 				public void VerifyLeadInSRM(Method objMethod) throws InterruptedException
 				
-				{
+				{try{
 					uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
 					driver.get(EnvironmentVariables.sSRM_Url);
 					uiAddNewLeadsPageObjects.search_SRM.clear();
@@ -316,10 +341,15 @@ import commonfunctions.UserExtension;
 					
 					Assert.assertTrue(uiAddNewLeadsPageObjects.txtEmailAddressVerification.getText().equalsIgnoreCase(sEmailAddress1), "Email searched successfully");
 							
+				}catch (Exception e)
+				{Reporter.log(e.getMessage());
 					
-				
+				}
 				}
 	}
+				
+				
+	
 
 	
 

@@ -15,5 +15,6 @@
 	<classpathentry kind="lib" path="C:/JAVA_PROJECTS/Libs/selenium-java-2.46.0.jar"/>
 	<classpathentry kind="lib" path="C:/JAVA_PROJECTS/Libs/selenium-java-2.46.0-srcs.jar"/>
 	<classpathentry kind="lib" path="C:/JAVA_PROJECTS/Libs/selenium-server-standalone-2.46.0.jar"/>
+	<classpathentry kind="lib" path="C:/JAVA_PROJECTS/Libs/sqljdbc4-2.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

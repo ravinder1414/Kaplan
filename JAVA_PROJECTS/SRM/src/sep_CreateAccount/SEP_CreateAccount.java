@@ -27,6 +27,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import orion3_Variables.EnvironmentVariables;
+import reusableMethods_PageObject.ReusableMethods_PageObjects;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
 import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
 import uiMap_Orion3_SRM.AddInquiry_Referral_Lead_Pageobjects;
@@ -51,7 +52,7 @@ import commonfunctions.UserExtension;
 				public AddNewLeadPageObjects uiAddNewLeadsPageObjects;
 				public SEP_CreateAccount_PageObjects uiSEP_CreateAccount_PageObjects;
 				public AddInquiry_Referral_Lead_Pageobjects uiAddInquiry_Referral_Lead_Pageobjects;
-				
+				public ReusableMethods_PageObjects uiReusableMethods_PageObjects;
 				
 				//Variables from Properties file
 				 String sFirstName1;
@@ -288,7 +289,7 @@ import commonfunctions.UserExtension;
 				@Test(dependsOnMethods={"CreateSEPAccount"})
 				public void VerifyLeadInSRM(Method objMethod) throws InterruptedException
 				{
-					
+					uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
 					uiAddNewLeadsPageObjects = new AddNewLeadPageObjects(driver);
 					uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
 					driver.get(EnvironmentVariables.sSRM_Url);
@@ -304,9 +305,11 @@ import commonfunctions.UserExtension;
 					}
 					else
 					{
-						driver.findElement(By.xpath("//*[@id='tsid-arrow']")).click();
+						uiReusableMethods_PageObjects.lnkDropDown.click();
 						Thread.sleep(30000);
 						uiAddInquiry_Referral_Lead_Pageobjects.lnkKaplanSRM.click();
+						//uiReusableMethods_PageObjects.BackToKaplanSRM(driver);
+						Thread.sleep(10000);
 					}
 					Thread.sleep(10000);
 					UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.search_SRM);
@@ -343,7 +346,7 @@ import commonfunctions.UserExtension;
 					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
 					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
 					uiAddNewLeadsPageObjects.btnsearch_again.click();
-					WebElement element4 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h3/span[contains(text(), 'Opportunities')]")));
+					//WebElement element4 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h3/span[contains(text(), 'Opportunities')]")));
 					Thread.sleep(50000);
 					
 					//Assert.assertEquals(uiAddNewLeadsPageObjects.headingOppertunities.getText().trim(), "New");

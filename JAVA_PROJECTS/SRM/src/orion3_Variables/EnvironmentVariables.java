@@ -25,6 +25,9 @@ public class EnvironmentVariables {
 	public static String sTrusted_Uris="";
 	public static String sSEP_Url="";
 	public static String sSRM_OnlyUrl="";
+	public static String sB2B_LeadCreationUrl="";
+	public static String sLead_ImportURL="";
+	public static String sConnString= "";
 	
 
 	//Execution Environment 
@@ -98,6 +101,10 @@ public class EnvironmentVariables {
 	    sTrusted_Uris = (String)objProperties.getProperty("Trusted_Uris");
 	    sSEP_Url =(String)objProperties.getProperty("SEP_Url");
 	    sSRM_OnlyUrl =(String)objProperties.getProperty("SRM_OnlyUrl");
+	    sB2B_LeadCreationUrl=(String)objProperties.getProperty("B2B_LeadCreationUrl");
+	    sLead_ImportURL=(String)objProperties.getProperty("Lead_ImportURL");
+	    sConnString=(String)objProperties.getProperty("ConnString");
 		iTimeout = Integer.parseInt(objProperties.getProperty("Timeout"));
+		
 	}
 }

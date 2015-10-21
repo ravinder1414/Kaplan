@@ -39,10 +39,6 @@ package uiMap_Orion3_SRM;
 	     @FindBy(how=How.XPATH, using="//span[text()='Activity History']")
 	     public WebElement lnkActivityHistory;
 	
-	     //Link Activity History
-				
-		//@FindBy(how=How.XPATH, using=".//*[@id='00Qf000000Alskv_RelatedHistoryList_link']/span")
-		//public WebElement lnkActivityHistory;
 		
 		//Send SEP Email Link
 		
