@@ -43,6 +43,7 @@ public class ScreenShotOnTestFailure implements ITestListener{
 	      try 
 	      {
 			FileUtils.copyFile(srcFile, new File(sFileLocation));
+			
 	      }
 	      catch (IOException e)
 	      {
