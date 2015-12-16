@@ -1,5 +1,5 @@
 package uiMap_Orion3_SRM;
-
+//Import files
 	import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -173,6 +173,11 @@ import commonfunctions.UserExtension;
 		
 		@FindBy(how=How.ID, using="j_id0:addaleadid:leadblock:successmsgid")
 		public WebElement txtCreatedLeadSuccess;
+		
+		
+		//duplicate lead alert message 
+		@FindBy(how=How.XPATH, using=".//*[@id='j_id0:addaleadid:leadblock:errmsgid']")
+		public WebElement txtCreatedLeadDuplicate;
 		
 		
 		}

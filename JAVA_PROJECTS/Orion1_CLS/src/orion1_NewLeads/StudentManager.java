@@ -348,8 +348,8 @@ public class StudentManager {
 							Select dropdownStartDate = new Select(uiStudentManagerPageObjects.startDateDropDown);
 							
 							WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.id("_ctl3_dpStartDate")));
-							dropdownStartDate.selectByValue("5/5/2015");
-							
+							//dropdownStartDate.selectByValue("5/5/2015");
+							dropdownStartDate.selectByIndex(1);
 							
 							//Save Link and Yes button Link
 							

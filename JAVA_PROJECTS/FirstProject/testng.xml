@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="KUPortal_Navigation"  thread-count="10">
+<parameter name="Environment" value="TEST"/>
+   <test name="KUPortal_TopNavigation_IE" parallel="classes">
+    <parameter name="Browser" value="ie"/>
+    <classes>
+      <class name="KuPortal.EnvironmentVariables" />
+      <class name = "KuPortal.Test_HomePage" />
+      <class name = "KuPortal.Test_LandingPage" />
+      <class name = "KuPortal.Test_LandingPage" />
+      <class name = "KuPortal.Test_HomePage" />        
+    </classes>
+    </test>
+    <test name="KUPortal_TopNavigation_CHROME" parallel="classes">
+    <parameter name="Browser" value="chrome"/>
+    <classes>     
+      <class name="KuPortal.EnvironmentVariables" />      
+      <class name = "KuPortal.Test_HomePage" />
+      <class name = "KuPortal.Test_LandingPage" />
+      <class name = "KuPortal.Test_LandingPage" />
+      <class name = "KuPortal.Test_HomePage" />
+    </classes>
+    </test>
+</suite>

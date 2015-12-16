@@ -27,9 +27,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import orion3_Variables.EnvironmentVariables;
-import reusableMethod_TestClass.ReusableMethod_Test;
+import srm_Variables.EnvironmentVariables;
 import reusableMethods_PageObject.ReusableMethods_PageObjects;
+import reusableMethods_PageObject.SRM_ReusableMethods;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
 import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
 import uiMap_Orion3_SRM.AddInquiry_Referral_Lead_Pageobjects;
@@ -264,6 +264,11 @@ import commonfunctions.UserExtension;
 					{
 						uiInfoCallLeadPageObjects.rbtnSpouse_No.click();
 					}
+                   //	Military Type DropDown values
+					
+					Select ddlMilitaryType = new Select(uiInfoCallLeadPageObjects.dropDownMilitaryType);				
+					
+					ddlMilitaryType.selectByIndex(1);
 					
 					
 					//TCPA Disclosure
@@ -320,20 +325,8 @@ import commonfunctions.UserExtension;
 						
 					uiAddNewLeadsPageObjects.btnsearch_SRM.click();
 					
-					Thread.sleep(10000);
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
-					uiAddNewLeadsPageObjects.btnsearch_again.click();
-					Thread.sleep(70000);
+					SRM_ReusableMethods.WaitSearchInquiry(driver, 40000);
 					
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
-					uiAddNewLeadsPageObjects.btnsearch_again.click();
-					Thread.sleep(70000);
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
-					uiAddNewLeadsPageObjects.btnsearch_again.click();
-					Thread.sleep(30000);
 					
 					WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='Lead_body']/table/tbody/tr[2]/td[8]/a")));
 					UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.txtInquiryStatus);

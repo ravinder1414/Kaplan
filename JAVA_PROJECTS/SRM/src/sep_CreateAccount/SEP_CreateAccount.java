@@ -26,8 +26,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import orion3_Variables.EnvironmentVariables;
+import srm_Variables.EnvironmentVariables;
 import reusableMethods_PageObject.ReusableMethods_PageObjects;
+import reusableMethods_PageObject.SRM_ReusableMethods;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
 import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
 import uiMap_Orion3_SRM.AddInquiry_Referral_Lead_Pageobjects;
@@ -319,33 +320,9 @@ import commonfunctions.UserExtension;
 					WebDriverWait wait = new WebDriverWait(driver, 50000);
 					WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("phSearchButton")));
 					uiAddNewLeadsPageObjects.btnsearch_SRM.click();
-					WebElement element3 = wait.until(ExpectedConditions.elementToBeClickable(By.id("secondSearchText")));
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
-					uiAddNewLeadsPageObjects.btnsearch_again.click();
 					
-					Thread.sleep(180000);
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
-					uiAddNewLeadsPageObjects.btnsearch_again.click();
-					Thread.sleep(60000);
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
-					uiAddNewLeadsPageObjects.btnsearch_again.click();
-					Thread.sleep(60000);
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
-					uiAddNewLeadsPageObjects.btnsearch_again.click();
 					
-					Thread.sleep(80000);
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
-					uiAddNewLeadsPageObjects.btnsearch_again.click();
-					
-					Thread.sleep(80000);
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
-					uiAddNewLeadsPageObjects.btnsearch_again.click();
+					SRM_ReusableMethods.WaitSearchOpportunity(driver, 40000);
 					//WebElement element4 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h3/span[contains(text(), 'Opportunities')]")));
 					Thread.sleep(50000);
 					

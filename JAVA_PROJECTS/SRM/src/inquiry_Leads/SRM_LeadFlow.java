@@ -28,7 +28,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import orion3_Variables.EnvironmentVariables;
+import srm_Variables.EnvironmentVariables;
 import reusableMethods_PageObject.ReusableMethods_PageObjects;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
 import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
@@ -247,6 +247,11 @@ import commonfunctions.UserExtension;
 					}
 					
 					Thread.sleep(1000);
+                   //	Military Type DropDown values
+					
+					Select ddlMilitaryType = new Select(uiInfoCallLeadPageObjects.dropDownMilitaryType);				
+					
+					ddlMilitaryType.selectByIndex(1);
 					
 					//TCPA Disclosure
 					if(sTCPA.equalsIgnoreCase("yes"))
@@ -558,34 +563,34 @@ import commonfunctions.UserExtension;
 					//Area of Study
 					
 					Select ddlAreaofStudy = new Select(uiSRM_LeadFlow_PageObjects.ddAreaofStudy);
-					ddlAreaofStudy.selectByIndex(3);
+					ddlAreaofStudy.selectByValue("2");
 					
 					//Degree Level
 					
-					Thread.sleep(60000);
+					Thread.sleep(30000);
 					
 					Select ddlDegreeLevel = new Select(uiSRM_LeadFlow_PageObjects.ddDegreeLevel);
-					ddlDegreeLevel.selectByIndex(1);
+					ddlDegreeLevel.selectByVisibleText("Master of Science");
 					
 					//WebElement element14 = wait1.until(ExpectedConditions.elementToBeClickable(By.name("ProgramOfStudy")));
 					
 					//Program of Study
 					
-					Thread.sleep(60000);
+					Thread.sleep(30000);
 					
 					Select ddlProgramofStudy = new Select(uiSRM_LeadFlow_PageObjects.ddProgramofStudy);
-					ddlProgramofStudy.selectByVisibleText("Graduate Certificate in Online College Teaching");
+					ddlProgramofStudy.selectByValue("4");
 					
                    //Emphasis Type
 					
+					Select ddlEmphasisArea = new Select(uiSRM_LeadFlow_PageObjects.ddEmphasisArea);
+					ddlEmphasisArea.selectByValue("1");
 					
 					
-					//Select ddlEmphasisArea = new Select(uiSRM_LeadFlow_PageObjects.ddEmphasisArea);
-					//ddlEmphasisArea.selectByIndex(2);
 					
 					//Enrollment Type
 					
-					Thread.sleep(50000);
+					Thread.sleep(30000);
 					
 					Select ddlEnrollmentType = new Select(uiSRM_LeadFlow_PageObjects.ddEnrollmentType);
 					ddlEnrollmentType.selectByVisibleText("Full Time");
@@ -601,13 +606,14 @@ import commonfunctions.UserExtension;
 					
 					uiSRM_LeadFlow_PageObjects.rbnSave.click();
 					
-					Thread.sleep(50000);
+					
+					Thread.sleep(10000);
 					
 					uiSRM_LeadFlow_PageObjects.rbtnSaveAndContinue.click();
 					
-					Thread.sleep(50000);
+					Thread.sleep(30000);
 					
-					//WebElement element15 = wait1.until(ExpectedConditions.elementToBeClickable(By.name("PrimaryFundingSource")));
+					
 					
 					//Funding Primary
 					

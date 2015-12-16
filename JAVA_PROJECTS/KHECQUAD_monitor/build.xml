@@ -1,0 +1,85 @@
+<project name="KHECQuadMonitorTestNGTest" default="KHECQuadMonitor" basedir=".">
+<!-- Define <testng> task -->
+	<taskdef name="testng" classname="org.testng.TestNGAntTask">
+	    <classpath>
+	      <pathelement location="../libs/testng-6.8.5.jar"/>
+	    </classpath>
+	  </taskdef>
+	<target name="xslt" >
+		<delete dir="./testng-xslt"/>
+		<mkdir dir= "./testng-xslt"/>
+	       <xslt in="${basedir}/test-output/testng-results.xml" style="${basedir}/testng-results.xsl" out="${basedir}/testng-xslt/index.html" classpathref ="classpath.test" processor="SaxonLiaison">
+	     	<!--This should be absoulte path-->
+	            <param expression="${basedir}/testng-xslt/" name="testNgXslt.outputDir" />
+	            <param expression="true" name="testNgXslt.sortTestCaseLinks" />
+	            <param expression="FAIL,SKIP,PASS,CONF,BY_CLASS" name="testNgXslt.testDetailsFilter" />
+	            <param expression="true" name="testNgXslt.showRuntimeTotals" />
+	     </xslt>
+		<antcall target="sendMail"/>
+	</target>
+	<property name="testdir" location="bin" />
+   <property name="srcdir" location="src" />
+   <property name="testdirComm" location="../CommonLibrary/bin" />
+   <property name="srcdirComm" location="../CommonLibrary/src" />
+   <property name="libdir" location="../libs" />
+   <property name="testoutdir" location="test-output" />   
+	<property name="jlb.dir" location="../apache-ant-1.9.4/"/>
+	<property name="full-compile" value="true" />
+	<path id="classpath.base"/>
+	   <path id="classpath.test">
+	       <fileset dir="${libdir}">
+	         <include name="**/*.jar" />
+	      </fileset>
+	 	  <pathelement location="${testdirComm}" />
+	      <pathelement location="${srcdirComm}" />
+	      <pathelement location="${testdir}" />
+	      <pathelement location="${srcdir}" />
+	      <path refid="classpath.base" />
+	   </path>
+   <target name="clean" >
+      <delete verbose="${full-compile}">
+         <fileset dir="${testdir}" includes="**/*.class" />
+      	<fileset dir="${testdirComm}" includes="**/*.class" />  
+      </delete>
+   </target>
+	<target name="compilecommon" depends="clean">
+	      <javac srcdir="${srcdirComm}" destdir="${testdirComm}"  
+	         verbose="${full-compile}">
+	         <classpath refid="classpath.test"/>
+	      </javac>
+	</target>
+   <target name="compile" depends="compilecommon">
+      <javac srcdir="${srcdir}" destdir="${testdir}" 
+         verbose="${full-compile}">
+         <classpath refid="classpath.test"/>
+      </javac>
+   </target>
+	<target name="KHECQuadMonitor" depends="compile">
+	<testng outputdir="${testoutdir}" classpathref="classpath.test"> 
+      <xmlfileset dir="." includes="TestNg_${Env}.xml"/>
+	</testng>
+		<antcall target="sendMail"/>
+   </target>
+	
+	<target name="sendMail">
+		<!--		<zip destfile="${basedir}/XSLT_Reports/resultoutput.zip">
+				<fileset dir="${basedir}/testng-xslt" excludes="main.js"/>
+				</zip>-->
+				
+			<mail from="pmishra2@kaplan.edu"
+					mailhost="smtp.gmail.com" ssl="yes" mailport="465"
+					user="pmishra2@kaplan.edu" password="MP07CA@2145"
+					subject="PROD KHEC QUAD2 Monitor: Automated Notification">
+				    <message>Please download the attached zip file and refer following steps to see the test results: 1. Convert main.txt to main.js 2. Open Index.html</message>
+					<to address="pmishra2@kaplan.edu"/>
+					
+					<attachments>
+							<fileset dir="${basedir}/test-output/KHECQuad_Monitoring/">
+								<include name="**/*.html"/>
+							</fileset>
+						</attachments>
+						
+				</mail>	 
+	</target>
+	
+</project>

@@ -1,10 +1,13 @@
 package uiMap_Orion3_SRM;
+//Import files
+	import java.util.List;
 
-	import org.openqa.selenium.WebDriver;
-	import org.openqa.selenium.WebElement;
-	import org.openqa.selenium.support.FindBy;
-	import org.openqa.selenium.support.How;
-	import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 
 	public class SRM_LeadFlow_PageObjects {
 		
@@ -14,17 +17,17 @@ package uiMap_Orion3_SRM;
 			PageFactory.initElements(driver, this);
 		}
 		
-		//Click on created Lead
+		//iNQUIRYlEAD LINK
 		
 		@FindBy(how=How.XPATH, using=".//*[@id='Lead_body']/table/tbody/tr[2]/th/a")
 		public WebElement clickOnCreatedLead;
 		
-	
 		//Edit button
 		@FindBy(how=How.XPATH, using=".//*[@id='topButtonRow']/input[3]")
 		public WebElement btnEdit;
 		
-
+		
+			
 		//Inquiry Status DropDown
 		@FindBy(how=How.ID, using="lea13")
 		public WebElement ddInquiryDropDown;
@@ -54,6 +57,11 @@ package uiMap_Orion3_SRM;
 		
 		@FindBy(how=How.ID, using="txtNewPassword")
 		public WebElement txtNewPassword;
+		
+		@FindBy(how=How.ID, using="Password")
+		public WebElement txtPassword;
+		
+		
 		
 		//Confirm Password
 		
@@ -203,6 +211,13 @@ package uiMap_Orion3_SRM;
 	        @FindBy(how=How.XPATH, using=".//*[@id='form-content']/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/div/div[2]/div[2]/div/span/input")
 	        public WebElement rbtnAttendedCollege_No;
 	        
+	        //Attended College Radio Button Yes
+	        
+	        @FindBy(how=How.XPATH, using=".//*[@id='form-content']/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/div/div[2]/div[1]/div/span/input")
+	        public WebElement rbtnAttendedCollege_Yes;
+	        
+	        
+	        
 	        
 	        //Equivalent Credit Radio Button
 	        
@@ -230,6 +245,7 @@ package uiMap_Orion3_SRM;
 	        
 	        @FindBy(how=How.NAME, using="EmphasisArea")
 	        public WebElement ddEmphasisArea;
+	        
 	        
 	        //Enrollment Type
 	        
@@ -315,17 +331,55 @@ package uiMap_Orion3_SRM;
 	        public WebElement rbnSave;
 	        
 	        
+//**************************Update on 12/3/15 for validateODI scenario*************************
+	        //Opportunity Link
+			@FindBy(how=How.XPATH, using=".//*[@id='Opportunity_body']/table/tbody/tr[2]/th/a")
+			public WebElement LnkOppLead;
+			
+			//convert button 
+			@FindBy(how=How.XPATH, using="//td[@id='topButtonRow']//input[@name='convert']")
+			public WebElement btnConvert;
+
+			//converted Inquiry heading 
+			@FindBy(how=How.XPATH, using="//h2[text()='Converted Inquiry']")
+			public WebElement hdngConvInquiry;
+			
+			//CVUE Student Number 
+			@FindBy(how=How.XPATH, using="//td[text()='CVUE Student Number']/following-sibling::td[1]/div")
+			public WebElement txtCVUEStunum;
+			
+			//SyStudent ID
+			@FindBy(how=How.XPATH, using="//td[text()='SyStudentID']/following-sibling::td[1]/div")
+			public WebElement txtSyStudentID;
+			
+			//Default tab in Student Documents section
+			@FindBy(how=How.XPATH, using="//td[text()='Default']")
+			public WebElement tabDefault;
 	        
+	        //Acad File Status label in Student Documents section
+			@FindBy(how=How.XPATH, using="//b[contains(text(), 'Academic File Status:')]")
+			public WebElement lblAcadFileStatus;
 	        
+			//Work-Study doc category in Student Documents section
+			@FindBy(how=How.XPATH, using="//b[text()='Work-Study']")
+			public WebElement lblWorkStudDocCat;
 	        
+	        //FA CWS Payroll Data doc Name in Student Documents section
+			@FindBy(how=How.XPATH, using="//span[text()='FA CWS Payroll Data']")
+			public WebElement lblFACWSDocName;
 	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
+			
+			//iFrame id text in Opportunity page
+			public String idIFrame = "066i0000004BEIg";
+			
+			//load documents button 
+			@FindBy(how=How.XPATH, using="//input[@name='load_student_documents']")
+			public WebElement btnLoadStuDocs;
+			
+			//Program name list in load stu doc section 
+			
+			@FindAll(@FindBy(how=How.XPATH, using="//span[@class='tooltip']"))
+			public List <WebElement >LstProgName;
 	        
 	        
 	        

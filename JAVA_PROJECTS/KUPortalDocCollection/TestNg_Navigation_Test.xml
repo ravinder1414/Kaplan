@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="KuPortal_DocCollection">
+<parameter name="Environment" value="TEST"/>
+<parameter name="sHub" value="10.78.4.12"/>
+<parameter name="sHubPort" value="4445"/>
+<listeners>
+      <listener class-name="commonfunctions.ScreenShotOnTestFailure" />
+</listeners>
+    <test name="KUPDocCollection_FireFox">
+    <parameter name="Browser" value="firefox"/>
+    <classes>     
+      <class name = "environment.EnvironmentVariables" />
+      <class name = "DocCollection.MyAccountDocuments" />
+      <class name = "DocCollection.FileUpload"/>
+      <class name= "DocCollection.FileUploadValidationsCheck"/>
+      <class name= "DocCollection.FileUploadValidFile"/>
+         </classes>
+    </test>
+</suite>

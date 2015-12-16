@@ -39,8 +39,10 @@ public  class QueryDB {
 	  Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 	  conn= DriverManager.getConnection(ConString);
 	  stmt=(Statement) conn.createStatement();
+	  
 	  ResultSet rs = stmt.executeQuery(queryString);
 	  return rs;
+	  
   }
   
   

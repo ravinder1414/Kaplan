@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="KHECQuad_Monitoring">
+<parameter name="Environment" value="PROD"/>
+<parameter name="sHub" value="10.78.4.12"/>
+<parameter name="sHubPort" value="4445"/>
+<listeners>
+      <listener class-name="commonfunctions.ScreenShotOnTestFailure" />
+</listeners>
+    <test name="KHECQuadMonitor_FireFox">
+    <parameter name="Browser" value="firefox"/>
+    <classes>     
+      <class name = "environment.EnvironmentVariables" />
+      <class name = "testCase.CheckAdmin" />
+     </classes>
+    </test>
+</suite>

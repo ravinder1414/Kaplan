@@ -1,17 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="6" passed="6">
   <reporter-output>
+    <line>
+      <![CDATA[[SubmitLead][2015.07.01]'[04:16:31]     Pass: Close Page button did appear as expected]]>
+    </line>
+    <line>
+      <![CDATA[[SubmitLead][2015.07.01]'[04:16:31]     Pass: Reset Page button did appear as expected]]>
+    </line>
   </reporter-output>
-  <suite name="SRM" duration-ms="491956" started-at="2015-10-21T09:45:55Z" finished-at="2015-10-21T09:54:07Z">
+  <suite name="Orion3_Navigation" duration-ms="96802" started-at="2015-07-01T10:45:50Z" finished-at="2015-07-01T10:47:27Z">
     <groups>
     </groups>
-    <test name="Orion3_Navigation_FireFox" duration-ms="491956" started-at="2015-10-21T09:45:55Z" finished-at="2015-10-21T09:54:07Z">
-      <class name="orion3_Variables.EnvironmentVariables">
-        <test-method status="PASS" signature="BeforeSuite_Orion3(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:orion3_Variables.EnvironmentVariables@153b098]" name="BeforeSuite_Orion3" is-config="true" duration-ms="308" started-at="2015-10-21T15:15:55Z" finished-at="2015-10-21T15:15:55Z">
+    <test name="Orion3_Navigation_FireFox" duration-ms="96802" started-at="2015-07-01T10:45:50Z" finished-at="2015-07-01T10:47:27Z">
+      <class name="orion3_LeadCreationSRM_Search.Lead_InfoCall">
+        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:orion3_LeadCreationSRM_Search.Lead_InfoCall@1c3d34b]" name="BeforeNavigation" is-config="true" duration-ms="26412" started-at="2015-07-01T16:15:50Z" finished-at="2015-07-01T16:16:17Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[STAGE]]>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeNavigation -->
+        <test-method status="PASS" signature="BrowseToAddNewLeadPage(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreationSRM_Search.Lead_InfoCall@1c3d34b]" name="BrowseToAddNewLeadPage" duration-ms="4617" started-at="2015-07-01T16:16:17Z" finished-at="2015-07-01T16:16:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void orion3_LeadCreationSRM_Search.Lead_InfoCall.BrowseToAddNewLeadPage(java.lang.reflect.Method)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BrowseToAddNewLeadPage -->
+        <test-method status="PASS" signature="Leads_ClassificationDetails(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreationSRM_Search.Lead_InfoCall@1c3d34b]" name="Leads_ClassificationDetails" duration-ms="2093" started-at="2015-07-01T16:16:21Z" depends-on-methods="orion3_LeadCreationSRM_Search.Lead_InfoCall.BrowseToAddNewLeadPage" finished-at="2015-07-01T16:16:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void orion3_LeadCreationSRM_Search.Lead_InfoCall.Leads_ClassificationDetails(java.lang.reflect.Method)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Leads_ClassificationDetails -->
+        <test-method status="PASS" signature="Leads_ProgramOfInterest(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreationSRM_Search.Lead_InfoCall@1c3d34b]" name="Leads_ProgramOfInterest" duration-ms="2238" started-at="2015-07-01T16:16:24Z" depends-on-methods="orion3_LeadCreationSRM_Search.Lead_InfoCall.Leads_ClassificationDetails" finished-at="2015-07-01T16:16:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void orion3_LeadCreationSRM_Search.Lead_InfoCall.Leads_ProgramOfInterest(java.lang.reflect.Method)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Leads_ProgramOfInterest -->
+        <test-method status="PASS" signature="Leads_Details(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreationSRM_Search.Lead_InfoCall@1c3d34b]" name="Leads_Details" duration-ms="2755" started-at="2015-07-01T16:16:26Z" depends-on-methods="orion3_LeadCreationSRM_Search.Lead_InfoCall.Leads_ProgramOfInterest" finished-at="2015-07-01T16:16:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void orion3_LeadCreationSRM_Search.Lead_InfoCall.Leads_Details(java.lang.reflect.Method)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Leads_Details -->
+        <test-method status="PASS" signature="SubmitLead(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreationSRM_Search.Lead_InfoCall@1c3d34b]" name="SubmitLead" duration-ms="2403" started-at="2015-07-01T16:16:29Z" depends-on-methods="orion3_LeadCreationSRM_Search.Lead_InfoCall.Leads_Details" finished-at="2015-07-01T16:16:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void orion3_LeadCreationSRM_Search.Lead_InfoCall.SubmitLead(java.lang.reflect.Method)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[[SubmitLead][2015.07.01]'[04:16:31]     Pass: Close Page button did appear as expected]]>
+            </line>
+            <line>
+              <![CDATA[[SubmitLead][2015.07.01]'[04:16:31]     Pass: Reset Page button did appear as expected]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- SubmitLead -->
+        <test-method status="PASS" signature="VerifyLeadInSRM(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreationSRM_Search.Lead_InfoCall@1c3d34b]" name="VerifyLeadInSRM" duration-ms="55986" started-at="2015-07-01T16:16:31Z" depends-on-methods="orion3_LeadCreationSRM_Search.Lead_InfoCall.SubmitLead" finished-at="2015-07-01T16:17:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void orion3_LeadCreationSRM_Search.Lead_InfoCall.VerifyLeadInSRM(java.lang.reflect.Method)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyLeadInSRM -->
+        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:orion3_LeadCreationSRM_Search.Lead_InfoCall@1c3d34b]" name="AfterNavigation" is-config="true" duration-ms="283" started-at="2015-07-01T16:17:27Z" finished-at="2015-07-01T16:17:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterNavigation -->
+      </class> <!-- orion3_LeadCreationSRM_Search.Lead_InfoCall -->
+      <class name="orion3_Variables.EnvironmentVariables">
+        <test-method status="PASS" signature="BeforeSuite_Orion3(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:orion3_Variables.EnvironmentVariables@5db8ff]" name="BeforeSuite_Orion3" is-config="true" duration-ms="194" started-at="2015-07-01T16:15:50Z" finished-at="2015-07-01T16:15:50Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[TEST]]>
               </value>
             </param>
             <param index="1">
@@ -26,7 +121,7 @@
             </param>
             <param index="3">
               <value>
-                <![CDATA[org.testng.TestRunner@18f8577]]>
+                <![CDATA[org.testng.TestRunner@1be5404]]>
               </value>
             </param>
           </params>
@@ -34,45 +129,6 @@
           </reporter-output>
         </test-method> <!-- BeforeSuite_Orion3 -->
       </class> <!-- orion3_Variables.EnvironmentVariables -->
-      <class name="inquiry_Leads.AddInfoCall_Lead_Creation">
-        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:inquiry_Leads.AddInfoCall_Lead_Creation@a2f435]" name="BeforeNavigation" is-config="true" duration-ms="43216" started-at="2015-10-21T15:15:55Z" finished-at="2015-10-21T15:16:38Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BeforeNavigation -->
-        <test-method status="PASS" signature="BrowseToAddInfoCallLeadPage(java.lang.reflect.Method)[pri:0, instance:inquiry_Leads.AddInfoCall_Lead_Creation@a2f435]" name="BrowseToAddInfoCallLeadPage" duration-ms="253132" started-at="2015-10-21T15:16:38Z" finished-at="2015-10-21T15:20:51Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void inquiry_Leads.AddInfoCall_Lead_Creation.BrowseToAddInfoCallLeadPage(java.lang.reflect.Method) throws java.lang.InterruptedException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BrowseToAddInfoCallLeadPage -->
-        <test-method status="PASS" signature="VerifyLeadInSRM(java.lang.reflect.Method)[pri:0, instance:inquiry_Leads.AddInfoCall_Lead_Creation@a2f435]" name="VerifyLeadInSRM" duration-ms="191533" started-at="2015-10-21T15:20:51Z" depends-on-methods="inquiry_Leads.AddInfoCall_Lead_Creation.BrowseToAddInfoCallLeadPage" finished-at="2015-10-21T15:24:03Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void inquiry_Leads.AddInfoCall_Lead_Creation.VerifyLeadInSRM(java.lang.reflect.Method) throws java.lang.InterruptedException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyLeadInSRM -->
-        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:inquiry_Leads.AddInfoCall_Lead_Creation@a2f435]" name="AfterNavigation" is-config="true" duration-ms="4016" started-at="2015-10-21T15:24:03Z" finished-at="2015-10-21T15:24:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AfterNavigation -->
-      </class> <!-- inquiry_Leads.AddInfoCall_Lead_Creation -->
     </test> <!-- Orion3_Navigation_FireFox -->
-  </suite> <!-- SRM -->
+  </suite> <!-- Orion3_Navigation -->
 </testng-results>

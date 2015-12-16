@@ -1,0 +1,62 @@
+<project name="KuPortalAdminTest" default="junit-report" basedir=".">
+	
+<!-- Define <testng> task -->
+  <taskdef name="testng" classname="org.testng.TestNGAntTask">
+    <classpath>
+      <pathelement location="../libs/testng-6.8.5.jar"/>
+    </classpath>
+  </taskdef>
+   <property name="junit-xml-dir" value="${basedir}/test-output/junitreports"/>
+   <property name="report-dir" value="${basedir}/html-report" />
+   <property name="testdir" location="bin" />
+   <property name="srcdir" location="src" />
+   <property name="libdir" location="../libs" />
+   <property name="testoutdir" location="test-output" />   
+   <property name="full-compile" value="true" />
+   <path id="classpath.base"/>
+   <path id="classpath">
+       <fileset dir="${libdir}">
+         <include name="**/*.jar" />
+      </fileset>
+      <pathelement location="${testdir}" />
+      <pathelement location="${srcdir}" />
+      <path refid="classpath.base" />
+   </path>
+   <target name="clean" >
+      <delete verbose="${full-compile}">
+         <fileset dir="${testdir}" includes="**/*.class" />      	
+      </delete>
+   	  <delete dir="${junit-xml-dir}" failonerror="false"/>
+   </target>
+   <target name="compile" depends="clean">
+      <javac srcdir="${srcdir}" destdir="${testdir}" 
+         verbose="${full-compile}">
+         <classpath refid="classpath"/>
+      </javac>
+   </target>
+   <target name="KUPortalAdminNavigation" depends="compile">
+	<testng outputdir="${testoutdir}" classpathref="classpath"  listeners="org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter"> 		 
+      <xmlfileset dir="${basedir}" includes="TestNg_Navigation.xml"/> 
+    </testng>   
+   </target>
+	<target name="junit-report" depends="KUPortalAdminNavigation">
+	    <!-- Delete and recreate the html report directories -->
+	    <delete dir="${report-dir}" failonerror="false"/>		
+	    <mkdir dir="${report-dir}" />
+	    <mkdir dir="${report-dir}/Junit" />
+	    <!-- Ant task to generate the html report.
+	    todir - Directory to generate the output reports
+
+	    fileset - Directory to look for the junit xml reports.
+
+	    report - defines the type of format to be generated.
+	      Here we are using "noframes" which generates a single html report.
+	     -->
+	    <junitreport todir="${report-dir}/Junit">
+	      <fileset dir="${junit-xml-dir}">
+	        <include name="**/*.xml" />
+	      </fileset>
+	      <report format="noframes" todir="${report-dir}/Junit" />
+	    </junitreport>
+		</target>
+</project>

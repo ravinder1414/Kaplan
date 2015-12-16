@@ -32,7 +32,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-	import orion3_Variables.EnvironmentVariables;
+	import srm_Variables.EnvironmentVariables;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
 import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
 import uiMap_Orion3_SRM.AddInquiry_Referral_Lead_Pageobjects;
@@ -231,6 +231,7 @@ import commonfunctions.UserExtension;
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
+						
 						
 					}catch (Exception e)
 					{Reporter.log(e.getMessage());

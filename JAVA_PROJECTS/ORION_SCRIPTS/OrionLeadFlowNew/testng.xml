@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="CLS_LeadFlow" thread-count="5">
+
+		<!-- Running Test in Internet Explorer browser -->
+		<test name="ORION Lead Flow(with Firefox)" preserve-order="true">
+		<parameter name="browser" value="firefox"/>
+		<parameter name="port" value="4444"/>
+		<classes>
+				<class name="AddVerifyLead.TillAppReceived" />
+				<class name="AddVerifyLead.OECFlow" />
+				<class name="AddVerifyLead.FundingConfrm" />
+				<class name="AddVerifyLead.PendingEnrollment" />
+   		</classes>
+			
+		</test>
+		
+
+</suite>

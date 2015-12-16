@@ -1,5 +1,5 @@
 package uiMap_Orion3.Admissions;
-
+//Import files1
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -244,9 +244,8 @@ public class AddNewLeadPageObjects {
 		public WebElement headingOppertunities;
 		
 		
-		
-		//@FindBy(how=How.XPATH, using = ".//*[@id='Account']/div[2]/div/div[1]/table/tbody/tr/td[1]/h3/span")
-		//public WebElement headingInquiry;
+		@FindBy(how=How.XPATH, using = ".//*[@id='Opportunity_body']/table/tbody/tr[2]/td[8]")
+		public WebElement txtStatusOppertunities;
 		
 		
 		

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="orion_Lead_Flow" basedir="." default = "copyResultsToDestDir">
+
+<property name="basedir" value= "."/>
+<property name="test.testng1" value ="${basedir}"/>
+<property name="testng.output.dir" value = "${basedir}/test_output"/>
+<property name="global.dir" value = "C:/ORION_SCRIPTS/GlobalFunctions"/>
+<property name="xls.poi" value = "C:/poi-bin-3.9-20121203/poi-3.9"/>
+<property name="testNg.dir" value = "C:/testng-6.8/testng-6.8"/>
+	
+	<!--Setting classpath of TestNg .jar file -->
+	<taskdef name="testng" classname="org.testng.TestNGAntTask">
+	   <classpath>
+	     <pathelement location="${testNg.dir}/testng-6.8.jar"/>
+	   	 	   	
+	   	</classpath>
+	</taskdef>
+	
+  <!-- Directory path of compiled classes(i.e *.class) -->
+  <path id="classes">
+  	 	<pathelement location="${basedir}/bin"/>
+  		<pathelement location="${global.dir}/bin"/>
+  			<fileset dir="${xls.poi}">
+  				<include name="**/*.jar"/>		
+  			</fileset>
+  </path>
+	
+	<!--Cleaning and creating results directory-->
+	<target name="cleanResults">
+		<delete dir="${testng.output.dir}"/> <!-- Create the output directory. -->
+		<delete dir="${basedir}/testng-xslt/"/>
+		<mkdir dir="${testng.output.dir}"/>	<!-- Create the output directory. -->
+	</target>
+	
+	<!--Run the TestNg Tests -->
+	<target name="runTestNG" depends="compile">
+	    <testng outputdir="${testng.output.dir}" classpathref="classes" classpath="C:\selenium-server-standalone-2.39.0.jar">
+	      <xmlfileset dir="." includes="testng.xml"/> 
+	    </testng>
+	 
+	</target>
+	  
+	<!--Generate reports-->
+  	<target name="generateXSLTRep" depends ="runTestNG">
+		<xslt in="${basedir}/test_output/testng-results.xml" out="${basedir}/testng-xslt/index.html" style="${basedir}/testng-results.xsl">
+		  		<param expression="${basedir}/testng-xslt/" name="testNgXslt.outputDir" />
+          		<param expression="true" name="testNgXslt.sortTestCaseLinks" />
+          		<param expression="FAIL,SKIP,PASS,CONF,BY_CLASS" name="testNgXslt.testDetailsFilter" />
+          		<param expression="true" name="testNgXslt.showRuntimeTotals" />
+			<classpath>
+				<pathelement location="${basedir}/bin" />
+				<fileset dir="C:\testng-xslt-1.1.1\lib">
+					<include name="**/*.jar" />
+				</fileset>
+        	</classpath>
+		</xslt>
+  	</target>
+	
+	<!--Compile the Tests i.e. .java files-->
+  	<target name="compile"  depends = "cleanResults">
+  		<echo>Compiling base classes</echo>
+		<javac includeantruntime = "false" srcdir="${basedir}/src" destdir="${basedir}/bin"/>
+  		<echo>Compiling Global classes</echo>
+  		<javac includeantruntime = "false" srcdir="${global.dir}/src" destdir="${global.dir}/bin"/>
+  		<echo>Complie process done</echo>
+	</target>
+
+	<!--Copy Results to other location-->
+	<target name="copyResultsToDestDir" depends ="generateXSLTRep">
+		<copy todir="C:/Results_LeadFlow"/>
+			<fileset dir="${basedir}/testng-xslt" include="**/*.*">
+			</fileset>
+		
+	</target>
+</project>

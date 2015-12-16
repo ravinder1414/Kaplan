@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="KuPortalAdmin_Navigation">
+<parameter name="Environment" value="TEST"/>
+<parameter name="sHub" value="10.78.4.12"/>
+<listeners>
+      <listener class-name="commonfunctions.ScreenShotOnTestFailure" />
+</listeners>
+    <test name="KuPortalAdmin_Navigation_FireFox">
+    <parameter name="Browser" value="firefox"/>
+    <classes>     
+      <class name = "environment.EnvironmentVariables" />
+      <class name = "kuPortalAdmin_Navigation.LandingPage_Nav" />
+      <class name = "kuPortalAdmin_Navigation.HomePage_Nav" />
+    </classes>
+    </test>
+</suite>

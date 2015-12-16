@@ -27,12 +27,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import orion3_Variables.EnvironmentVariables;
+import srm_Variables.EnvironmentVariables;
 import reusableMethods_PageObject.ReusableMethods_PageObjects;
+import reusableMethods_PageObject.SRM_ReusableMethods;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
 import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
 import uiMap_Orion3_SRM.AddInquiry_Referral_Lead_Pageobjects;
 import uiMap_Orion3_SRM.HomePageObjects;
+import uiMap_Orion3_SRM.InfoCallLeadPageObjects;
 import commonfunctions.BrowserManagement;
 import commonfunctions.ReportExtn;
 import commonfunctions.ScreenShotOnTestFailure;
@@ -43,7 +45,7 @@ import commonfunctions.UserExtension;
 				//Remote Web driver for remote execution
 				public RemoteWebDriver driver = null;
 				
-				//BrowseManagement to set the browser capabilities
+				//BrowseManagement to set the browser cap
 				public BrowserManagement objBrowserMgr = null;
 				
 				//Home Page Page Object Model
@@ -52,6 +54,7 @@ import commonfunctions.UserExtension;
 				public AddNewLeadPageObjects uiAddNewLeadsPageObjects;
 				public AddInquiry_Referral_Lead_Pageobjects uiAddInquiry_Referral_Lead_Pageobjects;
 				public ReusableMethods_PageObjects uiReusableMethods_PageObjects;
+				public InfoCallLeadPageObjects uiInfoCallLeadPageObjects;
 				
 				
 				//Variables from Properties file
@@ -173,6 +176,7 @@ import commonfunctions.UserExtension;
 				{
 					uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
 					uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
+					uiInfoCallLeadPageObjects = new InfoCallLeadPageObjects(driver);
                     Thread.sleep(30000);
                     
                     uiReusableMethods_PageObjects.NavigateAdmissionConsoleSTAGE(driver);
@@ -228,8 +232,7 @@ import commonfunctions.UserExtension;
 					
 					Thread.sleep(30000);
 					
-					//WebElement element3 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:addALeadButtonId")));
-					
+                 
 					uiAddInquiry_Referral_Lead_Pageobjects.txtAddAnInquiry.click();
 					
 					Thread.sleep(30000);
@@ -266,21 +269,7 @@ import commonfunctions.UserExtension;
 						
 					uiAddNewLeadsPageObjects.btnsearch_SRM.click();
 					
-					Thread.sleep(10000);
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
-					uiAddNewLeadsPageObjects.btnsearch_again.click();
-					Thread.sleep(70000);
-					
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
-					uiAddNewLeadsPageObjects.btnsearch_again.click();
-					Thread.sleep(70000);
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
-					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
-					uiAddNewLeadsPageObjects.btnsearch_again.click();
-					Thread.sleep(30000);
-					
+					SRM_ReusableMethods.WaitSearchInquiry(driver, 40000);
 					WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='Lead_body']/table/tbody/tr[2]/td[8]/a")));
 					UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.txtInquiryStatus);
 					Assert.assertEquals(uiAddNewLeadsPageObjects.txtInquiryStatus.getText().trim(), "New");

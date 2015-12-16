@@ -1,0 +1,6 @@
+
+//Grid command - For Internet Explorer 
+
+C:\>java -Dwebdriver.ie.driver="C:\IEDriverServer_Win32_2.32.2\IEDriverServer.ex
+e" -jar selenium-server-standalone-2.32.0.jar -role node -hub http://localhost:4
+444/register/hub

@@ -5,23 +5,28 @@
   <parameter name="Browser" value="firefox"/>
   <listeners>
     <listener class-name="commonfunctions.ScreenShotOnTestFailure"/>
-    <listener class-name="orion3_Listeners.DisableKnownTestFailures"/>
+    <listener class-name="srm_Listeners.DisableKnownTestFailures"/>
   </listeners>
   <test name="Orion3_Navigation_FireFox(failed)">
     <parameter name="Browser" value="firefox"/>
     <classes>
-      <class name="orion3_Variables.EnvironmentVariables">
+      <class name="validateCollege_InformationSRM.ValidateCollege_InformationSRM">
+        <methods>
+          <include name="AfterNavigation"/>
+          <include name="VerifyNewOpportunityInSRM"/>
+          <include name="Lead_Flow"/>
+          <include name="VerifyLeadInSRM"/>
+          <include name="BrowseToAddInfoCallLeadPage"/>
+          <include name="SRM__Lead_Details"/>
+          <include name="BeforeNavigation"/>
+          <include name="VerifyOpportunityInSRM" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- validateCollege_InformationSRM.ValidateCollege_InformationSRM -->
+      <class name="srm_Variables.EnvironmentVariables">
         <methods>
           <include name="BeforeSuite_Orion3"/>
         </methods>
-      </class> <!-- orion3_Variables.EnvironmentVariables -->
-      <class name="inquiry_Leads.AddInfoCall_Lead_Creation">
-        <methods>
-          <include name="BrowseToAddInfoCallLeadPage"/>
-          <include name="VerifyLeadInSRM"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- inquiry_Leads.AddInfoCall_Lead_Creation -->
+      </class> <!-- srm_Variables.EnvironmentVariables -->
     </classes>
   </test> <!-- Orion3_Navigation_FireFox(failed) -->
 </suite> <!-- Failed suite [Orion3_Navigation] -->

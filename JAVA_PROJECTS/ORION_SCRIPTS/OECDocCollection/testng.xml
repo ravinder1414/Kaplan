@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="OEC_Doc_Collection" parallel="tests"  thread-count="5">
+
+	
+<test name="OEC Document Collection-Stage(Firefox)" preserve-order="true">
+	<parameter name="environment" value="Stage"/>
+	<parameter name="browserName" value="firefox"/>
+		<classes>
+			<class name="docCollection.FaxCoverIcon"/>
+			<class name="docCollection.MyDocColumns"/>
+			<class name="docCollection.ValidateUploadPage"/>
+			<class name="docCollection.UnSupportedFile"/>
+			<class name="docCollection.UploadSizeExceeds"/>
+			<class name="docCollection.UploadValidFile"/>
+		</classes>
+	</test>
+	 	
+<test name="OEC Document Collection-Build(Firefox)" preserve-order="true">
+	<parameter name="environment" value="build"/>
+	<parameter name="browserName" value="firefox"/>
+		<classes>
+			<class name="docCollection.FaxCoverIcon"/>
+			<class name="docCollection.MyDocColumns"/>
+			<class name="docCollection.ValidateUploadPage"/>
+			<class name="docCollection.UnSupportedFile"/>
+			<class name="docCollection.UploadSizeExceeds"/>
+			<class name="docCollection.UploadValidFile"/>
+		</classes>
+	</test>
+	 
+<test name="OEC Document Collection-Dev(Firefox)" preserve-order="true">
+	<parameter name="environment" value="dev"/>
+	<parameter name="browserName" value="firefox"/>
+		<classes>
+			<class name="docCollection.FaxCoverIcon"/>
+			<class name="docCollection.MyDocColumns"/>
+			<class name="docCollection.ValidateUploadPage"/>
+			<class name="docCollection.UnSupportedFile"/>
+			<class name="docCollection.UploadSizeExceeds"/>
+			<class name="docCollection.UploadValidFile"/>
+		</classes>
+	</test>	
+  
+   
+<test name="OEC Document Collection-CIDev(Firefox)" preserve-order="true">
+	<parameter name="environment" value="cidev"/>
+	<parameter name="browserName" value="firefox"/>
+		<classes>
+			<class name="docCollection.FaxCoverIcon"/>
+			<class name="docCollection.MyDocColumns"/>
+			<class name="docCollection.ValidateUploadPage"/>
+			<class name="docCollection.UnSupportedFile"/>
+			<class name="docCollection.UploadSizeExceeds"/>
+			<class name="docCollection.UploadValidFile"/>
+		</classes>
+	</test>	
+  
+</suite>

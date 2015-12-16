@@ -1,5 +1,5 @@
 package uiMap_Orion3_SRM;
-
+//Import files
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -79,11 +79,11 @@ public class InfoCallLeadPageObjects {
 		
 		
 		//TCPA Disclosure Yes Radio Button
-		@FindBy(how=How.ID, using= "j_id0:addaleadid:leadblock:j_id120:12:j_id126:0")
+		@FindBy(how=How.ID, using= "j_id0:addaleadid:leadblock:j_id120:13:j_id126:0")
 		public WebElement rbtnTCPA_Disclosure_Yes;
 		
 		//TCPA Disclosure NO Radio Button
-		@FindBy(how=How.ID, using="j_id0:addaleadid:leadblock:j_id120:12:j_id126:1")
+		@FindBy(how=How.ID, using="j_id0:addaleadid:leadblock:j_id120:13:j_id126:1")
 		public WebElement rbtnTCPA_Disclosure_No;
 		
 
@@ -95,12 +95,12 @@ public class InfoCallLeadPageObjects {
 		//Spouse Military Radio Button No
 				@FindBy(how=How.ID, using="j_id0:addaleadid:leadblock:j_id120:11:j_id126:1")
 				public WebElement rbtnSpouse_No;
-		
+	
 		
 		//Highest Level of Education
 		
-		@FindBy(how=How.XPATH, using="//tr[14]/td[3]/select")
-		public WebElement ddHighestLevelEducation;
+				@FindBy(how=How.XPATH, using="//tr[15]/td[3]/select")
+				public WebElement ddHighestLevelEducation;
 		
 		@FindBy(how=How.ID, using="j_id0:addaleadid:leadblock:addALeadButtonId")
 		public WebElement txtAddAnInquiry;
@@ -108,6 +108,13 @@ public class InfoCallLeadPageObjects {
 		
 		@FindBy(how=How.ID, using="j_id0:addaleadid:leadblock:successmsgid")
 		public WebElement txtCreatedLeadSuccess;
+		
+		//Military Type Drop Down
+		
+		@FindBy(how=How.NAME, using="j_id0:addaleadid:leadblock:j_id120:12:j_id124")
+		public WebElement dropDownMilitaryType;
+		
+		
 		
 		
 		}
