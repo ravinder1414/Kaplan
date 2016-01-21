@@ -246,7 +246,7 @@ import commonfunctions.UserExtension;
 					driver.navigate().refresh();
 					
 					uiReusableMethods_PageObjects.lnkDropDown.click();
-					Thread.sleep(30000);
+					Thread.sleep(10000);
 					uiAddInquiry_Referral_Lead_Pageobjects.lnkKaplanSRM.click();
 					//uiReusableMethods_PageObjects.BackToKaplanSRM(driver);
 					Thread.sleep(10000);

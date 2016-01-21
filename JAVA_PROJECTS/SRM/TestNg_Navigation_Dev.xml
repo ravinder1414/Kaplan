@@ -20,6 +20,16 @@
       <class name = "sep_CreateAccount.SEP_CreateAccount" />
       <class name = "validateCollege_InformationSRM.ValidateCollege_InformationSRM" />
       <class name = "inquiry_Leads.SRM_LeadFlow" />
+      <class name = "orion1ProgramRollup.Orion1ProgramRollUp" />
+      <class name = "validateIWDTasks.SRMLead_Creation" />
+      <class name = "validateIWDTasks.DuplicateLeadCompletion" />
+      <class name = "validateIWDTasks.ResifLead" />
+      <class name = "orion1_ProgramGroup.Orion1_ProgramGroup" />
+      <class name = "inquiry_Leads.ValidateODINotification" />
+      <class name = "inquiry_Leads.Sif_School_NotNull" />
+      <class name = "validateStartDate_InformationSRM.ValidateStartDate_Information" />
+      <class name = "validateTCPA_EWC.TCPA_YesFuctionality" />
+       <class name = "validateTCPA_EWC.TCPA_NoFunctionality" />
       
       
       

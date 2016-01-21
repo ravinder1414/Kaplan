@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Orion3_Navigation]">
-  <parameter name="Environment" value="TEST"/>
+  <parameter name="Environment" value="DEV"/>
   <parameter name="Browser" value="firefox"/>
   <listeners>
     <listener class-name="commonfunctions.ScreenShotOnTestFailure"/>
@@ -10,23 +10,21 @@
   <test name="Orion3_Navigation_FireFox(failed)">
     <parameter name="Browser" value="firefox"/>
     <classes>
-      <class name="validateCollege_InformationSRM.ValidateCollege_InformationSRM">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="VerifyNewOpportunityInSRM"/>
-          <include name="Lead_Flow"/>
-          <include name="VerifyLeadInSRM"/>
-          <include name="BrowseToAddInfoCallLeadPage"/>
-          <include name="SRM__Lead_Details"/>
-          <include name="BeforeNavigation"/>
-          <include name="VerifyOpportunityInSRM" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- validateCollege_InformationSRM.ValidateCollege_InformationSRM -->
       <class name="srm_Variables.EnvironmentVariables">
         <methods>
           <include name="BeforeSuite_Orion3"/>
         </methods>
       </class> <!-- srm_Variables.EnvironmentVariables -->
+      <class name="validateStartDate_InformationSRM.ValidateStartDate_Information">
+        <methods>
+          <include name="SRM__Lead_Details"/>
+          <include name="Lead_Flow"/>
+          <include name="BrowseToAddInfoCallLeadPage"/>
+          <include name="BeforeNavigation"/>
+          <include name="VerifyLeadInSRM"/>
+          <include name="VerifyOpportunityInSRM"/>
+        </methods>
+      </class> <!-- validateStartDate_InformationSRM.ValidateStartDate_Information -->
     </classes>
   </test> <!-- Orion3_Navigation_FireFox(failed) -->
 </suite> <!-- Failed suite [Orion3_Navigation] -->

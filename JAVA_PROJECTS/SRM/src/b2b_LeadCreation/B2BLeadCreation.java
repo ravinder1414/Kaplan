@@ -29,6 +29,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import reusableMethods_PageObject.ReusableMethods_PageObjects;
+import reusableMethods_PageObject.SRM_ReusableMethods;
 import srm_Variables.EnvironmentVariables;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
 import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
@@ -68,6 +70,7 @@ import commonfunctions.UserExtension;
 						public String sStudentDiscountCoupon;
 						public String sTCPA;
 						public String sEmailAddress1;
+						public ReusableMethods_PageObjects uiReusableMethods_PageObjects;
 						
 						//Static variable
 						String sRandStr = RandomStringUtils.randomAlphabetic(5);
@@ -198,7 +201,7 @@ import commonfunctions.UserExtension;
 					         
 					     	UserExtension.IsElementPresent(driver, uiB2BLeadPageObjects.txtEventType);
 							Select ddlEventType = new Select(uiB2BLeadPageObjects.txtEventType);
-							ddlEventType.selectByVisibleText("Lunch and Learn");
+							ddlEventType.selectByVisibleText("Call Received");
 							
 							//Area of Study you interested
 							
@@ -326,26 +329,22 @@ import commonfunctions.UserExtension;
 						public void VerifyB2BLeadInSRM(Method objMethod) throws InterruptedException
 						
 						{try{
+							uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
 							uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
 							driver.get(EnvironmentVariables.sSRM_Url);
-							Thread.sleep(90000);
-							uiAddNewLeadsPageObjects.search_SRM.clear();
-							uiAddNewLeadsPageObjects.search_SRM.sendKeys(sEmailAddress1);
-							WebDriverWait wait = new WebDriverWait(driver, 5000);
-							WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("phSearchButton")));
+							
+							Thread.sleep(30000);
+							
+							 uiReusableMethods_PageObjects.BackToKaplanSRM(driver);
+							 
+								uiAddNewLeadsPageObjects.search_SRM.clear();
+								uiAddNewLeadsPageObjects.search_SRM.sendKeys(sEmailAddress1);
+								WebDriverWait wait = new WebDriverWait(driver, 5000);
+								WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("phSearchButton")));
+									
+								uiAddNewLeadsPageObjects.btnsearch_SRM.click();
 								
-							uiAddNewLeadsPageObjects.btnsearch_SRM.click();
-							
-							Thread.sleep(10000);
-							uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
-							uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
-							uiAddNewLeadsPageObjects.btnsearch_again.click();
-							Thread.sleep(50000);
-							
-							uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
-							uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
-							uiAddNewLeadsPageObjects.btnsearch_again.click();
-							
+								SRM_ReusableMethods.WaitSearchInquiry(driver, 40000);
 							
 							WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='Lead_body']/table/tbody/tr[2]/td[8]/a")));
 							UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.txtInquiryStatus);

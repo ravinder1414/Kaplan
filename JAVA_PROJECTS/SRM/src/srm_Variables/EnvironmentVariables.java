@@ -29,7 +29,9 @@ public class EnvironmentVariables {
 	public static String sLead_ImportURL="";
 	public static String sConnString= "";
 	public static String sOrion1_URL;
-	
+	public static String sIWD_URL;
+	public static String sIWD_UName;
+	public static String sIWD_PWD;
 	
 
 	//Execution Environment 
@@ -108,6 +110,8 @@ public class EnvironmentVariables {
 	    sOrion1_URL=(String)objProperties.getProperty("Orion1_URL");
 	    sConnString=(String)objProperties.getProperty("ConnString");
 		iTimeout = Integer.parseInt(objProperties.getProperty("Timeout"));
-		
+		sIWD_URL = (String)(objProperties.getProperty("IWD_Url"));
+		sIWD_UName = (String)(objProperties.getProperty("IWD_UserName"));
+		sIWD_PWD = (String)(objProperties.getProperty("IWD_Password"));
 	}
 }

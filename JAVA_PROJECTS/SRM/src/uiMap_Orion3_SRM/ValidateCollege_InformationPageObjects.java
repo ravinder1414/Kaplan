@@ -155,6 +155,14 @@ public class ValidateCollege_InformationPageObjects {
     @FindBy(how=How.XPATH, using=".//*[@id='log-on']/div[3]/div[2]/div[2]/button")
     public WebElement btnSignIn;
     
+    //Start Date Text
+    
+    @FindBy(how=How.XPATH, using=".//*[@id='00Ni000000BVIrJ_ileinner']")
+    public WebElement txtStartDate;
+    
+    
+    
+    
     
     
     

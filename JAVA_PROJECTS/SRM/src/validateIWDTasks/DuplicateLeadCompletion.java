@@ -33,6 +33,7 @@ import org.testng.annotations.Test;
 
 import srm_Variables.EnvironmentVariables;
 import reusableMethods_PageObject.ReusableMethods_PageObjects;
+import reusableMethods_PageObject.SRM_ReusableMethods;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
 import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
 import uiMap_Orion3_SRM.AddInquiry_Referral_Lead_Pageobjects;
@@ -184,16 +185,195 @@ import commonfunctions.UserExtension;
 				}
 				
 				
-
-				
 				@Test
-				public void BrowseToAddDuplicateReferralLeadPage(Method objMethod) throws InterruptedException
+				public void BrowseToAddNewReferralLeadPage(Method objMethod) throws InterruptedException
 				{
 					uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
 					uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
 					uiInfoCallLeadPageObjects = new InfoCallLeadPageObjects(driver);
                     Thread.sleep(3000);
                     
+                    uiReusableMethods_PageObjects.NavigateAdmissionConsoleSTAGE(driver);
+					
+    				
+					WebDriverWait wait = new WebDriverWait(driver, 1000);			
+					driver.switchTo().frame("ext-comp-1005");
+					UserExtension.IsElementPresent(driver, uiAddInquiry_Referral_Lead_Pageobjects.rbnReferral);
+					
+					
+					//Select Referral Radio Button
+					uiAddInquiry_Referral_Lead_Pageobjects.rbnReferral.click();
+					
+					Thread.sleep(10000);
+					
+					uiAddInquiry_Referral_Lead_Pageobjects.txtFirstName.sendKeys(sFirstName);
+					uiAddInquiry_Referral_Lead_Pageobjects.txtLastName.sendKeys(sLastName);
+					uiAddInquiry_Referral_Lead_Pageobjects.txtEmailAddress.sendKeys(sEmailAddress);
+					
+					sEmailAddress1 =uiAddInquiry_Referral_Lead_Pageobjects.txtEmailAddress.getAttribute("value");
+					
+					uiAddInquiry_Referral_Lead_Pageobjects.txtDayTimePhoneNo.sendKeys(sDayPhone);
+					uiAddInquiry_Referral_Lead_Pageobjects.txtZipCode.sendKeys(sZipCode);
+					
+					
+					//TCPA Disclosure
+					if(sTCPA.equalsIgnoreCase("yes"))
+					{
+						uiAddInquiry_Referral_Lead_Pageobjects.rbtnTCPA_Disclosure_Yes.click();					
+					}
+					else
+					{
+						uiAddInquiry_Referral_Lead_Pageobjects.rbtnTCPA_Disclosure_No.click();
+					}
+					
+					
+					//Spouse Military Status
+					if(sSpouseMilitary.equalsIgnoreCase("yes"))
+					{
+						
+						uiAddInquiry_Referral_Lead_Pageobjects.rbtnSpouse_Yes.click();
+						
+					}
+					else
+					{
+						uiAddInquiry_Referral_Lead_Pageobjects.rbtnSpouse_No.click();
+					}
+					
+					
+					//Highest Level of Education
+					Select ddlHightestEdution = new Select(uiAddInquiry_Referral_Lead_Pageobjects.ddHighestLevelEducation);
+					ddlHightestEdution.selectByVisibleText(sHighestEducation);
+					
+					Thread.sleep(3000);
+					
+                 
+					uiAddInquiry_Referral_Lead_Pageobjects.txtAddAnInquiry.click();
+					
+					Thread.sleep(3000);
+					
+					UserExtension.IsElementPresent(driver, uiAddInquiry_Referral_Lead_Pageobjects.txtCreatedLeadSuccess);				
+					Assert.assertEquals(uiAddInquiry_Referral_Lead_Pageobjects.txtCreatedLeadSuccess.getText().trim(), "Success:Your lead is being created");
+					
+					driver.navigate().refresh();
+					
+					uiReusableMethods_PageObjects.lnkDropDown.click();
+					Thread.sleep(3000);
+					uiAddInquiry_Referral_Lead_Pageobjects.lnkKaplanSRM.click();
+					Thread.sleep(1000);
+					
+					
+				}			
+	
+				
+				
+				@Test(dependsOnMethods={"BrowseToAddNewReferralLeadPage"})
+				public void VerifyLeadInSRM(Method objMethod) throws InterruptedException
+				
+				{try{
+					uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
+					driver.get(EnvironmentVariables.sSRM_Url);
+					uiAddNewLeadsPageObjects.search_SRM.clear();
+					uiAddNewLeadsPageObjects.search_SRM.sendKeys(sEmailAddress1);
+					WebDriverWait wait = new WebDriverWait(driver, 5000);
+					WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("phSearchButton")));
+						
+					
+					uiAddNewLeadsPageObjects.btnsearch_SRM.click();
+					
+					SRM_ReusableMethods.WaitSearchInquiry(driver, 30000);
+					
+					WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='Lead_body']/table/tbody/tr[2]/td[8]/a")));
+					UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.txtInquiryStatus);
+					Assert.assertEquals(uiAddNewLeadsPageObjects.txtInquiryStatus.getText().trim(), "New");
+					
+					Assert.assertTrue(uiAddNewLeadsPageObjects.txtEmailAddressVerification.getText().equalsIgnoreCase(sEmailAddress1), "Email searched successfully");
+									
+					
+				}catch (Exception e)
+				{Reporter.log(e.getMessage());
+					
+				}
+				}
+
+	
+				//Get SystudentID from Inquiry Lead page
+				
+				@Test(dependsOnMethods={"VerifyLeadInSRM"})
+				public void GetSyStudentID(Method objMethod) throws InterruptedException
+				
+				{try{
+					
+					//click on inquiry Lead
+					driver.findElementByXPath("html/body/div[1]/div[2]/table/tbody/tr/td/div[2]/table/tbody/tr/td[2]/div[2]/div[2]/div[1]/div/div[2]/div/div[2]/table/tbody/tr[2]/th/a").click();
+					Thread.sleep(10000);
+					
+					
+					//Fetch Systdent id
+					sSyStuID =driver.findElementByXPath("//td[text()='SyStudentID']/following-sibling::td[1]/div").getText();
+					Reporter.log(sSyStuID);
+					sEmailID = driver.findElementByXPath("html/body/div[1]/div[2]/table/tbody/tr/td[2]/div[4]/div[2]/div[10]/table/tbody/tr[11]/td[2]/div/a").getText();
+				
+				}catch (Exception e)
+				{
+					Reporter.log(e.getMessage());
+					
+				}
+				}
+				@Test(dependsOnMethods={"GetSyStudentID"})
+				public void verifyUsercredentials(Method objMethod) throws InterruptedException
+				{
+					DuplicateLeadCompletionPageObjects UiDuplicateLeadCompletion = new DuplicateLeadCompletionPageObjects(driver);
+					uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
+					driver.get(IWD_Url);
+					
+					 //Assert.assertTrue(driver.findElement(By.id("Username")).isDisplayed(),"Found the Field FirstName");
+					  driver.findElement(By.id("loginForm:username")).sendKeys("chliang");
+					  driver.findElement(By.id("loginForm:password")).sendKeys("test");	
+					  driver.findElement(By.id("loginForm:submit")).click();
+				
+					 //Clicking on Global Task list link
+					 UiDuplicateLeadCompletion.GlobalTaskList.click();	
+					 UserExtension.IsElementPresent(driver, UiDuplicateLeadCompletion .kaplanTESTLink);
+					 Thread.sleep(5000);
+					 
+					 //Clicking on Kaplan TEST Link
+				     UiDuplicateLeadCompletion .kaplanTESTLink.click();
+				     UserExtension.IsElementPresent(driver, UiDuplicateLeadCompletion.CaptureSYStudentID);
+				     Thread.sleep(2000);
+				     
+				     //Searching SyStudent ID in Captured ID field
+				     UiDuplicateLeadCompletion.CaptureSYStudentID.sendKeys(sSyStuID);
+				     //Thread.sleep(5000);
+				     
+				     //Finding the Captured ID from SRM
+				     UiDuplicateLeadCompletion.FindCapturedSYID.click();
+				     UserExtension.IsElementPresent(driver, driver.findElement(By.xpath("//div[contains(@id, 'mainForm:managerRegion:tasks_table-row')]")));
+				     Thread.sleep(5000);
+				     
+				     List <WebElement> ele= driver.findElements(By.xpath("//div[contains(@id, 'mainForm:managerRegion:tasks_table-row')]"));
+				     int i =  ele.size();
+				     System.out.println(i);
+					 //Thread.sleep(10000);
+					 
+				     //clicking on CaPtured lead ID
+				     UiDuplicateLeadCompletion.CapturedIDRecord.click();
+				     UserExtension.IsElementPresent(driver, UiDuplicateLeadCompletion.VerifyEmail);
+				     Thread.sleep(2000);
+				     System.out.println(UiDuplicateLeadCompletion.VerifyEmail.getText());
+				     
+				     //Verifying lead record data in IWD 
+				     Assert.assertEquals(UiDuplicateLeadCompletion.VerifyEmail.getText().trim(), sEmailAddress1);
+				}
+				
+		
+				@Test(dependsOnMethods={"verifyUsercredentials"})
+				public void DuplicateLeadSubmission(Method objMethod) throws InterruptedException
+				{
+					uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
+					uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
+					uiInfoCallLeadPageObjects = new InfoCallLeadPageObjects(driver);
+                    Thread.sleep(5000);
+                    driver.get(EnvironmentVariables.sSRM_Url);
                     uiReusableMethods_PageObjects.NavigateAdmissionConsoleSTAGE(driver);
 					
     				
@@ -256,18 +436,18 @@ import commonfunctions.UserExtension;
 					
 					Thread.sleep(10000);
 					
-					UserExtension.IsElementPresent(driver, uiAddInquiry_Referral_Lead_Pageobjects.txtCreatedLeadSuccess);
+					//UserExtension.IsElementPresent(driver, uiAddInquiry_Referral_Lead_Pageobjects.txtCreatedLeadSuccess);
 					
 										
 					//verify Lead Success Message 
 					
-					Assert.assertEquals(uiAddInquiry_Referral_Lead_Pageobjects.txtCreatedLeadSuccess.getText().trim(), "Success:Your lead is being created");
-					Thread.sleep(1000);
+					//Assert.assertEquals(uiAddInquiry_Referral_Lead_Pageobjects.txtCreatedLeadSuccess.getText().trim(), "Success:Your lead is being created");
+					//Thread.sleep(1000);
 		
 			        //Clicking again on add lead inquiry button
 					
-					uiAddInquiry_Referral_Lead_Pageobjects.txtAddAnInquiry.click();
-					Thread.sleep(10000);
+					//uiAddInquiry_Referral_Lead_Pageobjects.txtAddAnInquiry.click();
+					//Thread.sleep(10000);
 				
 				    //Catching Duplicate lead inquiry message 
 					String s=uiAddInquiry_Referral_Lead_Pageobjects.txtCreatedLeadDuplicate.getText();
@@ -285,12 +465,12 @@ import commonfunctions.UserExtension;
 					 String Stuid = S1.replace("Student ID ", "").trim();
 					 System.out.println(Stuid);
 					 S2=S1.replace("Student ID ", "");
-
+                     
 				      
-				    }
-
-				@Test(dependsOnMethods={"BrowseToAddDuplicateReferralLeadPage"})
-				public void VerifyLeadResubmissionInIWD(Method objMethod) throws InterruptedException
+				}
+				
+				@Test(dependsOnMethods={"DuplicateLeadSubmission"})
+				public void DuplicateLeadCheck_IWD(Method objMethod) throws InterruptedException
 				{
 					DuplicateLeadCompletionPageObjects UiDuplicateLeadCompletion = new DuplicateLeadCompletionPageObjects(driver);
 					uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
@@ -298,32 +478,41 @@ import commonfunctions.UserExtension;
 					driver.get(IWD_Url);
 					uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
 					
+					
 					 //Login Window And its Credentials of IWD Genesys 
+					  driver.findElement(By.id("loginForm:username")).clear();
 					  driver.findElement(By.id("loginForm:username")).sendKeys("chliang");
+					  driver.findElement(By.id("loginForm:password")).clear();
 					  driver.findElement(By.id("loginForm:password")).sendKeys("test");	
 					  driver.findElement(By.id("loginForm:submit")).click();
 				
-					 //Clicking on Global Task list link
-					 UiDuplicateLeadCompletion.GlobalTaskList.click();	
+					  Thread.sleep(3000);
+					 //Clicking on Global Task l ist link
+					 UiDuplicateLeadCompletion.GlobalTaskList.click();
+					 UserExtension.IsElementPresent(driver, UiDuplicateLeadCompletion .kaplanTESTLink);
 					 Thread.sleep(10000);
-					 
+					   
 					 //Clicking on Kaplan TEST Link
 				     UiDuplicateLeadCompletion .kaplanTESTLink.click();
-				     Thread.sleep(10000);
+				     UserExtension.IsElementPresent(driver, UiDuplicateLeadCompletion.CaptureSYStudentID);
+				     Thread.sleep(2000);
 				     
 				     //Searching SyStudent ID in Captured ID field
+				     UiDuplicateLeadCompletion.CaptureSYStudentID.clear();
 				     UiDuplicateLeadCompletion.CaptureSYStudentID.sendKeys(S2);
-				     Thread.sleep(5000);
+				     UserExtension.IsElementPresent(driver, UiDuplicateLeadCompletion.FindCapturedSYID);
+				     //Thread.sleep(5000);
 				     
 				     //Finding the Captured ID from SRM
 				     UiDuplicateLeadCompletion.FindCapturedSYID.click();
+				     UserExtension.IsElementPresent(driver, driver.findElement(By.xpath("//div[contains(@id, 'mainForm:managerRegion:tasks_table-row')]")));
 				     Thread.sleep(5000);
 				     
 				     //Counting the searched research list 
 				     List <WebElement> ele= driver.findElements(By.xpath("//div[contains(@id, 'mainForm:managerRegion:tasks_table-row')]"));
 				     int i =  ele.size();
 				     System.out.println(i);
-					 Thread.sleep(10000);
+					// Thread.sleep(10000);
 					 
 				     //clicking on CaPtured lead ID
 				     UiDuplicateLeadCompletion.CapturedIDRecord.click();
@@ -334,68 +523,32 @@ import commonfunctions.UserExtension;
 				     System.out.println(MKLID);
 				     
 				}
-				
-				
-				/*@Test(dependsOnMethods={"VerifyLeadResubmissionInIWD"})	
-				public void LeadImportPage(Method objMethod) throws InterruptedException
-				{try{
+	
+				@Test(dependsOnMethods={"DuplicateLeadCheck_IWD"})
+				public void VerifyIWDRecordsinDB(Method objMethod) throws InterruptedException
+				{
 					
-					uiLeadImport_PageObjects = new LeadImport_PageObjects(driver);
-					DuplicateLeadCompletionPageObjects UiDuplicateLeadCompletion = new DuplicateLeadCompletionPageObjects(driver);
-					
-					//driver.get(EnvironmentVariables.sConnString);
-				
-					
-					//uiLeadImport_PageObjects.txtStudentInformationXML.clear();
-					//uiLeadImport_PageObjects.txtStudentInformationXML.sendKeys(SifFinal);
-					//Thread.sleep(10000);
-					//uiLeadImport_PageObjects.btnInvoke.click();
-					
-					//Window Handles
-					String parentHandle = driver.getWindowHandle();
-				
-					Set <String> winHandles = driver.getWindowHandles();
-					for (String currentWindowHandle : winHandles) {
-						if (!currentWindowHandle.equals(parentHandle)) {
-							
-							driver.switchTo().window(currentWindowHandle);
-							System.out.println(sEmailAddress);
-						}
-					}
-														
-					Thread.sleep(20000);
-					try{
-						MKLID=UiDuplicateLeadCompletion.MkLeadImportID.getText();}
-					catch(Exception e){
-						System.out.println(e.getMessage());
-					}
-					
-			
-					String qString="select  emailaddress,mkleadid from polaris..mkleadimport where mkleadimportid="+MKLeadID;
-					
+					String qString="SELECT EMAILADDRESS, MKLEADID, mkleadimportid FROM POLARIS..MKLEADIMPORT WHERE emailaddress='"+sEmailAddress+"'" ;
+					System.out.println(qString);
 					try {
 						 ResultSet rs = QueryDB.getDBQueryResult(qString, EnvironmentVariables.sConnString);
+						 rs.last();
+						 System.out.println(rs.getRow());
+						 Assert.assertEquals(rs.getRow(), 2);
+						 							 
 						
-						 rs.next();
-											 							 
-						Assert.assertEquals(sEmailAddress, rs.getString(1));
-						Assert.assertEquals(MKLeadID,rs.getString(2));
 					} catch (ClassNotFoundException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						Reporter.log(e.getMessage());
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						// 
+						Reporter.log(e.getMessage());
 					}
-					
-				}catch (Exception e)
-				{Reporter.log(e.getMessage());
-					
+					  
+					  
+				     
 				}
-				}*/
-
-		
-	
+				
 	@AfterClass
 	public void AfterNavigation()
 	{

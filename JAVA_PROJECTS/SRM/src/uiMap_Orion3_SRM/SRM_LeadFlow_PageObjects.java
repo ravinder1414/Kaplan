@@ -61,6 +61,16 @@ import org.openqa.selenium.support.PageFactory;
 		@FindBy(how=How.ID, using="Password")
 		public WebElement txtPassword;
 		
+		@FindBy(how=How.ID, using="txtPassword")
+		public WebElement txtsignPassword;
+		
+		@FindBy(how=How.XPATH, using=".//*[@id='log-on']/div[3]/div[2]/div[2]/button")
+		public WebElement btnSignIn;
+		
+		
+		
+		
+		
 		
 		
 		//Confirm Password
@@ -149,12 +159,12 @@ import org.openqa.selenium.support.PageFactory;
 		
 		//Radio Button Hispanic/Latino
 		
-		@FindBy(how=How.NAME, using="01R")
+		@FindBy(how=How.NAME, using="01W")
 		public WebElement rbtnHispanic_No;
 		
 		//Dependent of US Military Yes
 		
-		@FindBy(how=How.NAME, using="01S")
+		@FindBy(how=How.NAME, using="01V")
 		public WebElement rbtnUsMilitary_Yes;
 		
 		

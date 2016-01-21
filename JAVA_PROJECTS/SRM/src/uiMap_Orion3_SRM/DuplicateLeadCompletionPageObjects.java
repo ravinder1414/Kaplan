@@ -105,13 +105,13 @@ public class DuplicateLeadCompletionPageObjects {
 	 
 	 
 	 //Mk Lead Import ID Label 
-	 @FindBy(how=How.XPATH, using="html/body/form[2]/div[2]/div/div[6]/div[2]/div/div[7]/div[2]/div/div/div[2]/div[2]/div/div[3]/div[40]/div[2]/div/span")
+	 @FindBy(how=How.XPATH, using="//div[@id='taskAttribute_MkLeadImportID']/span")
 	 public WebElement MkLeadImportID;
 	 
 	 
-	//Verify Mk Lead Import Id 
-	 @FindBy(how=How.XPATH, using="html/body/form[2]/div[2]/div/div[6]/div[2]/div/div[7]/div[2]/div/div/div[2]/div[2]/div/div[3]/div[43]/div[2]/div/span")
-	 public WebElement VerifyMkLeadImportID;
+	//school id text
+	 @FindBy(how=How.XPATH, using="//div[@id='taskAttribute_CurrentSchoolID']")
+	 public WebElement VerifyCurrentSchoolID;
 	 
 	 
 	 

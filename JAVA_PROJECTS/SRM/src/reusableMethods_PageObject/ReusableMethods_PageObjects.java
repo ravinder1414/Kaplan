@@ -105,7 +105,10 @@ public ReusableMethods_PageObjects(WebDriver driver) {
 		
 		
 		
-		 String AppMenudriver = lnkSetup.getText();
+		 //String AppMenudriver = lnkSetup.getText();
+		
+		String AppMenudriver = lnkDropDown.getText();
+		
 		 
 		 if (!AppMenudriver.trim().equalsIgnoreCase("Kaplan SRM")){
 			 Thread.sleep(10000);

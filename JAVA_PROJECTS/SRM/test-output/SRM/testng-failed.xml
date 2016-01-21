@@ -15,17 +15,17 @@
           <include name="BeforeSuite_Orion3"/>
         </methods>
       </class> <!-- srm_Variables.EnvironmentVariables -->
-      <class name="validateCollege_InformationSRM.ValidateCollege_InformationSRM">
+      <class name="validateStartDate_InformationSRM.ValidateStartDate_Information">
         <methods>
-          <include name="AfterNavigation"/>
-          <include name="Lead_Flow"/>
-          <include name="VerifyLeadInSRM"/>
-          <include name="BrowseToAddInfoCallLeadPage" invocation-numbers="0"/>
           <include name="SRM__Lead_Details"/>
+          <include name="Lead_Flow"/>
+          <include name="BrowseToAddInfoCallLeadPage"/>
           <include name="BeforeNavigation"/>
-          <include name="VerifyOpportunityInSRM"/>
+          <include name="VerifyLeadInSRM"/>
+          <include name="AfterNavigation"/>
+          <include name="VerifyOpportunityInSRM" invocation-numbers="0"/>
         </methods>
-      </class> <!-- validateCollege_InformationSRM.ValidateCollege_InformationSRM -->
+      </class> <!-- validateStartDate_InformationSRM.ValidateStartDate_Information -->
     </classes>
   </test> <!-- Orion3_Navigation_FireFox(failed) -->
 </suite> <!-- Failed suite [SRM] -->

@@ -64,6 +64,34 @@ public class SRM_ReusableMethods {
 		}
   }
 		
+  
+  //This metod is used for to wait program groups to appear in SRM
+  public static void WaitSearchProgramGroups(WebDriver driver, int timeout) throws InterruptedException {
+	  int count =0;
+		
+		for(int i=0;i<5;i++)
+		{ try {	
+			driver.findElement(By.xpath(".//*[@id='secondSearchButton']")).click();
+		  	Thread.sleep(1000);
+		  	if(driver.findElement(By.xpath("//h3/span[contains(text(),'Program Groups')]")).isDisplayed())
+		  	{
+		  		System.out.println("PASS");
+		  		//driver.findElement(By.xpath(".//*[@id='showFiltersId-Opportunity-006']")).click();
+		  		i=21;
+		  	}
+		  	
+		  		
+		  }
+			catch(Exception e)
+			{
+				System.out.println("FAIL");
+				count=count+1;
+				System.out.println("No of Iterations"+" "+count);
+				Thread.sleep(timeout);
+		
+			}
+		}
+  }
 		
 		//This method is used to wait for College/University to appear in SRM
 		  public static void WaitCollegeUniversity(WebDriver driver, int timeout) {
@@ -92,5 +120,35 @@ public class SRM_ReusableMethods {
 					}
 
 		}
+		  }
+		  
+		  
+
+			//This method is used to wait for College/University to appear in SRM
+			  public static void WaitStartDate(WebDriver driver, int timeout) {
+				  int count =0;
+					
+					for(int i=0;i<5;i++)
+					{ try {	
+						Thread.sleep(timeout);
+					  	//driver.findElement(By.xpath(".//*[@id='secondSearchButton']")).click();
+						driver.navigate().refresh();
+					  	Thread.sleep(1000);
+					  	if(driver.findElement(By.xpath(".//*[@id='00Ni000000BVIrJ_ileinner']")).isDisplayed())
+					  	{
+					  		System.out.println("PASS");
+					  		//driver.findElement(By.xpath(".//*[@id='showFiltersId-Opportunity-006']")).click();
+					  		i=21;
+					  	}
+					  }
+						catch(Exception e)
+						{
+							System.out.println("FAIL");
+							count=count+1;
+							System.out.println("No of Iterations"+" "+count);
+							
+					
+						}
 }
+			  }
 }

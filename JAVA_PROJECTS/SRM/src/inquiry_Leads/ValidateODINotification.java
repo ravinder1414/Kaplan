@@ -586,13 +586,15 @@ import commonfunctions.UserExtension;
 						//Verify and Handle Alert
 						Assert.assertTrue(driver.switchTo().alert().getText().trim().equalsIgnoreCase(uiDocScheulePage.msgAlertDelete));
 						System.out.println(driver.switchTo().alert().getText().trim());
+						System.out.println("BEFORE ALERT SLEEP");
+						Thread.sleep(5000);
 						driver.switchTo().alert().accept();
-											
+						System.out.println("AFTERACCEPT ALERT ");					
 					}
 					catch(Exception e){
 						
 						Reporter.log(e.getMessage());}
-						Assert.assertTrue(false);
+						//Assert.assertTrue(false);
 				}
 			
 				
@@ -642,24 +644,28 @@ import commonfunctions.UserExtension;
 									System.out.println("Doc Deleted");
 									Assert.assertTrue(true, "Deletion flag reflected in SRM");
 									}
-						
+													
+							}
+							else {
+								Assert.assertTrue(false, "Deletion flag NOT reflected in SRM");
+								System.out.println("Doc not deleted");
 							}
 						}
 						
-						
+					
 						
 					}
 					catch(Exception e){
 						
 						Reporter.log(e.getMessage());
-						Assert.assertTrue(false);}
+						
 					
 				}
 				
 				
 	}
 				
-				
+	}			
 	
 
 	

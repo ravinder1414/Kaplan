@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Orion3_Navigation">
 <parameter name="Environment" value="TEST"/>
-<!--<parameter name="sHub" value="10.78.4.12"/>-->
+<parameter name="sHub" value="10.78.4.12"/>
 <listeners>
       <listener class-name="commonfunctions.ScreenShotOnTestFailure" />
       <listener class-name="srm_Listeners.DisableKnownTestFailures" />
@@ -9,17 +9,29 @@
     <test name="Orion3_Navigation_FireFox">
     <parameter name="Browser" value="firefox"/>
     <classes>     
-     <class name = "srm_Variables.EnvironmentVariables" />
-     <!--<class name = "inquiry_Leads.AddInquiry_Referral_Lead_Creation" />-->
-      <!--<class name = "inquiry_Leads.AddInfoCall_Lead_Creation" />-->
-      <!--<class name = "inquiry_Leads.AddLiveChat_Lead_Creation" />-->
-      <!--<class name = "inquiry_Leads.AddWarmTransfer_Lead_Creation" />-->
-       <!--<class name = "b2b_LeadCreation.B2BLeadCreation" />-->
-       <!--<class name = "inquiry_Leads.Lead_Import" />-->
-       <!--<class name = "orion3_LeadCreationSRM_Search.Orion3LeadTransfer" />-->
-      <!--<class name = "sep_CreateAccount.SEP_CreateAccount" />-->
+ <class name = "srm_Variables.EnvironmentVariables" />
+     <class name = "inquiry_Leads.AddInquiry_Referral_Lead_Creation" />
+      <class name = "inquiry_Leads.AddInfoCall_Lead_Creation" />
+      <class name = "inquiry_Leads.AddLiveChat_Lead_Creation" />
+      <class name = "inquiry_Leads.AddWarmTransfer_Lead_Creation" />
+       <class name = "b2b_LeadCreation.B2BLeadCreation" />
+       <class name = "inquiry_Leads.Lead_Import" />
+       <class name = "orion3_LeadCreationSRM_Search.Orion3LeadTransfer" />
+      <class name = "sep_CreateAccount.SEP_CreateAccount" />
       <class name = "validateCollege_InformationSRM.ValidateCollege_InformationSRM" />
-      <!--<class name = "inquiry_Leads.SRM_LeadFlow" />-->
+      <class name = "inquiry_Leads.SRM_LeadFlow" />
+      <class name = "orion1ProgramRollup.Orion1ProgramRollUp" />
+      <class name = "validateIWDTasks.SRMLead_Creation" />
+      <class name = "validateIWDTasks.DuplicateLeadCompletion" />
+      <class name = "validateIWDTasks.ResifLead" />
+      <class name = "orion1_ProgramGroup.Orion1_ProgramGroup" />
+      <class name = "inquiry_Leads.ValidateODINotification" />
+      <class name = "inquiry_Leads.Sif_School_NotNull" />
+      <class name = "validateStartDate_InformationSRM.ValidateStartDate_Information" />
+      <class name = "validateTCPA_EWC.TCPA_YesFuctionality" />
+       <class name = "validateTCPA_EWC.TCPA_NoFunctionality" />
+      
+      
       
       
     </classes>
