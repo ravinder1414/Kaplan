@@ -1,30 +1,32 @@
 package orion1_NewLeads;
 	import java.io.File;
-	import java.io.FileInputStream;
-	import java.io.FileNotFoundException;
-	import java.io.IOException;
-	import java.lang.reflect.Method;
-	import java.net.MalformedURLException;
-	import java.net.URL;
-	import java.util.Properties;
-	import java.util.concurrent.TimeUnit;
-	import org.apache.commons.lang3.RandomStringUtils;
-	import org.openqa.selenium.By;
-	import org.openqa.selenium.firefox.FirefoxDriver;
-	import org.openqa.selenium.firefox.FirefoxProfile;
-	import org.openqa.selenium.remote.RemoteWebDriver;
-	import org.openqa.selenium.support.ui.Select;
-	import org.testng.Assert;
-	import org.testng.annotations.AfterClass;
-	import org.testng.annotations.BeforeClass;
-	import org.testng.annotations.Parameters;
-	import org.testng.annotations.Test;
-	import orion1_NewLeadsPageObject.AddNewLeadPageObjects;
-	import commonfunctions.BrowserManagement;
-	import commonfunctions.ReportExtn;
-	import commonfunctions.ScreenShotOnTestFailure;
-	import commonfunctions.UserExtension;
-	import environment.EnvironmentVariables;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import orion1_NewLeadsPageObject.AddNewLeadPageObjects;
+import commonfunctions.BrowserManagement;
+import commonfunctions.ReportExtn;
+import commonfunctions.ScreenShotOnTestFailure;
+import commonfunctions.UserExtension;
+import environment.EnvironmentVariables;
 
 	public class Lead_Referral {
 
@@ -186,7 +188,7 @@ package orion1_NewLeads;
 					}
 					
 					@Test(dependsOnMethods={"BrowseToAddNewLeadPage"})
-					public void Leads_Submit(Method objMethod)
+					public void Leads_Submit(Method objMethod) throws InterruptedException
 					{
 
 						uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
@@ -221,6 +223,12 @@ package orion1_NewLeads;
 						Select ddHighestEducation = new Select(uiAddNewLeadsPageObjects.ddHighestEducation);
 						
 						ddHighestEducation.selectByVisibleText(sHighestEduction);
+						
+                     Select ddlMilitaryType = new Select(uiAddNewLeadsPageObjects.ddMilitaryType);
+						
+                     ddlMilitaryType.selectByVisibleText("No");
+						
+						Thread.sleep(15000);
 						
 						uiAddNewLeadsPageObjects.btnAddALead.click();
 						

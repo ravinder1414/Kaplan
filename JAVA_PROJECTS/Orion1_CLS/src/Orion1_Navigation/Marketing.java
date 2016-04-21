@@ -92,22 +92,22 @@ public void VerifyDispManaerLink(){
 	Assert.assertTrue(uiMarketingPageObjects.lnkDispositionManager.isDisplayed(), "Disposition Manager Link is not displayed");
 }
 //Verify SIF Search
-@Test
+//@Test
 public void VerifySIFSearchLink(){
 	Assert.assertTrue(uiMarketingPageObjects.lnkSifSearch.isDisplayed(), "SIF Searcg Link is not displayed");
 }
 //Verify Question Search Link
-@Test
+//@Test
 public void VerifyQuesSearchLink(){
 	Assert.assertTrue(uiMarketingPageObjects.lnkQuestionSearch.isDisplayed(), "Question Search Link is not displayed");
 }
 //Verify Sif Comparison Link
-@Test
+//@Test
 public void VerifySIFComparisonLink(){
 	Assert.assertTrue(uiMarketingPageObjects.lnkSifComparison.isDisplayed(), "SIF Comparison Link is not displayed");
 }
 //Verify Manage Sif Sites Link
-@Test
+//@Test
 public void VerifyManageSIFSitesLink(){
 	Assert.assertTrue(uiMarketingPageObjects.lnkManageSifSites.isDisplayed(), "Manage SIF Sites Link is not displayed");
 }
@@ -118,7 +118,7 @@ public void VerifyDNCLink(){
 	
 }
 //Verify Lead Scoring Link
-@Test
+//@Test
 public void VerifyLeadScoringLink(){
 	Assert.assertTrue(uiMarketingPageObjects.lnkLeadScoring.isDisplayed(), "Lead scoring Link is not displayed");
 	

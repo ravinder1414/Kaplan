@@ -267,6 +267,121 @@ import org.openqa.selenium.support.PageFactory;
 			
 			
 			
+			/* ------------------------------------------------------------------------------------------*/
+			/* ------------------------------------------------------------------------------------------*/
+			
+			// Page Objects for Add_new_program_rollup_Orion_Salesforce
+			
+			
+			// Add new button for Program Rollup
+			@FindBy(how=How.XPATH, using= ".//*[@id='btnNewItem']")
+			public WebElement addNewButtonForProgramRollup;
+			
+			
+			// Update button for Program Rollup
+			@FindBy(how=How.XPATH, using= "//a[contains(text(),'Update')]")
+			public WebElement updateButtonForProgramRollup;
+			
+			// Program Group Drop down
+			@FindBy(how=How.XPATH, using= ".//*[@id='dgProgramRollup__ctl3_ddlProgramGroup_Edit']")
+			public WebElement programGroupDropDownButton;
+			public String programGroupToBeSelectedText="TestGRPNAME_cJoNh (Concord Law School)";
+			
+			
+			// Program Name
+			@FindBy(how=How.XPATH, using= ".//*[@id='dgProgramRollup__ctl3_txtProgramDescription_Edit']")
+			public WebElement programNameButton;
+			
+			// Program Description(Name) For Search
+			@FindBy(how=How.XPATH, using= ".//*[@id='txtProgramDescription_Search']")
+			public WebElement programNameButtonForSearch;
+			
+			// Program Emphasis
+			@FindBy(how=How.XPATH, using= ".//*[@id='dgProgramRollup__ctl3_ddlProgramEmphasis_Edit']")
+			public WebElement programEmphasisButton;
+			public String programEmphasisToBeSelectedText="Test Emphasis";
+			
+			
+			
+			// Update Successful message
+			@FindBy(how=How.XPATH, using= ".//*[@id='lblMessage']")
+			public WebElement updateSuccessfulMessageForProgramRollup;
+			public String updateSuccessfulMessageForProgramRollupText="Insert successful in Orion. Added to False. Insert successful in SalesForce.";
+			public String updateSuccessfulMessageForProgramRollupAfterEditText="Update successful in Orion and SalesForce.";
+			
+			
+			
+			// Program Name to be Verified after search in orion
+			@FindBy(how=How.XPATH, using= ".//tr[2]/td[1]/span")
+			public WebElement programNameToBeVerifiedAfterSearch;
+			
+			// Search Button At Program ADD new Rollup Page
+			@FindBy(how=How.XPATH, using= ".//*[@id='searchButton']")
+			public WebElement searchButtonProgramADDNewRollupPage;
+			
+			
+			
+			
+			
+			/* ------------------------------------------------------------------------------------------*/
+			/* ------------------------------------------------------------------------------------------*/
+			
+			// Page Objects for Edit_new_program_rollup_Orion_Salesforce
+			
+			
+			// Search Button At Program ADD new Rollup Page
+			@FindBy(how=How.XPATH, using= ".//*[@id='dgProgramRollup']/tbody/tr[2]/td[7]/a")
+			public WebElement editButtonProgramADDNewRollupPage;
+			
+			
+			
+			/* ------------------------------------------------------------------------------------------*/
+			/* ------------------------------------------------------------------------------------------*/
+			
+			// Page Objects for Verify_Orion_Program_Rollup_TitleIV_Eligible_flag
+			
+			
+						// TitleIV_Eligible dropdown button
+			
+						@FindBy(how=How.XPATH, using= ".//*[@id='ddlTitleIVEligible_Search']")
+						public WebElement titleIVEligibleDropdownButton;
+						public String titleIVEligibleDropdownButtonStatus="TitleIV_Eligible dropdown button is not enabled";
+						public String titleIVEligibleDropdownButtonPresence="TitleIV_Eligible dropdown button is not present On the Page";
+			
+						
+			
+						
+						// Edit Button for TitleIV Eligble IV Flag
+						@FindBy(how=How.XPATH, using= "//a[contains(text(),'Edit')]")
+						public WebElement editButtonTitleIVEligbleFlag;
+						
+						
+						
+						// TitleIV Eligble IV Flag after Search
+						@FindBy(how=How.XPATH, using= ".//*[@id='dgProgramRollup__ctl3_cbxTitleIVEligible_Edit']")
+						public WebElement titleIVEligbleIVFlagafterSearchforVerification;
+						public String titleIVEligbleIVFlagafterSearchforVerificationText="Search is Failed as The Flag is in not selected status";
+						public String titleIVEligbleIVFlagafterSearchforVerificationTextforNo="Search is Failed as The Flag is in not as expected status";
+						
+						
+						// TitleIV Eligble IV Flag in grid Search
+						@FindBy(how=How.XPATH, using= "//a[contains(text(),'Title IV Eligible')]")
+						public WebElement titleIVEligbleIVFlagingridSearch;
+						public String titleIVEligbleIVFlagingridSearchText="TitleIV Eligble IV Flag in not present on grid Search";
+						
+			
+			
+						
+						// On Program Roll up Window
+						@FindBy(how=How.XPATH, using= "//a[contains(text(),'Progam Rollup')]")
+						public WebElement programRollupButtonOnMappingWindow;
+						
+						
+						// Title IV Eligible" check box on Program Mapping window
+						@FindBy(how=How.XPATH, using= ".//*[@id='_ctl1_cbxTitleIVEligible']")
+						public WebElement titleIVEligibleCheckBox;
+						public String titleIVEligibleCheckBoxText="TitleIV Eligble chacek box  in not enabled on Program Mapping window";
+			
 			
 			
 			

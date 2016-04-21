@@ -13,8 +13,14 @@ package uimap_Orion1;
 	  }
 	  
 	//Ticketing tab
-	  @FindBy(how=How.XPATH, using= ".//td[text()='Ticketing']")
-	  public WebElement tabTicketing;
+	 @FindBy(how=How.XPATH, using= ".//td[text()='Ticketing']")
+	public WebElement tabTicketing;
+	  
+	//Ticketing tab
+	 // @FindBy(how=How.XPATH, using= ".//*[@id='ctl00_pnlHeader']/table[2]/tbody/tr/td[17]")
+	  //public WebElement tabTicketing;
+	  
+	 
 	  
 	  
 	//Ticketing Home link 

@@ -52,8 +52,10 @@
    </target>
 	<target name="junit-report" depends="SRM">
 	    <!-- Delete and recreate the html report directories -->
-	    <delete dir="${report-dir}" failonerror="false"/>		
+	    <delete dir="${report-dir}" failonerror="false"/>
+		<sleep seconds="2"/>
 	    <mkdir dir="${report-dir}" />
+		<sleep seconds="2"/>
 	    <mkdir dir="${report-dir}/Junit" />
 	    <!-- Ant task to generate the html report.
 	    todir - Directory to generate the output reports

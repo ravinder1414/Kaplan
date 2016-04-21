@@ -15,7 +15,7 @@ public class DuplicateLeadCompletionPageObjects {
 	PageFactory.initElements(driver, this);
 }
 	
-	// login credentials for iwd username 
+	// login  credentials for iwd username 
 	@FindBy(how=How.XPATH, using="html/body/div[1]/div[5]/div[2]/div[1]/form/div[1]/input")
 	public WebElement Username;
 	
@@ -28,7 +28,7 @@ public class DuplicateLeadCompletionPageObjects {
 	public WebElement Submit;
 	
 	//Genesys  Global Task List
-	@FindBy(how=How.XPATH, using="html/body/form[2]/div[2]/div/div[3]/div[2]/div/div[3]/div[2]/div/div/div[7]/a")
+	@FindBy(how=How.XPATH, using=".//*[@id='mainForm:manager']")
 	public WebElement GlobalTaskList;
 	
 	
@@ -43,12 +43,12 @@ public class DuplicateLeadCompletionPageObjects {
 	public String strCaptureSYStudentID = "CaptureSYStudentID";
 	
 	//Find Capture SY ID  
-	@FindBy(how=How.XPATH, using="html/body/form[2]/div[2]/div/div[6]/div[2]/div/div[1]/div[2]/div/div/span/div/div/div[1]/table/tbody/tr/td[8]/input")
+	@FindBy(how=How.XPATH, using="(//input[@value='Find'])[2]")
 	public WebElement FindCapturedSYID;
 	
 	
 	//Student Record for the Searched Captured ID 
-	@FindBy(how=How.XPATH, using="html/body/form[2]/div[2]/div/div[6]/div[2]/div/div[1]/div[2]/div/div/span/div/div/div[2]/div[1]/div/div[2]/div/div[1]/div[3]/a/span")
+	@FindBy(how=How.XPATH, using=".//*[@id='mainForm:managerRegion:tasks_table:0:taskTableCols_1:1:showTask']/span")
 	public WebElement CapturedIDRecord;
 	
 	
@@ -112,6 +112,46 @@ public class DuplicateLeadCompletionPageObjects {
 	//school id text
 	 @FindBy(how=How.XPATH, using="//div[@id='taskAttribute_CurrentSchoolID']")
 	 public WebElement VerifyCurrentSchoolID;
+	 
+	 //Verify mkleadchannel id
+	 
+	 @FindBy(how=How.XPATH, using="//div[@title='MkMarketingChannelID']/following-sibling::div/div/span")
+	 public WebElement VerifymkLeadChannelID;
+	 
+	 
+	 //Status completed
+	 
+	 @FindBy(how=How.XPATH, using=".//*[@id='mainForm:managerRegion:tasks_table:0:taskTableCols_2:2:showTask']/span")
+	 public WebElement txtStatusCompleted;
+	 
+	 //Cancel link button
+	 
+	 @FindBy(how=How.XPATH, using=".//*[@id='mainForm:managerRegion:cancel_link']")
+	 public WebElement btnCancelGenesys;
+	 
+	 //Confirm Yes button
+	 
+	 @FindBy(how=How.XPATH, using="confirm_yes_btn")
+	 public WebElement btnConfirmYesGenesys;
+	 
+	 
+	//Is Military Type Text in Genesys
+		
+		@FindBy(how=How.XPATH, using="//div[@title='IsMilitary']/following-sibling::div/div/span")
+		public WebElement txtIsMilitary;
+		
+		//Military Type Text in Genesys
+		
+		@FindBy(how=How.XPATH, using="//div[@title='MilitaryType']/following-sibling::div/div/span")
+		public WebElement txtMilitaryType;
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
 	 
 	 
 	 

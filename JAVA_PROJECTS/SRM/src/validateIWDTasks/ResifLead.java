@@ -27,6 +27,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import reusableMethods_PageObject.SRM_ReusableMethods;
 import srm_Variables.EnvironmentVariables;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
 import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
@@ -53,21 +54,27 @@ public class ResifLead {
 	//public AddInquiry_Referral_Lead_Pageobjects uiAddInquiry_Referral_Lead_Pageobjects;
 	public LeadImport_PageObjects uiLeadImport_PageObjects;
 	
-	public String LeadImportID1;
+	public String LeadImportID1; 
 	public String sSearchMain_WindowName ="";
 	public String mainwinhandle;
 	public String SifFinal;
 	public String LeadImportID;
 	public String DateCreated;
 	public String LeadID;
-	public String Stuid;
+	public static String Stuid;
+	public int InitailIWDTaskCnt;
+	public String sPath_ResultProperties="";
+
 	//Method which will executed before the class loads
 	//Browser Parameter received from TestNg.xml
 	@Parameters({"Browser"})
 	@BeforeClass
 	public void BeforeNavigation(String sBrowser) throws MalformedURLException
 	{
-		
+		try
+
+		{
+
 		//Read the application properties file
 		//Load environment variable from properties file
 		String sPath_AppProperties="";
@@ -91,6 +98,39 @@ public class ResifLead {
 		{
 			sPath_AppProperties = ".//Resources//ApplicationProperties/TestApplication.properties";			
 		}
+		
+		
+		
+		
+		
+		
+		
+////////////////////////////////////////////*********************************************////////////////////////////
+		
+		
+//Set file path as per environment for Result Property File
+
+if (EnvironmentVariables.sEnv.equalsIgnoreCase("dev"))
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/DevResultProperties.properties";
+
+}
+else if (EnvironmentVariables.sEnv.equalsIgnoreCase("stage"))
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/StageResultProperties.properties";	
+}
+else
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/TestResultProperties.properties";	
+}
+
+
+
+
+////////////////////////////////////////////*********************************************////////////////////////////
+
+		
+		
 		
 		//Load the Application variable file into File Input Stream.
 		File objFileApplication = new File(sPath_AppProperties);
@@ -128,30 +168,66 @@ public class ResifLead {
 		try
 		{					
 			driver = new RemoteWebDriver(new URL("http://".concat(EnvironmentVariables.sHub).concat(":").concat(EnvironmentVariables.sHubPort).concat("/wd/hub")), objBrowserMgr.capability);
-			driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			ScreenShotOnTestFailure.init(driver, EnvironmentVariables.sEnv, EnvironmentVariables.sApp);
 		}
 		catch(Exception ex)
 		{	
 			ReportExtn.Fail("Unable to create the Remotedriver" +  ex.getMessage());			
 		}
-		driver.get(EnvironmentVariables.sLead_ImportURL);
+		
 		driver.manage().window().maximize();
 		uiHomePageObjects = new HomePageObjects(driver);
 		//uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
 		uiLeadImport_PageObjects = new LeadImport_PageObjects(driver);
+		}
+		catch (Exception e)
+								
+		{
+		Reporter.log(e.getMessage());
+		System.out.println(e.getMessage());
+		System.out.println(e.getStackTrace());
+		}
 	}
+	
+	
 	
 	@AfterClass
 	public void AfterNavigation()
 	{
+		try
+
+		{
+			
+
+			// Writing to Result Property File
+
+			System.out.println("Inside After class");
+			
+			System.out.println("Before method writing to Result Property file");
+			
+			SRM_ReusableMethods.writeToPropertyFile(sPath_ResultProperties, "StuidNameFromResifLead", Stuid);
+			
+			System.out.println("After method writing to Result Property file");
+
 		//Quit the test after test class execution
 		if(driver != null)
 		{
 			driver.quit();			
 		}
 	}
+	catch (Exception e)
+							
+	{
+	Reporter.log(e.getMessage());
+	System.out.println(e.getMessage());
+	System.out.println(e.getStackTrace());
+	}
+	}
 
+	
+	
+	
 	//This method will fetch the ReSIf from StoredSIF table which is KU (43) Lead, from yesterday and starts with TestNG
 	@Test
 	public void FetchSIFfromDB(Method objMethod){
@@ -177,23 +253,103 @@ public class ResifLead {
 			 System.out.println("mkLeadImportID: "+LeadImportID);
 			 System.out.println("mkLeadID: "+LeadID);
 			 
-		} catch (ClassNotFoundException e) {
-			Reporter.log(e.getMessage());
-		} catch (SQLException e) {
-			Reporter.log(e.getMessage());
-		}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			e.getMessage();
+		} 
 		
 		
 	}
-
-	@Test(dependsOnMethods= "FetchSIFfromDB")
+	//This method will fetch student id from mklead table on the basis of leadimportid
+	@Test
+	public void FetchStudentIDfromDB(Method objMethod){
+		//QUERY String to fetch REsif from DB
+		String qString="SELECT C2K_STUDENTID FROM POLARIS..MKLEADS WHERE MKLEADIMPORTID="+LeadImportID;
+		
+		//Call getDBQueryResult function in CommonLibrary project   
+		try {
+			 ResultSet rs = QueryDB.getDBQueryResult(qString, EnvironmentVariables.sConnString);
+			 rs.next();
+			 Stuid = rs.getString(1) ;
+			 			  
+			 //Write DB values in Reporter log
+			 Reporter.log("systudentID: "+Stuid);
+			 //also Write DB values on console
+			 System.out.println("systudentID: "+Stuid);
+			 
+			 
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			e.getMessage();
+		} 
+	}
+	//This method get the number of initial iwd tasks
+	@Test(dependsOnMethods={"FetchStudentIDfromDB"})
+	public void GetInitialIWDTaskCount(Method objMethod) throws InterruptedException
+	{
+		try
+		{DuplicateLeadCompletionPageObjects UiDuplicateLeadCompletion = new DuplicateLeadCompletionPageObjects(driver);
+		uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
+		driver.get(EnvironmentVariables.sIWD_URL);
+		 //Login Window And its Credentials of IWD Genesys 
+		  driver.findElement(By.id("loginForm:username")).clear();
+		  driver.findElement(By.id("loginForm:username")).sendKeys(EnvironmentVariables.sIWD_UName);
+		  driver.findElement(By.id("loginForm:password")).clear();
+		  driver.findElement(By.id("loginForm:password")).sendKeys(EnvironmentVariables.sIWD_PWD);	
+		  driver.findElement(By.id("loginForm:submit")).click();
+	
+		  Thread.sleep(3000);
+		 //Clicking on Global Task l ist link
+		 UiDuplicateLeadCompletion.GlobalTaskList.click();
+		 Thread.sleep(20000);
+		 UserExtension.IsElementPresent(driver, UiDuplicateLeadCompletion .kaplanTESTLink);
+		 
+		   
+		 //Clicking on Kaplan TEST Link
+	     UiDuplicateLeadCompletion .kaplanTESTLink.click();
+	     Thread.sleep(20000);
+	     UserExtension.IsElementPresent(driver, UiDuplicateLeadCompletion.CaptureSYStudentID);
+	     
+	     
+	     //Searching SyStudent ID in Captured ID field
+	     UiDuplicateLeadCompletion.CaptureSYStudentID.clear();
+	     UiDuplicateLeadCompletion.CaptureSYStudentID.sendKeys(Stuid);
+	     UserExtension.IsElementPresent(driver, UiDuplicateLeadCompletion.FindCapturedSYID);
+	     //Thread.sleep(5000);
+	     
+	     //Finding the Captured ID from SRM
+	     UiDuplicateLeadCompletion.FindCapturedSYID.click();
+	    // UserExtension.IsElementPresent(driver, driver.findElement(By.xpath("//div[contains(@id, 'mainForm:managerRegion:tasks_table-row')]")));
+	     System.out.println("entered");
+	     Thread.sleep(15000);
+	     UserExtension.IsElementPresent(driver, driver.findElement(By.xpath("//div[@id='mainAjaxRegion:status.stop'][@style='']")));	      
+	     Thread.sleep(5000);
+	     //Counting the searched research list 
+	     List <WebElement> ele= driver.findElements(By.xpath("//div[contains(@id, 'mainForm:managerRegion:tasks_table-row')]"));
+	     InitailIWDTaskCnt =  ele.size();
+	     System.out.println("Initail IWD task Count: "+InitailIWDTaskCnt);
+	     	     
+		}
+		catch(Exception e){Reporter.log(e.getMessage());}	
+			//Thread.sleep(20000);
+	     
+	     
+		
+		
+		
+	}
+	//This method submit the resif
+	@Test(dependsOnMethods= "GetInitialIWDTaskCount")
 	public void SubmitReSIF(Method objMethod) throws InterruptedException
 	{	try
 		{
+		    driver.get(EnvironmentVariables.sLead_ImportURL);
 			uiLeadImport_PageObjects = new LeadImport_PageObjects(driver);
 			uiLeadImport_PageObjects.txtStudentInformationXML.clear();
 			uiLeadImport_PageObjects.txtStudentInformationXML.sendKeys(SifFinal);
-			Thread.sleep(10000);
+			Thread.sleep(15000);
 			uiLeadImport_PageObjects.btnInvoke.click();
 			
 			//Window Handles
@@ -212,24 +368,24 @@ public class ResifLead {
 			Assert.assertTrue(LeaderrMsg.contains("This lead appears to be a duplicate"));
 			//EXTRACT student id from error message to search in IWD
 			System.out.println("ASSERT PASSED FOR DUP LEAD");
-			int bindex= LeaderrMsg.indexOf("Student ID");
+			/*int bindex= LeaderrMsg.indexOf("Student ID");
 			System.out.println("BINDEX: "+ bindex);
 			//Assert for StudentId in the message
-			Assert.assertTrue(bindex!=-1);
+			Assert.assertTrue(bindex!=-1,"Student ID not found in the message");
 			int eindex= LeaderrMsg.indexOf("/");
 			System.out.println("BINDEX: "+ eindex);
 			String S1= LeaderrMsg.substring(bindex, eindex);
 			System.out.println(S1);
 			Stuid = S1.replace("Student ID ", "").trim();
 			System.out.println("StudentID: "+Stuid);
-			
+			*/
 			
 		}
 					
-		catch(Exception e){Reporter.log(e.getMessage());}	
+	catch(Throwable e){Reporter.log(e.getMessage());}	
 			//Thread.sleep(20000);
 	}
-
+	//this method will fetch SyStudentId(Capture Id ) from from DB
 	@Test(dependsOnMethods= "SubmitReSIF")
 	public void VerifyReSIFinDB(Method objMethod) throws InterruptedException
 	{	try
@@ -248,10 +404,12 @@ public class ResifLead {
 		catch(Exception e){Reporter.log(e.getMessage());}	
 			//Thread.sleep(20000);
 	}
+	//This Method will check the IWD Tasks count After Resif 
 	@Test(dependsOnMethods={"VerifyReSIFinDB"})
 	public void DuplicateLeadCheck_IWD(Method objMethod) throws InterruptedException
 	{
-		DuplicateLeadCompletionPageObjects UiDuplicateLeadCompletion = new DuplicateLeadCompletionPageObjects(driver);
+		try
+		{DuplicateLeadCompletionPageObjects UiDuplicateLeadCompletion = new DuplicateLeadCompletionPageObjects(driver);
 		uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
 		driver.get(EnvironmentVariables.sIWD_URL);
 		//uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
@@ -266,13 +424,15 @@ public class ResifLead {
 		  Thread.sleep(3000);
 		 //Clicking on Global Task l ist link
 		 UiDuplicateLeadCompletion.GlobalTaskList.click();
+		 Thread.sleep(20000);
 		 UserExtension.IsElementPresent(driver, UiDuplicateLeadCompletion .kaplanTESTLink);
-		 Thread.sleep(10000);
+		 
 		   
 		 //Clicking on Kaplan TEST Link
 	     UiDuplicateLeadCompletion .kaplanTESTLink.click();
+	     Thread.sleep(20000);
 	     UserExtension.IsElementPresent(driver, UiDuplicateLeadCompletion.CaptureSYStudentID);
-	     Thread.sleep(2000);
+	     
 	     
 	     //Searching SyStudent ID in Captured ID field
 	     UiDuplicateLeadCompletion.CaptureSYStudentID.clear();
@@ -282,16 +442,26 @@ public class ResifLead {
 	     
 	     //Finding the Captured ID from SRM
 	     UiDuplicateLeadCompletion.FindCapturedSYID.click();
-	     UserExtension.IsElementPresent(driver, driver.findElement(By.xpath("//div[contains(@id, 'mainForm:managerRegion:tasks_table-row')]")));
+	    // UserExtension.IsElementPresent(driver, driver.findElement(By.xpath("//div[contains(@id, 'mainForm:managerRegion:tasks_table-row')]")));
+	     System.out.println("entered");
+	     Thread.sleep(15000);
+	     UserExtension.IsElementPresent(driver, driver.findElement(By.xpath("//div[@id='mainAjaxRegion:status.stop'][@style='']")));	      
 	     Thread.sleep(5000);
-	     
 	     //Counting the searched research list 
 	     List <WebElement> ele= driver.findElements(By.xpath("//div[contains(@id, 'mainForm:managerRegion:tasks_table-row')]"));
 	     int i =  ele.size();
 	     System.out.println(i);
-	     Assert.assertTrue(i==2, "2 tasks in IWD");
+	     Assert.assertTrue(i==InitailIWDTaskCnt+1);
+	     
+		}
+		catch(Exception e){Reporter.log(e.getMessage());}	
+			//Thread.sleep(20000);
 	     
 	     
+		
+		
+		
 	}
-	
 }
+	
+	

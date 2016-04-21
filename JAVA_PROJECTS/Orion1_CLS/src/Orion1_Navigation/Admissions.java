@@ -221,7 +221,7 @@ public void VerifyAdmissionAdminPage(){
 @Test
 public void VerifyAdmissionsManagerPage(){
 	//Navigate to Admissions Manager 
-	//uiAdmissionsPageObjects.lnkAdmissionsManager.click();
+	uiAdmissionsPageObjects.lnkAdmissionsManager.click();
 	//Verify Add New Lead Button
 	Assert.assertTrue(uiAdmManagerPageObjects.btnAddNewLead.isDisplayed(), "Add New Lead button is not displayed");
 	//Verify Leads

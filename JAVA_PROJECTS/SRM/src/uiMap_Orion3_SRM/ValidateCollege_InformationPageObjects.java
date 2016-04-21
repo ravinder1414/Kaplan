@@ -90,7 +90,7 @@ public class ValidateCollege_InformationPageObjects {
     
     //Validate Billing Method ID
     
-    @FindBy(how=How.XPATH, using="//table/tbody/tr[12]/td[3]")
+    @FindBy(how=How.XPATH, using="//table/tbody/tr[13]/td[3]")
     public WebElement txtBilingMethodID;
     
     

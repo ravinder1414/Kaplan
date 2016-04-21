@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Orion3_Navigation]">
-  <parameter name="Environment" value="DEV"/>
+<suite name="Failed suite [SRM]">
+  <parameter name="Environment" value="STAGE"/>
   <parameter name="Browser" value="firefox"/>
   <listeners>
     <listener class-name="commonfunctions.ScreenShotOnTestFailure"/>
@@ -15,16 +15,16 @@
           <include name="BeforeSuite_Orion3"/>
         </methods>
       </class> <!-- srm_Variables.EnvironmentVariables -->
-      <class name="validateStartDate_InformationSRM.ValidateStartDate_Information">
+      <class name="inquiry_Leads.SRM_Genesys_ValidateMilitary">
         <methods>
-          <include name="SRM__Lead_Details"/>
-          <include name="Lead_Flow"/>
-          <include name="BrowseToAddInfoCallLeadPage"/>
+          <include name="SearchInquirySRM"/>
+          <include name="SearchMilitaryStatusAfterModification_IWD"/>
+          <include name="SearchStudent_IWD"/>
+          <include name="UpdateInquiryMilitaryValueSRM"/>
+          <include name="BrowseToAddNewReferralLeadPage"/>
           <include name="BeforeNavigation"/>
-          <include name="VerifyLeadInSRM"/>
-          <include name="VerifyOpportunityInSRM"/>
         </methods>
-      </class> <!-- validateStartDate_InformationSRM.ValidateStartDate_Information -->
+      </class> <!-- inquiry_Leads.SRM_Genesys_ValidateMilitary -->
     </classes>
   </test> <!-- Orion3_Navigation_FireFox(failed) -->
-</suite> <!-- Failed suite [Orion3_Navigation] -->
+</suite> <!-- Failed suite [SRM] -->

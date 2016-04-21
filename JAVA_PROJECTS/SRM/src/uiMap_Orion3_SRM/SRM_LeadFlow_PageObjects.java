@@ -29,7 +29,7 @@ import org.openqa.selenium.support.PageFactory;
 		
 			
 		//Inquiry Status DropDown
-		@FindBy(how=How.ID, using="lea13")
+		@FindBy(how=How.XPATH, using=".//*[@id='lea13']")
 		public WebElement ddInquiryDropDown;
 	                                                
 
@@ -67,10 +67,10 @@ import org.openqa.selenium.support.PageFactory;
 		@FindBy(how=How.XPATH, using=".//*[@id='log-on']/div[3]/div[2]/div[2]/button")
 		public WebElement btnSignIn;
 		
+		//Signout Link
 		
-		
-		
-		
+		@FindBy(how=How.ID, using="signOut")
+		public WebElement lnkSignout;
 		
 		
 		//Confirm Password

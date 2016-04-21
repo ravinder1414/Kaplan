@@ -3,6 +3,8 @@ package orion1_ProgramGroup;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
@@ -26,6 +28,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -60,25 +63,37 @@ public class Orion1_ProgramGroup {
 	
 	
 	//Static variable
-	String sRandStr = RandomStringUtils.randomAlphabetic(5);
-	public String sGroupName = "TestGRPNAME_" + sRandStr;
+	static String sRandStr = RandomStringUtils.randomAlphabetic(5);
+	public static String sGroupName = "TestGRPNAME_" + sRandStr;
 	public String School ="";
 	public String DegreeType="";
 	public String OrionSchool="";
 	public String SchoolUpdate="";
-	public String sGroupnameEdit = "Edit" + sGroupName;
+	public static String sGroupnameEdit = "Edit" + sGroupName;
+	
+	
+	
+	
+	public String sPath_AppProperties="";
+	public String sPath_ResultProperties="";
+	public FileOutputStream objFileOutputStream=null;
+	public FileInputStream objFileInputStream = null;
+	public Properties objProperties = new Properties();
+	
 	//Method which will executed before the class loads
 	//Browser Parameter received from TestNg.xml
 	@Parameters({"Browser"})
 	@BeforeClass
 	public void BeforeNavigation(String sBrowser) throws MalformedURLException
 	{
+		try
+		{
 		
 		//Read the application properties file
 		//Load environment variable from properties file
-		String sPath_AppProperties="";
+		/*String sPath_AppProperties="";
 		FileInputStream objFileInputStream = null;
-		Properties objProperties = new Properties();
+		Properties objProperties = new Properties();*/
 		
 		//Set file path as per environment
 		if (EnvironmentVariables.sEnv.equalsIgnoreCase("dev"))
@@ -98,6 +113,34 @@ public class Orion1_ProgramGroup {
 			sPath_AppProperties = ".//Resources//ApplicationProperties/TestApplication.properties";			
 		}
 		
+		
+		
+		
+		////////////////////////////////////////////*********************************************////////////////////////////
+		
+		
+			//Set file path as per environment for Result Property File
+		
+				if (EnvironmentVariables.sEnv.equalsIgnoreCase("dev"))
+				{
+					sPath_ResultProperties = ".//Resources//ResultProperties/DevResultProperties.properties";
+					
+				}
+				else if (EnvironmentVariables.sEnv.equalsIgnoreCase("stage"))
+				{
+					sPath_ResultProperties = ".//Resources//ResultProperties/StageResultProperties.properties";	
+				}
+				else
+				{
+					sPath_ResultProperties = ".//Resources//ResultProperties/TestResultProperties.properties";	
+				}
+		
+				
+				
+				
+		////////////////////////////////////////////*********************************************////////////////////////////
+				
+				
 		//Load the Application variable file into File Input Stream.
 		File objFileApplication = new File(sPath_AppProperties);
 		try
@@ -123,7 +166,7 @@ public class Orion1_ProgramGroup {
 		//Edit Browser Capabilities as per project
 		//Fire fox Profile		
 		FirefoxProfile profile = new FirefoxProfile();
-		profile.setPreference("network.automatic-ntlm-auth.trusted-uris",EnvironmentVariables.sOrion1_URL);
+		profile.setPreference("network.automatic-ntlm-auth.trusted-uris",EnvironmentVariables.sTrusted_Uris);
 		//Capability
 		objBrowserMgr = new BrowserManagement(sBrowser);
 		objBrowserMgr.capability.setCapability(FirefoxDriver.PROFILE, profile);		
@@ -132,7 +175,7 @@ public class Orion1_ProgramGroup {
 		try
 		{					
 			driver = new RemoteWebDriver(new URL("http://".concat(EnvironmentVariables.sHub).concat(":").concat(EnvironmentVariables.sHubPort).concat("/wd/hub")), objBrowserMgr.capability);
-			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			ScreenShotOnTestFailure.init(driver, EnvironmentVariables.sEnv, EnvironmentVariables.sApp);
 		}
 		catch(Exception ex)
@@ -144,8 +187,52 @@ public class Orion1_ProgramGroup {
 		
 		uiProgramGroupPageObjects = new ProgramGroupPageObjects(driver);
 		
-		uiHomePageObjects = new HomePageObjects(driver);			
+		uiHomePageObjects = new HomePageObjects(driver);	
+		}
+		catch (Exception e)
+								
+		{
+		Reporter.log(e.getMessage());
+		System.out.println(e.getMessage());
+		System.out.println(e.getStackTrace());
+		}
 	}
+	
+	
+	
+	@AfterClass
+	public void AfterNavigation()
+	{
+		try
+		{
+			
+			// Writing to Result Property File
+			System.out.println("Inside After class");
+			
+			System.out.println("Before method writing Program Group Name to Result Property file");
+			
+			SRM_ReusableMethods.writeToPropertyFile(sPath_ResultProperties, "ProgramGroupNameFromOrion1_ProgramGroup", sGroupnameEdit);
+			System.out.println("Program Group Name to be wriitrn in Result Property File"+sGroupnameEdit);
+			
+			System.out.println("After method writing Program Group Name to Result Property file");
+			
+			Thread.sleep(2000);
+
+		//Quit the test after test class execution
+		if(driver != null)
+		{
+			driver.quit();			
+		}
+	}
+	catch (Exception e)
+							
+	{
+	Reporter.log(e.getMessage());
+	System.out.println(e.getMessage());
+	System.out.println(e.getStackTrace());
+	}
+	}
+	
 	
 	
 	@Test
@@ -197,11 +284,14 @@ public class Orion1_ProgramGroup {
 		
 		
 		}
-		catch(Exception e)
+		catch (Exception e)
+								
 		{
-			System.out.println(e.getMessage());
-			System.out.println(e.getStackTrace());
+		Reporter.log(e.getMessage());
+		System.out.println(e.getMessage());
+		System.out.println(e.getStackTrace());
 		}
+				
 				
 	}
 	
@@ -211,15 +301,28 @@ public class Orion1_ProgramGroup {
 	{
 		try{
 		uiProgramGroupPageObjects = new ProgramGroupPageObjects(driver);
+
+		uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
 		driver.get(EnvironmentVariables.sSRM_Url);
-		WebDriverWait wait = new WebDriverWait(driver, 10000);
+		//WebDriverWait wait = new WebDriverWait(driver, 10000);
+		
+		//back to srm method call
+
+		uiReusableMethods_PageObjects.BackToKaplanSRM(driver);
+		
+		UserExtension.IsElementPresent(driver, uiProgramGroupPageObjects.BtnSearch);
+		System.out.println(" top Search field found");
 		
 		//Searching Group name created in Orion
-		uiProgramGroupPageObjects.txtSearchfield.sendKeys(sGroupName);
+		//uiProgramGroupPageObjects.txtSearchfield.sendKeys(sGroupName);
+		driver.findElement(By.xpath(".//*[@id='phSearchInput']")).sendKeys(sGroupName);
+		
+		
 		
 		//Clicking on Search Button 
 		uiProgramGroupPageObjects.BtnSearch.click();
-		Thread.sleep(15000);
+		SRM_ReusableMethods.WaitSearchProgramGroups(driver, 40000);
+		Thread.sleep(5000);
 		
 		//Clicking on search all link 
 		//uiProgramGroupPageObjects.lnkSearchAll.click();
@@ -252,6 +355,7 @@ public class Orion1_ProgramGroup {
 	catch(Exception e)
 	{
 		System.out.println(e.getMessage());
+		Reporter.log(e.getMessage());
 		System.out.println(e.getStackTrace());
 	}
 		
@@ -295,7 +399,7 @@ public class Orion1_ProgramGroup {
 		
 		//Updating Orion School name
 		uiProgramGroupPageObjects.txtSchoolUpdate.click();
-		SchoolUpdate=uiProgramGroupPageObjects.txtSchoolUpdate.getText();
+		SchoolUpdate=uiProgramGroupPageObjects.txtSchoolUpdate.getText().trim();
 		System.out.println(uiProgramGroupPageObjects.txtSchoolUpdate.getText());
 		
 		
@@ -307,11 +411,14 @@ public class Orion1_ProgramGroup {
 		Assert.assertEquals(uiProgramGroupPageObjects.MsgPrgmGrpUpdate.getText(), "Program Group Update successful in Orion. Program Group Update successful in Salesforce.");
 		System.out.println(uiProgramGroupPageObjects.MsgPrgmGrpUpdate.getText());
 		}
-		catch(Exception e)
+		catch (Exception e)
+								
 		{
-			System.out.println(e.getMessage());
-			System.out.println(e.getStackTrace());
+		Reporter.log(e.getMessage());
+		System.out.println(e.getMessage());
+		System.out.println(e.getStackTrace());
 		}
+				
 	}
 	
 	@Test(dependsOnMethods={"UpdatingGroupDetailsInOrion1"})
@@ -319,9 +426,13 @@ public class Orion1_ProgramGroup {
 	{
 		try{
 		uiProgramGroupPageObjects = new ProgramGroupPageObjects(driver);
+
+		uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
 		driver.get(EnvironmentVariables.sSRM_Url);
 		WebDriverWait wait = new WebDriverWait(driver, 10000);
-		
+		//back to srm method call
+
+		uiReusableMethods_PageObjects.BackToKaplanSRM(driver);
 		//Searching Group name created in Orion
 		uiProgramGroupPageObjects.txtSearchfield.sendKeys(sGroupnameEdit);
 		UserExtension.IsElementPresent(driver, uiProgramGroupPageObjects.BtnSearch);
@@ -348,6 +459,73 @@ public class Orion1_ProgramGroup {
 		Assert.assertEquals(uiProgramGroupPageObjects.txtProgramGroupName.getText(), sGroupnameEdit);
 		System.out.println(uiProgramGroupPageObjects.txtProgramGroupName.getText());
 		
+		
+		
+		// Writing Edited Program Group Name to Property file
+		
+		System.out.println("Before method writing Program Group Name to Property file");
+		
+		SRM_ReusableMethods.writeToPropertyFile(sPath_AppProperties, "ProgramGroupNameFromScript", sGroupnameEdit);
+		
+		System.out.println("After method writing Program Group Name to Property file");
+		
+		
+		// Writing Edited School Name to Property file
+		System.out.println("Before method writing School Name to Property file");
+		
+		SRM_ReusableMethods.writeToPropertyFile(sPath_AppProperties, "ProgramRollupSchoolNameFromScript", SchoolUpdate);
+		
+		System.out.println("After method writing School Name to Property file");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*System.out.println("Starting writing to Property file");
+		System.out.println("Program Group Name to be written to Property file"+" "+sGroupnameEdit);
+		
+		//Load the File Input Stream into the Properties file
+		try
+		{
+			objProperties.load(objFileInputStream);
+			
+		} catch (IOException ex) {
+
+			ReportExtn.Fail("Unable to Read the Properties file" +  ex.getMessage());
+		}
+		
+		// Writing to The property File
+		
+		objProperties.setProperty("ProgramGroupNameFromScript", sGroupnameEdit);
+		
+		
+		
+		// Store the Value in Property File
+		
+				
+		objProperties.store(new FileOutputStream(sPath_AppProperties), null);		
+		
+		
+		System.out.println("Finish writing to Property file");
+		*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		//Verifying School Name in SRM
 		uiProgramGroupPageObjects.txtSchool.getText();
 		Assert.assertEquals(uiProgramGroupPageObjects.txtSchool.getText(), SchoolUpdate);
@@ -363,17 +541,10 @@ public class Orion1_ProgramGroup {
 	catch(Exception e)
 	{
 		System.out.println(e.getMessage());
+		Reporter.log(e.getMessage());
 		System.out.println(e.getStackTrace());
 	}
 		
 	}
-	@AfterClass
-	public void AfterNavigation()
-	{
-		//Quit the test after test class execution
-		if(driver != null)
-		{
-			driver.quit();			
-		}
-	}
+	
 	}

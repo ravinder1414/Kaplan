@@ -9,6 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -16,21 +17,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
 import orion1_NewLeadsPageObject.AddNewLeadPageObjects;
 import uimap_Orion1.StudentManagerPageObjects;
 import uimap_Orion1.StudentManager_FileClose_PageObjects;
-
 import commonfunctions.BrowserManagement;
 import commonfunctions.ReportExtn;
 import commonfunctions.ScreenShotOnTestFailure;
@@ -310,7 +309,7 @@ public class StudentManager_FileClose {
 							public void ContactInformationTabDetails(Method objMethod)
 
 						{
-								
+							try{	
 								UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.lnkFirstLeadInTable.findElement(By.xpath("//tr[2]/td[4]/a")));
 								
 								uiStudentManagerPageObjects =new StudentManagerPageObjects(driver);
@@ -439,8 +438,12 @@ public class StudentManager_FileClose {
 											
 											Alert alert=driver.switchTo().alert();
 											alert.accept();
-											
+						}catch (Exception e)
+						{Reporter.log(e.getMessage());
+							
+						}
+						}			
 											
 						}
-						}
+						
 

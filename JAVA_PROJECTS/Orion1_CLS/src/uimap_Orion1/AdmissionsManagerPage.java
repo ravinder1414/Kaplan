@@ -13,38 +13,39 @@ public class AdmissionsManagerPage {
   }
   
   //Add New Lead button
-  @FindBy(how=How.XPATH , using=".//*[@id='tabnavi_TabRow']/td[18]/a/img")
+  @FindBy(how=How.XPATH , using=".//*[@id='tabnavi_TabRow']/td[20]/a/img")
   public WebElement btnAddNewLead;
   
+  
 //Follow Up link
-  @FindBy(how=How.ID , using= "Follow Up")
+  @FindBy(how=How.LINK_TEXT , using= "Follow Up")
   public WebElement lnkFollowUp;
   
 //Leads link
-  @FindBy(how=How.ID , using= "Leads")
+  @FindBy(how=How.LINK_TEXT , using= "Leads")
   public WebElement lnkLeads;
   
 //Interviews link
-  @FindBy(how=How.ID , using= "Interviews")
+  @FindBy(how=How.LINK_TEXT , using= "Interviews")
   public WebElement lnkInterviews;
   
 //Funding link
-  @FindBy(how=How.ID , using= "Funding")
+  @FindBy(how=How.LINK_TEXT , using= "Funding")
   public WebElement lnkFunding;
   
 //Pending Enrollments link
-  @FindBy(how=How.ID , using= "Pending Enrollments")
+  @FindBy(how=How.LINK_TEXT , using= "Pending Enrollments")
   public WebElement lnkPendingEnrollments;
   
 //Start Manager link
-  @FindBy(how=How.ID , using= "Start Manager")
+  @FindBy(how=How.LINK_TEXT, using= "Start Manager")
   public WebElement lnkStartManager;
   
 //Current link
-  @FindBy(how=How.ID , using= "Current")
+  @FindBy(how=How.LINK_TEXT , using= "Current")
   public WebElement lnkCurrent;
   
 //Search link
-  @FindBy(how=How.ID , using= "Search")
+  @FindBy(how=How.LINK_TEXT , using= "Search")
   public WebElement lnkSearch;
  }

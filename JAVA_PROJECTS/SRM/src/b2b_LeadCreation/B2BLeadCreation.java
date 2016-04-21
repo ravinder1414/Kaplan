@@ -73,10 +73,11 @@ import commonfunctions.UserExtension;
 						public ReusableMethods_PageObjects uiReusableMethods_PageObjects;
 						
 						//Static variable
-						String sRandStr = RandomStringUtils.randomAlphabetic(5);
-						public String sFirstName = "TestNGB2B_" + sRandStr;
-						public String sLastName = "TestNGLNB2B_" + sRandStr;			
-						public String sEmailAddress = sFirstName + "IC@kap.com";
+						public String sPath_ResultProperties="";
+						public static String sRandStr = RandomStringUtils.randomAlphabetic(5);
+						public static String sFirstName = "TestNGB2B_" + sRandStr;
+						public static String sLastName = "TestNGLNB2B_" + sRandStr;			
+						public static String sEmailAddress = sFirstName + "IC@kap.com";
 						public String sDayPhone = "9545151234";
 						public String sZipCode = "33309";
 						
@@ -87,6 +88,9 @@ import commonfunctions.UserExtension;
 						@BeforeClass
 						public void BeforeNavigation(String sBrowser) throws MalformedURLException
 						{
+							try
+
+							{
 							
 							//Read the application properties file
 							//Load environment variable from properties file
@@ -111,6 +115,42 @@ import commonfunctions.UserExtension;
 							{
 								sPath_AppProperties = ".//Resources//ApplicationProperties/TestApplication.properties";			
 							}
+							
+							
+							
+							
+							
+////////////////////////////////////////////*********************************************////////////////////////////
+							
+							
+//Set file path as per environment for Result Property File
+
+if (EnvironmentVariables.sEnv.equalsIgnoreCase("dev"))
+{
+	sPath_ResultProperties = ".//Resources//ResultProperties/DevResultProperties.properties";
+	
+}
+else if (EnvironmentVariables.sEnv.equalsIgnoreCase("stage"))
+{
+	sPath_ResultProperties = ".//Resources//ResultProperties/StageResultProperties.properties";	
+}
+else
+{
+	sPath_ResultProperties = ".//Resources//ResultProperties/TestResultProperties.properties";	
+}
+
+
+
+
+////////////////////////////////////////////*********************************************////////////////////////////
+
+
+
+							
+							
+							
+							
+							
 							
 							//Load the Application variable file into File Input Stream.
 							File objFileApplication = new File(sPath_AppProperties);
@@ -153,7 +193,7 @@ import commonfunctions.UserExtension;
 							try
 							{					
 								driver = new RemoteWebDriver(new URL("http://".concat(EnvironmentVariables.sHub).concat(":").concat(EnvironmentVariables.sHubPort).concat("/wd/hub")), objBrowserMgr.capability);
-								driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+								driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 								ScreenShotOnTestFailure.init(driver, EnvironmentVariables.sEnv, EnvironmentVariables.sApp);
 							}
 							catch(Exception ex)
@@ -162,25 +202,66 @@ import commonfunctions.UserExtension;
 							}
 							driver.get(EnvironmentVariables.sB2B_LeadCreationUrl);
 							driver.manage().window().maximize();
-							uiB2BLeadPageObjects = new B2BLeadPageObjects(driver);			
+							uiB2BLeadPageObjects = new B2BLeadPageObjects(driver);	
+							}
+							catch (Exception e)
+													
+							{
+							Reporter.log(e.getMessage());
+							System.out.println(e.getMessage());
+							System.out.println(e.getStackTrace());
+							}
 						}
+						
+						
 						
 						@AfterClass
 						public void AfterNavigation()
 						{
+							try
+
+							{
+								
+
+								// Writing to Result Property File
+
+								System.out.println("Inside After class");
+								
+								System.out.println("Before method writing to Result Property file");
+								
+								SRM_ReusableMethods.writeToPropertyFile(sPath_ResultProperties, "sEmailAddressNameFromB2BLeadCreation", sEmailAddress);
+								
+								System.out.println("After method writing to Result Property file");
+
+								
 							//Quit the test after test class execution
 							if(driver != null)
 							{
 								driver.quit();			
 							}
+							}
+							catch (Exception e)
+													
+							{
+							Reporter.log(e.getMessage());
+							System.out.println(e.getMessage());
+							System.out.println(e.getStackTrace());
+							}
+
+
 						}
 
+						
+						
 						
 						@Test
 						public void BrowseToAddB2BNewLeadPage(Method objMethod)
 						
 						
 						{
+							try
+
+							{
 							//Event ID and category
 							uiB2BLeadPageObjects = new B2BLeadPageObjects(driver);
 							uiB2BLeadPageObjects.txtEventID.sendKeys("3");
@@ -323,6 +404,15 @@ import commonfunctions.UserExtension;
 									
 									UserExtension.WaitTillGetTextValueIs(driver, uiB2BLeadPageObjects.txtLeadCreatedMessage, "Lead Successfully Added");
 									Assert.assertEquals(uiB2BLeadPageObjects.txtLeadCreatedMessage.getText().trim(), "Lead Successfully Added");
+							}
+							catch (Exception e)
+													
+							{
+							Reporter.log(e.getMessage());
+							System.out.println(e.getMessage());
+							System.out.println(e.getStackTrace());
+							}
+
 								}
 						
 						@Test(dependsOnMethods={"BrowseToAddB2BNewLeadPage"})
@@ -340,20 +430,26 @@ import commonfunctions.UserExtension;
 								uiAddNewLeadsPageObjects.search_SRM.clear();
 								uiAddNewLeadsPageObjects.search_SRM.sendKeys(sEmailAddress1);
 								WebDriverWait wait = new WebDriverWait(driver, 5000);
-								WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("phSearchButton")));
+								//WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("phSearchButton")));
 									
 								uiAddNewLeadsPageObjects.btnsearch_SRM.click();
 								
+								
 								SRM_ReusableMethods.WaitSearchInquiry(driver, 40000);
 							
-							WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='Lead_body']/table/tbody/tr[2]/td[8]/a")));
+							//WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='Lead_body']/table/tbody/tr[2]/td[8]/a")));
 							UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.txtInquiryStatus);
 							Assert.assertEquals(uiAddNewLeadsPageObjects.txtInquiryStatus.getText().trim(), "New");
 							
 							Assert.assertTrue(uiAddNewLeadsPageObjects.txtEmailAddressVerification.getText().equalsIgnoreCase(sEmailAddress1), "Email searched successfully");
-						}catch (Exception e)
-						{Reporter.log(e.getMessage());
-							
 						}
+						catch (Exception e)
+												
+						{
+						Reporter.log(e.getMessage());
+						System.out.println(e.getMessage());
+						System.out.println(e.getStackTrace());
+						}
+
 						}
 			}

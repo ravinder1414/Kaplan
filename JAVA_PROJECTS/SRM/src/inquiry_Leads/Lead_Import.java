@@ -32,6 +32,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import reusableMethods_PageObject.SRM_ReusableMethods;
 	import srm_Variables.EnvironmentVariables;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
 import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
@@ -75,10 +76,11 @@ import commonfunctions.UserExtension;
 					
 					
 					//Static variable
-					String sRandStr = RandomStringUtils.randomAlphabetic(5);
-					public String sFirstName = "TestNGFNInfoCall_" + sRandStr;
-					public String sLastName = "TestNGLNInfoCall_" + sRandStr;			
-					public String sEmailAddress = sFirstName + "IC@kap.com";
+				    public String sPath_ResultProperties="";
+					public static String sRandStr = RandomStringUtils.randomAlphabetic(5);
+					public static String sFirstName = "TestNGFNLI_" + sRandStr;
+					public static String sLastName = "TestNGLNLI_" + sRandStr;			
+					public static String sEmailAddress = sFirstName + "IC@kap.com";
 					public String sDayPhone = "9545151234";
 					public String sZipCode = "30256";
 					public String SIF1="<?xml version=\"1.0\" encoding=\"UTF-8\"?><sif><sifheader VendorID=\"61439\" SourceCode=\"248691\" SIFID=\"279\" SIFVersionID=\"2258\" VendorDate=\"04/22/2013\" AffiliateID=\"1\" /><sifdetail><Program>AASMA</Program><AreaStudy>HS</AreaStudy><FName>";
@@ -98,7 +100,10 @@ import commonfunctions.UserExtension;
 					@BeforeClass
 					public void BeforeNavigation(String sBrowser) throws MalformedURLException
 					{
-						
+						try
+
+						{
+
 						//Read the application properties file
 						//Load environment variable from properties file
 						String sPath_AppProperties="";
@@ -144,6 +149,32 @@ import commonfunctions.UserExtension;
 						}
 						
 						
+						
+////////////////////////////////////////////*********************************************////////////////////////////
+						
+						
+//Set file path as per environment for Result Property File
+
+if (EnvironmentVariables.sEnv.equalsIgnoreCase("dev"))
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/DevResultProperties.properties";
+
+}
+else if (EnvironmentVariables.sEnv.equalsIgnoreCase("stage"))
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/StageResultProperties.properties";	
+}
+else
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/TestResultProperties.properties";	
+}
+
+
+
+
+////////////////////////////////////////////*********************************************////////////////////////////
+
+						
 					
 									
 						//Edit Browser Capabilities as per project
@@ -159,7 +190,7 @@ import commonfunctions.UserExtension;
 						try
 						{					
 							driver = new RemoteWebDriver(new URL("http://".concat(EnvironmentVariables.sHub).concat(":").concat(EnvironmentVariables.sHubPort).concat("/wd/hub")), objBrowserMgr.capability);
-							driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+							driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 							ScreenShotOnTestFailure.init(driver, EnvironmentVariables.sEnv, EnvironmentVariables.sApp);
 						}
 						catch(Exception ex)
@@ -171,16 +202,47 @@ import commonfunctions.UserExtension;
 						uiHomePageObjects = new HomePageObjects(driver);
 						uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
 						uiLeadImport_PageObjects = new LeadImport_PageObjects(driver);
+						}
+						catch (Exception e)
+												
+						{
+						Reporter.log(e.getMessage());
+						System.out.println(e.getMessage());
+						System.out.println(e.getStackTrace());
+						}
 					}
 					
 					@AfterClass
 					public void AfterNavigation()
 					{
+						try
+
+						{
+							// Writing to Result Property File
+
+							System.out.println("Inside After class");
+							
+							System.out.println("Before method writing to Result Property file");
+							
+							SRM_ReusableMethods.writeToPropertyFile(sPath_ResultProperties, "sEmailAddressNameFromLead_Import", sEmailAddress);
+							
+							System.out.println("After method writing to Result Property file");
+
+
+
 						//Quit the test after test class execution
 						if(driver != null)
 						{
 							driver.quit();			
 						}
+					}
+					catch (Exception e)
+											
+					{
+					Reporter.log(e.getMessage());
+					System.out.println(e.getMessage());
+					System.out.println(e.getStackTrace());
+					}
 					}
 
 					
@@ -224,13 +286,11 @@ import commonfunctions.UserExtension;
 							 rs.next();
 							 							 
 							Assert.assertEquals(sEmailAddress, rs.getString(1));	 
-						} catch (ClassNotFoundException e) {
+						} catch (Exception e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
-						} catch (SQLException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
+							e.getMessage();
+						} 
 						
 						
 					}catch (Exception e)

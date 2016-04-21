@@ -61,6 +61,9 @@ public class HomePage {
 	@BeforeClass
 	public void BeforeNavigation(String sBrowser) throws MalformedURLException
 	{
+		try
+		{
+
 		
 		//Edit Browser Capabilities as per project
 		//Fire fox Profile		
@@ -90,7 +93,7 @@ public class HomePage {
 		try
 		{						
 			driver = new RemoteWebDriver(new URL("http://".concat(EnvironmentVariables.sHub).concat(":").concat(EnvironmentVariables.sHubPort).concat("/wd/hub")), objBrowserMgr.capability);
-			driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			ScreenShotOnTestFailure.init(driver, EnvironmentVariables.sEnv, EnvironmentVariables.sApp);
 		}
 		catch(Exception ex)
@@ -100,23 +103,53 @@ public class HomePage {
 		driver.get(EnvironmentVariables.sUrl_Orion3);
 		driver.manage().window().maximize();
 		uiHomePageObjects = new HomePageObjects(driver);
+		}
+		
+		catch (Exception e)
+													
+		{
+		Reporter.log(e.getMessage());
+		System.out.println(e.getMessage());
+		System.out.println(e.getStackTrace());
+		}
+
+
 	}
 	
+
 	@AfterClass
 	public void AfterNavigation()
 	{
+
+		try
+		{
+
 		//Quit the test after test class execution
-		System.out.println(driver.toString());
 		if(driver != null)
 		{
 			driver.quit();			
 		}
-		System.out.println(driver.toString());
-	}	
+		}
+			
+		catch (Exception e)
+									
+		{
+			Reporter.log(e.getMessage());
+			System.out.println(e.getMessage());
+			System.out.println(e.getStackTrace());
+		}
+	}
+	
+	
+	
+	
 	//Test Method to VerifyHomeTabPresent on home page.
 	@Test(priority=0)
 	public void VerifyHomeTabPresent(Method objMethod)
 	{	
+		try
+		{
+
 		if(uiHomePageObjects.VerifyHomeTabPresent())
 		{
 			ReportExtn.Pass(objMethod, "Home Tab is Visible");
@@ -126,11 +159,25 @@ public class HomePage {
 			ReportExtn.Fail(objMethod, "Home Tab is not Visible");
 		}
 	}
+	
+	catch (Exception e)
+												
+	{
+	Reporter.log(e.getMessage());
+	System.out.println(e.getMessage());
+	System.out.println(e.getStackTrace());
+	}
+
+
+	}
 
 	//Test Method to VerifyAdmissionsTabPresent on home page.
 	@Test(priority=0)
 	public void VerifyAdmissionsTabPresent(Method objMethod)
 	{		
+		try
+		{
+
 		if(uiHomePageObjects.VerifyAdmissionsTabPresent())
 		{
 			ReportExtn.Pass(objMethod, "Admissions Tab is Visible");
@@ -139,12 +186,27 @@ public class HomePage {
 		{
 			ReportExtn.Fail(objMethod, "Admissions Tab is not Visible");
 		}
+		}
+		
+		catch (Exception e)
+													
+		{
+		Reporter.log(e.getMessage());
+		System.out.println(e.getMessage());
+		System.out.println(e.getStackTrace());
+		}
+
 	}	
+	
+	
 	
 	//Test Method to VerifyTicketsTabPresent on home page.
 	@Test(priority=0)
 	public void VerifyTicketsTabPresent(Method objMethod)
 	{		
+		try
+		{
+
 		if(uiHomePageObjects.VerifyTicketsTabPresent())
 		{
 			ReportExtn.Pass(objMethod, "Tickets Tab is Visible");
@@ -154,10 +216,28 @@ public class HomePage {
 			ReportExtn.Fail(objMethod, "Tickets Tab is not Visible");
 		}
 	}
+	
+	catch (Exception e)
+												
+	{
+	Reporter.log(e.getMessage());
+	System.out.println(e.getMessage());
+	System.out.println(e.getStackTrace());
+	}
+
+	}
+	
+	
+	
+	
+	
 	//Test Method to VerifyAcademicsTabPresent on home page.
 	@Test(priority=0)
 	public void VerifyAcademicsTabPresent(Method objMethod)
 	{		
+		try
+		{
+
 		if(uiHomePageObjects.VerifyAcademicsTabPresent())
 		{
 			ReportExtn.Pass(objMethod, "Academics Tab is Visible");
@@ -166,11 +246,27 @@ public class HomePage {
 		{
 			ReportExtn.Fail(objMethod, "Academics Tab is not Visible");
 		}
+		}
+		
+		catch (Exception e)
+													
+		{
+		Reporter.log(e.getMessage());
+		System.out.println(e.getMessage());
+		System.out.println(e.getStackTrace());
+		}
 	}
+	
+	
+	
+	
 	//Test Method to VerifyFinanceTabPresent on home page.
 	@Test(priority=0)
 	public void VerifyFinanceTabPresent(Method objMethod)
-	{		
+	{	
+		try
+		{
+
 		if(uiHomePageObjects.VerifyFinanceTabPresent())
 		{
 			ReportExtn.Pass(objMethod, "Finance Tab is Visible");
@@ -181,10 +277,25 @@ public class HomePage {
 		}
 	}
 	
+	catch (Exception e)
+												
+	{
+	Reporter.log(e.getMessage());
+	System.out.println(e.getMessage());
+	System.out.println(e.getStackTrace());
+	}
+		
+	}
+	
+	
+	
 	//Test Method to VerifyFinancialAidTabPresent on home page.
 	@Test(priority=0)
 	public void VerifyFinancialAidTabPresent(Method objMethod)
 	{		
+		try
+		{
+
 		if(uiHomePageObjects.VerifyFinancialAidTabPresent())
 		{
 			ReportExtn.Pass(objMethod, "Finanical Aid Tab is Visible");
@@ -193,12 +304,25 @@ public class HomePage {
 		{
 			ReportExtn.Fail(objMethod, "Financial Aid Tab is not Visible");
 		}
+		}
+		
+		catch (Exception e)
+													
+		{
+		Reporter.log(e.getMessage());
+		System.out.println(e.getMessage());
+		System.out.println(e.getStackTrace());
+		}
 	}
+	
+	
 	
 	//Test Method to VerifyOpsAdminTabPresent on home page.
 	@Test(priority=0)
 	public void VerifyOpsAdminTabPresent(Method objMethod)
-	{		
+	{	
+		try
+		{
 		if(uiHomePageObjects.VerifyOpsAdminTabPresent())
 		{
 			ReportExtn.Pass(objMethod, "OpsAdmin Tab is Visible");
@@ -209,10 +333,23 @@ public class HomePage {
 		}
 	}
 	
+	catch (Exception e)
+												
+	{
+	Reporter.log(e.getMessage());
+	System.out.println(e.getMessage());
+	System.out.println(e.getStackTrace());
+	}
+	}
+	
+	
+	
 	//Test Method to VerifySystemAdminTabPresent on home page.
 	@Test(priority=0)
 	public void VerifySystemAdminTabPresent(Method objMethod)
 	{		
+		try
+		{
 		if(uiHomePageObjects.VerifySystemAdminTabPresent())
 		{
 			ReportExtn.Pass(objMethod, "System Admin Tab is Visible");
@@ -220,13 +357,28 @@ public class HomePage {
 		else
 		{
 			ReportExtn.Fail(objMethod, "System Admin Tab is not Visible");
-		}		
+		}	
+		}
+		
+		catch (Exception e)
+													
+		{
+		Reporter.log(e.getMessage());
+		System.out.println(e.getMessage());
+		System.out.println(e.getStackTrace());
+		}
+
 	}
+	
+	
 	
 	//Test Method to VerifyTicketAdminTabPresent on home page.
 	@Test(priority=0)
 	public void VerifyTicketAdminTabPresent(Method objMethod)
 	{		
+		try
+		{
+
 		if(uiHomePageObjects.VerifyTicketAdminTabPresent())
 		{
 			ReportExtn.Pass(objMethod, "Ticket Admin Tab is Visible");
@@ -234,14 +386,30 @@ public class HomePage {
 		else
 		{
 			ReportExtn.Fail(objMethod, "Ticket Admin Tab is not Visible");
-		}		
+		}
 	}
+	
+	catch (Exception e)
+												
+	{
+	Reporter.log(e.getMessage());
+	System.out.println(e.getMessage());
+	System.out.println(e.getStackTrace());
+	}
+
+	}
+	
+	
+	
 	
 	//Test Method to VerifyAddaLeadRefferalLinkPresent on home page.
 	
 	@Test(priority=0)
 	public void VerifyAddaLeadRefferalLinkPresent(Method objMethod)
 	{		
+		try
+		{
+
 		if(uiHomePageObjects.VerifyAddaLeadReferalLinkPresent())
 		{
 			ReportExtn.Pass(objMethod, "Add a lead Refferal link is Visible");
@@ -250,12 +418,25 @@ public class HomePage {
 		{
 			ReportExtn.Fail(objMethod, "Add a lead Refferal link is not Visible");
 		}		
+		}
+		
+		catch (Exception e)
+													
+		{
+		Reporter.log(e.getMessage());
+		System.out.println(e.getMessage());
+		System.out.println(e.getStackTrace());
+		}
 	}	
 
+	
+	
 	//Test Method to Verify AddaLeadRefferal page
 	@Test(priority=1)
 	public void VerifyAddaLeadReferralPage(Method objMethod)
 	{
+		try
+		{
 		//Click Add a lead Referral
 		if(uiHomePageObjects.lnkAddaLeadReferral.isDisplayed())
 		{			
@@ -382,6 +563,17 @@ public class HomePage {
 				ReportExtn.Fail(objMethod, uiAddALeadReferralPage.strSYStudentID, uiAddALeadReferralPage.lblSYStudentID.getText(), "Sy Student Label Text is not correct" );
 			}
 			
+		
+			
+		}
+}
+		
+		catch (Exception e)
+													
+		{
+		Reporter.log(e.getMessage());
+		System.out.println(e.getMessage());
+		System.out.println(e.getStackTrace());
 		}
 	}
 	

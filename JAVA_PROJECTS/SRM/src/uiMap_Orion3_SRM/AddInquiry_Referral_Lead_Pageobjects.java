@@ -148,8 +148,11 @@ import commonfunctions.UserExtension;
 		//Spouse Military Radio Button No
 				@FindBy(how=How.ID, using="j_id0:addaleadid:leadblock:j_id44:10:j_id50:0")
 				public WebElement rbtnSpouse_No;
-		
-		
+				
+		//Military Type
+				
+				@FindBy(how=How.XPATH, using="//td[text()='Military Type']/following-sibling::td[2]/select")
+				public WebElement ddMilitaryType;
 		
 		//Highest Level of Education
 		
@@ -178,6 +181,20 @@ import commonfunctions.UserExtension;
 		//duplicate lead alert message 
 		@FindBy(how=How.XPATH, using=".//*[@id='j_id0:addaleadid:leadblock:errmsgid']")
 		public WebElement txtCreatedLeadDuplicate;
+		
+		//Emphasis Value check
+		
+		@FindBy(how=How.XPATH, using="//table/tbody/tr[2]/td[2]")
+		public WebElement txtEmphasisPresent;
+		
+		//Find Product Button
+		
+				@FindBy(how=How.NAME, using="go")
+				public WebElement btnFindProduct;
+		
+		
+		
+		
 		
 		
 		}

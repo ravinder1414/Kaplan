@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="6" passed="6">
+<testng-results skipped="5" failed="0" total="5" passed="0">
   <reporter-output>
-    <line>
-      <![CDATA[[SubmitLead][2015.07.01]'[04:16:31]     Pass: Close Page button did appear as expected]]>
-    </line>
-    <line>
-      <![CDATA[[SubmitLead][2015.07.01]'[04:16:31]     Pass: Reset Page button did appear as expected]]>
-    </line>
   </reporter-output>
-  <suite name="Orion3_Navigation" duration-ms="96802" started-at="2015-07-01T10:45:50Z" finished-at="2015-07-01T10:47:27Z">
+  <suite name="SRM" duration-ms="10843594" started-at="2016-04-14T18:40:52Z" finished-at="2016-04-14T21:41:36Z">
     <groups>
     </groups>
-    <test name="Orion3_Navigation_FireFox" duration-ms="96802" started-at="2015-07-01T10:45:50Z" finished-at="2015-07-01T10:47:27Z">
-      <class name="orion3_LeadCreationSRM_Search.Lead_InfoCall">
-        <test-method status="PASS" signature="BeforeNavigation(java.lang.String)[pri:0, instance:orion3_LeadCreationSRM_Search.Lead_InfoCall@1c3d34b]" name="BeforeNavigation" is-config="true" duration-ms="26412" started-at="2015-07-01T16:15:50Z" finished-at="2015-07-01T16:16:17Z">
+    <test name="Orion3_Navigation_FireFox" duration-ms="10843594" started-at="2016-04-14T18:40:52Z" finished-at="2016-04-14T21:41:36Z">
+      <class name="inquiry_Leads.SRM_Genesys_ValidateMilitary">
+        <test-method status="FAIL" signature="BeforeNavigation(java.lang.String)[pri:0, instance:inquiry_Leads.SRM_Genesys_ValidateMilitary@fa1b85]" name="BeforeNavigation" is-config="true" duration-ms="0" started-at="2016-04-15T00:10:52Z" finished-at="2016-04-15T00:10:52Z">
           <params>
             <param index="0">
               <value>
@@ -21,92 +15,219 @@
               </value>
             </param>
           </params>
+          <exception class="org.openqa.selenium.remote.UnreachableBrowserException">
+            <message>
+              <![CDATA[Error communicating with the remote browser. It may have died.
+Build info: version: '2.46.0', revision: '87c69e2', time: '2015-06-04 16:17:10'
+System info: host: 'G-0439', ip: '10.163.105.64', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: RemoteWebDriver]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.46.0', revision: '87c69e2', time: '2015-06-04 16:17:10'
+System info: host: 'G-0439', ip: '10.163.105.64', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.7.0_80'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteWindow.maximize(RemoteWebDriver.java:843)
+	at inquiry_Leads.SRM_Genesys_ValidateMilitary.BeforeNavigation(SRM_Genesys_ValidateMilitary.java:202)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:140)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:170)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:104)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1176)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1101)
+	at org.testng.TestNG.run(TestNG.java:1009)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:139)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:155)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:284)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:261)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:165)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:272)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:124)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:143)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:89)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:134)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:578)
+	... 26 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.remote.UnreachableBrowserException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeNavigation -->
-        <test-method status="PASS" signature="BrowseToAddNewLeadPage(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreationSRM_Search.Lead_InfoCall@1c3d34b]" name="BrowseToAddNewLeadPage" duration-ms="4617" started-at="2015-07-01T16:16:17Z" finished-at="2015-07-01T16:16:21Z">
+        <test-method status="SKIP" signature="BrowseToAddNewReferralLeadPage(java.lang.reflect.Method)[pri:0, instance:inquiry_Leads.SRM_Genesys_ValidateMilitary@fa1b85]" name="BrowseToAddNewReferralLeadPage" duration-ms="166" started-at="2016-04-15T03:11:35Z" finished-at="2016-04-15T03:11:35Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void orion3_LeadCreationSRM_Search.Lead_InfoCall.BrowseToAddNewLeadPage(java.lang.reflect.Method)]]>
+                <![CDATA[public void inquiry_Leads.SRM_Genesys_ValidateMilitary.BrowseToAddNewReferralLeadPage(java.lang.reflect.Method) throws java.lang.InterruptedException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- BrowseToAddNewLeadPage -->
-        <test-method status="PASS" signature="Leads_ClassificationDetails(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreationSRM_Search.Lead_InfoCall@1c3d34b]" name="Leads_ClassificationDetails" duration-ms="2093" started-at="2015-07-01T16:16:21Z" depends-on-methods="orion3_LeadCreationSRM_Search.Lead_InfoCall.BrowseToAddNewLeadPage" finished-at="2015-07-01T16:16:24Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void orion3_LeadCreationSRM_Search.Lead_InfoCall.Leads_ClassificationDetails(java.lang.reflect.Method)]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- BrowseToAddNewReferralLeadPage -->
+        <test-method status="SKIP" signature="SearchInquirySRM(java.lang.reflect.Method)[pri:0, instance:inquiry_Leads.SRM_Genesys_ValidateMilitary@fa1b85]" name="SearchInquirySRM" duration-ms="0" started-at="2016-04-15T03:11:35Z" depends-on-methods="inquiry_Leads.SRM_Genesys_ValidateMilitary.BrowseToAddNewReferralLeadPage" finished-at="2016-04-15T03:11:35Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method SRM_Genesys_ValidateMilitary.SearchInquirySRM(java.lang.reflect.Method)[pri:0, instance:inquiry_Leads.SRM_Genesys_ValidateMilitary@fa1b85] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method SRM_Genesys_ValidateMilitary.SearchInquirySRM(java.lang.reflect.Method)[pri:0, instance:inquiry_Leads.SRM_Genesys_ValidateMilitary@fa1b85] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1052)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1176)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1101)
+	at org.testng.TestNG.run(TestNG.java:1009)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Leads_ClassificationDetails -->
-        <test-method status="PASS" signature="Leads_ProgramOfInterest(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreationSRM_Search.Lead_InfoCall@1c3d34b]" name="Leads_ProgramOfInterest" duration-ms="2238" started-at="2015-07-01T16:16:24Z" depends-on-methods="orion3_LeadCreationSRM_Search.Lead_InfoCall.Leads_ClassificationDetails" finished-at="2015-07-01T16:16:26Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void orion3_LeadCreationSRM_Search.Lead_InfoCall.Leads_ProgramOfInterest(java.lang.reflect.Method)]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- SearchInquirySRM -->
+        <test-method status="SKIP" signature="SearchStudent_IWD(java.lang.reflect.Method)[pri:0, instance:inquiry_Leads.SRM_Genesys_ValidateMilitary@fa1b85]" name="SearchStudent_IWD" duration-ms="0" started-at="2016-04-15T03:11:36Z" depends-on-methods="inquiry_Leads.SRM_Genesys_ValidateMilitary.SearchInquirySRM" finished-at="2016-04-15T03:11:36Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method SRM_Genesys_ValidateMilitary.SearchStudent_IWD(java.lang.reflect.Method)[pri:0, instance:inquiry_Leads.SRM_Genesys_ValidateMilitary@fa1b85] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method SRM_Genesys_ValidateMilitary.SearchStudent_IWD(java.lang.reflect.Method)[pri:0, instance:inquiry_Leads.SRM_Genesys_ValidateMilitary@fa1b85] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1052)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1176)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1101)
+	at org.testng.TestNG.run(TestNG.java:1009)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Leads_ProgramOfInterest -->
-        <test-method status="PASS" signature="Leads_Details(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreationSRM_Search.Lead_InfoCall@1c3d34b]" name="Leads_Details" duration-ms="2755" started-at="2015-07-01T16:16:26Z" depends-on-methods="orion3_LeadCreationSRM_Search.Lead_InfoCall.Leads_ProgramOfInterest" finished-at="2015-07-01T16:16:29Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void orion3_LeadCreationSRM_Search.Lead_InfoCall.Leads_Details(java.lang.reflect.Method)]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- SearchStudent_IWD -->
+        <test-method status="SKIP" signature="UpdateInquiryMilitaryValueSRM(java.lang.reflect.Method)[pri:0, instance:inquiry_Leads.SRM_Genesys_ValidateMilitary@fa1b85]" name="UpdateInquiryMilitaryValueSRM" duration-ms="0" started-at="2016-04-15T03:11:36Z" depends-on-methods="inquiry_Leads.SRM_Genesys_ValidateMilitary.SearchStudent_IWD" finished-at="2016-04-15T03:11:36Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method SRM_Genesys_ValidateMilitary.UpdateInquiryMilitaryValueSRM(java.lang.reflect.Method)[pri:0, instance:inquiry_Leads.SRM_Genesys_ValidateMilitary@fa1b85] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method SRM_Genesys_ValidateMilitary.UpdateInquiryMilitaryValueSRM(java.lang.reflect.Method)[pri:0, instance:inquiry_Leads.SRM_Genesys_ValidateMilitary@fa1b85] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1052)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1176)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1101)
+	at org.testng.TestNG.run(TestNG.java:1009)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Leads_Details -->
-        <test-method status="PASS" signature="SubmitLead(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreationSRM_Search.Lead_InfoCall@1c3d34b]" name="SubmitLead" duration-ms="2403" started-at="2015-07-01T16:16:29Z" depends-on-methods="orion3_LeadCreationSRM_Search.Lead_InfoCall.Leads_Details" finished-at="2015-07-01T16:16:31Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void orion3_LeadCreationSRM_Search.Lead_InfoCall.SubmitLead(java.lang.reflect.Method)]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- UpdateInquiryMilitaryValueSRM -->
+        <test-method status="SKIP" signature="SearchMilitaryStatusAfterModification_IWD(java.lang.reflect.Method)[pri:0, instance:inquiry_Leads.SRM_Genesys_ValidateMilitary@fa1b85]" name="SearchMilitaryStatusAfterModification_IWD" duration-ms="0" started-at="2016-04-15T03:11:36Z" depends-on-methods="inquiry_Leads.SRM_Genesys_ValidateMilitary.UpdateInquiryMilitaryValueSRM" finished-at="2016-04-15T03:11:36Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method SRM_Genesys_ValidateMilitary.SearchMilitaryStatusAfterModification_IWD(java.lang.reflect.Method)[pri:0, instance:inquiry_Leads.SRM_Genesys_ValidateMilitary@fa1b85] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method SRM_Genesys_ValidateMilitary.SearchMilitaryStatusAfterModification_IWD(java.lang.reflect.Method)[pri:0, instance:inquiry_Leads.SRM_Genesys_ValidateMilitary@fa1b85] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1052)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1176)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1101)
+	at org.testng.TestNG.run(TestNG.java:1009)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
-            <line>
-              <![CDATA[[SubmitLead][2015.07.01]'[04:16:31]     Pass: Close Page button did appear as expected]]>
-            </line>
-            <line>
-              <![CDATA[[SubmitLead][2015.07.01]'[04:16:31]     Pass: Reset Page button did appear as expected]]>
-            </line>
           </reporter-output>
-        </test-method> <!-- SubmitLead -->
-        <test-method status="PASS" signature="VerifyLeadInSRM(java.lang.reflect.Method)[pri:0, instance:orion3_LeadCreationSRM_Search.Lead_InfoCall@1c3d34b]" name="VerifyLeadInSRM" duration-ms="55986" started-at="2015-07-01T16:16:31Z" depends-on-methods="orion3_LeadCreationSRM_Search.Lead_InfoCall.SubmitLead" finished-at="2015-07-01T16:17:27Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void orion3_LeadCreationSRM_Search.Lead_InfoCall.VerifyLeadInSRM(java.lang.reflect.Method)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyLeadInSRM -->
-        <test-method status="PASS" signature="AfterNavigation()[pri:0, instance:orion3_LeadCreationSRM_Search.Lead_InfoCall@1c3d34b]" name="AfterNavigation" is-config="true" duration-ms="283" started-at="2015-07-01T16:17:27Z" finished-at="2015-07-01T16:17:27Z">
+        </test-method> <!-- SearchMilitaryStatusAfterModification_IWD -->
+        <test-method status="SKIP" signature="AfterNavigation()[pri:0, instance:inquiry_Leads.SRM_Genesys_ValidateMilitary@fa1b85]" name="AfterNavigation" is-config="true" duration-ms="0" started-at="2016-04-15T03:11:36Z" finished-at="2016-04-15T03:11:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterNavigation -->
-      </class> <!-- orion3_LeadCreationSRM_Search.Lead_InfoCall -->
-      <class name="orion3_Variables.EnvironmentVariables">
-        <test-method status="PASS" signature="BeforeSuite_Orion3(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:orion3_Variables.EnvironmentVariables@5db8ff]" name="BeforeSuite_Orion3" is-config="true" duration-ms="194" started-at="2015-07-01T16:15:50Z" finished-at="2015-07-01T16:15:50Z">
+      </class> <!-- inquiry_Leads.SRM_Genesys_ValidateMilitary -->
+      <class name="srm_Variables.EnvironmentVariables">
+        <test-method status="PASS" signature="BeforeSuite_Orion3(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:srm_Variables.EnvironmentVariables@191a42]" name="BeforeSuite_Orion3" is-config="true" duration-ms="4956" started-at="2016-04-15T00:10:47Z" finished-at="2016-04-15T00:10:52Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[TEST]]>
+                <![CDATA[STAGE]]>
               </value>
             </param>
             <param index="1">
@@ -121,14 +242,14 @@
             </param>
             <param index="3">
               <value>
-                <![CDATA[org.testng.TestRunner@1be5404]]>
+                <![CDATA[org.testng.TestRunner@1868ae6]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeSuite_Orion3 -->
-      </class> <!-- orion3_Variables.EnvironmentVariables -->
+      </class> <!-- srm_Variables.EnvironmentVariables -->
     </test> <!-- Orion3_Navigation_FireFox -->
-  </suite> <!-- Orion3_Navigation -->
+  </suite> <!-- SRM -->
 </testng-results>

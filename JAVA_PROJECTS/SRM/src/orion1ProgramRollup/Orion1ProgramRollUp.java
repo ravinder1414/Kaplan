@@ -102,8 +102,8 @@ public class Orion1ProgramRollUp {
 					
 					//Static variable
 					String sRandStr = RandomStringUtils.randomAlphabetic(5);
-					public String sFirstName = "TestNGFNCR_" + sRandStr;
-					public String sLastName = "TestNGLNCR_" + sRandStr;			
+					public String sFirstName = "TestNGFNPRUP_" + sRandStr;
+					public String sLastName = "TestNGLNPRUP_" + sRandStr;			
 					public String sEmailAddress = sFirstName + "IC@kap.com";
 					public String sPhone = "9545151234";
 					public String Password ="Qwer1234$";
@@ -177,7 +177,7 @@ public class Orion1ProgramRollUp {
 						//Edit Browser Capabilities as per project
 						//Fire fox Profile		
 						FirefoxProfile profile = new FirefoxProfile();
-						profile.setPreference("network.automatic-ntlm-auth.trusted-uris",EnvironmentVariables.sOrion1_URL);
+						profile.setPreference("network.automatic-ntlm-auth.trusted-uris",EnvironmentVariables.sTrusted_Uris);
 						//Capability
 						objBrowserMgr = new BrowserManagement(sBrowser);
 						objBrowserMgr.capability.setCapability(FirefoxDriver.PROFILE, profile);		

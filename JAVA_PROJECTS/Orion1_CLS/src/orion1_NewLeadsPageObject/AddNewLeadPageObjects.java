@@ -210,6 +210,12 @@ import org.openqa.selenium.support.PageFactory;
 		
 		@FindBy(how=How.ID, using = "CtlApplyForm1_XMLNHighestEducation")
 		public WebElement ddHighestEducation;
+		
+		//Military Type
+		
+		@FindBy(how=How.ID, using = "CtlApplyForm1_XMLNMilitary2")
+		public WebElement ddMilitaryType;
+		
 	
 		//First Lead Link
 		

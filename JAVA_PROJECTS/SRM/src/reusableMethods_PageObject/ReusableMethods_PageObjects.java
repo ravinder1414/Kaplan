@@ -85,7 +85,7 @@ public ReusableMethods_PageObjects(WebDriver driver) {
 		 lnkAdmissionConsole.click();
 		 }
 		 
-
+		 Thread.sleep(50000);
 		 String Lstoptions=lnkInquiryDropDown.getText();
 		 
 		 if (!Lstoptions.trim().equalsIgnoreCase("Add An Inquiry")){
@@ -120,6 +120,27 @@ public ReusableMethods_PageObjects(WebDriver driver) {
 			 //lnkDropDown.click();
 			// lnkKaplanSRM.click();
 		 }
+	
+	
+	public void SEPSignin(WebDriver driver) throws InterruptedException{
+		
+		
+		
+		
+		String AppMenudriver = lnkDropDown.getText();
+		
+		 
+		 if (!AppMenudriver.trim().equalsIgnoreCase("Kaplan SRM")){
+			 Thread.sleep(10000);
+			 lnkSetup.click();
+			 lnkKaplanSRM.click(); 
+		 }
+		// else{
+			// Thread.sleep(30000);
+			 //lnkDropDown.click();
+			// lnkKaplanSRM.click();
+		 }
+	
 	
 	
 	

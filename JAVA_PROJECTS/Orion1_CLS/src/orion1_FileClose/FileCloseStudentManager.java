@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -18,6 +19,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
 import uimap_Orion1.FileCloseStudentManagerPage;
 import uimap_Orion1.SearchLeadsPageObjects;
 import commonfunctions.BrowserManagement;
@@ -99,7 +101,7 @@ public class FileCloseStudentManager {
 		
 	@Test
 		public void ClickOnFirstLeads(Method objMethod)
-		{
+		{try{
 			uiSearchLeadsPageObjects =new SearchLeadsPageObjects(driver);
 			
 			uiSearchLeadsPageObjects.tabAdmissions.click();
@@ -173,12 +175,19 @@ public class FileCloseStudentManager {
                  Alert alert=driver.switchTo().alert();
                  alert.accept();
 				
-				driver.close();
+				//driver.close();
 				
 				//switch to main windowHandle
 				
 		driver.switchTo().window(mainwinhandle);
+		
+
+		}catch (Exception e)
+		{Reporter.log(e.getMessage());
+			
 		}
+		}
+		
 				
 		
 @Test(dependsOnMethods={"ClickOnFirstLeads"})
@@ -186,7 +195,7 @@ public class FileCloseStudentManager {
 		public void SearchLeadsInformationDetails(Method objMethod)
 		
 		
-		{
+		{try{
 			driver.switchTo().frame("Orion");
 			
           uiSearchLeadsPageObjects =new SearchLeadsPageObjects(driver);
@@ -243,10 +252,15 @@ public class FileCloseStudentManager {
 				uiFileCloseStudentManagerPage =new FileCloseStudentManagerPage(driver);
 				Assert.assertEquals(uiFileCloseStudentManagerPage.txtFileCloseStatus.getText().trim(), "File Close");
 				
-				
+
+		}catch (Exception e)
+		{Reporter.log(e.getMessage());
+			
+		}
+		}
 			
 			}
-	}
+	
 
 
 

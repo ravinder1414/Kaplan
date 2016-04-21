@@ -64,17 +64,20 @@ import environment.EnvironmentVariables;
 							
 							uiHomePageObjects =new Homepage(driver);
 							
-							uiTicketingPageObjects.tabTicketing.click();
+							//uiTicketingPageObjects.tabTicketing.click();
 							
 						}
 
 			//Verify Ticketing Home Link
 			@Test
 			public void VerifyTicketingHomeLink(){
-				Assert.assertTrue(uiTicketingPageObjects.lnkTicketingHome.isDisplayed(), "Ticketing Home Link is not displayed");
+				uiTicketingPageObjects = new TicketingPageObjects(driver);
+				uiTicketingPageObjects.tabTicketing.click();
+				//Assert.assertTrue(uiTicketingPageObjects.tabTicketing.isDisplayed(), "Ticketing Home Link is not displayed");
+				//Assert.assertTrue(uiTicketingPageObjects.lnkTicketingHome.isDisplayed(), "Ticketing Home Link is not displayed");
 			}
 			//Verify Ticketing Dashboard Link
-			@Test
+			/*@Test
 			public void VerifyTicketingDashboardLink(){
 				Assert.assertTrue(uiTicketingPageObjects.lnkTicketingDashboard.isDisplayed(), "Ticketing Dashboard Link is not displayed");
 			}
@@ -87,8 +90,7 @@ import environment.EnvironmentVariables;
 			@Test
 			public void VerifyActivityTypeAdminLink(){
 				Assert.assertTrue(uiTicketingPageObjects.lnkActivityTypeAdmin.isDisplayed(), "Activity Type Admin Link is not displayed");
-			}
-			
+			*/
 			
 			@AfterClass
 			  public void AfterNavigation(){

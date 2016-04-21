@@ -30,6 +30,7 @@ import org.testng.annotations.Test;
 
 import srm_Variables.EnvironmentVariables;
 import reusableMethods_PageObject.ReusableMethods_PageObjects;
+import reusableMethods_PageObject.SRM_ReusableMethods;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
 import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
 import uiMap_Orion3_SRM.AddInquiry_Referral_Lead_Pageobjects;
@@ -72,13 +73,13 @@ import commonfunctions.UserExtension;
 				public String sEmployer;
 				
 				//Static variable
-				
-				String sRandStr1 = RandomStringUtils.randomNumeric(3);
-				public String sSocialSecurityNumber = "563257" + sRandStr1;
-				String sRandStr = RandomStringUtils.randomAlphabetic(5);
-				public String sFirstName = "TestNGFNInfoCall_" + sRandStr;
-				public String sLastName = "TestNGLNInfoCall_" + sRandStr;			
-				public String sEmailAddress = sFirstName + "IC@kap.com";
+				public String sPath_ResultProperties="";
+				public static String sRandStr1 = RandomStringUtils.randomNumeric(3);
+				public static String sSocialSecurityNumber = "563257" + sRandStr1;
+				public static String sRandStr = RandomStringUtils.randomAlphabetic(5);
+				public static String sFirstName = "TestNGFNLF_" + sRandStr;
+				public static String sLastName = "TestNGLNLF_" + sRandStr;			
+				public static String sEmailAddress = sFirstName + "IC@kap.com";
 				public String sDayPhone = "9545151234";
 				public String sZipCode = "30256";
 				
@@ -89,7 +90,10 @@ import commonfunctions.UserExtension;
 				@BeforeClass
 				public void BeforeNavigation(String sBrowser) throws MalformedURLException
 				{
-					
+					try
+
+					{
+
 					//Read the application properties file
 					//Load environment variable from properties file
 					String sPath_AppProperties="";
@@ -113,6 +117,39 @@ import commonfunctions.UserExtension;
 					{
 						sPath_AppProperties = ".//Resources//ApplicationProperties/TestApplication.properties";			
 					}
+					
+					
+					
+					
+					
+////////////////////////////////////////////*********************************************////////////////////////////
+					
+					
+//Set file path as per environment for Result Property File
+
+if (EnvironmentVariables.sEnv.equalsIgnoreCase("dev"))
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/DevResultProperties.properties";
+
+}
+else if (EnvironmentVariables.sEnv.equalsIgnoreCase("stage"))
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/StageResultProperties.properties";	
+}
+else
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/TestResultProperties.properties";	
+}
+
+
+
+
+////////////////////////////////////////////*********************************************////////////////////////////
+
+
+
+					
+					
 					
 					//Load the Application variable file into File Input Stream.
 					File objFileApplication = new File(sPath_AppProperties);
@@ -158,7 +195,7 @@ import commonfunctions.UserExtension;
 					try
 					{					
 						driver = new RemoteWebDriver(new URL("http://".concat(EnvironmentVariables.sHub).concat(":").concat(EnvironmentVariables.sHubPort).concat("/wd/hub")), objBrowserMgr.capability);
-						driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+						driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 						ScreenShotOnTestFailure.init(driver, EnvironmentVariables.sEnv, EnvironmentVariables.sApp);
 					}
 					catch(Exception ex)
@@ -171,15 +208,48 @@ import commonfunctions.UserExtension;
 					uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
 					uiInfoCallLeadPageObjects = new InfoCallLeadPageObjects(driver);
 					uiSRM_LeadFlow_PageObjects =new SRM_LeadFlow_PageObjects(driver);
+					}
+					catch (Exception e)
+											
+					{
+					Reporter.log(e.getMessage());
+					System.out.println(e.getMessage());
+					System.out.println(e.getStackTrace());
+					}
+
 				}
 				
 				@AfterClass
 				public void AfterNavigation()
 				{
+					try
+
+					{
+
+						// Writing to Result Property File
+
+						System.out.println("Inside After class");
+						
+						System.out.println("Before method writing to Result Property file");
+						
+						SRM_ReusableMethods.writeToPropertyFile(sPath_ResultProperties, "sEmailAddressNameFromSRM_LeadFlow", sEmailAddress);
+						
+						System.out.println("After method writing to Result Property file");
+
+
+						
 					//Quit the test after test class execution
 					if(driver != null)
 					{
 						driver.quit();			
+					}
+					}
+					catch (Exception e)
+											
+					{
+					Reporter.log(e.getMessage());
+					System.out.println(e.getMessage());
+					System.out.println(e.getStackTrace());
 					}
 				}
 
@@ -187,6 +257,9 @@ import commonfunctions.UserExtension;
 				@Test
 				public void BrowseToAddInfoCallLeadPage(Method objMethod) throws InterruptedException
 				{
+					try
+
+					{
 					uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
 					uiInfoCallLeadPageObjects = new InfoCallLeadPageObjects(driver);
 					uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
@@ -287,6 +360,15 @@ import commonfunctions.UserExtension;
 					uiAddInquiry_Referral_Lead_Pageobjects.lnkKaplanSRM.click();
 					//uiReusableMethods_PageObjects.BackToKaplanSRM(driver);
 					Thread.sleep(10000);
+					}
+					catch (Exception e)
+											
+					{
+					Reporter.log(e.getMessage());
+					System.out.println(e.getMessage());
+					System.out.println(e.getStackTrace());
+					}
+
 					
 				}			
 	
@@ -296,6 +378,10 @@ import commonfunctions.UserExtension;
 				public void VerifyLeadInSRM(Method objMethod) throws InterruptedException
 				
 				{
+					try
+
+					{
+
 					uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
 					driver.get(EnvironmentVariables.sSRM_Url);
 					Thread.sleep(1000);
@@ -306,7 +392,7 @@ import commonfunctions.UserExtension;
 						
 					uiAddNewLeadsPageObjects.btnsearch_SRM.click();
 					
-					Thread.sleep(10000);
+					/*Thread.sleep(10000);
 					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
 					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
 					uiAddNewLeadsPageObjects.btnsearch_again.click();
@@ -319,7 +405,8 @@ import commonfunctions.UserExtension;
 					uiAddNewLeadsPageObjects.txtSecond_search_SRM.clear();
 					uiAddNewLeadsPageObjects.txtSecond_search_SRM.sendKeys(sEmailAddress1);
 					uiAddNewLeadsPageObjects.btnsearch_again.click();
-					Thread.sleep(30000);
+					Thread.sleep(30000);*/
+					SRM_ReusableMethods.WaitSearchInquiry(driver, 40000);
 					
 					//WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='Lead_body']/table/tbody/tr[2]/td[8]/a")));
 					UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.txtInquiryStatus);
@@ -327,7 +414,16 @@ import commonfunctions.UserExtension;
 					
 					Assert.assertTrue(uiAddNewLeadsPageObjects.txtEmailAddressVerification.getText().equalsIgnoreCase(sEmailAddress1), "Email searched successfully");
 							
-					
+					}
+					catch (Exception e)
+											
+					{
+					Reporter.log(e.getMessage());
+					System.out.println(e.getMessage());
+					System.out.println(e.getStackTrace());
+					}
+
+
 				
 				}
 				
@@ -336,6 +432,11 @@ import commonfunctions.UserExtension;
 				public void Lead_Flow(Method objMethod) throws InterruptedException
 
 				{
+					try
+
+					{
+
+
 					uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
 					uiSRM_LeadFlow_PageObjects =new SRM_LeadFlow_PageObjects(driver);
 					uiSRM_LeadFlow_PageObjects.clickOnCreatedLead.click();
@@ -350,7 +451,7 @@ import commonfunctions.UserExtension;
 					uiSRM_LeadFlow_PageObjects.btnSave.click();
 					WebDriverWait wait = new WebDriverWait(driver, 50000);
 					
-					WebElement element8 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Activity History']")));
+					//WebElement element8 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Activity History']")));
 					
 					Thread.sleep(50000);
 					
@@ -372,6 +473,17 @@ import commonfunctions.UserExtension;
 			        sep_url = uiSRM_LeadFlow_PageObjects.lnkSEPURL.getAttribute("href");
 			        
 			        System.out.println(sep_url);
+					}
+					catch (Exception e)
+											
+					{
+					Reporter.log(e.getMessage());
+					System.out.println(e.getMessage());
+					System.out.println(e.getStackTrace());
+					}
+
+
+
 				}
 			        
 			        @Test(dependsOnMethods={"Lead_Flow"})
@@ -394,9 +506,25 @@ import commonfunctions.UserExtension;
 			        	
 			        	uiSRM_LeadFlow_PageObjects.btnOK.click();
 			        	
+			        	Thread.sleep(20000);
+			        	
+			        	if(uiSRM_LeadFlow_PageObjects.lnkSignout.getText().trim().equalsIgnoreCase("Sign Out"))
+						{
+
+
+
+						}
+						else
+						{
+							uiSRM_LeadFlow_PageObjects.txtsignPassword.sendKeys("qwer1234@");
+						Thread.sleep(5000);
+						uiSRM_LeadFlow_PageObjects.btnSignIn.click();
+						}
+
+			        	
 			        	Thread.sleep(50000);
 			        	
-			        	WebElement element9 = wait.until(ExpectedConditions.elementToBeClickable(By.name("PermanentStreetAddress")));
+			        	//WebElement element9 = wait.until(ExpectedConditions.elementToBeClickable(By.name("PermanentStreetAddress")));
 			        	
 			        	uiSRM_LeadFlow_PageObjects.txtPermanentStreetAddress.sendKeys("test123");
 			        	
@@ -408,7 +536,7 @@ import commonfunctions.UserExtension;
 			        	
 			        	uiSRM_LeadFlow_PageObjects.rbtnSaveAndContinue.click();
 			        	
-			        	WebElement element10 = wait.until(ExpectedConditions.elementToBeClickable(By.name("DateOfBirth")));
+			        	//WebElement element10 = wait.until(ExpectedConditions.elementToBeClickable(By.name("DateOfBirth")));
 			        	
 			        	uiSRM_LeadFlow_PageObjects.txtDateofBirth.sendKeys("28051987");
 			        	
@@ -495,17 +623,7 @@ import commonfunctions.UserExtension;
 						
                    System.out.println(1);
 						
-						//Parents/Guradians  First Name
 						
-						//uiSRM_LeadFlow_PageObjects.txtParentsFirstName.sendKeys("test123");
-						
-						//Parents/Guradians Last Name
-						
-						//uiSRM_LeadFlow_PageObjects.txtParentsFirstName.sendKeys("last123");
-						
-						//Parents/Guradians Email Address
-						
-						//uiSRM_LeadFlow_PageObjects.txtParentsEmail.sendKeys(sEmailAddress);
                    
                    //WebElement element11 = wait.until(ExpectedConditions.elementToBeClickable(By.name("HighSchoolType")));
                	Thread.sleep(80000);
@@ -687,10 +805,17 @@ import commonfunctions.UserExtension;
 				     uiSRM_LeadFlow_PageObjects.rbtnSaveAndContinue.click();
 					
 					
-					}catch (Exception e)
-					{Reporter.log(e.getMessage());
-						
 					}
+					catch (Exception e)
+											
+					{
+					Reporter.log(e.getMessage());
+					System.out.println(e.getMessage());
+					System.out.println(e.getStackTrace());
+					}
+
+
+
 					}
 		}
 			        

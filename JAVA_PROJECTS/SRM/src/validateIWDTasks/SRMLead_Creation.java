@@ -61,6 +61,7 @@ import commonfunctions.UserExtension;
 				
 				
 				//Variables from Properties file
+				
 				String sFirstName1;
 			    String sLastName1;
 			    String sEmailAddress1;
@@ -70,10 +71,11 @@ import commonfunctions.UserExtension;
 				public String sHighestEducation;
 				
 				//Static variable
-				String sRandStr = RandomStringUtils.randomAlphabetic(5);
-				public String sFirstName = "TestNGFNInfoCall_" + sRandStr;
-				public String sLastName = "TestNGLNInfoCall_" + sRandStr;			
-				public String sEmailAddress = sFirstName + "IC@kap.com";
+				public String sPath_ResultProperties="";
+				public static String sRandStr = RandomStringUtils.randomAlphabetic(5);
+				public static String sFirstName = "TestNGFNSRMLC_" + sRandStr;
+				public static String sLastName = "TestNGLNSRMLC_" + sRandStr;			
+				public static String sEmailAddress = sFirstName + "IC@kap.com";
 				public String sDayPhone = "9545151234";
 				public String sZipCode = "30256";
 				public String sSyStuID= "";
@@ -87,7 +89,9 @@ import commonfunctions.UserExtension;
 				@BeforeClass
 				public void BeforeNavigation(String sBrowser) throws MalformedURLException
 				{
-					
+					try
+
+					{
 					//Read the application properties file
 					//Load environment variable from properties file
 					
@@ -112,6 +116,34 @@ import commonfunctions.UserExtension;
 					{
 						sPath_AppProperties = ".//Resources//ApplicationProperties/TestApplication.properties";			
 					}
+					
+					
+					
+////////////////////////////////////////////*********************************************////////////////////////////
+					
+					
+//Set file path as per environment for Result Property File
+
+if (EnvironmentVariables.sEnv.equalsIgnoreCase("dev"))
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/DevResultProperties.properties";
+
+}
+else if (EnvironmentVariables.sEnv.equalsIgnoreCase("stage"))
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/StageResultProperties.properties";	
+}
+else
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/TestResultProperties.properties";	
+}
+
+
+
+
+////////////////////////////////////////////*********************************************////////////////////////////
+
+
 					
 					
 					//Load the Application variable file into File Input Stream.
@@ -157,7 +189,7 @@ import commonfunctions.UserExtension;
 					try
 					{					
 						driver = new RemoteWebDriver(new URL("http://".concat(EnvironmentVariables.sHub).concat(":").concat(EnvironmentVariables.sHubPort).concat("/wd/hub")), objBrowserMgr.capability);
-						driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+						driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 						ScreenShotOnTestFailure.init(driver, EnvironmentVariables.sEnv, EnvironmentVariables.sApp);
 					}
 					catch(Exception ex)
@@ -166,15 +198,64 @@ import commonfunctions.UserExtension;
 					}
 					driver.get(EnvironmentVariables.sSRM_Url);
 					driver.manage().window().maximize();
-					uiHomePageObjects = new HomePageObjects(driver);			
+					uiHomePageObjects = new HomePageObjects(driver);	
+					}
+					catch (Exception e)
+											
+					{
+					Reporter.log(e.getMessage());
+					System.out.println(e.getMessage());
+					System.out.println(e.getStackTrace());
+					}
 				}
 				
+				
+				
+				@AfterClass
+				public void AfterNavigation()
+				{
+					try
+
+					{
+
+
+						// Writing to Result Property File
+
+						System.out.println("Inside After class");
+						
+						System.out.println("Before method writing to Result Property file");
+						
+						SRM_ReusableMethods.writeToPropertyFile(sPath_ResultProperties, "sEmailAddressNameFromSRMLead_Creation", sEmailAddress);
+						
+						System.out.println("After method writing to Result Property file");
+
+						
+					//Quit the test after test class execution
+					
+					if(driver != null)
+					{
+						driver.quit();			
+					}
+				}
+				catch (Exception e)
+										
+				{
+				Reporter.log(e.getMessage());
+				System.out.println(e.getMessage());
+				System.out.println(e.getStackTrace());
+				}
+
+				}
 				
 
 				
 				@Test
 				public void BrowseToAddNewReferralLeadPage(Method objMethod) throws InterruptedException
 				{
+					try
+
+					{
+
 					uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
 					uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
 					uiInfoCallLeadPageObjects = new InfoCallLeadPageObjects(driver);
@@ -248,7 +329,15 @@ import commonfunctions.UserExtension;
 					uiAddInquiry_Referral_Lead_Pageobjects.lnkKaplanSRM.click();
 					Thread.sleep(1000);
 					
-					
+					}
+					catch (Exception e)
+											
+					{
+					Reporter.log(e.getMessage());
+					System.out.println(e.getMessage());
+					System.out.println(e.getStackTrace());
+					}
+
 				}			
 	
 				
@@ -262,19 +351,19 @@ import commonfunctions.UserExtension;
 					uiAddNewLeadsPageObjects.search_SRM.clear();
 					uiAddNewLeadsPageObjects.search_SRM.sendKeys(sEmailAddress1);
 					WebDriverWait wait = new WebDriverWait(driver, 5000);
-					WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("phSearchButton")));
+					//WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("phSearchButton")));
 						
 					
 					uiAddNewLeadsPageObjects.btnsearch_SRM.click();
 					
 					SRM_ReusableMethods.WaitSearchInquiry(driver, 40000);
 					
-					WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='Lead_body']/table/tbody/tr[2]/td[8]/a")));
+					//WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='Lead_body']/table/tbody/tr[2]/td[8]/a")));
 					UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.txtInquiryStatus);
 					Assert.assertEquals(uiAddNewLeadsPageObjects.txtInquiryStatus.getText().trim(), "New");
 					
 					Assert.assertTrue(uiAddNewLeadsPageObjects.txtEmailAddressVerification.getText().equalsIgnoreCase(sEmailAddress1), "Email searched successfully");
-									
+								
 					
 				}catch (Exception e)
 				{Reporter.log(e.getMessage());
@@ -291,15 +380,17 @@ import commonfunctions.UserExtension;
 				{try{
 					
 					//click on inquiry Lead
-					driver.findElementByXPath("html/body/div[1]/div[2]/table/tbody/tr/td/div[2]/table/tbody/tr/td[2]/div[2]/div[2]/div[1]/div/div[2]/div/div[2]/table/tbody/tr[2]/th/a").click();
+					driver.findElementByXPath(".//*[@id='Lead_body']/table/tbody/tr[2]/th/a").click();
 					Thread.sleep(10000);
 					
 					
 					//Fetch Systdent id
 					sSyStuID =driver.findElementByXPath("//td[text()='SyStudentID']/following-sibling::td[1]/div").getText();
 					Reporter.log(sSyStuID);
+					System.out.println(driver.findElementByXPath("//td[text()='SyStudentID']/following-sibling::td[1]/div").getText());
+					
 					sEmailID = driver.findElementByXPath("html/body/div[1]/div[2]/table/tbody/tr/td[2]/div[4]/div[2]/div[10]/table/tbody/tr[11]/td[2]/div/a").getText();
-				
+				    
 				}catch (Exception e)
 				{
 					Reporter.log(e.getMessage());
@@ -317,27 +408,34 @@ import commonfunctions.UserExtension;
 					  driver.findElement(By.id("loginForm:username")).sendKeys("chliang");
 					  driver.findElement(By.id("loginForm:password")).sendKeys("test");	
 					  driver.findElement(By.id("loginForm:submit")).click();
-				
+				   
+					  UserExtension.IsElementPresent(driver,  UiDuplicateLeadCompletion.GlobalTaskList);
+					  Thread.sleep(15000);
+					   
 					 //Clicking on Global Task list link
-					 UiDuplicateLeadCompletion.GlobalTaskList.click();	
+					 UiDuplicateLeadCompletion.GlobalTaskList.click();
 					 Thread.sleep(10000);
+					 UserExtension.IsElementPresent(driver, UiDuplicateLeadCompletion .kaplanTESTLink);
 					 
 					 //Clicking on Kaplan TEST Link
 				     UiDuplicateLeadCompletion .kaplanTESTLink.click();
+				     UserExtension.IsElementPresent(driver, UiDuplicateLeadCompletion.CaptureSYStudentID);
 				     Thread.sleep(10000);
 				     
 				     //Searching SyStudent ID in Captured ID field
 				     UiDuplicateLeadCompletion.CaptureSYStudentID.sendKeys(sSyStuID);
-				     Thread.sleep(5000);
+				     UserExtension.IsElementPresent(driver,  UiDuplicateLeadCompletion.FindCapturedSYID);
+				     Thread.sleep(10000);
 				     
 				     //Finding the Captured ID from SRM
 				     UiDuplicateLeadCompletion.FindCapturedSYID.click();
-				     Thread.sleep(5000);
+				     Thread.sleep(20000);
 				     
 				     List <WebElement> ele= driver.findElements(By.xpath("//div[contains(@id, 'mainForm:managerRegion:tasks_table-row')]"));
 				     int i =  ele.size();
+				     Assert.assertEquals(i, 1);
 				     System.out.println(i);
-					 Thread.sleep(10000);
+					 UserExtension.IsElementPresent(driver, UiDuplicateLeadCompletion.CapturedIDRecord);
 					 
 				     //clicking on CaPtured lead ID
 				     UiDuplicateLeadCompletion.CapturedIDRecord.click();
@@ -347,16 +445,10 @@ import commonfunctions.UserExtension;
 				     //Verifying lead record data in IWD 
 				     Assert.assertEquals(UiDuplicateLeadCompletion.VerifyEmail.getText().trim(), sEmailAddress1);
 				    
+				    //logging out IWD 
+				     driver.findElement(By.xpath("//a[@class='logout']")).click();
 				    
-				    
-	}@AfterClass
-	public void AfterNavigation()
-	{
-		//Quit the test after test class execution
-		
-		if(driver != null)
-		{
-			driver.quit();			
-		}
 	}
+	
+	
 	}

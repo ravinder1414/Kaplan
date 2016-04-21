@@ -194,7 +194,7 @@ public class Orion3LeadTransfer {
 				uiAddNewLeadsPageObjects.SelectChannelGroupAs(sChannelGroup);
 				UserExtension.WaitTillAttributeValueIs(driver, uiAddNewLeadsPageObjects.imgProgressPanel, "style", "display: block;");
 				WebDriverWait wait = new WebDriverWait(driver, 10);
-				WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("ctl00_PageBodyPlaceHolder_DdlPromotionCode")));
+				//WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("ctl00_PageBodyPlaceHolder_DdlPromotionCode")));
 				Assert.assertEquals(ddlPromotionCode.getFirstSelectedOption().getText().trim(), uiAddNewLeadsPageObjects.sPromotionCodeDefaultText_after, "Selected option for Promotion Code is not Correct");		
 				//Select Promotion
 				driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
@@ -286,12 +286,12 @@ public class Orion3LeadTransfer {
 				uiAddNewLeadsPageObjects.search_SRM.clear();
 				uiAddNewLeadsPageObjects.search_SRM.sendKeys(sEmailAddress1);
 				WebDriverWait wait = new WebDriverWait(driver, 5000);
-				WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("phSearchButton")));
+				//WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("phSearchButton")));
 					
 				uiAddNewLeadsPageObjects.btnsearch_SRM.click();
 				
 				SRM_ReusableMethods.WaitSearchInquiry(driver, 40000);
-				WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='Lead_body']/table/tbody/tr[2]/td[8]/a")));
+				//WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='Lead_body']/table/tbody/tr[2]/td[8]/a")));
 				UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.txtInquiryStatus);
 				Assert.assertEquals(uiAddNewLeadsPageObjects.txtInquiryStatus.getText().trim(), "New");
 				

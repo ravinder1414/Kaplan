@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Orion1CLS]">
-  <parameter name="Environment" value="DEV"/>
+  <parameter name="Environment" value="STAGE"/>
   <parameter name="Browser" value="firefox"/>
-  <parameter name="sHubPort" value="4444"/>
   <parameter name="sHub" value="localhost"/>
   <listeners>
     <listener class-name="commonfunctions.ScreenShotOnTestFailure"/>
@@ -11,80 +10,21 @@
   <test name="Orion1CLS_firefox(failed)">
     <parameter name="Browser" value="firefox"/>
     <classes>
-      <class name="Orion1_Navigation.Home_StudentLookup">
+      <class name="Orion1_Navigation.Marketing">
         <methods>
+          <include name="VerifyVendor"/>
           <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
+          <include name="VerifyDispManaerLink"/>
+          <include name="VerifyDNCLink"/>
+          <include name="VerifyMarketingLink"/>
+          <include name="VerifySIFManaerLink"/>
         </methods>
-      </class> <!-- Orion1_Navigation.Home_StudentLookup -->
-      <class name="orion1_FileClose.FileCloseAdmissionManager">
-        <methods>
-          <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
-        </methods>
-      </class> <!-- orion1_FileClose.FileCloseAdmissionManager -->
+      </class> <!-- Orion1_Navigation.Marketing -->
       <class name="environment.EnvironmentVariables">
         <methods>
           <include name="BeforeSuite_Orion1"/>
         </methods>
       </class> <!-- environment.EnvironmentVariables -->
-      <class name="Orion1_Navigation.Academic">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- Orion1_Navigation.Academic -->
-      <class name="orion1_FileClose.FileCloseStudentManager">
-        <methods>
-          <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
-        </methods>
-      </class> <!-- orion1_FileClose.FileCloseStudentManager -->
-      <class name="Orion1_Navigation.Admin">
-        <methods>
-          <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
-        </methods>
-      </class> <!-- Orion1_Navigation.Admin -->
-      <class name="Orion1_Navigation.Marketing">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- Orion1_Navigation.Marketing -->
-      <class name="Orion1_Navigation.Accounting">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- Orion1_Navigation.Accounting -->
-      <class name="Orion1_Navigation.Editorial">
-        <methods>
-          <include name="BeforeNavigation"/>
-          <include name="AfterNavigation"/>
-        </methods>
-      </class> <!-- Orion1_Navigation.Editorial -->
-      <class name="Orion1_Navigation.Admissions">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="VerifyBonusTrackerLink"/>
-          <include name="BeforeNavigation"/>
-          <include name="VerifyAdmissionsManagerPage"/>
-        </methods>
-      </class> <!-- Orion1_Navigation.Admissions -->
-      <class name="Orion1_Navigation.Home_AddNewLeadReferral">
-        <methods>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- Orion1_Navigation.Home_AddNewLeadReferral -->
-      <class name="Orion1_Navigation.Home">
-        <methods>
-          <include name="VerifyRegistrar"/>
-          <include name="AfterNavigation"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- Orion1_Navigation.Home -->
     </classes>
   </test> <!-- Orion1CLS_firefox(failed) -->
 </suite> <!-- Failed suite [Orion1CLS] -->

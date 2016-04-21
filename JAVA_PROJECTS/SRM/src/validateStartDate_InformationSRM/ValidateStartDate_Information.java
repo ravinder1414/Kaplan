@@ -84,8 +84,8 @@ public class ValidateStartDate_Information {
 					String sRandStr1 = RandomStringUtils.randomNumeric(3);
 					public String sSocialSecurityNumber = "563257" + sRandStr1;
 					String sRandStr = RandomStringUtils.randomAlphabetic(5);
-					public String sFirstName = "TestNGFNInfoCall_" + sRandStr;
-					public String sLastName = "TestNGLNInfoCall_" + sRandStr;			
+					public String sFirstName = "TestNGFNVSDATE_" + sRandStr;
+					public String sLastName = "TestNGLNVSDATE_" + sRandStr;			
 					public String sEmailAddress = sFirstName + "IC@kap.com";
 					public String sDayPhone = "9545151234";
 					public String sZipCode = "30256";
@@ -279,7 +279,7 @@ public class ValidateStartDate_Information {
 						Select ddlHightestEdution = new Select(uiInfoCallLeadPageObjects.ddHighestLevelEducation);
 						ddlHightestEdution.selectByVisibleText(sHighestEducation);
 						
-						Thread.sleep(30000);
+						Thread.sleep(40000);
 						
 						//WebElement element3 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:addALeadButtonId")));
 						uiInfoCallLeadPageObjects.txtAddAnInquiry.click();
@@ -347,7 +347,7 @@ public class ValidateStartDate_Information {
 						uiSRM_LeadFlow_PageObjects.btnSave.click();
 						WebDriverWait wait = new WebDriverWait(driver, 50000);
 						
-						WebElement element8 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Activity History']")));
+						//WebElement element8 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Activity History']")));
 						
 						Thread.sleep(50000);
 						
@@ -355,7 +355,7 @@ public class ValidateStartDate_Information {
 				 
 				        action.moveToElement(uiSRM_LeadFlow_PageObjects.lnkActivityHistory).build().perform();
 				        
-				        Thread.sleep(1000);
+				        Thread.sleep(20000);
 				        
 				        uiSRM_LeadFlow_PageObjects.lnkSendSEPEmail.click();
 				        
@@ -400,6 +400,23 @@ public class ValidateStartDate_Information {
 				        	
 				        	uiSRM_LeadFlow_PageObjects.btnOK.click();
 				        	
+				        	System.out.println(123);
+				        	
+                            Thread.sleep(50000);
+				        	
+				        	if(!uiSRM_LeadFlow_PageObjects.lnkSignout.getText().trim().equalsIgnoreCase("Sign Out"))
+							{
+
+				        		uiSRM_LeadFlow_PageObjects.txtsignPassword.sendKeys("qwer1234@");
+								Thread.sleep(5000);
+								uiSRM_LeadFlow_PageObjects.btnSignIn.click();
+
+							}
+							
+
+				        	
+				        	Thread.sleep(10000);
+				        	
 				        	//uiSRM_LeadFlow_PageObjects.txtsignPassword.sendKeys("qwer1234@");
 				        	
 				        	//uiSRM_LeadFlow_PageObjects.btnSignIn.click();
@@ -413,7 +430,7 @@ public class ValidateStartDate_Information {
 				        	
 				        	//uiSRM_LeadFlow_PageObjects.txtPassword.sendKeys("qwer1234@");
 				        	
-				        	WebElement element9 = wait.until(ExpectedConditions.elementToBeClickable(By.name("PermanentStreetAddress")));
+				        	//WebElement element9 = wait.until(ExpectedConditions.elementToBeClickable(By.name("PermanentStreetAddress")));
 				        	
 				        	uiSRM_LeadFlow_PageObjects.txtPermanentStreetAddress.sendKeys("test123");
 				        	
@@ -425,7 +442,7 @@ public class ValidateStartDate_Information {
 				        	
 				        	uiSRM_LeadFlow_PageObjects.rbtnSaveAndContinue.click();
 				        	
-				        	WebElement element10 = wait.until(ExpectedConditions.elementToBeClickable(By.name("DateOfBirth")));
+				        	//WebElement element10 = wait.until(ExpectedConditions.elementToBeClickable(By.name("DateOfBirth")));
 				        	
 				        	uiSRM_LeadFlow_PageObjects.txtDateofBirth.sendKeys("28051987");
 				        	

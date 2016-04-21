@@ -2,7 +2,7 @@ package validateCollege_InformationSRM;
 
 
 
-	import java.io.File;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -11,8 +11,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-
-	import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -30,8 +29,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-	import srm_Variables.EnvironmentVariables;
+import srm_Variables.EnvironmentVariables;
 import reusableMethods_PageObject.ReusableMethods_PageObjects;
 import reusableMethods_PageObject.SRM_ReusableMethods;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
@@ -292,7 +290,7 @@ import commonfunctions.UserExtension;
 						
 						UserExtension.IsElementPresent(driver, uiInfoCallLeadPageObjects.txtCreatedLeadSuccess);
 						Assert.assertEquals(uiInfoCallLeadPageObjects.txtCreatedLeadSuccess.getText().trim(), "Success:Your lead is being created");
-						
+						Thread.sleep(10000);
 						driver.navigate().refresh();
 						
 						uiReusableMethods_PageObjects.lnkDropDown.click();
@@ -349,7 +347,7 @@ import commonfunctions.UserExtension;
 						
 						WebElement element8 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Activity History']")));
 						
-						Thread.sleep(50000);
+						Thread.sleep(30000);
 						
 				        Actions action = new Actions(driver);
 				 
@@ -391,11 +389,24 @@ import commonfunctions.UserExtension;
 				        	
 				        	uiSRM_LeadFlow_PageObjects.btnOK.click();
 				        	
-				        	Thread.sleep(10000);
+				        	Thread.sleep(20000);
 				        	
-				        	//uiSRM_LeadFlow_PageObjects.txtPassword.sendKeys("qwer1234@");
+				        	UserExtension.IsElementPresent(driver, uiSRM_LeadFlow_PageObjects.txtPermanentStreetAddress);
 				        	
-				        	WebElement element9 = wait.until(ExpectedConditions.elementToBeClickable(By.name("PermanentStreetAddress")));
+				        	if(uiSRM_LeadFlow_PageObjects.lnkSignout.getText().trim().equalsIgnoreCase("Sign Out"))
+							{
+
+
+
+							}
+							else
+							{
+								uiSRM_LeadFlow_PageObjects.txtsignPassword.sendKeys("qwer1234@");
+							Thread.sleep(5000);
+							uiSRM_LeadFlow_PageObjects.btnSignIn.click();
+							}
+
+				        
 				        	
 				        	uiSRM_LeadFlow_PageObjects.txtPermanentStreetAddress.sendKeys("test123");
 				        	
@@ -403,11 +414,11 @@ import commonfunctions.UserExtension;
 				        	
 				        	uiSRM_LeadFlow_PageObjects.checkBoxShippingAddress.click();
 				        	
-				        	Thread.sleep(50000);
+				        	Thread.sleep(10000);
 				        	
 				        	uiSRM_LeadFlow_PageObjects.rbtnSaveAndContinue.click();
 				        	
-				        	WebElement element10 = wait.until(ExpectedConditions.elementToBeClickable(By.name("DateOfBirth")));
+				        	
 				        	
 				        	uiSRM_LeadFlow_PageObjects.txtDateofBirth.sendKeys("28051987");
 				        	
@@ -484,7 +495,7 @@ import commonfunctions.UserExtension;
 							
 							uiSRM_LeadFlow_PageObjects.rbnSave.click();
 							
-							Thread.sleep(50000);
+							Thread.sleep(10000);
 							
 							uiSRM_LeadFlow_PageObjects.rbtnSaveAndContinue.click();
 							
@@ -501,7 +512,7 @@ import commonfunctions.UserExtension;
 						Select ddlGraduationSchoolState = new Select(uiSRM_LeadFlow_PageObjects.ddlHighSchoolState);
 						ddlGraduationSchoolState.selectByIndex(2);
 						
-						Thread.sleep(50000);
+						Thread.sleep(30000);
 						
 						//Graduation Date
 						
@@ -536,7 +547,7 @@ import commonfunctions.UserExtension;
 						WebDriverWait wait1 = new WebDriverWait(driver, 10000);
 						
 						Thread.sleep(10000);
-						//WebElement element15 = wait1.until(ExpectedConditions.elementToBeClickable(By.name("City")));
+					
 						
 						Select ddlCity = new Select(uiValidateCollege_Information.ddCity);
 						ddlCity.selectByValue("15");
@@ -580,7 +591,7 @@ import commonfunctions.UserExtension;
 					uiSRM_LeadFlow_PageObjects.rbnSave.click();
 						
 						
-					Thread.sleep(50000);
+					Thread.sleep(10000);
 					  
 						
 						
@@ -591,6 +602,7 @@ import commonfunctions.UserExtension;
 						}
 			
 				        @Test(dependsOnMethods={"SRM__Lead_Details"})
+
 						public void VerifyOpportunityInSRM(Method objMethod) throws InterruptedException
 						
 						{
@@ -692,12 +704,11 @@ import commonfunctions.UserExtension;
 							uiAddNewLeadsPageObjects.btnsearch_SRM.click();
 							
 							
-                         //call Wait for Search Opportunity Method
+                         // call Wait for Search Opportunity Method
 							SRM_ReusableMethods.WaitSearchOpportunity(driver, 30000);
 							
 							
-							uiAddNewLeadsPageObjects.txtStatusOppertunities.getText();
-							
+							uiAddNewLeadsPageObjects.txtStatusOppertunities.getText();							
 							System.out.println(uiAddNewLeadsPageObjects.txtStatusOppertunities.getText());
 							
 							Assert.assertEquals(uiAddNewLeadsPageObjects.txtStatusOppertunities.getText(), "Remarketing");
@@ -723,7 +734,7 @@ import commonfunctions.UserExtension;
 							driver.get(EnvironmentVariables.sSEP_Url);
 							Thread.sleep(1000);
 							WebDriverWait wait = new WebDriverWait(driver, 10000);
-							WebElement element5 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='hero-wrapper']/div/div[1]/div/ul/li[1]/span/div/div/div/p[3]/a/img")));
+							
 							uiSEP_CreateAccount_PageObjects.lblBeginApplication.click();
 							
 							uiValidateCollege_Information.lnkSEPSignOut.click();
@@ -738,7 +749,6 @@ import commonfunctions.UserExtension;
 							
 							Thread.sleep(15000);
 							
-							//WebElement element6 = wait.until(ExpectedConditions.elementToBeClickable(By.id("CreditNo")));
 							
 							uiSRM_LeadFlow_PageObjects.rbtnEquivalentCredit_No.click();
 							
@@ -768,7 +778,7 @@ import commonfunctions.UserExtension;
 							Select ddlDegreeLevel = new Select(uiSRM_LeadFlow_PageObjects.ddDegreeLevel);
 							ddlDegreeLevel.selectByVisibleText("Master of Science");
 							
-							//WebElement element14 = wait1.until(ExpectedConditions.elementToBeClickable(By.name("ProgramOfStudy")));
+							
 							
 							//Program of Study
 							
@@ -802,7 +812,7 @@ import commonfunctions.UserExtension;
 							
 							uiSRM_LeadFlow_PageObjects.rbnSave.click();
 							
-							Thread.sleep(50000);
+							Thread.sleep(10000);
 							
 							uiSRM_LeadFlow_PageObjects.rbtnSaveAndContinue.click();
 							

@@ -18,7 +18,7 @@ package uiMap_Orion3_SRM;
 			
 			//Program Maintenance Link
 			
-			@FindBy(how=How.XPATH, using=".//*[@id='_ctl1_ApplicationsNavRow']")
+			@FindBy(how=How.XPATH, using=".//*[@id='_ctl1_TopNavRow']/td[13]")
 			public WebElement lnkProgramMaintenance;
 			
 			//Link Program RollUp Maintenance
@@ -48,8 +48,15 @@ package uiMap_Orion3_SRM;
 				  
 				  //Update Button
 				  
-				  @FindBy(how=How.LINK_TEXT, using= "Update  |")
+				  @FindBy(how=How.XPATH, using= ".//*[@id='dgProgramEmphasis']/tbody/tr[2]/td[4]/a[1]")
 					public WebElement btnUpdate;
+				  
+                    //Update Button at Rollup
+				  
+				  @FindBy(how=How.XPATH, using= ".//*[@id='dgProgramRollup']/tbody/tr[2]/td[7]/a[1]")
+					public WebElement btnUpdate_Rollup;
+				  
+				  
 				  
 				  //Program Roll up
 				  @FindBy(how=How.LINK_TEXT, using= "Program Rollup")
@@ -69,6 +76,53 @@ package uiMap_Orion3_SRM;
 				  
 				  @FindBy(how=How.ID, using= "dgProgramRollup__ctl3_ddlProgramEmphasis_Edit")
 					public WebElement ddProgramEmphasis;
+				  
+              //Program Emphasis Search Text Box
+				  
+				  @FindBy(how=How.ID, using= "txtEmphasis_Search")
+					public WebElement txtProgramEmphasisSearch;
+				  
+                    //Program Emphasis Search Button
+				  
+				  
+				  @FindBy(how=How.ID, using= "btnSearch")
+					public WebElement btnEmphasisSearch;
+				  
+                    //Program Rollup Search Button
+				  
+				  
+				  @FindBy(how=How.ID, using= "searchButton")
+					public WebElement btnRollupSearch;
+				  
+				  
+				  
+                      
+				  //Emphasis Edit Link
+				  
+				  
+				  @FindBy(how=How.XPATH, using= "//tbody/tr[2]/td[4]/a")
+					public WebElement lnkEmphasicEdit;
+				  
+				  //Text Program Emphasis
+				  
+				  @FindBy(how=How.ID, using= "txtProgramEmphasis_Search")
+					public WebElement txtProgramSearchEmphasis;
+				  
+                   //Program Emphasis Edit Links
+				  
+				  @FindBy(how=How.XPATH, using= ".//*[@id='dgProgramRollup']/tbody/tr[2]/td[7]/a")
+					public WebElement lnkProgramEmphasisEdit;
+				  
+				  
+				  
+				  
+              
+				  
+				  
+				
+				  
+				  
+				  
 				  
 				  
 				  

@@ -21,6 +21,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -72,10 +73,11 @@ import commonfunctions.UserExtension;
 				public String sNurshing;
 				
 				//Static variable
-				String sRandStr = RandomStringUtils.randomAlphabetic(5);
-				public String sFirstName = "TestNGFNCR_" + sRandStr;
-				public String sLastName = "TestNGLNCR_" + sRandStr;			
-				public String sEmailAddress = sFirstName + "IC@kap.com";
+				public String sPath_ResultProperties="";
+				public static String sRandStr = RandomStringUtils.randomAlphabetic(5);
+				public static String sFirstName = "TestNGFNSEPAC_" + sRandStr;
+				public static String sLastName = "TestNGLNSEPAC_" + sRandStr;			
+				public static String sEmailAddress = sFirstName + "IC@kap.com";
 				public String sPhone = "9545151234";
 				public String Password ="Qwer1234$";
 				
@@ -87,7 +89,11 @@ import commonfunctions.UserExtension;
 				@BeforeClass
 				public void BeforeNavigation(String sBrowser) throws MalformedURLException
 				{
-					
+					try
+
+					{
+
+
 					//Read the application properties file
 					//Load environment variable from properties file
 					String sPath_AppProperties="";
@@ -111,6 +117,35 @@ import commonfunctions.UserExtension;
 					{
 						sPath_AppProperties = ".//Resources//ApplicationProperties/TestApplication.properties";			
 					}
+					
+					
+					
+////////////////////////////////////////////*********************************************////////////////////////////
+					
+					
+//Set file path as per environment for Result Property File
+
+if (EnvironmentVariables.sEnv.equalsIgnoreCase("dev"))
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/DevResultProperties.properties";
+
+}
+else if (EnvironmentVariables.sEnv.equalsIgnoreCase("stage"))
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/StageResultProperties.properties";	
+}
+else
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/TestResultProperties.properties";	
+}
+
+
+
+
+////////////////////////////////////////////*********************************************////////////////////////////
+
+					
+					
 					
 					//Load the Application variable file into File Input Stream.
 					File objFileApplication = new File(sPath_AppProperties);
@@ -157,7 +192,7 @@ import commonfunctions.UserExtension;
 					try
 					{					
 						driver = new RemoteWebDriver(new URL("http://".concat(EnvironmentVariables.sHub).concat(":").concat(EnvironmentVariables.sHubPort).concat("/wd/hub")), objBrowserMgr.capability);
-						driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+						driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 						ScreenShotOnTestFailure.init(driver, EnvironmentVariables.sEnv, EnvironmentVariables.sApp);
 					}
 					catch(Exception ex)
@@ -168,27 +203,58 @@ import commonfunctions.UserExtension;
 					driver.manage().window().maximize();
 					uiSEP_CreateAccount_PageObjects = new SEP_CreateAccount_PageObjects(driver);
 					uiAddNewLeadsPageObjects = new AddNewLeadPageObjects(driver);
-					uiHomePageObjects = new HomePageObjects(driver);			
+					uiHomePageObjects = new HomePageObjects(driver);		
+					}
+					catch (Exception e)
+											
+					{
+					Reporter.log(e.getMessage());
+					System.out.println(e.getMessage());
+					System.out.println(e.getStackTrace());
+					}
+
 				}
 				
 				@AfterClass
 				public void AfterNavigation()
 				{
+					try
+
+					{
+						
+						// Writing to Result Property File
+
+						System.out.println("Inside After class");
+						
+						System.out.println("Before method writing to Result Property file");
+						
+						SRM_ReusableMethods.writeToPropertyFile(sPath_ResultProperties, "sEmailAddressNameFromSEP_CreateAccount", sEmailAddress);
+						
+						System.out.println("After method writing to Result Property file");
 					//Quit the test after test class execution
 					if(driver != null)
 					{
 						driver.quit();			
 					}
 				}
+				catch (Exception e)
+										
+				{
+				Reporter.log(e.getMessage());
+				System.out.println(e.getMessage());
+				System.out.println(e.getStackTrace());
+				}
+
+				}
 
 				
 				@Test
 				public void CreateSEPAccount(Method objMethod) throws InterruptedException
 				{
-					
+					try{
 					uiSEP_CreateAccount_PageObjects = new SEP_CreateAccount_PageObjects(driver);
 					WebDriverWait wait = new WebDriverWait(driver, 10000);
-					WebElement element5 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='hero-wrapper']/div/div[1]/div/ul/li[1]/span/div/div/div/p[3]/a/img")));
+					//WebElement element5 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='hero-wrapper']/div/div[1]/div/ul/li[1]/span/div/div/div/p[3]/a/img")));
 					uiSEP_CreateAccount_PageObjects.lblBeginApplication.click();
 					UserExtension.IsElementPresent(driver, uiSEP_CreateAccount_PageObjects.rbnAttendedKaplanYes);
 					
@@ -276,13 +342,18 @@ import commonfunctions.UserExtension;
 					
 					//WebDriverWait wait = new WebDriverWait(driver, 100);
 					
-					WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='account-creation-modal']/div[1]")));
+					//WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='account-creation-modal']/div[1]")));
 					
 					UserExtension.IsElementPresent(driver, uiSEP_CreateAccount_PageObjects.txtAccountCreationMessage);
 					
 					//Click on Ok button
 					
 					uiSEP_CreateAccount_PageObjects.btnOK.click();
+					}
+					catch(Exception e)
+					{
+						
+					}
 					
 				}
 				
@@ -290,6 +361,8 @@ import commonfunctions.UserExtension;
 				@Test(dependsOnMethods={"CreateSEPAccount"})
 				public void VerifyLeadInSRM(Method objMethod) throws InterruptedException
 				{
+					try
+					{
 					uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
 					uiAddNewLeadsPageObjects = new AddNewLeadPageObjects(driver);
 					uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
@@ -318,7 +391,7 @@ import commonfunctions.UserExtension;
 					uiAddNewLeadsPageObjects.search_SRM.clear();
 					uiAddNewLeadsPageObjects.search_SRM.sendKeys(sEmailAddress1);
 					WebDriverWait wait = new WebDriverWait(driver, 50000);
-					WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("phSearchButton")));
+					//WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("phSearchButton")));
 					uiAddNewLeadsPageObjects.btnsearch_SRM.click();
 					
 					
@@ -331,7 +404,11 @@ import commonfunctions.UserExtension;
 					
 					
 					
-							
+					}
+					catch(Exception e)
+					{
+						
+					}
 				
 				}			
 				

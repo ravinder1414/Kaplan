@@ -65,10 +65,11 @@ import commonfunctions.UserExtension;
 					public String sHighestEducation;
 					
 					//Static variable
-					String sRandStr = RandomStringUtils.randomAlphabetic(5);
-					public String sFirstName = "TestNGFNInfoCall_" + sRandStr;
-					public String sLastName = "TestNGLNInfoCall_" + sRandStr;			
-					public String sEmailAddress = sFirstName + "IC@kap.com";
+					public String sPath_ResultProperties="";
+					public static String sRandStr = RandomStringUtils.randomAlphabetic(5);
+					public static String sFirstName = "TestNGFNWT_" + sRandStr;
+					public static String sLastName = "TestNGLNWT_" + sRandStr;			
+					public static String sEmailAddress = sFirstName + "IC@kap.com";
 					public String sDayPhone = "9545151234";
 					public String sZipCode = "30256";
 					
@@ -79,7 +80,11 @@ import commonfunctions.UserExtension;
 					@BeforeClass
 					public void BeforeNavigation(String sBrowser) throws MalformedURLException
 					{
-						
+						try
+
+						{
+
+
 						//Read the application properties file
 						//Load environment variable from properties file
 						String sPath_AppProperties="";
@@ -103,6 +108,34 @@ import commonfunctions.UserExtension;
 						{
 							sPath_AppProperties = ".//Resources//ApplicationProperties/TestApplication.properties";			
 						}
+						
+						
+////////////////////////////////////////////*********************************************////////////////////////////
+						
+						
+//Set file path as per environment for Result Property File
+
+if (EnvironmentVariables.sEnv.equalsIgnoreCase("dev"))
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/DevResultProperties.properties";
+
+}
+else if (EnvironmentVariables.sEnv.equalsIgnoreCase("stage"))
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/StageResultProperties.properties";	
+}
+else
+{
+sPath_ResultProperties = ".//Resources//ResultProperties/TestResultProperties.properties";	
+}
+
+
+
+
+////////////////////////////////////////////*********************************************////////////////////////////
+
+						
+						
 						
 						//Load the Application variable file into File Input Stream.
 						File objFileApplication = new File(sPath_AppProperties);
@@ -145,7 +178,7 @@ import commonfunctions.UserExtension;
 						try
 						{					
 							driver = new RemoteWebDriver(new URL("http://".concat(EnvironmentVariables.sHub).concat(":").concat(EnvironmentVariables.sHubPort).concat("/wd/hub")), objBrowserMgr.capability);
-							driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+							driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 							ScreenShotOnTestFailure.init(driver, EnvironmentVariables.sEnv, EnvironmentVariables.sApp);
 						}
 						catch(Exception ex)
@@ -157,22 +190,59 @@ import commonfunctions.UserExtension;
 						uiHomePageObjects = new HomePageObjects(driver);
 						uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
 						uiInfoCallLeadPageObjects = new InfoCallLeadPageObjects(driver);
+						}
+						catch (Exception e)
+												
+						{
+						Reporter.log(e.getMessage());
+						System.out.println(e.getMessage());
+						System.out.println(e.getStackTrace());
+						}
+
+
 					}
 					
 					@AfterClass
 					public void AfterNavigation()
 					{
+						try
+
+						{
+
+							// Writing to Result Property File
+
+							System.out.println("Inside After class");
+							
+							System.out.println("Before method writing to Result Property file");
+							
+							SRM_ReusableMethods.writeToPropertyFile(sPath_ResultProperties, "sEmailAddressNameFromAddWarmTransfer_Lead_Creation", sEmailAddress);
+							
+							System.out.println("After method writing to Result Property file");	
+							
+							
 						//Quit the test after test class execution
 						if(driver != null)
 						{
 							driver.quit();			
 						}
 					}
+					catch (Exception e)
+											
+					{
+					Reporter.log(e.getMessage());
+					System.out.println(e.getMessage());
+					System.out.println(e.getStackTrace());
+					}
+					}
 
 					
 					@Test
 					public void BrowseToAddInfoCallLeadPage(Method objMethod) throws InterruptedException
 					{
+						try
+
+						{
+
 						uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
 						uiInfoCallLeadPageObjects = new InfoCallLeadPageObjects(driver);
 						uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
@@ -187,7 +257,7 @@ import commonfunctions.UserExtension;
 	 					driver.switchTo().frame("ext-comp-1005");
 						
 						UserExtension.IsElementPresent(driver, uiInfoCallLeadPageObjects.rbnWarmTransfer);
-						WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:j_id33:3")));
+						//WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:j_id33:3")));
 						
 						//Select Referral Radio Button
 						uiInfoCallLeadPageObjects.rbnWarmTransfer.click();
@@ -202,13 +272,13 @@ import commonfunctions.UserExtension;
 						Thread.sleep(30000);
 						UserExtension.IsElementPresent(driver, uiInfoCallLeadPageObjects.ddPromotional);
 						Select ddlPromotionCode = new Select(uiInfoCallLeadPageObjects.ddPromotional);
-						ddlPromotionCode.selectByIndex(1);
+						ddlPromotionCode.selectByIndex(2);
 						
 						//Select Area of Study
-						
+						Thread.sleep(30000);
 						Select ddlAreaOfStudy = new Select(uiInfoCallLeadPageObjects.ddAreaofStudy);				
 					
-						ddlAreaOfStudy.selectByIndex(1);
+						ddlAreaOfStudy.selectByIndex(3);
 						
 						//Program of Interest
 						
@@ -268,7 +338,7 @@ import commonfunctions.UserExtension;
 						
 						Thread.sleep(30000);
 						
-						WebElement element4 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:successmsgid")));
+						//WebElement element4 = wait.until(ExpectedConditions.elementToBeClickable(By.id("j_id0:addaleadid:leadblock:successmsgid")));
 						
 						Assert.assertEquals(uiInfoCallLeadPageObjects.txtCreatedLeadSuccess.getText().trim(), "Success:Your lead is being created");
 						
@@ -279,7 +349,14 @@ import commonfunctions.UserExtension;
 						uiAddInquiry_Referral_Lead_Pageobjects.lnkKaplanSRM.click();
 						//uiReusableMethods_PageObjects.BackToKaplanSRM(driver);
 						Thread.sleep(10000);
-						
+						}
+						catch (Exception e)
+												
+						{
+						Reporter.log(e.getMessage());
+						System.out.println(e.getMessage());
+						System.out.println(e.getStackTrace());
+						}
 						
 					}			
 		
