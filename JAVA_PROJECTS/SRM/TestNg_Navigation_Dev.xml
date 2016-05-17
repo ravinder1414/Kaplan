@@ -16,6 +16,14 @@
  		<class name = "validateTCPA_Military_Remarketing.TCPA_Yes_Military_remarketing_DoNotCall_Email_TCPA_NO" />
         <class name = "validateTCPA_Military_Remarketing.TCPA_Yes_Military_Remarketing_DoNotCall" />
         <class name = "validateTCPA_Military_Remarketing.TCPA_Yes_Military_Remarketing_DoNotCall_TCPA_NO" />
+        <class name = "validateTCPA_Military_Remarketing.TCPA_Yes_NonMilitary_Remarketing_DoNotCall_Email_TCPA_NO" />
+        <class name = "validateTCPA_Military_Remarketing.TCPA_Yes_NonMilitary_Remarketing_DoNotCall_Email" />
+        <class name = "validateTCPA_Military_Remarketing.TCPA_Yes_NonMilitary_Remarketing_DoNotCall_TCPA_No" />
+        <class name = "validateTCPA_Military_Remarketing.TCPA_Yes_NonMilitary_Remarketing_DoNotCall" />
+         <class name = "validateTCPA_Military_Remarketing.TCPA_Yes_Military_Opportunity_Remarketing_DoNotCall_TCPANo"/>
+        <class name = "validateTCPA_Military_Remarketing.TCPA_Yes_Military_Opportunity_Remarketing_DoNotCall" />
+        <class name = "validateTCPA_Military_Remarketing.TCPA_Yes_Military_Opportunity_Remarkrting_DoNotCall_Email_TCPA_No" />
+        <class name = "validateTCPA_Military_Remarketing.TCPA_Yes_Military_Opportunity_Remarkrting_DoNotCall_Email" />
  		<class name = "orion1ProgramRollup.Orion1ProgramRollUp" />
  		<class name = "orion1ProgramRollupProgram.Verify_Orion_Program_Rollup_TitleIV_Eligible_flag" />
  		<class name = "orion1_ProgramGroup.Orion1_ProgramGroup" />
@@ -27,7 +35,7 @@
         <class name = "inquiry_Leads.AddWarmTransfer_Lead_Creation" />
         <class name = "b2b_LeadCreation.B2BLeadCreation" />
         <class name = "sep_CreateAccount.SEP_CreateAccount" />
-        <class name = "validateCollege_InformationSRM.ValidateCollege_InformationSRM" />
+        <class name = "validateCollege_InformationSRM.ValidateUpdatedCollege_Information" />
         <class name = "inquiry_Leads.SRM_LeadFlow" />
         <class name = "validateIWDTasks.SRMLead_Creation" />
         <class name = "validateIWDTasks.DuplicateLeadCompletion" />
@@ -49,7 +57,15 @@
        	<class name = "validateTCPA_Military_Remarketing.Resif_TCPA_Yes_Military_remarketing_DoNotCall_Email_TCPA_No" />
         <class name = "validateTCPA_Military_Remarketing.Resif_TCPA_Yes_Military_Remarketing_DoNotCall" />
         <class name = "validateTCPA_Military_Remarketing.Resif_TCPA_Yes_Military_Remarketing_DoNotCall_TCPA_NO" />
-       	<class name = "srm_Genesys_MarketingSync.SRM_Genesys_MarketingSync" />
+        <class name = "validateTCPA_Military_Remarketing.Resif_TCPA_Yes_NonMilitary_Remarketing_DoNotCall_Email_TCPA_NO" />
+        <class name = "validateTCPA_Military_Remarketing.Resif_TCPA_Yes_NonMilitary_Remarketing_DoNotCall_Email" />
+        <class name = "validateTCPA_Military_Remarketing.Resif_TCPA_Yes_NonMilitary_Remarketing_DoNotCall_TCPA_No" />
+        <class name = "validateTCPA_Military_Remarketing.Resif_TCPA_Yes_NonMilitary_Remarketing_DoNotCall" />
+         <class name = "validateTCPA_Military_Remarketing.Resif_TCPA_Yes_Military_Opportunity_Remarketing_DoNotCall_TCPANo"/>
+        <class name = "validateTCPA_Military_Remarketing.Resif_TCPA_Yes_Military_Opportunity_Remarketing_DoNotCall" />
+        <class name = "validateTCPA_Military_Remarketing.Resif_TCPA_Yes_Military_Opportunity_Remarkrting_DoNotCall_Email_TCPA_No" />
+    
+      <class name = "srm_Genesys_MarketingSync.SRM_Genesys_MarketingSync" />
        </classes>
     </test>
 </suite>

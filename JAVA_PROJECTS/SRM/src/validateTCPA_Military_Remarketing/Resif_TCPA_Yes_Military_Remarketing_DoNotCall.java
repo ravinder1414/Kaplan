@@ -4,43 +4,44 @@ package validateTCPA_Military_Remarketing;
 	
 
 	import java.io.File;
-	import java.io.FileInputStream;
-	import java.io.FileNotFoundException;
-	import java.io.FileOutputStream;
-	import java.io.IOException;
-	import java.lang.reflect.Method;
-	import java.net.MalformedURLException;
-	import java.net.URL;
-	import java.sql.ResultSet;
-	import java.util.Properties;
-	import java.util.Set;
-	import java.util.concurrent.TimeUnit;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.sql.ResultSet;
+import java.util.Properties;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 	import org.openqa.selenium.By;
-	import org.openqa.selenium.WebElement;
-	import org.openqa.selenium.firefox.FirefoxDriver;
-	import org.openqa.selenium.firefox.FirefoxProfile;
-	import org.openqa.selenium.remote.RemoteWebDriver;
-	import org.openqa.selenium.support.ui.ExpectedConditions;
-	import org.openqa.selenium.support.ui.WebDriverWait;
-	import org.testng.Assert;
-	import org.testng.Reporter;
-	import org.testng.annotations.AfterClass;
-	import org.testng.annotations.BeforeClass;
-	import org.testng.annotations.Parameters;
-	import org.testng.annotations.Test;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
+import reusableMethods_PageObject.ReusableMethods_PageObjects;
 	import reusableMethods_PageObject.SRM_ReusableMethods;
-	import srm_Variables.EnvironmentVariables;
-	import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
-	import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
-	import uiMap_Orion3_SRM.HomePageObjects;
-	import uiMap_Orion3_SRM.LeadImport_PageObjects;
-	import commonfunctions.BrowserManagement;
-	import commonfunctions.QueryDB;
-	import commonfunctions.ReportExtn;
-	import commonfunctions.ScreenShotOnTestFailure;
-	import commonfunctions.UserExtension;
+import srm_Variables.EnvironmentVariables;
+import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
+import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
+import uiMap_Orion3_SRM.HomePageObjects;
+import uiMap_Orion3_SRM.LeadImport_PageObjects;
+import commonfunctions.BrowserManagement;
+import commonfunctions.QueryDB;
+import commonfunctions.ReportExtn;
+import commonfunctions.ScreenShotOnTestFailure;
+import commonfunctions.UserExtension;
 
 	public class Resif_TCPA_Yes_Military_Remarketing_DoNotCall {
 		public RemoteWebDriver driver = null;
@@ -52,6 +53,8 @@ package validateTCPA_Military_Remarketing;
 	public HomePageObjects uiHomePageObjects;
 	public AdmissionsManagerPageObjects uiAdmissionMgrPageObjects;
 	public AddNewLeadPageObjects uiAddNewLeadsPageObjects;
+	public ReusableMethods_PageObjects uiReusableMethods_PageObjects;
+	
 	//public AddInquiry_Referral_Lead_Pageobjects uiAddInquiry_Referral_Lead_Pageobjects;
 	public LeadImport_PageObjects uiLeadImport_PageObjects;
 	public FileOutputStream objFileOutputStream=null;
@@ -181,7 +184,7 @@ catch(Exception e)
 				 System.out.println("StoredSIF: "+SifFinal);
 				
 				 
-			} catch (Exception e) {
+			} catch (Throwable e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				e.getMessage();
@@ -222,7 +225,7 @@ catch(Exception e)
 			
 		}
 			
-		catch(Exception e)
+		catch(Throwable e)
 		{
 			Reporter.log(e.getMessage());
 			}	
@@ -234,7 +237,12 @@ catch(Exception e)
 		try{
 			
 			uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
+			uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
 			driver.get(EnvironmentVariables.sSRM_Url);
+			Thread.sleep(5000);
+
+			uiReusableMethods_PageObjects.BackToKaplanSRM(driver);
+			Thread.sleep(5000);
 			UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.search_SRM);
 			//Clearing Search field 
 			uiAddNewLeadsPageObjects.search_SRM.clear();

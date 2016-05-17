@@ -294,7 +294,7 @@ public class TCPA_Yes_NonMilitary_Remarketing_DoNotCall_Email_TCPA_NO {
 		System.out.println("Sys Id After fetching from locator"+sSyStuID);
 		
 		//Fetching email Id from inquiry details page 
-		sEmailID = driver.findElementByXPath("html/body/div[1]/div[2]/table/tbody/tr/td[2]/div[4]/div[2]/div[10]/table/tbody/tr[11]/td[2]/div/a").getText();
+		sEmailID = driver.findElementByXPath("//span[text()='Primary Email']/parent::td/following-sibling::td[1]/div").getText();
 	    System.out.println(sEmailID);
 	    
 	    //fetching mkleadimportId from inquiry details page 

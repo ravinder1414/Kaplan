@@ -25,13 +25,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import reusableMethods_PageObject.ReusableMethods_PageObjects;
 import reusableMethods_PageObject.SRM_ReusableMethods;
 import srm_Variables.EnvironmentVariables;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
 import uiMap_Orion3.Admissions.AdmissionsManagerPageObjects;
 import uiMap_Orion3_SRM.HomePageObjects;
 import uiMap_Orion3_SRM.LeadImport_PageObjects;
-
 import commonfunctions.BrowserManagement;
 import commonfunctions.QueryDB;
 import commonfunctions.ReportExtn;
@@ -49,6 +49,8 @@ public class Resif_TCPA_Yes_NonMilitary_Remarketing_DoNotCall_TCPA_No {
 	public HomePageObjects uiHomePageObjects;
 	public AdmissionsManagerPageObjects uiAdmissionMgrPageObjects;
 	public AddNewLeadPageObjects uiAddNewLeadsPageObjects;
+	public ReusableMethods_PageObjects uiReusableMethods_PageObjects;
+	
 	//public AddInquiry_Referral_Lead_Pageobjects uiAddInquiry_Referral_Lead_Pageobjects;
 	public LeadImport_PageObjects uiLeadImport_PageObjects;
 	public FileOutputStream objFileOutputStream=null;
@@ -230,9 +232,11 @@ public class Resif_TCPA_Yes_NonMilitary_Remarketing_DoNotCall_TCPA_No {
 	public void VerifyingResifInSRM(Method objMethod) throws InterruptedException
 	{
 		try{
-			
+			uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
 			uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
 			driver.get(EnvironmentVariables.sSRM_Url);
+			uiReusableMethods_PageObjects.BackToKaplanSRM(driver);
+			Thread.sleep(5000);
 			UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.search_SRM);
 			//Clearing Search field 
 			uiAddNewLeadsPageObjects.search_SRM.clear();
@@ -246,12 +250,10 @@ public class Resif_TCPA_Yes_NonMilitary_Remarketing_DoNotCall_TCPA_No {
 			
 			SRM_ReusableMethods.WaitSearchInquiry(driver, 40000);
 			//WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='Lead_body']/table/tbody/tr[2]/td[8]/a")));
-			UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.txtInquiryStatus);
-			Assert.assertEquals(uiAddNewLeadsPageObjects.txtInquiryStatus.getText().trim(), "New");
-			
+				
 			
 	       //click on inquiry Lead
-	       driver.findElementByXPath("html/body/div[1]/div[2]/table/tbody/tr/td/div[2]/table/tbody/tr/td[2]/div[2]/div[2]/div[1]/div/div[2]/div/div[2]/table/tbody/tr[2]/th/a").click();
+	       driver.findElementByXPath(".//*[@id='Lead_body']/table/tbody/tr[2]/th/a").click();
 	       Thread.sleep(10000);
 	       
 	       //verifying Resif Flag 
@@ -276,12 +278,12 @@ public class Resif_TCPA_Yes_NonMilitary_Remarketing_DoNotCall_TCPA_No {
 		   //Remarketing reason 
 		   System.out.println(uiAddNewLeadsPageObjects.txtRemarketingReason.getText());
 		  Assert.assertEquals(uiAddNewLeadsPageObjects.txtRemarketingReason.getText(), "Student Requested No Further Contact (Internal)");
-		  System.out.println("Remarketing Reason Wipped off");
+		  System.out.println("Remarketing Reason wasn't Wipped off");
 		   
 		   //Remarketing Sub Reason 
 		   System.out.println(uiAddNewLeadsPageObjects.txtRemarketingsubReason.getText());
-		   Assert.assertEquals(uiAddNewLeadsPageObjects.txtRemarketingsubReason.getText(),"Do Not Call, Email or Mail - Request for Do Not Call Policy (Internal)"); 
-		   System.out.println("Remarketing Sub Reason Wipped Off");
+		   Assert.assertEquals(uiAddNewLeadsPageObjects.txtRemarketingsubReason.getText(),"Do Not Call (Internal)"); 
+		   System.out.println("Remarketing Sub Reason wasn't Wipped Off");
 		   
 		   
 		

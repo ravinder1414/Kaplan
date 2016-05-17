@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="validateCollege_InformationSRM.ValidateCollege_InformationSRM">
+        <methods>
+          <include name="VerifyNewOpportunityInSRM"/>
+          <include name="Lead_Flow"/>
+          <include name="VerifyLeadInSRM"/>
+          <include name="BrowseToAddInfoCallLeadPage"/>
+          <include name="SRM__Lead_Details"/>
+          <include name="VerifyOpportunityInSRM"/>
+        </methods>
+      </class> <!-- validateCollege_InformationSRM.ValidateCollege_InformationSRM -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

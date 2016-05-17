@@ -369,9 +369,6 @@ sPath_ResultProperties = ".//Resources//ResultProperties/TestResultProperties.pr
 			System.out.println(sSyStuID);
 			Reporter.log(sSyStuID);
 			
-			//Fetching Email ID 
-			sEmailID = driver.findElementByXPath("html/body/div[1]/div[2]/table/tbody/tr/td[2]/div[4]/div[2]/div[10]/table/tbody/tr[11]/td[2]/div/a").getText();
-		    System.out.println(sEmailID);
 			
 			//Converting lead to oppurtunity 
 			uiSRM_LeadFlow_PageObjects.btnConvert.click();
@@ -434,8 +431,10 @@ sPath_ResultProperties = ".//Resources//ResultProperties/TestResultProperties.pr
 			
 			//Clicking on Home Button
 			uiAddNewLeadsPageObjects.BtnHomeButton.click();
-			UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.DrpdwnUserArrow);
 			
+			Assert.assertEquals(driver.findElement(By.xpath("//div[@id='userNav-arrow']/preceding-sibling::span")).getText().trim(), "Piyush Mishra");
+			
+			UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.DrpdwnUserArrow);
 			//Clicking User Extension DropDown List 
 			uiAddNewLeadsPageObjects.DrpdwnUserArrow.click();
 			UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.lnkDeveloperConsole);

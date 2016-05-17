@@ -26,6 +26,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import reusableMethods_PageObject.ReusableMethods_PageObjects;
 import reusableMethods_PageObject.SRM_ReusableMethods;
 import srm_Variables.EnvironmentVariables;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
@@ -51,6 +52,7 @@ public class Resif_TCPA_Yes_Military_Opportunity_Remarkrting_DoNotCall_Email_TCP
 	public AdmissionsManagerPageObjects uiAdmissionMgrPageObjects;
 	public AddNewLeadPageObjects uiAddNewLeadsPageObjects;
 	public SRM_LeadFlow_PageObjects uiSRM_LeadFlow_PageObjects;
+	public ReusableMethods_PageObjects uiReusableMethods_PageObjects;
 	//public AddInquiry_Referral_Lead_Pageobjects uiAddInquiry_Referral_Lead_Pageobjects;
 	public LeadImport_PageObjects uiLeadImport_PageObjects;
 	public FileOutputStream objFileOutputStream=null;
@@ -233,9 +235,13 @@ public class Resif_TCPA_Yes_Military_Opportunity_Remarkrting_DoNotCall_Email_TCP
 	public void VerifyingResifInSRM(Method objMethod) throws InterruptedException
 	{
 		try{
-			uiSRM_LeadFlow_PageObjects =new SRM_LeadFlow_PageObjects(driver);
 			uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
+			uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
 			driver.get(EnvironmentVariables.sSRM_Url);
+			Thread.sleep(5000);
+
+			uiReusableMethods_PageObjects.BackToKaplanSRM(driver);
+			Thread.sleep(5000);
 			UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.search_SRM);
 			//Clearing Search field 
 			uiAddNewLeadsPageObjects.search_SRM.clear();
@@ -249,24 +255,25 @@ public class Resif_TCPA_Yes_Military_Opportunity_Remarkrting_DoNotCall_Email_TCP
 			
 			//call Wait for Search Opportunity Method
 			SRM_ReusableMethods.WaitSearchOpportunity(driver, 30000);
+		    Thread.sleep(2000);
 									
-			//Opportunities and Accounts Elements
+		/*	//Opportunities and Accounts Elements
 			WebElement ele = driver.findElement(By.xpath("//span[contains(text(), 'Opportunities')]"));
 			WebElement ele1 = driver.findElement(By.xpath("//span[contains(text(), 'Accounts')]"));
 
 			//Assert Opportunities and Accounts
 			Assert.assertTrue(ele.isDisplayed());
-			Assert.assertTrue(ele1.isDisplayed());
-			
-			//click to open the Opportunity
-			uiSRM_LeadFlow_PageObjects.LnkOppLead.click();
-	       Thread.sleep(10000);
+			Assert.assertTrue(ele1.isDisplayed());*/
+		
+	       //click on Opp Lead
+		    driver.findElementByXPath("//td[text()='Remarketing']/preceding-sibling::th/a").click();
+		    Thread.sleep(5000);
 	       
 	       //verifying Resif Flag 
 	       System.out.println(uiAddNewLeadsPageObjects.cbReSIF.getAttribute("alt"));
 		   Assert.assertEquals(uiAddNewLeadsPageObjects.cbReSIF.getAttribute("alt"), "Checked");
 		   System.out.println("This is Resifed ");
-		   UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.txtMasterSifID);
+		  
 		   
 		   //verifying master Id 
 		   System.out.println(uiAddNewLeadsPageObjects.txtMasterSifIDOpp.getText());
@@ -285,12 +292,13 @@ public class Resif_TCPA_Yes_Military_Opportunity_Remarkrting_DoNotCall_Email_TCP
 		   //Remarketing reason 
 		   System.out.println(uiAddNewLeadsPageObjects.txtRemarketingReason.getText());
 		  Assert.assertEquals(uiAddNewLeadsPageObjects.txtRemarketingReason.getText(), "Student Requested No Further Contact (Internal)");
-		  System.out.println("Remarketing Reason Wipped off");
+		  System.out.println("reason Remained same ");
 		   
 		   //Remarketing Sub Reason 
 		   System.out.println(uiAddNewLeadsPageObjects.txtRemarketingsubReason.getText());
 		   Assert.assertEquals(uiAddNewLeadsPageObjects.txtRemarketingsubReason.getText(),"Do Not Call, Email or Mail - Request for Do Not Call Policy (Internal)"); 
-		   System.out.println("Remarketing Sub Reason Wipped Off");
+		   System.out.println("reason Remained same ");
+		   
 		   
 		   
 		

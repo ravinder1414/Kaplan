@@ -107,11 +107,25 @@ import org.openqa.selenium.support.PageFactory;
 		    @FindBy(how=How.ID, using="_ctl3_lblcicurrentstatus")
 			public WebElement txtInterviewSchedule;
 		    
+		    
 		    //Interview complete link
 		    @FindBy(how=How.ID, using="_ctl3_btnStatusChange")
 			public WebElement btnInterviewComplete;
-		
 		    
+		  //Status change button
+		    @FindBy(how=How.ID, using="_ctl3_btnStatusChange")
+			public WebElement btnStatusChange;
+		    
+		    //Admission Lead Status
+		    @FindBy(how=How.ID, using="_ctl3_lblcicurrentstatus")
+			public WebElement txtAdmLeadStatus;
+		    public String scontactLeadStatus= "Contact";
+		    public String sIntCompleteLeadStatus= "Interview Complete";
+		    public String sIntScheduledLeadStatus= "Interview Scheduled";
+		    public String sExamPendingLeadStatus= "Exam Pending";
+		    public String sExamReceivedLeadStatus= "Exam Received";
+		    public String sPendingEnrollmentLeadStatus= "Pending Enrollment";
+			    
 	}
 
 

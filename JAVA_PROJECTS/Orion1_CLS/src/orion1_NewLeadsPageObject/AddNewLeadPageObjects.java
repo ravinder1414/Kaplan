@@ -17,6 +17,15 @@ import org.openqa.selenium.support.PageFactory;
 		
 		public String sMain_WindowName ="";
 		
+		//Promotion default after selecting Channel Group
+		@FindBy(how=How.XPATH, using="//select/option[@value='0'][text()='Choose a Promotion']")
+		public WebElement ddoption_Promotiondefault;
+		
+		//program of interest default after selecting Area of study
+		@FindBy(how=How.XPATH, using= "//select/option[@value='0'][text()='Select a program']")
+		public WebElement ddoption_POIdefault;
+		
+		
 		//Admissions tab
 		  @FindBy(how=How.XPATH, using= ".//td[text()='Admissions']")
 		  public WebElement tabAdmissions;

@@ -302,7 +302,7 @@ public class TCPA_Yes_Military_Opportunity_Remarkrting_DoNotCall_Email {
 			Thread.sleep(5000);
 			
 			//Fetching email Id from inquiry details page 
-			sEmailID = driver.findElementByXPath("html/body/div[1]/div[2]/table/tbody/tr/td[2]/div[4]/div[2]/div[10]/table/tbody/tr[11]/td[2]/div/a").getText();
+			sEmailID = driver.findElementByXPath("//span[text()='Primary Email']/parent::td/following-sibling::td[1]/div").getText();
 		    System.out.println(sEmailID);
 		    
 		    //fetching mkleadimportId from inquiry details page 

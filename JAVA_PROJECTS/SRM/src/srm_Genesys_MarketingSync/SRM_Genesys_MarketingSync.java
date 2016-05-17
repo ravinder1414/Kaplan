@@ -198,7 +198,89 @@ import commonfunctions.UserExtension;
 						
 						@AfterClass
 						public void AfterNavigation()
-						{try{
+						
+							{try{
+								
+								uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
+								uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
+								uiSRM_Genesys_MarketingPageObjects =new SRM_Genesys_MarketingPageObjects(driver);
+								uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
+								driver.get(EnvironmentVariables.sSRM_Url);
+								Thread.sleep(10000);
+								
+								if(uiAddInquiry_Referral_Lead_Pageobjects.lnkDropDown.getText().equalsIgnoreCase("Kaplan SRM"))
+								{
+
+
+
+								}
+								else
+								{
+								uiReusableMethods_PageObjects.lnkDropDown.click();
+								Thread.sleep(20000);
+								uiAddInquiry_Referral_Lead_Pageobjects.lnkKaplanSRM.click();
+								}
+								
+
+								Thread.sleep(20000);
+								UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.search_SRM);
+								
+								uiAddNewLeadsPageObjects.search_SRM.clear();
+								uiAddNewLeadsPageObjects.search_SRM.sendKeys(smkVendorID);
+								WebDriverWait wait = new WebDriverWait(driver, 5000);
+									
+								uiAddNewLeadsPageObjects.btnsearch_SRM.click();
+							
+								Thread.sleep(10000);
+								
+								uiSRM_Genesys_MarketingPageObjects.lnkAccountName.click();
+								Thread.sleep(10000);
+								
+								
+								uiSRM_Genesys_MarketingPageObjects.btnEditSRM.click();
+								
+								
+								
+								
+								uiSRM_Genesys_MarketingPageObjects.txtmarketingChannelLookup.click();
+								
+								Thread.sleep(10000);
+								
+								driver.switchTo().window("lookup");
+								
+								driver.switchTo().frame("searchFrame");
+								
+								
+								UserExtension.IsElementPresent(driver, uiSRM_Genesys_MarketingPageObjects.txtLookupSearch);
+								
+								
+								uiSRM_Genesys_MarketingPageObjects.txtLookupSearch.clear();
+								uiSRM_Genesys_MarketingPageObjects.txtLookupSearch.sendKeys(mkvendorLeaddescription);
+								
+								uiSRM_Genesys_MarketingPageObjects.btnGo.click();
+								
+								System.out.println(mkvendorLeaddescription);
+
+								
+								Thread.sleep(20000);
+								
+								driver.switchTo().defaultContent();
+								
+								driver.switchTo().frame("resultsFrame");
+								
+								
+								UserExtension.IsElementPresent(driver, uiSRM_Genesys_MarketingPageObjects.lnkEmailResultSRM);
+								uiSRM_Genesys_MarketingPageObjects.lnkEmailResultSRM.click();
+								
+								
+								driver.switchTo().window("");
+								Thread.sleep(20000);
+								
+								uiSRM_Genesys_MarketingPageObjects.btnSaveSRM.click();
+								
+						
+							
+							
 							//Quit the test after test class execution
 							if(driver != null)
 							{
@@ -642,7 +724,10 @@ import commonfunctions.UserExtension;
 				
 				UserExtension.IsElementPresent(driver, uiSRM_Genesys_MarketingPageObjects.btnSaveSRM);
 				
+				Thread.sleep(20000);
+				
 				uiSRM_Genesys_MarketingPageObjects.btnSaveSRM.click();
+				Thread.sleep(10000);
 				
 				
 			
@@ -734,93 +819,7 @@ import commonfunctions.UserExtension;
 					
 				}
 			 
-			 @Test(dependsOnMethods={"SearchStudentAfterPhoneModification_IWD"})
-				public void ChangeVendorNameSRMAsOriginal(Method objMethod) throws InterruptedException
-				
-				
-				{try{
-					
-					uiAddInquiry_Referral_Lead_Pageobjects = new AddInquiry_Referral_Lead_Pageobjects(driver);
-					uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
-					uiSRM_Genesys_MarketingPageObjects =new SRM_Genesys_MarketingPageObjects(driver);
-					uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
-					driver.get(EnvironmentVariables.sSRM_Url);
-					Thread.sleep(10000);
-					
-					if(uiAddInquiry_Referral_Lead_Pageobjects.lnkDropDown.getText().equalsIgnoreCase("Kaplan SRM"))
-					{
-
-
-
-					}
-					else
-					{
-					uiReusableMethods_PageObjects.lnkDropDown.click();
-					Thread.sleep(20000);
-					uiAddInquiry_Referral_Lead_Pageobjects.lnkKaplanSRM.click();
-					}
-					
-
-					Thread.sleep(20000);
-					UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.search_SRM);
-					
-					uiAddNewLeadsPageObjects.search_SRM.clear();
-					uiAddNewLeadsPageObjects.search_SRM.sendKeys(smkVendorID);
-					WebDriverWait wait = new WebDriverWait(driver, 5000);
-						
-					uiAddNewLeadsPageObjects.btnsearch_SRM.click();
-				
-					Thread.sleep(10000);
-					
-					uiSRM_Genesys_MarketingPageObjects.lnkAccountName.click();
-					Thread.sleep(10000);
-					
-					
-					uiSRM_Genesys_MarketingPageObjects.btnEditSRM.click();
-					
-					
-					
-					
-					uiSRM_Genesys_MarketingPageObjects.txtmarketingChannelLookup.click();
-					
-					Thread.sleep(10000);
-					
-					driver.switchTo().window("lookup");
-					
-					driver.switchTo().frame("searchFrame");
-					
-					
-					UserExtension.IsElementPresent(driver, uiSRM_Genesys_MarketingPageObjects.txtLookupSearch);
-					
-					
-					uiSRM_Genesys_MarketingPageObjects.txtLookupSearch.clear();
-					uiSRM_Genesys_MarketingPageObjects.txtLookupSearch.sendKeys(mkvendorLeaddescription);
-					
-					uiSRM_Genesys_MarketingPageObjects.btnGo.click();
-					
-					System.out.println(mkvendorLeaddescription);
-
-					
-					Thread.sleep(20000);
-					
-					driver.switchTo().defaultContent();
-					
-					driver.switchTo().frame("resultsFrame");
-					
-					
-					UserExtension.IsElementPresent(driver, uiSRM_Genesys_MarketingPageObjects.lnkEmailResultSRM);
-					uiSRM_Genesys_MarketingPageObjects.lnkEmailResultSRM.click();
-					
-					
-					driver.switchTo().window("");
-					Thread.sleep(20000);
-					
-					uiSRM_Genesys_MarketingPageObjects.btnSaveSRM.click();
-					
-				}
-				catch(Exception e){Reporter.log(e.getMessage());}	
-					
-				}
+			 
 			}
 			
 			

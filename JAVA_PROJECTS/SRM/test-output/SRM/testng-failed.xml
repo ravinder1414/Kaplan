@@ -10,21 +10,22 @@
   <test name="Orion3_Navigation_FireFox(failed)">
     <parameter name="Browser" value="firefox"/>
     <classes>
+      <class name="validateCollege_InformationSRM.ValidateUpdatedCollege_Information">
+        <methods>
+          <include name="BrowseToAddInfoCallLeadPage"/>
+          <include name="BeforeNavigation"/>
+          <include name="Lead_Flow"/>
+          <include name="VerifyNewOpportunityInSRM"/>
+          <include name="VerifyLeadInSRM"/>
+          <include name="VerifyOpportunityInSRM"/>
+          <include name="SRM__Lead_Details"/>
+        </methods>
+      </class> <!-- validateCollege_InformationSRM.ValidateUpdatedCollege_Information -->
       <class name="srm_Variables.EnvironmentVariables">
         <methods>
           <include name="BeforeSuite_Orion3"/>
         </methods>
       </class> <!-- srm_Variables.EnvironmentVariables -->
-      <class name="inquiry_Leads.SRM_Genesys_ValidateMilitary">
-        <methods>
-          <include name="SearchInquirySRM"/>
-          <include name="SearchMilitaryStatusAfterModification_IWD"/>
-          <include name="SearchStudent_IWD"/>
-          <include name="UpdateInquiryMilitaryValueSRM"/>
-          <include name="BrowseToAddNewReferralLeadPage"/>
-          <include name="BeforeNavigation"/>
-        </methods>
-      </class> <!-- inquiry_Leads.SRM_Genesys_ValidateMilitary -->
     </classes>
   </test> <!-- Orion3_Navigation_FireFox(failed) -->
 </suite> <!-- Failed suite [SRM] -->

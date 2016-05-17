@@ -48,4 +48,11 @@ public class AdmissionsManagerPage {
 //Search link
   @FindBy(how=How.LINK_TEXT , using= "Search")
   public WebElement lnkSearch;
+
+//aDMISSIONS Manager first New Lead link
+  @FindBy(how=How.XPATH, using= "(//td[@class='datagridcell']/a)[3]")
+  public WebElement lnkFirstLeadinAdmMgr;
+ 
  }
+
+

@@ -484,7 +484,7 @@ sPath_ResultProperties = ".//Resources//ResultProperties/TestResultProperties.pr
 			UserExtension.IsElementPresent(driver, uiValidateChangeInOwnerShipPageObjects.TxtNewOwnerName);
 			
 			//Sending Text to owner Search Field 
-			uiValidateChangeInOwnerShipPageObjects.TxtNewOwnerName.sendKeys("Manish Narang");
+			uiValidateChangeInOwnerShipPageObjects.TxtNewOwnerName.sendKeys("Shwetha Gautham");
 			
 			//Clicking on save Button for the changes 
 			uiValidateChangeInOwnerShipPageObjects.TabsaveOwner.click();
@@ -492,7 +492,7 @@ sPath_ResultProperties = ".//Resources//ResultProperties/TestResultProperties.pr
 			
 			//Fetching Updated owner name in Inquiry Lead details 
 			System.out.println(uiValidateChangeInOwnerShipPageObjects.txtOwnernameLeadPage.getText());
-			Assert.assertEquals(uiValidateChangeInOwnerShipPageObjects.txtOwnernameLeadPage.getText(), "Manish Narang");
+			Assert.assertEquals(uiValidateChangeInOwnerShipPageObjects.txtOwnernameLeadPage.getText(), "Shwetha Gautham");
 			System.out.println("Owner name is fetched successfully");
 			
 			//WebElement element3= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Activity History']")));
@@ -525,7 +525,7 @@ sPath_ResultProperties = ".//Resources//ResultProperties/TestResultProperties.pr
 			
 			//Verifying Lead owner name 
 			System.out.println(uiValidateChangeInOwnerShipPageObjects.txtChangedOwnerNameintemplate.getText());
-			Assert.assertEquals(uiValidateChangeInOwnerShipPageObjects.txtChangedOwnerNameintemplate.getText(), "Manish Narang");
+			Assert.assertEquals(uiValidateChangeInOwnerShipPageObjects.txtChangedOwnerNameintemplate.getText(), "Shwetha Gautham");
 			System.out.println("Owner found Sucessfully AND Verified Successfully");
 			Thread.sleep(10000);
 			
@@ -598,7 +598,7 @@ sPath_ResultProperties = ".//Resources//ResultProperties/TestResultProperties.pr
 			
 			//Fetching Updated owner name in Inquiry Lead details 
 			System.out.println(uiValidateChangeInOwnerShipPageObjects.txtChangedOwnerOpportunity.getText());
-			Assert.assertEquals(uiValidateChangeInOwnerShipPageObjects.txtChangedOwnerOpportunity.getText(), "Manish Narang");
+			Assert.assertEquals(uiValidateChangeInOwnerShipPageObjects.txtChangedOwnerOpportunity.getText(), "Shwetha Gautham");
 			System.out.println("Owner name is fetched successfully");
 			UserExtension.IsElementPresent(driver, uiValidateChangeInOwnerShipPageObjects.TxtOpportunityname);
 		    
@@ -637,7 +637,7 @@ sPath_ResultProperties = ".//Resources//ResultProperties/TestResultProperties.pr
 			
 			//Verifying Lead owner name 
 			System.out.println(uiValidateChangeInOwnerShipPageObjects.txtChangedOwnerNameintemplate.getText());
-			Assert.assertEquals(uiValidateChangeInOwnerShipPageObjects.txtChangedOwnerNameintemplate.getText(), "Manish Narang");
+			Assert.assertEquals(uiValidateChangeInOwnerShipPageObjects.txtChangedOwnerNameintemplate.getText(), "Shwetha Gautham");
 			System.out.println("Owner found Sucessfully AND Verified Successfully");
 			Thread.sleep(10000);
 			

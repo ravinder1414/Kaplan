@@ -27,6 +27,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import reusableMethods_PageObject.ReusableMethods_PageObjects;
 	import reusableMethods_PageObject.SRM_ReusableMethods;
 import srm_Variables.EnvironmentVariables;
 import uiMap_Orion3.Admissions.AddNewLeadPageObjects;
@@ -52,6 +53,7 @@ import commonfunctions.UserExtension;
 		public AdmissionsManagerPageObjects uiAdmissionMgrPageObjects;
 		public AddNewLeadPageObjects uiAddNewLeadsPageObjects;
 		public SRM_LeadFlow_PageObjects uiSRM_LeadFlow_PageObjects;
+		public ReusableMethods_PageObjects uiReusableMethods_PageObjects;
 		//public AddInquiry_Referral_Lead_Pageobjects uiAddInquiry_Referral_Lead_Pageobjects;
 		public LeadImport_PageObjects uiLeadImport_PageObjects;
 		public FileOutputStream objFileOutputStream=null;
@@ -234,9 +236,13 @@ import commonfunctions.UserExtension;
 		public void VerifyingResifInSRM(Method objMethod) throws InterruptedException
 		{
 			try{
-				uiSRM_LeadFlow_PageObjects =new SRM_LeadFlow_PageObjects(driver);
 				uiAddNewLeadsPageObjects =new AddNewLeadPageObjects(driver);
+				uiReusableMethods_PageObjects =new ReusableMethods_PageObjects(driver);
 				driver.get(EnvironmentVariables.sSRM_Url);
+				Thread.sleep(5000);
+
+				uiReusableMethods_PageObjects.BackToKaplanSRM(driver);
+				Thread.sleep(5000);
 				UserExtension.IsElementPresent(driver, uiAddNewLeadsPageObjects.search_SRM);
 				//Clearing Search field 
 				uiAddNewLeadsPageObjects.search_SRM.clear();
